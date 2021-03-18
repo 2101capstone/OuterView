@@ -5,7 +5,6 @@ import * as faceapi from 'face-api.js'
 const PoC = () => {
   let videoRef = useRef()
   const canvasRef = useRef(null)
-  const canvas = canvasRef.current
 
   const getVideo = () => {
     navigator.mediaDevices
@@ -57,7 +56,8 @@ const PoC = () => {
       canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
       faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
-    }, 1000)
+      faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
+    }, 100)
   })
 
   return (
@@ -71,3 +71,33 @@ const PoC = () => {
 }
 
 export default PoC
+
+// useEffect(() => {
+//     const displaySize = {width: 640, height: 480}
+//     setInterval(async () => {
+//       canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(
+//         videoRef.current
+//       )
+//       faceapi.matchDimensions(canvasRef.current, displaySize)
+//       const detections = await faceapi
+//         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+//         .withFaceLandmarks()
+//         .withFaceExpressions()
+//       console.log(detections)
+//       const resizedDetections = faceapi.resizeResults(detections, displaySize)
+//       canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
+//       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
+//       faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
+//       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
+//     }, 3000)
+//   })
+
+//   return (
+//     <div>
+//       <div className="webcam-test">
+//         <canvas ref={canvasRef} />
+//         <video ref={videoRef} autoPlay />
+//       </div>
+//     </div>
+//   )
+// }
