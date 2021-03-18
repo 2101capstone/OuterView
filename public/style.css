@@ -19,3 +19,13 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.webcam-test {
+  margin: 0;
+  padding: 0;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

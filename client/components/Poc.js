@@ -1,11 +1,11 @@
 import React, {useEffect, useRef} from 'react'
 
-const Poc = () => {
+const PoC = () => {
   const videoRef = useRef(null)
 
   const getVideo = () => {
     navigator.mediaDevices
-      .getUserMedia({video: {width: 300}})
+      .getUserMedia({video: {width: 500}})
       .then(stream => {
         let video = videoRef.current
         video.srcObject = stream
@@ -25,8 +25,7 @@ const Poc = () => {
 
   return (
     <div>
-      hello
-      <div className="webcam">
+      <div className="webcam-test">
         <video ref={videoRef} />
         <button type="submit">Take a picture</button>
       </div>
@@ -34,4 +33,4 @@ const Poc = () => {
   )
 }
 
-export default Poc
+export default PoC
