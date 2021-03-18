@@ -20,7 +20,17 @@ form div {
   display: inline-block;
 }
 
-.webcam-test {
+video {
+  margin: 0;
+  padding: 0;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
   margin: 0;
   padding: 0;
   width: 50vw;

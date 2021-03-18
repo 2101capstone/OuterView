@@ -3,8 +3,9 @@ import * as faceapi from 'face-api.js'
 
 //kush and chucks proof of concept
 const PoC = () => {
-  const videoRef = useRef()
-  let canvasRef = useRef()
+  let videoRef = useRef()
+  const canvasRef = useRef(null)
+  const canvas = canvasRef.current
 
   const getVideo = () => {
     navigator.mediaDevices
@@ -43,23 +44,27 @@ const PoC = () => {
   useEffect(() => {
     const displaySize = {width: 640, height: 480}
     setInterval(async () => {
-      canvasRef = faceapi.createCanvasFromMedia(videoRef.current)
+      canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(
+        videoRef.current
+      )
+      faceapi.matchDimensions(canvasRef.current, displaySize)
       const detections = await faceapi
         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceExpressions()
       console.log(detections)
       const resizedDetections = faceapi.resizeResults(detections, displaySize)
+      canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
-    }, 100)
+      faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
+    }, 1000)
   })
 
   return (
     <div>
       <div className="webcam-test">
-        <video ref={videoRef} />
         <canvas ref={canvasRef} />
-        <button type="submit">Take a picture</button>
+        <video ref={videoRef} autoPlay />
       </div>
     </div>
   )
