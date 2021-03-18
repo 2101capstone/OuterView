@@ -51,7 +51,7 @@ const PoC = () => {
         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceExpressions()
-      console.log(detections)
+      //console.log(detections)
       const resizedDetections = faceapi.resizeResults(detections, displaySize)
       canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
