@@ -1,5 +1,7 @@
 import React, {useEffect, useRef} from 'react'
+import * as faceapi from 'face-api.js'
 
+//kush and chucks proof of concept
 const PoC = () => {
   const videoRef = useRef(null)
 
@@ -16,12 +18,23 @@ const PoC = () => {
       })
   }
 
-  useEffect(
-    () => {
-      getVideo()
-    },
-    [videoRef]
-  )
+  const loadModels = () => {
+    Promise.all([
+      faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+      faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+      faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+      faceapi.nets.faceExpressionNet.loadFromUri('/models')
+    ])
+  }
+
+  useEffect(() => {
+    console.log('hello')
+    loadModels()
+  }, [])
+
+  useEffect(() => {
+    getVideo()
+  }, [videoRef])
 
   return (
     <div>
