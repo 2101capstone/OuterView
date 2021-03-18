@@ -27,14 +27,26 @@ const PoC = () => {
     ])
   }
 
+  //initial load thus the []
   useEffect(() => {
     console.log('hello')
     loadModels()
   }, [])
 
+  //runs when videoRef changes
   useEffect(() => {
     getVideo()
   }, [videoRef])
+
+  useEffect(() => {
+    setInterval(async () => {
+      const detections = await faceapi
+        .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+        .withFaceLandmarks()
+        .withFaceExpressions()
+      console.log(detections)
+    }, 100)
+  })
 
   return (
     <div>
