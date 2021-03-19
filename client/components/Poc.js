@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState, useCallback} from 'react'
 import * as faceapi from 'face-api.js'
 import Webcam from 'react-webcam'
 
@@ -54,6 +54,52 @@ const PoC = () => {
     }, 100)
   })
 
+  // RECORDING
+  const handleStartCaptureClick = useCallback(() => {
+    setCapturing(true)
+    console.log('started')
+    mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
+      mimeType: 'video/webm'
+    })
+    mediaRecorderRef.current.addEventListener(
+      'dataavailable',
+      handleDataAvailable
+    )
+    mediaRecorderRef.current.start()
+  }, [videoRef, setCapturing, mediaRecorderRef])
+
+  const handleDataAvailable = React.useCallback(
+    ({data}) => {
+      if (data.size > 0) {
+        setRecordedChunks(prev => prev.concat(data))
+      }
+    },
+    [setRecordedChunks]
+  )
+
+  const handleStopCaptureClick = useCallback(() => {
+    console.log('stop')
+    mediaRecorderRef.current.stop()
+    setCapturing(false)
+  }, [mediaRecorderRef, videoRef, setCapturing])
+
+  const handleDownload = useCallback(() => {
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, {
+        type: 'video/webm'
+      })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      document.body.appendChild(a)
+      a.style = 'display: none'
+      a.href = url
+      a.download = 'react-webcam-stream-capture.webm'
+      a.click()
+      window.URL.revokeObjectURL(url)
+      setRecordedChunks([])
+    }
+  }, [recordedChunks])
+
   return (
     <div>
       <span>{initializing ? 'Initializing' : 'Ready'}</span>
@@ -67,7 +113,7 @@ const PoC = () => {
           id="cam"
         />
         <div>
-          {/* {capturing ? (
+          {capturing ? (
             <button type="button" onClick={handleStopCaptureClick}>
               Stop Capture
             </button>
@@ -80,7 +126,7 @@ const PoC = () => {
             <button type="button" onClick={handleDownload}>
               Download
             </button>
-          )} */}
+          )}
         </div>
       </div>
     </div>
@@ -88,78 +134,3 @@ const PoC = () => {
 }
 
 export default PoC
-
-// import React, {useEffect, useRef} from 'react'
-// import * as faceapi from 'face-api.js'
-// import Webcam from 'react-webcam'
-
-// //kush and chucks proof of concept
-// const PoC = () => {
-//   let videoRef = useRef()
-//   const canvasRef = useRef(null)
-
-//   const getVideo = () => {
-//     navigator.mediaDevices
-//       .getUserMedia({video: {}})
-//       .then(stream => {
-//         let video = videoRef.current
-//         video.srcObject = stream
-//         video.play()
-//       })
-//       .catch(err => {
-//         console.error('error:', err)
-//       })
-//   }
-
-//   const loadModels = () => {
-//     Promise.all([
-//       faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-//       faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-//       faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-//       faceapi.nets.faceExpressionNet.loadFromUri('/models')
-//     ])
-//   }
-
-//   //initial load thus the []
-//   useEffect(() => {
-//     console.log('loaded from the start')
-//     loadModels()
-//   }, [])
-
-//   //runs when videoRef changes
-//   useEffect(() => {
-//     getVideo()
-//     console.log('models loaded')
-//   }, [videoRef])
-
-//   useEffect(() => {
-//     const displaySize = {width: 640, height: 480}
-//     setInterval(async () => {
-//       canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(
-//         videoRef.current
-//       )
-//       faceapi.matchDimensions(canvasRef.current, displaySize)
-//       const detections = await faceapi
-//         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
-//         .withFaceLandmarks()
-//         .withFaceExpressions()
-//       console.log(detections)
-//       const resizedDetections = faceapi.resizeResults(detections, displaySize)
-//       canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
-//       faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
-//       faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
-//       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
-//     }, 100)
-//   })
-
-//   return (
-//     <div>
-//       <div className="webcam-test">
-//         <canvas ref={canvasRef} />
-//         <video ref={videoRef} />
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default PoC
