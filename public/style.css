@@ -26,6 +26,4 @@ form div {
   width: 50vw;
   height: 50vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
