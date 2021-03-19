@@ -1,11 +1,12 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import * as faceapi from 'face-api.js'
 import Webcam from 'react-webcam'
 
 //kush and chucks proof of concept
 const PoC = () => {
-  let videoRef = React.useRef()
-  const canvasRef = useRef(null)
+  let videoRef = useRef()
+  const canvasRef = useRef()
+  const [initializing, setInitializing] = useState(false)
 
   const loadModels = () => {
     Promise.all([
@@ -20,31 +21,47 @@ const PoC = () => {
   useEffect(() => {
     console.log('models loaded from the start')
     loadModels()
+    setInitializing(true)
   }, [])
 
+  // useEffect(() => {
+  //   console.log('canvas loaded')
+  // }, [canvasRef])
+
   useEffect(() => {
-    const displaySize = {width: 640, height: 480}
+    //const displaySize = {width: 640, height: 480}
     setInterval(async () => {
-      canvasRef.current = faceapi.createCanvasFromMedia(videoRef)
-      faceapi.matchDimensions(canvasRef.current, displaySize)
+      if (initializing) {
+        setInitializing(false)
+      }
+      // canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(
+      //   videoRef.current
+      // )
+      //faceapi.matchDimensions(canvasRef.current, displaySize)
       const detections = await faceapi
-        .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+        .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceExpressions()
       console.log(detections)
-      const resizedDetections = faceapi.resizeResults(detections, displaySize)
-      canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
-      faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
-      faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
-      faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
-    }, 1000)
+      //onst resizedDetections = faceapi.resizeResults(detections, displaySize)
+      //canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
+      // faceapi.draw.drawDetections(canvasRef.current, resizedDetections)
+      // faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections)
+      // faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
+    }, 3000)
   })
 
   return (
     <div>
+      <span>{initializing ? 'Initializing' : 'Ready'}</span>
       <div className="webcam-test">
-        <canvas ref={canvasRef} />
-        <Webcam ref={videoRef} audio={false} width={640} height={480} />
+        <Webcam
+          ref={videoRef}
+          audio={false}
+          width={640}
+          height={480}
+          id="cam"
+        />
       </div>
     </div>
   )
