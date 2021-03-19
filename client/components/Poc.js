@@ -4,10 +4,14 @@ import Webcam from 'react-webcam'
 
 //kush and chucks proof of concept
 const PoC = () => {
-  let videoRef = useRef()
-  const canvasRef = useRef()
+  let videoRef = useRef(null)
+  const canvasRef = useRef(null)
+  const mediaRecorderRef = React.useRef(null)
   const [initializing, setInitializing] = useState(false)
+  const [capturing, setCapturing] = useState(false)
+  const [recordedChunks, setRecordedChunks] = React.useState([])
 
+  //FACE DETECTION
   const loadModels = () => {
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -16,7 +20,6 @@ const PoC = () => {
       faceapi.nets.faceExpressionNet.loadFromUri('/models')
     ])
   }
-
   //initial load thus the []
   useEffect(() => {
     console.log('models loaded from the start')
@@ -24,30 +27,30 @@ const PoC = () => {
     setInitializing(true)
   }, [])
 
-  // useEffect(() => {
-  //   console.log('canvas loaded')
-  // }, [canvasRef])
-
   useEffect(() => {
-    const displaySize = {width: 640, height: 480}
+    //const displaySize = {width: 640, height: 480}
     setInterval(async () => {
       if (initializing) {
         setInitializing(false)
       }
-      const canvas = document.getElementById('myCanvas')
-      faceapi.matchDimensions(canvas, displaySize)
+      // const canvas = document.getElementById('myCanvas')
+      // faceapi.matchDimensions(canvas, displaySize)
 
       const detections = await faceapi
         .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceExpressions()
-      console.log(detections)
-
-      const resizedDetections = faceapi.resizeResults(detections, displaySize)
-      canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
-      faceapi.draw.drawDetections(canvas, resizedDetections)
-      faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-      faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+      if (detections.length) {
+        console.log('Detected!')
+        //console.log(detections)
+      } else {
+        console.log('No Face here!')
+      }
+      // const resizedDetections = faceapi.resizeResults(detections, displaySize)
+      // canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
+      // faceapi.draw.drawDetections(canvas, resizedDetections)
+      // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+      // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     }, 100)
   })
 
@@ -63,6 +66,22 @@ const PoC = () => {
           height={480}
           id="cam"
         />
+        <div>
+          {/* {capturing ? (
+            <button type="button" onClick={handleStopCaptureClick}>
+              Stop Capture
+            </button>
+          ) : (
+            <button type="button" onClick={handleStartCaptureClick}>
+              Start Capture
+            </button>
+          )}
+          {recordedChunks.length > 0 && (
+            <button type="button" onClick={handleDownload}>
+              Download
+            </button>
+          )} */}
+        </div>
       </div>
     </div>
   )
