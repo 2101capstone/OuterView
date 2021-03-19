@@ -1,8 +1,3 @@
-// <h2>JavaScript Speech to Text</h2>
-// <p>Click on the below button and speak something...</p>
-// <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
-// <div id="output" class="hide"></div>
-
 function runSpeechRecognition() {
   // get output div reference
   var output = document.getElementById('output')
