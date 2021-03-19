@@ -20,6 +20,7 @@ form div {
   display: inline-block;
 }
 
+
 #textbox {
   height: 200px;
   width: 500px;
@@ -29,3 +30,12 @@ form div {
   height: 50px;
   width: 50px;
 }
+
+/* .webcam-test {
+  margin: 0;
+  padding: 0;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+} */
+

@@ -6,3 +6,5 @@ secrets.js
 npm-debug.log
 yarn-error.log
 credentials.json
+models
+
