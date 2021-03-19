@@ -223,3 +223,46 @@ production server to be cluttered up with dev dependencies like
 git-tracking to be cluttered with production build files like
 `bundle.js`! By doing these steps, we make sure our development and
 production environments both stay nice and clean!
+
+
+# ProjectName
+
+## Visit
+
+Link
+
+## Features to Try!
+
+
+
+## Technologies
+
+* Front-End
+  * React.js, Redux.js, HTML5, CSS3
+* Back-End
+  * Node.js, Express.js, PostgreSQL, Sequelize
+* External API/Libraries
+* Deployment
+  * Heroku: Live website with public URL
+  * Mocha/Chai: Unit testing of 90% of modules for faster developement
+  * Travis: Continuous Integration and Continuous Deployment
+
+## Future Roadmap
+
+
+
+## Authors
+
+[Kush Patel](https://www.linkedin.com/in/kushpatel21/) - [Charles Lucas](https://www.linkedin.com/in/charleslucas1/) - Michael Busto - [Benny Khokay](https://www.linkedin.com/in/benny-khoker/)
+
+## Installation
+
+* To install all dependencies: `npm run install`
+* To create database and seed: `createdb grace-shopper-yy && createdb grace-shopper-yy-test`
+* Seed Database with products and accounts: `npm run seed`
+* To Run App!: `npm run start-dev`
+
+#### Store your private infromation in a new file secrets.js\* or global environmenal variables
+
+###### sendSMS and sendEmail Functions may be commented out to prevent creation of secrets.js
+
