@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState, useCallback} from 'react'
 import * as faceapi from 'face-api.js'
 import Webcam from 'react-webcam'
+import {storage} from './firebase'
 
 //kush and chucks proof of concept
 const PoC = () => {
@@ -88,7 +89,9 @@ const PoC = () => {
       const blob = new Blob(recordedChunks, {
         type: 'video/webm'
       })
+      handleUpload(blob)
       const url = URL.createObjectURL(blob)
+      console.log('blob url', url)
       const a = document.createElement('a')
       document.body.appendChild(a)
       a.style = 'display: none'
@@ -99,6 +102,26 @@ const PoC = () => {
       setRecordedChunks([])
     }
   }, [recordedChunks])
+
+  const handleUpload = file => {
+    const uploadTask = storage.ref('recording/test').put(file)
+    uploadTask.on(
+      'state_changed',
+      snapshop => {},
+      error => {
+        console.log(error)
+      },
+      () => {
+        storage
+          .ref('images')
+          .child(test)
+          .getDownloadURL()
+          .then(url => {
+            console.log(url)
+          })
+      }
+    )
+  }
 
   return (
     <div>

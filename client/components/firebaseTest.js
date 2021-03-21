@@ -3,15 +3,39 @@ import React, {useState} from 'react'
 
 const FirebaseTest = () => {
   const [image, setImage] = useState(null)
+  const [url, setUrl] = useState('')
 
   const handleChange = event => {
     if (event.target.files[0]) {
       setImage(event.target.files[0])
-      console.log('hello')
+      console.log('file saved')
     }
   }
 
-  const handleUpload = () => {}
+  const handleUpload = event => {
+    const uploadTask = storage.ref(`images/${image.name}`).put(image)
+    uploadTask.on(
+      'state_changed',
+      snapshop => {},
+      error => {
+        console.log(error)
+      },
+      () => {
+        storage
+          .ref('images')
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            console.log(url)
+            setUrl(url)
+          })
+      }
+    )
+
+    // if (event.target.files[0]) {
+    //   setImage(event.target.files[0])
+    //   console.log('hello')
+  }
 
   return (
     <div>
