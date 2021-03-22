@@ -21,7 +21,7 @@ const SpeechToText = () => {
   }, [isRecording])
 
   const handleListen = () => {
-    if (isRecording) {
+    if (isRecording === true) {
       recognition.start()
       recognition.onend = () => {
         console.log('continue..')
