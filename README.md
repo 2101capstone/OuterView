@@ -253,7 +253,7 @@ Link
 
 ## Authors
 
-[Kush Patel](https://www.linkedin.com/in/kushpatel21/) - [Charles Lucas](https://www.linkedin.com/in/charleslucas1/) - Michael Busto - [Benny Khokay](https://www.linkedin.com/in/benny-khoker/)
+[Kush Patel](https://www.linkedin.com/in/kushpatel21/) - [Charles Lucas](https://www.linkedin.com/in/charleslucas1/) - Michael Busto - [Benny Khoker](https://www.linkedin.com/in/benny-khoker/)
 
 ## Installation
 
