@@ -4,7 +4,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome, PoC, FirebaseTest} from './components'
 import {me} from './store'
-import {InterviewRecognition} from './components/InterviewRecognition'
+import SpeechToText from './components/SpeechToText'
 
 /**
  * COMPONENT
@@ -22,9 +22,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route exact path="/speech" component={SpeechToText} />
         <Route path="/camera" component={PoC} />
         <Route path="/upload" component={FirebaseTest} />
-        <Route exact path="/speech" component={InterviewRecognition} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
