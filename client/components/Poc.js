@@ -11,8 +11,8 @@ const PoC = () => {
   const [initializing, setInitializing] = useState(false)
   const [capturing, setCapturing] = useState(false)
   const [recordedChunks, setRecordedChunks] = React.useState([])
-
-  //FACE DETECTION
+  const reactions = []
+  //---------FACE DETECTION---------//
   const loadModels = () => {
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -43,7 +43,7 @@ const PoC = () => {
         .withFaceExpressions()
       if (detections.length) {
         console.log('Detected!')
-        //console.log(detections)
+        reactions.push(detections[0].expressions)
       } else {
         console.log('No Face here!')
       }
@@ -52,10 +52,10 @@ const PoC = () => {
       // faceapi.draw.drawDetections(canvas, resizedDetections)
       // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
       // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    }, 100)
+    }, 500)
   })
 
-  // RECORDING
+  //---------RECORDING---------//
   const handleStartCaptureClick = useCallback(() => {
     setCapturing(true)
     console.log('started')
@@ -82,6 +82,7 @@ const PoC = () => {
     console.log('stop')
     mediaRecorderRef.current.stop()
     setCapturing(false)
+    console.log(reactions)
   }, [mediaRecorderRef, videoRef, setCapturing])
 
   const handleDownload = useCallback(() => {
@@ -92,19 +93,19 @@ const PoC = () => {
       handleUpload(blob)
       const url = URL.createObjectURL(blob)
       console.log('blob url', url)
-      const a = document.createElement('a')
-      document.body.appendChild(a)
-      a.style = 'display: none'
-      a.href = url
-      a.download = 'react-webcam-stream-capture.webm'
-      a.click()
-      window.URL.revokeObjectURL(url)
+      // const a = document.createElement('a')
+      // document.body.appendChild(a)
+      // a.style = 'display: none'
+      // a.href = url
+      // a.download = 'react-webcam-stream-capture.webm'
+      // a.click()
+      // window.URL.revokeObjectURL(url)
       setRecordedChunks([])
     }
   }, [recordedChunks])
 
   const handleUpload = file => {
-    const uploadTask = storage.ref('recording/test').put(file)
+    const uploadTask = storage.ref('recording/test.webm').put(file)
     uploadTask.on(
       'state_changed',
       snapshop => {},
@@ -147,7 +148,7 @@ const PoC = () => {
           )}
           {recordedChunks.length > 0 && (
             <button type="button" onClick={handleDownload}>
-              Download
+              Upload
             </button>
           )}
         </div>
