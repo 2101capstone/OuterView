@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, {useState, useEffect} from 'react'
 
 const SpeechRecognition =
@@ -40,7 +41,7 @@ const SpeechToText = () => {
         .map(result => result[0])
         .map(result => result.transcript)
         .join('')
-      console.log('Final Transcript-->', transcript)
+      console.log('Transcript-->', transcript)
       setTranscript(transcript)
     }
   }
@@ -62,7 +63,7 @@ const SpeechToText = () => {
             onClick={handleSaveTranscript}
             disabled={!Transcript}
           >
-            Save Transcript{' '}
+            Save Transcript
           </button>
           <button
             type="button"
