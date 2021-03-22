@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, PoC} from './components'
+import {Login, Signup, UserHome, PoC, FirebaseTest} from './components'
 import {me} from './store'
 import {InterviewRecognition} from './components/InterviewRecognition'
 
@@ -22,8 +22,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/camera" component={PoC} />
+        <Route path="/upload" component={FirebaseTest} />
         <Route exact path="/speech" component={InterviewRecognition} />
-        <Route path="/test" component={PoC} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
