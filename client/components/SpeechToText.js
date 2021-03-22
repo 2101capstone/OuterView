@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react'
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new SpeechRecognition()
+console.log('THIS IS UR REC OBJ--->', recognition)
 
 recognition.continuous = true
 recognition.interimResults = true
@@ -37,11 +38,16 @@ const SpeechToText = () => {
     }
 
     recognition.onresult = event => {
+      // console.log(event.results) shows the results
       const transcript = Array.from(event.results)
         .map(result => result[0])
         .map(result => result.transcript)
         .join('')
-      console.log('Transcript-->', transcript)
+      const confidence = Array.from(event.results)
+        .map(result => result[0])
+        .map(result => result.confidence)
+        .join('')
+      console.log('Transcript-->', transcript, '\n', confidence)
       setTranscript(transcript)
     }
   }
