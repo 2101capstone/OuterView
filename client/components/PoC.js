@@ -2,8 +2,7 @@ import React, {useEffect, useRef, useState, useCallback} from 'react'
 import * as faceapi from 'face-api.js'
 import Webcam from 'react-webcam'
 import {storage} from './firebase'
-
-import SpeechToText from './SpeechToText'
+import {SpeechToText} from './index'
 
 //kush and chucks proof of concept
 const PoC = () => {
