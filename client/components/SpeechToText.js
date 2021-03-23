@@ -22,6 +22,10 @@ const SpeechToText = props => {
     handleListen()
   }, [isRecording])
 
+  const handleSaveTranscript = () => {
+    setSavedTranscripts([...savedTranscripts, Transcript])
+    setTranscript('')
+  }
   const handleListen = () => {
     if (isRecording === true) {
       recognition.start()
@@ -34,6 +38,7 @@ const SpeechToText = props => {
       recognition.stop()
       recognition.onend = () => {
         stopCapture()
+        handleSaveTranscript()
         console.log('Stopped recognition on Click')
       }
     }
@@ -56,11 +61,6 @@ const SpeechToText = props => {
     }
   }
 
-  const handleSaveTranscript = () => {
-    setSavedTranscripts([...savedTranscripts, Transcript])
-    setTranscript('')
-  }
-
   return (
     <>
       <h1 className="h1-transcripts">Transcripts</h1>
@@ -68,13 +68,13 @@ const SpeechToText = props => {
         <div className="transcripts-div">
           <h2>Current Transcript</h2>
           {isRecording ? <span>Speaking...</span> : <span>Not Recording</span>}
-          <button
+          {/* <button
             type="button"
             onClick={handleSaveTranscript}
             disabled={!Transcript}
           >
             Save Transcript
-          </button>
+          </button> */}
           <button
             type="button"
             onClick={() => setIsRecording(prevState => !prevState)}
