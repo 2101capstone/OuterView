@@ -1,11 +1,32 @@
-import {Chart, Cloud, Bars, Lines, Dots, Pies, Transform} from 'rumble-charts'
+import {
+  // main component
+  Chart,
+  // graphs
+  Bars,
+  Cloud,
+  Dots,
+  Labels,
+  Lines,
+  Pies,
+  RadialLines,
+  Ticks,
+  Title,
+  // wrappers
+  Layer,
+  Animate,
+  Transform,
+  Handlers,
+  // helpers
+  helpers,
+  DropShadow,
+  Gradient
+} from 'rumble-charts'
 import React from 'react'
 
 const WordCloud = () => {
-  // need to pass in the transcript
-
   //use this fake data for now
   const transcript =
+    // need to pass in the transcript
     'Hello, my name is benny i like to code and wish i could doe all day. where will i be coding next. to code or not to code that is the question'
 
   if (transcript) {
