@@ -10,7 +10,9 @@ recognition.continuous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-const SpeechToText = () => {
+const SpeechToText = props => {
+  const {startCapture, stopCapture} = props
+  console.log('PROPS--->', startCapture)
   const [isRecording, setIsRecording] = useState(false)
   const [Transcript, setTranscript] = useState(null)
   const [savedTranscripts, setSavedTranscripts] = useState([])
@@ -23,6 +25,7 @@ const SpeechToText = () => {
   const handleListen = () => {
     if (isRecording === true) {
       recognition.start()
+      startCapture()
       recognition.onend = () => {
         console.log('continue..')
         recognition.start()
@@ -30,6 +33,7 @@ const SpeechToText = () => {
     } else {
       recognition.stop()
       recognition.onend = () => {
+        stopCapture()
         console.log('Stopped recognition on Click')
       }
     }
