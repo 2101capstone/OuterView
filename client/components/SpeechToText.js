@@ -10,6 +10,18 @@ recognition.continuous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
+//filler word map
+const fillerWords = {
+  like: true,
+  Like: true,
+  Totally: true,
+  totally: true,
+  Basically: true,
+  basically: true,
+  Literally: true,
+  literally: true
+}
+
 const SpeechToText = props => {
   const {startCapture, stopCapture, isCapturing} = props
   console.log('Capturing--->', isCapturing)
@@ -63,6 +75,21 @@ const SpeechToText = props => {
         .join('')
       // console.log('Transcript-->', transcript, '\n', confidence)
       setTranscript(transcript)
+
+      //logic to track words while speeking
+      let fillerWordCount = 0
+      let fillerWordsUsed = []
+      let finalTranscript = transcript
+      let transcriptArray = finalTranscript.split(' ')
+
+      transcriptArray.forEach(fillerWord => {
+        if (fillerWords[fillerWord]) {
+          fillerWordCount++
+          fillerWordsUsed.push(fillerWord)
+        }
+      })
+      console.log('FILLER WORD COUNT-----> ', fillerWordCount)
+      console.log('FILLER WORDS USED-----> ', fillerWordsUsed)
     }
   }
 
