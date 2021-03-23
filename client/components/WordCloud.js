@@ -52,6 +52,17 @@ const WordCloud = () => {
           />
         </Transform>
       </Chart>
+      <Chart width={500} height={500} series={series} minY={0}>
+        <Transform method="transpose">
+          <Bars innerPadding={5} groupPadding={10} />
+        </Transform>
+      </Chart>
+
+      <Chart width={500} height={500} series={series} minY={0}>
+        <Transform method="transpose">
+          <Pies innerPadding={5} groupPadding={10} />
+        </Transform>
+      </Chart>
     </div>
   )
 }
