@@ -1,0 +1,80 @@
+[debug] [2021-03-23T19:21:44.793Z] ----------------------------------------------------------------------
+[debug] [2021-03-23T19:21:44.795Z] Command:       /usr/local/bin/firebase /home/bkhoker88/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init hosting:github
+[debug] [2021-03-23T19:21:44.795Z] CLI Version:   9.6.1
+[debug] [2021-03-23T19:21:44.795Z] Platform:      linux
+[debug] [2021-03-23T19:21:44.795Z] Node Version:  v12.18.1
+[debug] [2021-03-23T19:21:44.796Z] Time:          Tue Mar 23 2021 15:21:44 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-03-23T19:21:44.796Z] ----------------------------------------------------------------------
+[debug] [2021-03-23T19:21:44.796Z] 
+[debug] [2021-03-23T19:21:44.799Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-23T19:21:44.799Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/bkhoker88/Fullstack/Senior Projects/interviewPrep
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using interviewprep-fsa. 
+[debug] [2021-03-23T19:21:44.806Z] > refreshing access token with scopes: []
+[debug] [2021-03-23T19:21:44.806Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-23T19:21:44.894Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 23 Mar 2021 19:21:44 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-23T19:21:44.907Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/interviewprep-fsa [none]
+[debug] [2021-03-23T19:21:45.092Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/interviewprep-fsa 200
+[debug] [2021-03-23T19:21:45.092Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/interviewprep-fsa {"projectId":"interviewprep-fsa","projectNumber":"435616300544","displayName":"interviewPrep","name":"projects/interviewprep-fsa","resources":{"hostingSite":"interviewprep-fsa","realtimeDatabaseInstance":"interviewprep-fsa-default-rtdb","storageBucket":"interviewprep-fsa.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /home/bkhoker88/Fullstack/Senior Projects/interviewPrep 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=210360856&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-03-23T19:22:11.517Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"8225bfdb5f3cb98fe10f","redirect_uri":"http://localhost:9005","state":"210360856"}
+[debug] [2021-03-23T19:22:11.628Z] <<< HTTP RESPONSE 200 {"server":"GitHub.com","date":"Tue, 23 Mar 2021 19:22:11 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","vary":"X-PJAX, Accept-Encoding, Accept, X-Requested-With","etag":"W/\"bd9ad734368ccf4699895b5b5b4a83d0\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"0","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com secured-user-images.githubusercontent.com/ *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker-6832eced.js gist.github.com/socket-worker-6832eced.js","x-github-request-id":"ABA4:54D3:E900E:12F6BE:605A3FE3"}
+[debug] [2021-03-23T19:22:11.630Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2021-03-23T19:22:11.779Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2021-03-23T19:22:11.779Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"bkhoker88","id":70544344,"node_id":"MDQ6VXNlcjcwNTQ0MzQ0","avatar_url":"https://avatars.githubusercontent.com/u/70544344?v=4","gravatar_id":"","url":"https://api.github.com/users/bkhoker88","html_url":"https://github.com/bkhoker88","followers_url":"https://api.github.com/users/bkhoker88/followers","following_url":"https://api.github.com/users/bkhoker88/following{/other_user}","gists_url":"https://api.github.com/users/bkhoker88/gists{/gist_id}","starred_url":"https://api.github.com/users/bkhoker88/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/bkhoker88/subscriptions","organizations_url":"https://api.github.com/users/bkhoker88/orgs","repos_url":"https://api.github.com/users/bkhoker88/repos","events_url":"https://api.github.com/users/bkhoker88/events{/privacy}","received_events_url":"https://api.github.com/users/bkhoker88/received_events","type":"User","site_admin":false,"name":"Benny","company":null,"blog":"","location":"Queens, New York","email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":11,"public_gists":1,"followers":0,"following":1,"created_at":"2020-08-31T20:24:39Z","updated_at":"2021-03-23T19:22:05Z","private_gists":0,"total_private_repos":51,"owned_private_repos":1,"disk_usage":328732,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as bkhoker88 
+[info] 
+[debug] [2021-03-23T19:23:07.961Z] >>> [apiv2][query] GET https://api.github.com/repos/bkhoker88/interviewprep/actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:08.159Z] <<< [apiv2][status] GET https://api.github.com/repos/bkhoker88/interviewprep/actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:08.159Z] <<< [apiv2][body] GET https://api.github.com/repos/bkhoker88/interviewprep/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
+[debug] [2021-03-23T19:23:13.884Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:13.970Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:13.971Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-03-23T19:23:15.172Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:15.267Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:15.267Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-03-23T19:23:16.391Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:16.471Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:16.472Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-03-23T19:23:16.798Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:16.888Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:16.888Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-03-23T19:23:17.104Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:17.191Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:17.191Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-03-23T19:23:18.444Z] >>> [apiv2][query] GET https://api.github.com/repos/c/actions/secrets/public-key type=owner
+[debug] [2021-03-23T19:23:18.535Z] <<< [apiv2][status] GET https://api.github.com/repos/c/actions/secrets/public-key 404
+[debug] [2021-03-23T19:23:18.536Z] <<< [apiv2][body] GET https://api.github.com/repos/c/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}

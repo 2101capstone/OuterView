@@ -68,13 +68,6 @@ const SpeechToText = props => {
         <div className="transcripts-div">
           <h2>Current Transcript</h2>
           {isRecording ? <span>Speaking...</span> : <span>Not Recording</span>}
-          {/* <button
-            type="button"
-            onClick={handleSaveTranscript}
-            disabled={!Transcript}
-          >
-            Save Transcript
-          </button> */}
           <button
             type="button"
             onClick={() => setIsRecording(prevState => !prevState)}
