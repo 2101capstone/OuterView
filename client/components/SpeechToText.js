@@ -4,15 +4,15 @@ import React, {useState, useEffect} from 'react'
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new SpeechRecognition()
-console.log('THIS IS UR REC OBJ--->', recognition)
+// console.log('THIS IS UR REC OBJ--->', recognition)
 
 recognition.continuous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
 const SpeechToText = props => {
-  const {startCapture, stopCapture} = props
-  console.log('PROPS--->', startCapture)
+  const {startCapture, stopCapture, isCapturing} = props
+  console.log('Capturing--->', isCapturing)
   const [isRecording, setIsRecording] = useState(false)
   const [Transcript, setTranscript] = useState(null)
   const [savedTranscripts, setSavedTranscripts] = useState([])
@@ -21,6 +21,10 @@ const SpeechToText = props => {
   useEffect(() => {
     handleListen()
   }, [isRecording])
+
+  // const findWord = (word, str) => {
+  //   return str.split(' ').some(function (w) { return w === word })
+  // }
 
   const handleSaveTranscript = () => {
     setSavedTranscripts([...savedTranscripts, Transcript])
@@ -38,6 +42,7 @@ const SpeechToText = props => {
       recognition.stop()
       recognition.onend = () => {
         stopCapture()
+        // isCapturing(false)
         handleSaveTranscript()
         console.log('Stopped recognition on Click')
       }
@@ -56,7 +61,7 @@ const SpeechToText = props => {
         .map(result => result[0])
         .map(result => result.confidence)
         .join('')
-      console.log('Transcript-->', transcript, '\n', confidence)
+      // console.log('Transcript-->', transcript, '\n', confidence)
       setTranscript(transcript)
     }
   }
