@@ -31,29 +31,38 @@ const PoC = () => {
 
   useEffect(() => {
     //const displaySize = {width: 640, height: 480}
-    setInterval(async () => {
-      if (initializing) {
-        setInitializing(false)
-      }
-      // const canvas = document.getElementById('myCanvas')
-      // faceapi.matchDimensions(canvas, displaySize)
+    // console.log('Capturing--->', capturing)
+    if (capturing) {
+      setInterval(async () => {
+        //this line gets fired off after the capturing stops
+        console.log('Capturing--->', capturing)
+        if (initializing) {
+          setInitializing(false)
+        }
+        // const canvas = document.getElementById('myCanvas')
+        // faceapi.matchDimensions(canvas, displaySize)
 
-      const detections = await faceapi
-        .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
-        .withFaceLandmarks()
-        .withFaceExpressions()
-      if (detections.length) {
-        console.log('Detected!')
-        reactions.push(detections[0].expressions)
-      } else {
-        console.log('No Face here!')
-      }
-      // const resizedDetections = faceapi.resizeResults(detections, displaySize)
-      // canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
-      // faceapi.draw.drawDetections(canvas, resizedDetections)
-      // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-      // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    }, 500)
+        const detections = await faceapi
+          .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
+          .withFaceLandmarks()
+          .withFaceExpressions()
+        if (detections.length) {
+          console.log('Detected!')
+          reactions.push(detections[0].expressions)
+        } else {
+          console.log('No Face here!')
+        }
+        // const resizedDetections = faceapi.resizeResults(detections, displaySize)
+        // canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480)
+        // faceapi.draw.drawDetections(canvas, resizedDetections)
+        // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+        // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+      }, 2000)
+    } else {
+      setInterval(() => {
+        console.log('Not Recording')
+      }, 2000)
+    }
   })
 
   //---------RECORDING---------//
@@ -83,8 +92,9 @@ const PoC = () => {
     console.log('stop')
     mediaRecorderRef.current.stop()
     setCapturing(false)
+    setInitializing(false)
     console.log(reactions)
-  }, [mediaRecorderRef, videoRef, setCapturing])
+  }, [mediaRecorderRef, videoRef, setCapturing, setInitializing])
 
   const handleDownload = useCallback(() => {
     if (recordedChunks.length) {
@@ -148,6 +158,7 @@ const PoC = () => {
         <SpeechToText
           startCapture={handleStartCaptureClick}
           stopCapture={handleStopCaptureClick}
+          isCapturing={capturing}
         />
       </div>
     </div>
