@@ -7,4 +7,10 @@ npm-debug.log
 yarn-error.log
 credentials.json
 models
-
+404.html
+storage.rules
+firebase.json
+firebase-debug.log
+database.rules.json
+.firebasesrc
+.firebase/hosting.cHVibGlj.cache
