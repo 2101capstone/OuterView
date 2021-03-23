@@ -3,6 +3,8 @@ import * as faceapi from 'face-api.js'
 import Webcam from 'react-webcam'
 import {storage} from './firebase'
 
+import SpeechToText from './SpeechToText'
+
 //kush and chucks proof of concept
 const PoC = () => {
   let videoRef = useRef(null)
@@ -129,22 +131,12 @@ const PoC = () => {
       <span>{initializing ? 'Initializing' : 'Ready'}</span>
       <div className="webcam-test">
         <canvas ref={canvasRef} id="myCanvas" />
-        <Webcam
-          ref={videoRef}
-          audio={false}
-          width={640}
-          height={480}
-          id="cam"
-        />
+        <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
         <div>
           {capturing ? (
-            <button type="button" onClick={handleStopCaptureClick}>
-              Stop Capture
-            </button>
+            <h1>you are now recording!!</h1>
           ) : (
-            <button type="button" onClick={handleStartCaptureClick}>
-              Start Capture
-            </button>
+            <h2>You are not recording!!</h2>
           )}
           {recordedChunks.length > 0 && (
             <button type="button" onClick={handleDownload}>
@@ -152,6 +144,12 @@ const PoC = () => {
             </button>
           )}
         </div>
+      </div>
+      <div>
+        <SpeechToText
+          startCapture={handleStartCaptureClick}
+          stopCapture={handleStopCaptureClick}
+        />
       </div>
     </div>
   )
