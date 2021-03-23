@@ -12,16 +12,19 @@ notifications:
     on_failure: always # default: always (which is annoying, as it should be)
 install:
   - npm ci # faster, goes only from package-lock
+  - npm install -g firebase-tools
 before_script:
   - psql -c 'create database "boilermaker-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
 script:
   - npm test # test the code
   - npm run build-client # make the bundle
+after_success:
+  - firebase deploy --token $TOKJEN
 # before_deploy:
 #   - rm -rf node_modules # omit from the tarball, since we skip cleanup
-# deploy:
-#   skip_cleanup: true # prevents travis from deleting the build
-#   provider: heroku
-#   app: YOUR-HEROKU-APP-NAME-HERE # see README
-#   api_key:
-#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # see README
+ deploy:
+   skip_cleanup: true # prevents travis from deleting the build
+   provider: firebase
+   message: "Deployed via Travis to Firebase"
+   token:
+     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # see README
