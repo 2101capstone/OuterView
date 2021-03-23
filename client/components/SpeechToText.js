@@ -10,7 +10,9 @@ recognition.continuous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-const SpeechToText = () => {
+const SpeechToText = props => {
+  const {startCapture, stopCapture} = props
+  console.log('PROPS--->', startCapture)
   const [isRecording, setIsRecording] = useState(false)
   const [Transcript, setTranscript] = useState(null)
   const [savedTranscripts, setSavedTranscripts] = useState([])
@@ -20,9 +22,14 @@ const SpeechToText = () => {
     handleListen()
   }, [isRecording])
 
+  const handleSaveTranscript = () => {
+    setSavedTranscripts([...savedTranscripts, Transcript])
+    setTranscript('')
+  }
   const handleListen = () => {
     if (isRecording === true) {
       recognition.start()
+      startCapture()
       recognition.onend = () => {
         console.log('continue..')
         recognition.start()
@@ -30,6 +37,8 @@ const SpeechToText = () => {
     } else {
       recognition.stop()
       recognition.onend = () => {
+        stopCapture()
+        handleSaveTranscript()
         console.log('Stopped recognition on Click')
       }
     }
@@ -52,11 +61,6 @@ const SpeechToText = () => {
     }
   }
 
-  const handleSaveTranscript = () => {
-    setSavedTranscripts([...savedTranscripts, Transcript])
-    setTranscript('')
-  }
-
   return (
     <>
       <h1 className="h1-transcripts">Transcripts</h1>
@@ -64,13 +68,13 @@ const SpeechToText = () => {
         <div className="transcripts-div">
           <h2>Current Transcript</h2>
           {isRecording ? <span>Speaking...</span> : <span>Not Recording</span>}
-          <button
+          {/* <button
             type="button"
             onClick={handleSaveTranscript}
             disabled={!Transcript}
           >
             Save Transcript
-          </button>
+          </button> */}
           <button
             type="button"
             onClick={() => setIsRecording(prevState => !prevState)}
