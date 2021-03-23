@@ -11,6 +11,7 @@ import {
   SpeechToText
 } from './components'
 import {me} from './store'
+import Cloud from './components/Cloud'
 
 /**
  * COMPONENT
@@ -30,6 +31,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route exact path="/speech" component={SpeechToText} />
         <Route path="/camera" component={PoC} />
+        <Route path="/cloud" component={Cloud} />
         <Route path="/upload" component={FirebaseTest} />
         {isLoggedIn && (
           <Switch>
