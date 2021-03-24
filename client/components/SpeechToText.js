@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable no-use-before-define */
 import React, {useState, useEffect} from 'react'
 
@@ -23,7 +24,7 @@ const fillerWords = {
 }
 
 const SpeechToText = props => {
-  const {startCapture, stopCapture, isCapturing} = props
+  const {startCapture, stopCapture, setCapturing, isCapturing} = props
   // console.log('Capturing--->', isCapturing)
   const [isRecording, setIsRecording] = useState(false)
   const [words, setWords] = useState([])
@@ -48,6 +49,40 @@ const SpeechToText = props => {
           count = count + 1
         }
       })
+    const calculateScore = () => {
+      if (count === 0) {
+        return 'A+'
+      }
+      if (count > 0 && count <= 2) {
+        return 'A'
+      }
+      if (count > 2 && count <= 4) {
+        return 'A-'
+      }
+      if (count > 4 && count <= 6) {
+        return 'B+'
+      }
+      if (count > 6 && count <= 8) {
+        return 'B'
+      }
+      if (count > 8 && count <= 10) {
+        return 'B-'
+      }
+      if (count > 10 && count <= 12) {
+        return 'C+'
+      }
+      if (count > 12 && count <= 14) {
+        return 'C'
+      }
+      if (count > 14 && count <= 16) {
+        return 'C-'
+      }
+      if (count > 16 && count <= 18) {
+        return 'D'
+      } else return 'F'
+    }
+
+    let finalGrade = calculateScore(count)
     //setting the final transcript with the words
     setTranscript(Array.from(words).join(''))
     //setting the filler word count
@@ -55,6 +90,8 @@ const SpeechToText = props => {
     console.log('fillerWords-----> ', fillerWords)
     console.log('basically Count-----> ', fillerWords.basically)
     console.log('FILLER WORD COUNT-----> ', count)
+    console.log('FILLER WORD COUNT-----> ', count)
+    console.log('FILLER WORD GRADE-----> ', finalGrade)
   }
   //handles weather the mic is listening or not
   const handleListen = () => {
@@ -67,7 +104,9 @@ const SpeechToText = props => {
     } else {
       recognition.stop()
       recognition.onend = () => {
+        setCapturing(false)
         stopCapture()
+
         handleSaveTranscript()
         console.log('Stopped recognition on Click')
       }
