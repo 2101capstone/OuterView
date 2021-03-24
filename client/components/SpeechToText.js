@@ -12,84 +12,78 @@ recognition.lang = 'en-US'
 
 //filler word map
 const fillerWords = {
-  like: true,
-  Like: true,
-  Totally: true,
-  totally: true,
-  Basically: true,
-  basically: true,
-  Literally: true,
-  literally: true
+  like: 0,
+  Like: 0,
+  Totally: 0,
+  totally: 0,
+  Basically: 0,
+  basically: 0,
+  Literally: 0,
+  literally: 0
 }
 
 const SpeechToText = props => {
   const {startCapture, stopCapture, isCapturing} = props
-  console.log('Capturing--->', isCapturing)
+  // console.log('Capturing--->', isCapturing)
   const [isRecording, setIsRecording] = useState(false)
-  const [Transcript, setTranscript] = useState(null)
-  const [savedTranscripts, setSavedTranscripts] = useState([])
+  const [words, setWords] = useState([])
+  const [transcript, setTranscript] = useState('')
+  const [fillerWordTotalCount, setFillerWordTotalCount] = useState(0)
 
   //similar to didMount
   useEffect(() => {
     handleListen()
   }, [isRecording])
 
-  // const findWord = (word, str) => {
-  //   return str.split(' ').some(function (w) { return w === word })
-  // }
-
   const handleSaveTranscript = () => {
-    setSavedTranscripts([...savedTranscripts, Transcript])
-    setTranscript('')
+    let count = 0
+
+    //count each filler word
+    words
+      .join()
+      .split(' ')
+      .forEach(word => {
+        if (!isNaN(fillerWords[word])) {
+          fillerWords[word] = fillerWords[word] + 1
+          count = count + 1
+        }
+      })
+    //setting the final transcript with the words
+    setTranscript(Array.from(words).join(''))
+    //setting the filler word count
+    setFillerWordTotalCount(count)
+    console.log('fillerWords-----> ', fillerWords)
+    console.log('basically Count-----> ', fillerWords.basically)
+    console.log('FILLER WORD COUNT-----> ', count)
   }
+  //handles weather the mic is listening or not
   const handleListen = () => {
     if (isRecording === true) {
       recognition.start()
       startCapture()
       recognition.onend = () => {
         console.log('continue..')
-        recognition.start()
       }
     } else {
       recognition.stop()
       recognition.onend = () => {
         stopCapture()
-        // isCapturing(false)
         handleSaveTranscript()
         console.log('Stopped recognition on Click')
       }
     }
+
     recognition.onstart = () => {
-      console.log('recognitions on')
+      console.log('recognition is on!!!')
     }
 
+    //when we recieve or results back we will set our Words state wit the transcipt
     recognition.onresult = event => {
-      // console.log(event.results) shows the results
-      const transcript = Array.from(event.results)
-        .map(result => result[0])
-        .map(result => result.transcript)
-        .join('')
-      const confidence = Array.from(event.results)
-        .map(result => result[0])
-        .map(result => result.confidence)
-        .join('')
-      // console.log('Transcript-->', transcript, '\n', confidence)
-      setTranscript(transcript)
-
-      //logic to track words while speeking
-      let fillerWordCount = 0
-      let fillerWordsUsed = []
-      let finalTranscript = transcript
-      let transcriptArray = finalTranscript.split(' ')
-
-      transcriptArray.forEach(fillerWord => {
-        if (fillerWords[fillerWord]) {
-          fillerWordCount++
-          fillerWordsUsed.push(fillerWord)
-        }
-      })
-      console.log('FILLER WORD COUNT-----> ', fillerWordCount)
-      console.log('FILLER WORDS USED-----> ', fillerWordsUsed)
+      setWords(
+        Array.from(event.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+      )
     }
   }
 
@@ -100,26 +94,21 @@ const SpeechToText = props => {
         <div className="transcripts-div">
           <h2>Current Transcript</h2>
           {isRecording ? <span>Speaking...</span> : <span>Not Recording</span>}
-          {/* <button
-            type="button"
-            onClick={handleSaveTranscript}
-            disabled={!Transcript}
-          >
-            Save Transcript
-          </button> */}
           <button
             type="button"
             onClick={() => setIsRecording(prevState => !prevState)}
           >
             Start/Stop
           </button>
-          <p>{Transcript}</p>
+          <div>
+            {words.map(word => (
+              <p key={word}>{word}</p>
+            ))}
+          </div>
         </div>
         <div className="transcripts-div">
           <h2>Transcripts</h2>
-          {savedTranscripts.map(transcript => (
-            <p key={transcript}>{transcript}</p>
-          ))}
+          {transcript}
         </div>
       </div>
     </>
