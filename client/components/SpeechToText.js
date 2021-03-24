@@ -104,7 +104,7 @@ const SpeechToText = props => {
     } else {
       recognition.stop()
       recognition.onend = () => {
-        setCapturing(false)
+        // setCapturing(false)
         stopCapture()
 
         handleSaveTranscript()
