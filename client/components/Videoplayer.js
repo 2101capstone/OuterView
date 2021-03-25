@@ -43,10 +43,28 @@ const Videoplayer = () => {
     }
   }, [isFaceRec])
 
+  const handleDownload = useCallback(() => {
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, {
+        type: 'video/webm'
+      })
+      const url = URL.createObjectURL(blob)
+      console.log('blob url', url)
+      const a = document.createElement('a')
+      document.body.appendChild(a)
+      a.style = 'display: none'
+      a.href = url
+      a.download = 'react-webcam-stream-capture.webm'
+      a.click()
+      window.URL.revokeObjectURL(url)
+      setRecordedChunks([])
+    }
+  }, [recordedChunks])
+
   return (
     <div>
       <h3>
-        {isFaceRec ? 'Face Recognition is On!' : 'Face Recognition is Off!'}
+        {isFaceRec ? 'Face Recognition and Recording!' : 'Not Recording!'}
       </h3>
       <h5>Timer: {timer}</h5>
       <div>
@@ -58,6 +76,15 @@ const Videoplayer = () => {
       >
         {isFaceRec ? 'End Recording' : 'Start Recording'}
       </button>
+      <div>
+        {isFaceRec === false ? (
+          <button type="button" onClick={handleDownload}>
+            Download
+          </button>
+        ) : (
+          <div />
+        )}
+      </div>
     </div>
   )
 }
