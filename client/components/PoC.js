@@ -12,7 +12,7 @@ const PoC = () => {
   const [initializing, setInitializing] = useState(false)
   const [capturing, setCapturing] = useState(false)
   const [recordedChunks, setRecordedChunks] = React.useState([])
-  const reactions = []
+  let reactions = []
   //---------FACE DETECTION---------//
   const loadModels = () => {
     Promise.all([
