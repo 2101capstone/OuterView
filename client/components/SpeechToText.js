@@ -38,7 +38,9 @@ const fillerWords = {
   Whatever: 0,
   whatever: 0,
   But: 0,
-  but: 0
+  but: 0,
+  Sorta: 0,
+  sorta: 0
 }
 
 const SpeechToText = () => {
@@ -132,8 +134,8 @@ const SpeechToText = () => {
     //setting the filler word count
     setFillerWordTotalCount(count)
 
-    // console.log('transcript new ----> ', transcript)
     console.log('fillerWords-----> ', fillerWords)
+    console.log('Words---->', words)
     console.log('Transcript--->', transcript)
     console.log('FILLER WORD COUNT-----> ', count)
     console.log('FILLER WORD GRADE-----> ', finalGrade)
@@ -150,7 +152,6 @@ const SpeechToText = () => {
     setIsRecording(false)
     setTranscript(finalWords.join(' '))
     console.log('RECORD HAS ENDED!!!')
-    console.log('Words---->', words)
   }
 
   return (
