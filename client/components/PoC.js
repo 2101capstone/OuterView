@@ -8,7 +8,7 @@ import {SpeechToText} from './index'
 const PoC = () => {
   let videoRef = useRef(null)
   const canvasRef = useRef(null)
-  const mediaRecorderRef = React.useState(null)
+  const mediaRecorderRef = React.useRef(null)
   const [initializing, setInitializing] = useState(false)
   const [capturing, setCapturing] = useState(false)
   const [recordedChunks, setRecordedChunks] = React.useState([])
