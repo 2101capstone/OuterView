@@ -11,7 +11,7 @@ const Videoplayer = () => {
   const [isFaceRec, setIsFaceRec] = useState(null)
   const [intervalId, setIntervalId] = useState('')
   const [timer, setTimer] = useState(0)
-  const [recordedChunks, setRecordedChunks] = React.useState([])
+  const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   let mediaRecorderRef = useRef(null)
 
@@ -21,12 +21,22 @@ const Videoplayer = () => {
     loadModels()
   }, [])
 
+  const handleDataAvailable = ({data}) => {
+    if (data.size > 0) {
+      setRecordedChunks(prev => prev.concat(data))
+    }
+  }
+
   //if isFaceRec, then run facial recognition, start recording
   useEffect(() => {
     console.log('Face Detecting: ', isFaceRec)
     if (isFaceRec) {
       setIntervalId(setInterval(runFacialRec, 2000))
-      mediaRecorderRef = startRecording(videoRef, mediaRecorderRef)
+      mediaRecorderRef = startRecording(
+        videoRef,
+        mediaRecorderRef,
+        handleDataAvailable
+      )
     } else if (isFaceRec === false) {
       mediaRecorderRef = stopRecording(mediaRecorderRef)
       clearInterval(intervalId)

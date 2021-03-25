@@ -1,6 +1,6 @@
 import * as faceapi from 'face-api.js'
 import {storage} from './firebase'
-import {useRef, useCallback} from 'react'
+import {useRef, useCallback, useState} from 'react'
 
 //Load all the facial models into memory
 export const loadModels = () => {
@@ -48,7 +48,11 @@ export const handleUpload = file => {
   )
 }
 
-export const startRecording = (videoRef, mediaRecorderRef) => {
+export const startRecording = (
+  videoRef,
+  mediaRecorderRef,
+  handleDataAvailable
+) => {
   console.log('started')
   mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
     mimeType: 'video/webm'
@@ -61,7 +65,8 @@ export const startRecording = (videoRef, mediaRecorderRef) => {
   return mediaRecorderRef
 }
 
-const handleDataAvailable = ({data}) => {
+//const [recordedChunks, setRecordedChunks] = useState([])
+export const handleDataAvailable = ({data}) => {
   if (data.size > 0) {
     setRecordedChunks(prev => prev.concat(data))
   }
