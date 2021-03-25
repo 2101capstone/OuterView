@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import Webcam from 'react-webcam'
-import {loadModels, runFacialRec} from './facialRecognition'
+import {loadModels, runFacialRec} from './vidHelperFunc'
 
 const Videoplayer = () => {
   const [isRec, setIsRec] = useState(false) //changed with button
   const [intervalId, setIntervalId] = useState('')
+  const [timer, setTimer] = useState(0)
 
   //load models with first render
   useEffect(() => {
@@ -12,26 +13,25 @@ const Videoplayer = () => {
     loadModels()
   }, [])
 
-  //run facial recognition on the camera feed. refresh every 2 seconds
+  //if isRec, then run facial recognition
   useEffect(() => {
     console.log('at the top', isRec)
     if (isRec) {
-      setIntervalId(setInterval(runFacialRec, 1000))
-      //console.log(isRec)
+      setIntervalId(setInterval(runFacialRec, 2000))
     } else {
-      //turn off face recog
       clearInterval(intervalId)
     }
   }, [isRec])
 
   return (
     <div>
+      <h3>{isRec ? 'Now Recording!' : ''}</h3>
+      <h5>{isRec ? timer : ''}</h5>
       <div>
         <Webcam audio={true} width={640} height={480} id="cam" />
       </div>
       <button type="button" onClick={() => setIsRec(prevState => !prevState)}>
-        {isRec ? 'End True' : 'Start False'}
-        Recording
+        {isRec ? 'End Recording' : 'Start Recording'}
       </button>
     </div>
   )
