@@ -43,6 +43,7 @@
   "dependencies": {
     "@google-cloud/speech": "^4.4.0",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "express": "^4.16.4",
@@ -59,6 +60,7 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/storage'
+import 'firebase/auth'
 import 'firebase/firestore'
 
 const firebaseConfig = {
@@ -15,6 +16,11 @@ firebase.initializeApp(firebaseConfig)
 
 const storage = firebase.storage()
 export const db = firebase.firestore()
+export const auth = firebase.auth()
+
+const provider = new firebase.auth.GoogleAuthProvider()
+provider.setCustomParameters({prompt: 'select_account'})
+export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
 db.settings({timeStampsInSnapshots: true})
 
