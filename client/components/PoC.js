@@ -68,7 +68,7 @@ const PoC = () => {
   //---------RECORDING---------//
   const handleStartCaptureClick = useCallback(() => {
     setCapturing(true)
-    console.log('started')
+    console.log('Capturing started')
     mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
       mimeType: 'video/webm'
     })
@@ -89,11 +89,11 @@ const PoC = () => {
   )
 
   const handleStopCaptureClick = useCallback(() => {
-    console.log('stop')
+    console.log('Capturing Stopped!')
     mediaRecorderRef.current.stop()
     setCapturing(false)
     setInitializing(false)
-    console.log(reactions)
+    // console.log(reactions)
   }, [mediaRecorderRef, videoRef, setCapturing, setInitializing])
 
   const handleDownload = useCallback(() => {
@@ -154,13 +154,13 @@ const PoC = () => {
           )}
         </div>
       </div>
-      <div>
+      {/* <div>
         <SpeechToText
           startCapture={handleStartCaptureClick}
           stopCapture={handleStopCaptureClick}
           isCapturing={capturing}
         />
-      </div>
+      </div> */}
     </div>
   )
 }
