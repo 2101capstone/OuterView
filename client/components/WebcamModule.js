@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Videoplayer from './Videoplayer'
 
+//top level module for webcam recording, facial recognition, transcription
 const WebcamModule = () => {
   const [showTranscript, setShowTranscript] = useState(false)
   return (

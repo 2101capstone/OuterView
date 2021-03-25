@@ -11,14 +11,14 @@ export const loadModels = () => {
 }
 
 export const runFacialRec = async () => {
-  let reactions = []
   const detections = await faceapi
     .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
     .withFaceLandmarks()
     .withFaceExpressions()
   if (detections.length) {
     console.log('Detected!')
-    reactions.push(detections[0].expressions)
+    console.log(detections[0].expressions)
+    //reactions.push(detections[0].expressions)
   } else {
     console.log('No Face here!')
   }
