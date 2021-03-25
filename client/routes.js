@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import SignUp from './components/SignUp'
 import {
   Login,
-  Signup,
   UserHome,
   PoC,
   FirebaseTest,
@@ -29,7 +29,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup" component={SignUp} />
         <Route exact path="/speech" component={SpeechToText} />
         <Route path="/camera" component={PoC} />
         <Route path="/cloud" component={Cloud} />
