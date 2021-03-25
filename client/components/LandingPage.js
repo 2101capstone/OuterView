@@ -9,7 +9,7 @@ const LandingPage = () => {
     <div>
       <h2 className="slogan"> Get your Outerview before your next interview</h2>
       <img
-        clasName="landing"
+        className="landing"
         src="https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all"
       />
       <h3> What is Outerview ?</h3>
