@@ -1,4 +1,6 @@
 import * as faceapi from 'face-api.js'
+import {storage} from './firebase'
+import {useRef, useCallback, useState} from 'react'
 
 //Load all the facial models into memory
 export const loadModels = () => {
@@ -22,4 +24,57 @@ export const runFacialRec = async () => {
   } else {
     console.log('No Face here!')
   }
+}
+
+export const handleUpload = file => {
+  const today = new Date()
+  const strDate = today.toISOString().substring(0, 10)
+  const uploadTask = storage.ref(`recording/test${strDate}.webm`).put(file)
+  uploadTask.on(
+    'state_changed',
+    snapshop => {},
+    error => {
+      console.log(error)
+    },
+    () => {
+      storage
+        .ref('images')
+        .child(test)
+        .getDownloadURL()
+        .then(url => {
+          console.log('Url of uploaded video: ', url)
+        })
+    }
+  )
+}
+
+export const startRecording = (
+  videoRef,
+  mediaRecorderRef,
+  handleDataAvailable
+) => {
+  console.log('started')
+  mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
+    mimeType: 'video/webm'
+  })
+  mediaRecorderRef.current.addEventListener(
+    'dataavailable',
+    handleDataAvailable
+  )
+  mediaRecorderRef.current.start()
+  return mediaRecorderRef
+}
+
+//const [recordedChunks, setRecordedChunks] = useState([])
+export const handleDataAvailable = ({data}) => {
+  if (data.size > 0) {
+    setRecordedChunks(prev => prev.concat(data))
+  }
+}
+
+export const stopRecording = mediaRecorderRef => {
+  console.log('Stop Recording')
+  mediaRecorderRef.current.stop()
+  return mediaRecorderRef
+  //console.log(reactions)
 }

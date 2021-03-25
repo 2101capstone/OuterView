@@ -35,7 +35,7 @@ const PoC = () => {
     if (capturing) {
       setInterval(async () => {
         //this line gets fired off after the capturing stops
-        // console.log('Capturing--->', capturing)
+        console.log('Capturing--->', capturing)
         if (initializing) {
           setInitializing(false)
         }
@@ -47,7 +47,7 @@ const PoC = () => {
           .withFaceLandmarks()
           .withFaceExpressions()
         if (detections.length) {
-          // console.log('Detected!')
+          console.log('Detected!')
           reactions.push(detections[0].expressions)
         } else {
           // console.log('No Face here!')
@@ -60,7 +60,7 @@ const PoC = () => {
       }, 2000)
     } else {
       setInterval(() => {
-        // console.log('Not Recording')
+        console.log('Not Recording')
       }, 2000)
     }
   })
@@ -68,7 +68,7 @@ const PoC = () => {
   //---------RECORDING---------//
   const handleStartCaptureClick = useCallback(() => {
     setCapturing(true)
-    console.log('started')
+    console.log('Capturing started')
     mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
       mimeType: 'video/webm'
     })
@@ -89,11 +89,11 @@ const PoC = () => {
   )
 
   const handleStopCaptureClick = useCallback(() => {
-    console.log('stop')
+    console.log('Capturing Stopped!')
     mediaRecorderRef.current.stop()
     setCapturing(false)
     setInitializing(false)
-    console.log(reactions)
+    // console.log(reactions)
   }, [mediaRecorderRef, videoRef, setCapturing, setInitializing])
 
   const handleDownload = useCallback(() => {
@@ -154,13 +154,13 @@ const PoC = () => {
           )}
         </div>
       </div>
-      <div>
+      {/* <div>
         <SpeechToText
           startCapture={handleStartCaptureClick}
           stopCapture={handleStopCaptureClick}
           isCapturing={capturing}
         />
-      </div>
+      </div> */}
     </div>
   )
 }
