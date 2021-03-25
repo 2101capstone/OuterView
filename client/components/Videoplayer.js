@@ -1,11 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef, useCallback} from 'react'
 import Webcam from 'react-webcam'
-import {loadModels, runFacialRec, handleUpload} from './vidHelperFunc'
+import {
+  loadModels,
+  runFacialRec,
+  startRecording,
+  stopRecording
+} from './vidHelperFunc'
 
 const Videoplayer = () => {
-  const [isRec, setIsRec] = useState(false) //changed with button
+  const [isFaceRec, setIsFaceRec] = useState(null)
   const [intervalId, setIntervalId] = useState('')
   const [timer, setTimer] = useState(0)
+  const [recordedChunks, setRecordedChunks] = React.useState([])
+  const videoRef = useRef(null)
+  let mediaRecorderRef = useRef(null)
 
   //load models with first render
   useEffect(() => {
@@ -13,25 +21,32 @@ const Videoplayer = () => {
     loadModels()
   }, [])
 
-  //if isRec, then run facial recognition
+  //if isFaceRec, then run facial recognition, start recording
   useEffect(() => {
-    console.log('at the top', isRec)
-    if (isRec) {
+    console.log('Face Detecting: ', isFaceRec)
+    if (isFaceRec) {
       setIntervalId(setInterval(runFacialRec, 2000))
-    } else {
+      mediaRecorderRef = startRecording(videoRef, mediaRecorderRef)
+    } else if (isFaceRec === false) {
+      mediaRecorderRef = stopRecording(mediaRecorderRef)
       clearInterval(intervalId)
     }
-  }, [isRec])
+  }, [isFaceRec])
 
   return (
     <div>
-      <h3>{isRec ? 'Now Recording!' : ''}</h3>
+      <h3>
+        {isFaceRec ? 'Face Recognition is On!' : 'Face Recognition is Off!'}
+      </h3>
       <h5>Timer: {timer}</h5>
       <div>
-        <Webcam audio={true} width={640} height={480} id="cam" />
+        <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
       </div>
-      <button type="button" onClick={() => setIsRec(prevState => !prevState)}>
-        {isRec ? 'End Recording' : 'Start Recording'}
+      <button
+        type="button"
+        onClick={() => setIsFaceRec(prevState => !prevState)}
+      >
+        {isFaceRec ? 'End Recording' : 'Start Recording'}
       </button>
     </div>
   )
