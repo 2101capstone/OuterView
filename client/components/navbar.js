@@ -6,7 +6,10 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>BOILERMAKER</h1>
+    <img
+      className="logo"
+      src="https://t3.ftcdn.net/jpg/03/77/39/40/360_F_377394025_IFRmPetem8QsKhOSmUYIlOUMnLYGyaX7.jpg"
+    />
     <nav>
       {isLoggedIn ? (
         <div>

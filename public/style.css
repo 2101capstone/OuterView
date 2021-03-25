@@ -1,13 +1,22 @@
 body {
   font-family: sans-serif;
+  background-color: #74b2f8;
 }
 
 a {
   text-decoration: none;
+  font-size: 20px;
 }
 
 label {
   display: block;
+}
+nav {
+  background-color: #0b3968;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 nav a {
@@ -61,4 +70,50 @@ button {
   padding: 10px;
   border-radius: 5px;
   background: transparent;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #c5fd91;
+  font-size: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #19a6dd;
+  font-size: 20px;
+}
+
+/* .landing {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  Padding: 20px;
+} */
+
+img.logo {
+  width: 10vw;
+  height: 10vh;
+}
+
+div.analytics {
+  margin-right: 6vw;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  background-color: #0b3968;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

@@ -63,6 +63,7 @@ const WordCloud = () => {
 
   return (
     <div>
+      <h3> Word Cloud</h3>
       <Chart width={500} height={500} series={series} minY={0}>
         <Transform method="transpose">
           <Cloud
@@ -74,12 +75,13 @@ const WordCloud = () => {
           />
         </Transform>
       </Chart>
+      <h3> Bar Graph</h3>
       <Chart width={500} height={500} series={series} minY={0}>
         <Transform method="transpose">
           <Bars innerPadding={5} groupPadding={10} />
         </Transform>
       </Chart>
-
+      <h3> Pie graph</h3>
       <Chart width={500} height={500} series={series} minY={0}>
         <Transform method="transpose">
           <Pies innerPadding={5} groupPadding={10} />

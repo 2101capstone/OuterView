@@ -8,7 +8,7 @@ import {SpeechToText} from './index'
 const PoC = () => {
   let videoRef = useRef(null)
   const canvasRef = useRef(null)
-  const mediaRecorderRef = React.useRef(null)
+  const mediaRecorderRef = React.useState(null)
   const [initializing, setInitializing] = useState(false)
   const [capturing, setCapturing] = useState(false)
   const [recordedChunks, setRecordedChunks] = React.useState([])
@@ -35,7 +35,7 @@ const PoC = () => {
     if (capturing) {
       setInterval(async () => {
         //this line gets fired off after the capturing stops
-        // console.log('Capturing--->', capturing)
+        console.log('Capturing--->', capturing)
         if (initializing) {
           setInitializing(false)
         }
@@ -47,7 +47,7 @@ const PoC = () => {
           .withFaceLandmarks()
           .withFaceExpressions()
         if (detections.length) {
-          // console.log('Detected!')
+          console.log('Detected!')
           reactions.push(detections[0].expressions)
         } else {
           // console.log('No Face here!')
@@ -60,7 +60,7 @@ const PoC = () => {
       }, 2000)
     } else {
       setInterval(() => {
-        // console.log('Not Recording')
+        console.log('Not Recording')
       }, 2000)
     }
   })
