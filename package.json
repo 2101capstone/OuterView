@@ -43,6 +43,7 @@
   "dependencies": {
     "@google-cloud/speech": "^4.4.0",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "express": "^4.16.4",
@@ -68,6 +69,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "rumble-charts": "^3.1.2",
     "sequelize": "^5.3.1",
     "socket.io": "^2.2.0",
     "ssri": "^8.0.1"
