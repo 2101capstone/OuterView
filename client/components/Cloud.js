@@ -23,12 +23,15 @@ import {
 } from 'rumble-charts'
 import React from 'react'
 
-const WordCloud = () => {
+const WordCloud = props => {
   //use this fake data for now
+  const dummydata =
+    'one two two three three three four four four four five five five five five six six six six six six seven seven seven seven seven seven seven eight eight eight eight eight eight eight eight nine nine nine nine nine nine nine nine nine ten ten ten ten ten ten ten ten ten ten'
+
   // test
-  const transcript =
-    // need to pass in the transcript
-    'Hello, my name is benny i like to code and wish i could doe all day. where will i be coding next. to code or not to code that is the question'
+  const {transcript} = props
+
+  // need to pass in the transcript
 
   if (transcript) {
     const seriesConstruct = () => {

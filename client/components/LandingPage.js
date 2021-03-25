@@ -3,15 +3,16 @@ import WordCloud from './Cloud'
 
 const LandingPage = () => {
   const dummy =
-    ' This Line is used as data to show how the following anaytics can be viewd'
+    'one two two three three three four four four four five five five five five six six six six six six seven seven seven seven seven seven seven eight eight eight eight eight eight eight eight nine nine nine nine nine nine nine nine nine ten ten ten ten ten ten ten ten ten ten'
 
   return (
     <div>
+      <h1>Welcome to Outerview</h1>
       <img
         clasName="landing"
         src="https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all"
       />
-      <p>Welcome to Outerview</p>
+      <h3> What is Outerview ?</h3>
       <h3> How does it all work?</h3>
       <h5> Facial Data</h5>
       <p>
@@ -47,8 +48,8 @@ const LandingPage = () => {
       </p>
 
       <p>
-        Step 3: Converting the sound to data, after speech ends it then makes
-        determinations based on programming and speech patterns, making
+        Step 3: Converting the sound to data, after speech ends our application
+        makes determinations based on programming and speech patterns, making
         hypotheses about what the user is actually saying. After determining
         what the users most likely said, the software transcribes the
         conversation into text.
@@ -56,7 +57,8 @@ const LandingPage = () => {
       <h2> Voice Analytics</h2>
       <div className="containerLp">
         <div className="analytics">
-          <WordCloud />
+          <p> example: {dummy}</p>
+          <WordCloud transcript={dummy} />
         </div>
       </div>
     </div>
