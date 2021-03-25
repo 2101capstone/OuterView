@@ -1,26 +1,4 @@
-import {
-  // main component
-  Chart,
-  // graphs
-  Bars,
-  Cloud,
-  Dots,
-  Labels,
-  Lines,
-  Pies,
-  RadialLines,
-  Ticks,
-  Title,
-  // wrappers
-  Layer,
-  Animate,
-  Transform,
-  Handlers,
-  // helpers
-  helpers,
-  DropShadow,
-  Gradient
-} from 'rumble-charts'
+import {Chart, Bars, Cloud, Pies, Transform} from 'rumble-charts'
 import React from 'react'
 
 const WordCloud = props => {
@@ -67,7 +45,7 @@ const WordCloud = props => {
   return (
     <div>
       <h3> Word Cloud</h3>
-      <Chart width={500} height={500} series={series} minY={0}>
+      <Chart width={400} height={400} series={series} minY={0}>
         <Transform method="transpose">
           <Cloud
             font="Helvetica"
@@ -79,13 +57,13 @@ const WordCloud = props => {
         </Transform>
       </Chart>
       <h3> Bar Graph</h3>
-      <Chart width={500} height={500} series={series} minY={0}>
+      <Chart width={600} height={300} series={series} minY={0}>
         <Transform method="transpose">
           <Bars innerPadding={5} groupPadding={10} />
         </Transform>
       </Chart>
       <h3> Pie graph</h3>
-      <Chart width={500} height={500} series={series} minY={0}>
+      <Chart width={400} height={400} series={series} minY={0}>
         <Transform method="transpose">
           <Pies innerPadding={5} groupPadding={10} />
         </Transform>

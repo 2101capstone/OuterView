@@ -100,16 +100,17 @@ img.logo {
   height: 10vh;
 }
 
-div.analytics {
+div.analytics,
+p {
   margin-right: 6vw;
   margin-bottom: 5vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   padding-right: 10px;
   padding-top: 10px;
   padding-left: 10px;
-  background-color: #a5cdf5;
+  /* background-color: #c5fd91; */
 }
 
 img {
@@ -123,4 +124,11 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.slogan {
+  font-family: verdana;
+  font-size: 400%;
+  text-align: center;
+  color: #c5fd91;
 }
