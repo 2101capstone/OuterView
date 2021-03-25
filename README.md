@@ -2,7 +2,7 @@
 
 ## Try the App!
 
-Link
+interviewprep-fsa.firebaseapp.com
 
 ## Features to Try!
 

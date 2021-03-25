@@ -8,10 +8,12 @@ import {
   UserHome,
   PoC,
   FirebaseTest,
-  SpeechToText
+  SpeechToText,
+  WebcamModule
 } from './components'
 import {me} from './store'
 import Cloud from './components/Cloud'
+import LandingPage from './components/LandingPage'
 
 /**
  * COMPONENT
@@ -27,20 +29,23 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/speech" component={SpeechToText} />
         <Route path="/camera" component={PoC} />
+        <Route path="/landingpage" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
         <Route path="/upload" component={FirebaseTest} />
+        <Route path="/newCamera" component={WebcamModule} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            <Route path="/userhome" component={UserHome} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        <Route component={LandingPage} />
       </Switch>
     )
   }
