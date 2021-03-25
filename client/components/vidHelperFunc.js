@@ -38,8 +38,8 @@ export const handleUpload = file => {
     },
     () => {
       storage
-        .ref('images')
-        .child(test)
+        .ref()
+        .child(`recording/${strDate}.webm`)
         .getDownloadURL()
         .then(url => {
           console.log('Url of uploaded video: ', url)
