@@ -4,7 +4,8 @@ import {
   loadModels,
   runFacialRec,
   startRecording,
-  stopRecording
+  stopRecording,
+  handleUpload
 } from './vidHelperFunc'
 
 const Videoplayer = () => {
@@ -49,6 +50,7 @@ const Videoplayer = () => {
         type: 'video/webm'
       })
       const url = URL.createObjectURL(blob)
+      handleUpload(blob)
       console.log('blob url', url)
       const a = document.createElement('a')
       document.body.appendChild(a)

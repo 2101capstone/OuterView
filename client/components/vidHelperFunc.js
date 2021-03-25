@@ -29,7 +29,7 @@ export const runFacialRec = async () => {
 export const handleUpload = file => {
   const today = new Date()
   const strDate = today.toISOString().substring(0, 10)
-  const uploadTask = storage.ref(`recording/test${strDate}.webm`).put(file)
+  const uploadTask = storage.ref(`recording/${strDate}.webm`).put(file)
   uploadTask.on(
     'state_changed',
     snapshop => {},
