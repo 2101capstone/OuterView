@@ -8,7 +8,8 @@ import {
   UserHome,
   PoC,
   FirebaseTest,
-  SpeechToText
+  SpeechToText,
+  WebcamModule
 } from './components'
 import {me} from './store'
 import Cloud from './components/Cloud'
@@ -33,6 +34,7 @@ class Routes extends Component {
         <Route path="/camera" component={PoC} />
         <Route path="/cloud" component={Cloud} />
         <Route path="/upload" component={FirebaseTest} />
+        <Route path="/newCamera" component={WebcamModule} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
