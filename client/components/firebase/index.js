@@ -18,11 +18,4 @@ export const db = firebase.firestore()
 
 db.settings({timeStampsInSnapshots: true})
 
-db.collection('Users')
-  .get()
-  .then(snapshot => {
-    snapshot.docs.forEach(doc => {
-      console.log('THIS IS YOUR DATA FROM FIRESTORE---->', doc.data().name)
-    })
-  })
 export {storage, firebase as default}
