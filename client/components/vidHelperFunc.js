@@ -12,6 +12,7 @@ export const loadModels = () => {
   ])
 }
 
+//run the facial Recognition when called after button click
 export const runFacialRec = async () => {
   const detections = await faceapi
     .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
@@ -26,6 +27,7 @@ export const runFacialRec = async () => {
   }
 }
 
+//upload any given file to fire storage. New feat: add a 2nd param for upload loc
 export const handleUpload = file => {
   const today = new Date()
   const strDate = today.toISOString().substring(0, 10)
@@ -48,6 +50,7 @@ export const handleUpload = file => {
   )
 }
 
+//start recording when button is clicked
 export const startRecording = (
   videoRef,
   mediaRecorderRef,
@@ -65,13 +68,7 @@ export const startRecording = (
   return mediaRecorderRef
 }
 
-//const [recordedChunks, setRecordedChunks] = useState([])
-export const handleDataAvailable = ({data}) => {
-  if (data.size > 0) {
-    setRecordedChunks(prev => prev.concat(data))
-  }
-}
-
+//stop recording when button is clicked
 export const stopRecording = mediaRecorderRef => {
   console.log('Stop Recording')
   mediaRecorderRef.current.stop()
