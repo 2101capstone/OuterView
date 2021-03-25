@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Webcam from 'react-webcam'
-import {loadModels, runFacialRec} from './vidHelperFunc'
+import {loadModels, runFacialRec, handleUpload} from './vidHelperFunc'
 
 const Videoplayer = () => {
   const [isRec, setIsRec] = useState(false) //changed with button
@@ -26,7 +26,7 @@ const Videoplayer = () => {
   return (
     <div>
       <h3>{isRec ? 'Now Recording!' : ''}</h3>
-      <h5>{isRec ? timer : ''}</h5>
+      <h5>Timer: {timer}</h5>
       <div>
         <Webcam audio={true} width={640} height={480} id="cam" />
       </div>
