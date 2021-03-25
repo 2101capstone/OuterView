@@ -13,7 +13,7 @@ const LandingPage = () => {
       />
       <p>Welcome to outerview</p>
       <h2> Voice Analytics</h2>
-      <div className="container">
+      <div className="containerLp">
         <div className="analytics">
           <WordCloud />
         </div>
