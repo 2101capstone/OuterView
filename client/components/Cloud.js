@@ -29,8 +29,8 @@ const WordCloud = props => {
     'one two two three three three four four four four five five five five five six six six six six six seven seven seven seven seven seven seven eight eight eight eight eight eight eight eight nine nine nine nine nine nine nine nine nine ten ten ten ten ten ten ten ten ten ten'
 
   // test
-  const {transcript} = props
-
+  let {transcript} = props
+  if (!props.transcript) transcript = dummydata
   // need to pass in the transcript
 
   if (transcript) {
