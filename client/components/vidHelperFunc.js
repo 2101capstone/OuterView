@@ -12,12 +12,7 @@ export const loadModels = () => {
 }
 
 //run the facial Recognition when called after button click
-export const runFacialRec = async (
-  reactions,
-  setReactions,
-  canvasRef,
-  setCanvasRef
-) => {
+export const runFacialRec = async (reactions, setReactions) => {
   const detections = await faceapi
     .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
     .withFaceLandmarks()
@@ -70,6 +65,7 @@ export const stopRecording = mediaRecorderRef => {
   //console.log(reactions)
 }
 
+//download the video to local storage. also uplloads to fire storage
 export const handleDownload = recordedChunks => {
   if (recordedChunks.length) {
     const blob = new Blob(recordedChunks, {

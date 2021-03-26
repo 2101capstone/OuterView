@@ -16,8 +16,7 @@ const Videoplayer = () => {
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
-  //const canvasRef = useRef(null)
-  const [canvasRef, setCanvasRef] = useState(useRef(null))
+  const canvasRef = useRef(null)
   let mediaRecorderRef = useRef(null)
 
   //load models with first render
@@ -36,16 +35,7 @@ const Videoplayer = () => {
   useEffect(() => {
     console.log('Face Detecting: ', isFaceRec)
     if (isFaceRec) {
-      setIntervalId(
-        setInterval(
-          runFacialRec,
-          2000,
-          reactions,
-          setReactions,
-          canvasRef,
-          setCanvasRef
-        )
-      )
+      setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
@@ -58,12 +48,12 @@ const Videoplayer = () => {
     }
   }, [isFaceRec])
 
+  //something here to allow turn off and on of face net
   useEffect(() => {
-    //turn on image face points
     console.log('hello from show face')
   }, [showFace])
 
-  //run when user wants to download and submit video
+  //to download and submit video
   const handleSubmitClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
