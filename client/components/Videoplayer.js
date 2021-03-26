@@ -11,7 +11,7 @@ import SpeechToTextV2 from './SpeechToTextV2'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
-  const [isFaceRec, setIsFaceRec] = useState(null)
+  const [isRecord, setisRecord] = useState(null)
   const [showFace, setShowFace] = useState(false) //not connected
   const [intervalId, setIntervalId] = useState('')
   const [reactions, setReactions] = useState([])
@@ -38,9 +38,9 @@ const Videoplayer = () => {
     }
   }
 
-  //if isFaceRec, then run facial recognition, start recording
+  //if isRecord, then run facial recognition, start recording
   useEffect(() => {
-    if (isFaceRec) {
+    if (isRecord) {
       setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
@@ -48,7 +48,7 @@ const Videoplayer = () => {
         handleDataAvailable
       ) //start video recording
       recognition.start() //start voice Recognition
-    } else if (isFaceRec === false) {
+    } else if (isRecord === false) {
       //console.log('saved reactions:', reactions)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
@@ -58,7 +58,7 @@ const Videoplayer = () => {
       console.log('Final:', transcript)
       clearInterval(intervalId)
     }
-  }, [isFaceRec])
+  }, [isRecord])
 
   //something here to allow turn off and on of face net
   useEffect(() => {
@@ -85,9 +85,7 @@ const Videoplayer = () => {
 
   return (
     <div>
-      <h3>
-        {isFaceRec ? 'Face Recognition and Recording!' : 'Not Recording!'}
-      </h3>
+      <h3>{isRecord ? 'Face Recognition and Recording!' : 'Not Recording!'}</h3>
       <h5>Timer: 0</h5>
       <div>
         <canvas ref={canvasRef} id="myCanvas" />
@@ -96,11 +94,11 @@ const Videoplayer = () => {
       <button
         id="startStopRec"
         type="button"
-        onClick={() => setIsFaceRec(prevState => !prevState)}
+        onClick={() => setisRecord(prevState => !prevState)}
       >
-        {isFaceRec ? 'End Recording' : 'Start Recording'}
+        {isRecord ? 'End Recording' : 'Start Recording'}
       </button>
-      {isFaceRec === false ? (
+      {isRecord === false ? (
         <button id="finishVid" type="button" onClick={handleSubmitClick}>
           Download and Submit
         </button>
@@ -121,7 +119,7 @@ const Videoplayer = () => {
         {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
       </button>
       {showTranscript ? (
-        <SpeechToTextV2 words={words} isFaceRec={isFaceRec} />
+        <SpeechToTextV2 words={words} isRecord={isRecord} />
       ) : (
         '<div />'
       )}
