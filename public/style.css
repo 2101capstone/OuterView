@@ -29,6 +29,18 @@ form div {
   display: inline-block;
 }
 
+#cam {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  position: absolute;
+}
+
 #textbox {
   height: 200px;
   width: 500px;
@@ -69,7 +81,8 @@ button {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  background: transparent;
+  color: #64f58d;
+  background: #011936;
 }
 
 a,
