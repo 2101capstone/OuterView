@@ -6,7 +6,7 @@ const SpeechToTextV2 = props => {
     <>
       <div className="container">
         <div className="transcripts-div">
-          {isFaceRec ? <span>Speaking...</span> : <span>Not Recording</span>}
+          {isRecord ? <span>Speaking...</span> : <span>Not Recording</span>}
           <div>
             {words.map(word => (
               <p key={word}>{word}</p>
