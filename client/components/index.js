@@ -6,6 +6,7 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as SignUp} from './SignUp'
+export {default as LogIn} from './LogIn'
 export {Login, Signup} from './auth-form'
 export {default as PoC} from './PoC'
 export {default as FirebaseTest} from './firebaseTest'

@@ -5,6 +5,7 @@ import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
 import {
   Login,
+  LogIn,
   SignUp,
   UserHome,
   PoC,
@@ -31,7 +32,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <AuthProvider>
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route exact path="/speech" component={SpeechToText} />
           <Route path="/camera" component={PoC} />
