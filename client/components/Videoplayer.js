@@ -123,7 +123,7 @@ const Videoplayer = () => {
       {showTranscript ? (
         <SpeechToTextV2 words={words} isFaceRec={isFaceRec} />
       ) : (
-        '<div />'
+        <h1></h1>
       )}
     </div>
   )
