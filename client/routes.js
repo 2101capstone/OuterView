@@ -4,7 +4,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
 import {
-  Login,
+  PrivateRoute,
   LogIn,
   SignUp,
   ProfilePage,
@@ -37,7 +37,7 @@ class Routes extends Component {
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route exact path="/speech" component={SpeechToText} />
-          <Route path="/dashboard" component={ProfilePage} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
           <Route path="/camera" component={PoC} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/landingpage" component={LandingPage} />
