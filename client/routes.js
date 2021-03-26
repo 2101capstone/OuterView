@@ -7,6 +7,7 @@ import {
   Login,
   LogIn,
   SignUp,
+  ProfilePage,
   UserHome,
   PoC,
   FirebaseTest,
@@ -35,6 +36,7 @@ class Routes extends Component {
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route exact path="/speech" component={SpeechToText} />
+          <Route path="/dashboard" component={ProfilePage} />
           <Route path="/camera" component={PoC} />
           <Route path="/landingpage" component={LandingPage} />
           <Route path="/cloud" component={Cloud} />
