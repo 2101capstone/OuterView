@@ -40,15 +40,15 @@ class Routes extends Component {
           <Route path="/cloud" component={Cloud} />
           <Route path="/upload" component={FirebaseTest} />
           <Route path="/newCamera" component={WebcamModule} />
-          {isLoggedIn && (
-            <Switch>
-              {/* Routes placed here are only available after logging in */}
-              <Route path="/userhome" component={UserHome} />
-            </Switch>
-          )}
-          {/* Displays our Login component as a fallback */}
-          <Route component={LandingPage} />
         </AuthProvider>
+        {isLoggedIn && (
+          <Switch>
+            {/* Routes placed here are only available after logging in */}
+            <Route path="/userhome" component={UserHome} />
+          </Switch>
+        )}
+        {/* Displays our Login component as a fallback */}
+        <Route component={LandingPage} />
       </Switch>
     )
   }
