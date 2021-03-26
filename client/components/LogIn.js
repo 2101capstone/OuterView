@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const LogIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const {signup} = useAuth()
+  const {login} = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -16,9 +16,9 @@ const LogIn = () => {
     try {
       setError('')
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value)
     } catch {
-      setError('Failed to create an account')
+      setError('Failed to sign in')
     }
     setLoading(false)
   }
