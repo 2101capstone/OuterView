@@ -1,18 +1,20 @@
-# InterviewPrep - Working Name
+# OuterView
 
 ## Try the App!
 
-[interviewprep-fsa.firebaseapp.com](interviewprep-fsa.firebaseapp.com)
+[interviewprep-fsa.firebaseapp.com](https://interviewprep-fsa.firebaseapp.com/)
 
 ## Features to Try!
 
 ## Technologies
 
 - Front-End
-  - React.js, Redux.js, HTML5, CSS3
+  - React.js, Redux.js, HTML5, CSS3, RumbleCharts, Google OAuth
 - Back-End
   - Google Firebase (Storage and Firestore)
 - External API/Libraries
+  - [Face-API.js](https://github.com/justadudewhohacks/face-api.js/):Tensorflow Wrapper for facial recognition and emotion detection
+  - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API): Enables speech recognition into web apps
 - Deployment
   - Google Firebase: Live website
   - Mocha/Chai: Unit testing of modules for faster developement
@@ -21,17 +23,16 @@
 ## Future Roadmap
 
 - Multi Browser Usability
-- Multi Word Phrase (sort of, kind of, etc)
+- Multi Word Phrase ('sort of', 'you know', etc)
+- Realtime Analytics
 
 ## Authors
 
-[Kush Patel](https://www.linkedin.com/in/kushpatel21/) - [Charles Lucas](https://www.linkedin.com/in/charleslucas1/) - Michael Busto - [Benny Khoker](https://www.linkedin.com/in/benny-khoker/)
+[Kush Patel](https://www.linkedin.com/in/kushpatel21/) - [Charles Lucas](https://www.linkedin.com/in/charleslucas1/) - [Michael Busto](https://www.linkedin.com/in/michael-busto/) - [Benny Khoker](https://www.linkedin.com/in/benny-khoker/)
 
-## Installation
+## Installation on local
 
 - To install all dependencies: `npm run install`
-- To create database and seed: `createdb NAME && createdb NAME-test`
-- Seed Database with products and accounts: `npm run seed`
 - To Run App!: `npm run start-dev`
 
 ##### Store your private infromation in a new file secrets.js\* or global environmenal variables

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SpeechToTextV2 = props => {
-  const {words, isFaceRec} = props
+  const {words, isRecord} = props
   return (
     <>
       <div className="container">
