@@ -19,7 +19,7 @@ export const runFacialRec = async (reactions, setReactions) => {
     .withFaceExpressions()
   if (detections.length) {
     //console.log('Detected!')
-    console.log(detections[0].expressions)
+    //console.log(detections[0].expressions)
     setReactions([...reactions, detections[0].expressions])
     //reactions.push(detections[0].expressions)
   } else {
