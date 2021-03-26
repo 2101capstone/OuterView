@@ -125,7 +125,7 @@ const Videoplayer = () => {
       {showTranscript ? (
         <SpeechToTextV2 words={words} isRecord={isRecord} />
       ) : (
-        '<div />'
+        <h1></h1>
       )}
     </div>
   )
