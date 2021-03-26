@@ -43,7 +43,7 @@ const Videoplayer = () => {
   useEffect(() => {
     if (isRecord) {
       //Start Recording
-      setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
+      setIntervalId(setInterval(runFacialRec, 1000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
