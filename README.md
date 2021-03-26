@@ -2,7 +2,7 @@
 
 ## Try the App!
 
-interviewprep-fsa.firebaseapp.com
+[interviewprep-fsa.firebaseapp.com](interviewprep-fsa.firebaseapp.com)
 
 ## Features to Try!
 
@@ -19,6 +19,9 @@ interviewprep-fsa.firebaseapp.com
   - Travis: Continuous Integration and Continuous Deployment
 
 ## Future Roadmap
+
+- Multi Browser Usability
+- Multi Word Phrase (sort of, kind of, etc)
 
 ## Authors
 

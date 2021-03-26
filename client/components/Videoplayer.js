@@ -7,18 +7,25 @@ import {
   stopRecording,
   handleDownload
 } from './vidHelperFunc'
+import SpeechToTextV2 from './SpeechToTextV2'
+import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
   const [isFaceRec, setIsFaceRec] = useState(null)
-  const [showFace, setShowFace] = useState(false)
+  const [showFace, setShowFace] = useState(false) //not connected
   const [intervalId, setIntervalId] = useState('')
   const [reactions, setReactions] = useState([])
+  const [showTranscript, setShowTranscript] = useState(false)
+  const [words, setWords] = useState([])
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
-  let mediaRecorderRef = useRef(null)
 
+  let mediaRecorderRef = useRef(null)
+  recognition.continuous = true
+  recognition.interimResults = true
+  recognition.lang = 'en-US'
   //load models with first render
   useEffect(() => {
     console.log('Face Models Loaded')
@@ -33,24 +40,29 @@ const Videoplayer = () => {
 
   //if isFaceRec, then run facial recognition, start recording
   useEffect(() => {
-    console.log('Face Detecting: ', isFaceRec)
     if (isFaceRec) {
       setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
         handleDataAvailable
-      )
+      ) //start video recording
+      recognition.start() //start voice Recognition
     } else if (isFaceRec === false) {
-      console.log('saved reactions:', reactions)
-      mediaRecorderRef = stopRecording(mediaRecorderRef)
+      //console.log('saved reactions:', reactions)
+      mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
+      recognition.stop() //ending voice rec
+      const transcript = words.join(' ')
+      countFiller(transcript)
+      console.log(fillerWords)
+      console.log('Final:', transcript)
       clearInterval(intervalId)
     }
   }, [isFaceRec])
 
   //something here to allow turn off and on of face net
   useEffect(() => {
-    console.log('hello from show face')
+    //console.log('hello from show face')
   }, [showFace])
 
   //to download and submit video
@@ -58,6 +70,17 @@ const Videoplayer = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
     console.log('Downloaded to local and Uploaded to Firebase')
+  }
+
+  // for
+  recognition.onresult = event => {
+    //console.log(event.results)
+    setWords(
+      Array.from(event.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+    )
+    //console.log('words', words)
   }
 
   return (
@@ -91,6 +114,17 @@ const Videoplayer = () => {
       >
         Render Face Points
       </button>
+      <button
+        type="button"
+        onClick={() => setShowTranscript(prevState => !prevState)}
+      >
+        {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
+      </button>
+      {showTranscript ? (
+        <SpeechToTextV2 words={words} isFaceRec={isFaceRec} />
+      ) : (
+        '<div />'
+      )}
     </div>
   )
 }
