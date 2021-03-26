@@ -69,7 +69,8 @@ button {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  background: transparent;
+  color: #64f58d;
+  background: #011936;
 }
 
 a,

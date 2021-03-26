@@ -11,7 +11,8 @@ import {
 const Videoplayer = () => {
   const [isFaceRec, setIsFaceRec] = useState(null)
   const [intervalId, setIntervalId] = useState('')
-  const [timer, setTimer] = useState(0)
+  const [reactions, setReactions] = useState([])
+  //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   let mediaRecorderRef = useRef(null)
@@ -32,18 +33,20 @@ const Videoplayer = () => {
   useEffect(() => {
     console.log('Face Detecting: ', isFaceRec)
     if (isFaceRec) {
-      setIntervalId(setInterval(runFacialRec, 2000))
+      setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
         handleDataAvailable
       )
     } else if (isFaceRec === false) {
+      console.log('saved reactions:', reactions)
       mediaRecorderRef = stopRecording(mediaRecorderRef)
       clearInterval(intervalId)
     }
   }, [isFaceRec])
 
+  //run when user wants to download and submit video
   const handleSubmitClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
@@ -55,7 +58,7 @@ const Videoplayer = () => {
       <h3>
         {isFaceRec ? 'Face Recognition and Recording!' : 'Not Recording!'}
       </h3>
-      <h5>Timer: {timer}</h5>
+      <h5>Timer: 0</h5>
       <div>
         <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
       </div>

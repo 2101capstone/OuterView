@@ -11,11 +11,11 @@ interviewprep-fsa.firebaseapp.com
 - Front-End
   - React.js, Redux.js, HTML5, CSS3
 - Back-End
-  - Node.js, Google Firebase
+  - Google Firebase (Storage and Firestore)
 - External API/Libraries
 - Deployment
-  - Google Firebase: Live website with public URL
-  - Mocha/Chai: Unit testing of 90% of modules for faster developement
+  - Google Firebase: Live website
+  - Mocha/Chai: Unit testing of modules for faster developement
   - Travis: Continuous Integration and Continuous Deployment
 
 ## Future Roadmap

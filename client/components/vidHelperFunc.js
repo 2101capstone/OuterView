@@ -1,6 +1,5 @@
 import * as faceapi from 'face-api.js'
 import {storage} from './firebase'
-import {useRef, useCallback, useState} from 'react'
 
 //Load all the facial models into memory
 export const loadModels = () => {
@@ -13,41 +12,19 @@ export const loadModels = () => {
 }
 
 //run the facial Recognition when called after button click
-export const runFacialRec = async () => {
+export const runFacialRec = async (reactions, setReactions) => {
   const detections = await faceapi
     .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
     .withFaceLandmarks()
     .withFaceExpressions()
   if (detections.length) {
-    console.log('Detected!')
+    //console.log('Detected!')
     console.log(detections[0].expressions)
+    setReactions([...reactions, detections[0].expressions])
     //reactions.push(detections[0].expressions)
   } else {
     console.log('No Face here!')
   }
-}
-
-//upload any given file to fire storage. New feat: add a 2nd param for upload loc
-export const handleUpload = file => {
-  const today = new Date()
-  const strDate = today.toISOString().substring(0, 10)
-  const uploadTask = storage.ref(`recording/${strDate}.webm`).put(file)
-  uploadTask.on(
-    'state_changed',
-    snapshop => {},
-    error => {
-      console.log(error)
-    },
-    () => {
-      storage
-        .ref()
-        .child(`recording/${strDate}.webm`)
-        .getDownloadURL()
-        .then(url => {
-          console.log('Url of uploaded video: ', url)
-        })
-    }
-  )
 }
 
 //start recording when button is clicked
@@ -82,7 +59,8 @@ export const handleDownload = recordedChunks => {
       type: 'video/webm'
     })
     const url = URL.createObjectURL(blob)
-    handleUpload(blob)
+    const publicUrl = handleUpload(blob)
+    console.log('publicUrl', publicUrl)
     //console.log('blob url', url)
     const a = document.createElement('a')
     document.body.appendChild(a)
@@ -92,4 +70,31 @@ export const handleDownload = recordedChunks => {
     a.click()
     window.URL.revokeObjectURL(url)
   }
+}
+
+//upload any given file to fire storage. New feat: add a 2nd param for upload loc
+export const handleUpload = file => {
+  const today = new Date()
+  const strDate = today.toISOString().substring(0, 10)
+  const uploadTask = storage.ref(`recording/${strDate}.webm`).put(file)
+  uploadTask.on(
+    'state_changed',
+    snapshop => {},
+    error => {
+      console.log(error)
+    },
+    () => {
+      storage
+        .ref()
+        .child(`recording/${strDate}.webm`)
+        .getDownloadURL()
+        .then(url => {
+          console.log('Url of uploaded video: ', url)
+        })
+    }
+  )
+  return storage
+    .ref()
+    .child(`recording/${strDate}.webm`)
+    .getDownloadURL()
 }
