@@ -10,11 +10,14 @@ import {
 
 const Videoplayer = () => {
   const [isFaceRec, setIsFaceRec] = useState(null)
+  const [showFace, setShowFace] = useState(false)
   const [intervalId, setIntervalId] = useState('')
   const [reactions, setReactions] = useState([])
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
+  //const canvasRef = useRef(null)
+  const [canvasRef, setCanvasRef] = useState(useRef(null))
   let mediaRecorderRef = useRef(null)
 
   //load models with first render
@@ -33,7 +36,16 @@ const Videoplayer = () => {
   useEffect(() => {
     console.log('Face Detecting: ', isFaceRec)
     if (isFaceRec) {
-      setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
+      setIntervalId(
+        setInterval(
+          runFacialRec,
+          2000,
+          reactions,
+          setReactions,
+          canvasRef,
+          setCanvasRef
+        )
+      )
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
@@ -45,6 +57,11 @@ const Videoplayer = () => {
       clearInterval(intervalId)
     }
   }, [isFaceRec])
+
+  useEffect(() => {
+    //turn on image face points
+    console.log('hello from show face')
+  }, [showFace])
 
   //run when user wants to download and submit video
   const handleSubmitClick = () => {
@@ -60,23 +77,30 @@ const Videoplayer = () => {
       </h3>
       <h5>Timer: 0</h5>
       <div>
+        <canvas ref={canvasRef} id="myCanvas" />
         <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
       </div>
       <button
+        id="startStopRec"
         type="button"
         onClick={() => setIsFaceRec(prevState => !prevState)}
       >
         {isFaceRec ? 'End Recording' : 'Start Recording'}
       </button>
-      <div>
-        {isFaceRec === false ? (
-          <button type="button" onClick={handleSubmitClick}>
-            Download and Submit
-          </button>
-        ) : (
-          <div />
-        )}
-      </div>
+      {isFaceRec === false ? (
+        <button id="finishVid" type="button" onClick={handleSubmitClick}>
+          Download and Submit
+        </button>
+      ) : (
+        ''
+      )}
+      <button
+        id="renderFace"
+        type="button"
+        onClick={() => setShowFace(prevState => !prevState)}
+      >
+        Render Face Points
+      </button>
     </div>
   )
 }

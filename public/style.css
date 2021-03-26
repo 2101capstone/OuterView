@@ -29,6 +29,18 @@ form div {
   display: inline-block;
 }
 
+#cam {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  position: absolute;
+}
+
 #textbox {
   height: 200px;
   width: 500px;
