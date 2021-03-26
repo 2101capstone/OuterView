@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
+import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
 import {
   Login,
@@ -29,23 +30,24 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route exact path="/speech" component={SpeechToText} />
-        <Route path="/camera" component={PoC} />
-        <Route path="/landingpage" component={LandingPage} />
-        <Route path="/cloud" component={Cloud} />
-        <Route path="/upload" component={FirebaseTest} />
-        <Route path="/newCamera" component={WebcamModule} />
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/userhome" component={UserHome} />
-          </Switch>
-        )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={LandingPage} />
+        <AuthProvider>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route exact path="/speech" component={SpeechToText} />
+          <Route path="/camera" component={PoC} />
+          <Route path="/landingpage" component={LandingPage} />
+          <Route path="/cloud" component={Cloud} />
+          <Route path="/upload" component={FirebaseTest} />
+          <Route path="/newCamera" component={WebcamModule} />
+          {isLoggedIn && (
+            <Switch>
+              {/* Routes placed here are only available after logging in */}
+              <Route path="/userhome" component={UserHome} />
+            </Switch>
+          )}
+          {/* Displays our Login component as a fallback */}
+          <Route component={LandingPage} />
+        </AuthProvider>
       </Switch>
     )
   }

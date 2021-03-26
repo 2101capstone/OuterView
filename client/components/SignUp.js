@@ -52,7 +52,7 @@ const SignUp = () => {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Alread have an account? Log In
+        Already have an account? Log In
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ export function useAuth() {
 }
 export function AuthProvider({children}) {
   const [currentUser, setCurrentUser] = useState()
+  const [loading, setLoading] = useState(true)
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
@@ -15,6 +16,7 @@ export function AuthProvider({children}) {
     // auth.onAuthStateChange has attached to it a method that will unsubcribe the auth.onAuthStateChanged event
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
+      setLoading(false)
     })
     // unsubcribes from the event listener when unmounted
     return unsubscribe
@@ -24,5 +26,9 @@ export function AuthProvider({children}) {
     signup
   }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  )
 }
