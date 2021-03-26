@@ -12,6 +12,7 @@ import {
   PoC,
   FirebaseTest,
   SpeechToText,
+  ForgotPassword,
   WebcamModule
 } from './components'
 import {me} from './store'
@@ -38,6 +39,7 @@ class Routes extends Component {
           <Route exact path="/speech" component={SpeechToText} />
           <Route path="/dashboard" component={ProfilePage} />
           <Route path="/camera" component={PoC} />
+          <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/landingpage" component={LandingPage} />
           <Route path="/cloud" component={Cloud} />
           <Route path="/upload" component={FirebaseTest} />
