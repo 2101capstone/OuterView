@@ -78,6 +78,7 @@ const SpeechToText = () => {
 
   //when we recieve our results back we will set our Words state with the result.transcript
   recognition.onresult = event => {
+    console.log(event.results)
     setWords(
       Array.from(event.results)
         .map(result => result[0])
@@ -87,7 +88,7 @@ const SpeechToText = () => {
   //will save the transcipt
   const handleSaveTranscript = () => {
     let count = 0
-    const finalWords = words.join().split(' ')
+    const finalWords = words[0]
     //count the filler words
     finalWords.forEach(word => {
       if (!isNaN(fillerWords[word])) {
@@ -130,7 +131,6 @@ const SpeechToText = () => {
     }
 
     let finalGrade = calculateScore(count)
-
     //setting the filler word count
     setFillerWordTotalCount(count)
 
