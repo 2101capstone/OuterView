@@ -7,11 +7,12 @@ const ProfilePage = () => {
   const [error, setError] = useState('')
   const {currentUser, logout} = useAuth()
   const history = useHistory()
+
   async function handleLogout() {
     setError('')
     try {
       await logout()
-      history.pushState('/login')
+      history.push('/login')
     } catch {
       setError('Failed to log out')
     }
