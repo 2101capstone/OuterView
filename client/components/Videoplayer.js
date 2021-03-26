@@ -7,7 +7,7 @@ import {
   stopRecording,
   handleDownload
 } from './vidHelperFunc'
-
+import SpeechToTextV2 from './SpeechToTextV2'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
@@ -15,11 +15,13 @@ const Videoplayer = () => {
   const [showFace, setShowFace] = useState(false) //not connected
   const [intervalId, setIntervalId] = useState('')
   const [reactions, setReactions] = useState([])
+  const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([])
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
+
   let mediaRecorderRef = useRef(null)
   recognition.continuous = true
   recognition.interimResults = true
@@ -112,6 +114,17 @@ const Videoplayer = () => {
       >
         Render Face Points
       </button>
+      <button
+        type="button"
+        onClick={() => setShowTranscript(prevState => !prevState)}
+      >
+        {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
+      </button>
+      {showTranscript ? (
+        <SpeechToTextV2 words={words} isFaceRec={isFaceRec} />
+      ) : (
+        '<div />'
+      )}
     </div>
   )
 }
