@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react'
 import {Form, Button, Card, Alert} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
+import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
-import {signInWithGoogle} from './firebase/'
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -22,6 +22,19 @@ const LogIn = () => {
       history.push('/dashboard')
     } catch {
       setError('Failed to sign in')
+    }
+    setLoading(false)
+  }
+
+  async function signInWithGoogle(e) {
+    e.preventDefault()
+    try {
+      setError('')
+      setLoading(true)
+      await auth.signInWithPopup(provider)
+      history.push('/dashboard')
+    } catch {
+      setError('Failed To Sign in')
     }
     setLoading(false)
   }
