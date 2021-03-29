@@ -58,18 +58,17 @@ const LogIn = () => {
             <Button disabled={loading} className="w-100" type="submit">
               Log In
             </Button>
-            <Form>
+            <Form.Group>
               <div>
                 <GoogleButton
                   disabled={loading}
                   className="w-100"
-                  type="submit"
                   onClick={signInWithGoogle}
                 >
                   Sign In With Google
                 </GoogleButton>
               </div>
-            </Form>
+            </Form.Group>
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
