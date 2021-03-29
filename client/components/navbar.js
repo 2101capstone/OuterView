@@ -25,9 +25,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="dashboard">Profile</Link>
-          <Link to="/speech">Speech To Text</Link>
-          <Link to="/camera">Camera Test</Link>
-          <Link to="/upload">Firebase Test</Link>
           <Link to="/record">Record</Link>
           <Link to="/landingpage">Landing Page</Link>
           <Link to="/cloud">Graphs</Link>
