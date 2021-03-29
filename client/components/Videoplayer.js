@@ -21,7 +21,7 @@ const Videoplayer = () => {
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
-  //const [timer, setTimer] = useState(0)
+  const [border, setBorder] = useState('noBorder')
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
@@ -53,6 +53,7 @@ const Videoplayer = () => {
         handleDataAvailable
       ) //start video recording
       recognition.start() //start voice Recognition
+      setBorder('recordBorder') //red banner around video canvas
     } else if (isRecord === false) {
       //END RECORDING
       clearInterval(intervalId)
@@ -63,22 +64,22 @@ const Videoplayer = () => {
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
       addToFirestore(transcript, fillerWords).then(setDocId)
+      setBorder('noBorder')
     }
   }, [isRecord])
 
+  //upload video to cloud storage
   useEffect(() => {
     if (docId) {
       addToStorage(recordedChunks, docId)
     }
   }, [docId])
 
-  //something here to allow turn off and on of face net
+  //On/Off face net
   useEffect(() => {
     if (showFace) {
-      console.log('showFaceActivated')
       setFaceId(setInterval(drawFacePoints, 200))
     } else if (showFace === false) {
-      console.log('showFace DEactivated')
       clearInterval(faceId)
       const canvas = document.getElementById('myCanvas')
       canvas.getContext('2d').clearRect(0, 0, 640, 480)
@@ -92,7 +93,7 @@ const Videoplayer = () => {
     console.log('Downloaded to local')
   }
 
-  // for
+  // to join array of words from Transcription
   recognition.onresult = event => {
     //console.log(event.results)
     setWords(
@@ -106,43 +107,56 @@ const Videoplayer = () => {
     <div>
       <h3>{isRecord ? 'Face Recognition and Recording!' : 'Not Recording!'}</h3>
       <h5>Timer: 0</h5>
-      <div>
+      <div className="camAndCanvas">
         <canvas ref={canvasRef} id="myCanvas" />
-        <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
+        <Webcam
+          ref={videoRef}
+          audio={true}
+          width={640}
+          height={480}
+          id="cam"
+          className={border}
+        />
       </div>
-      <div>{docId}</div>
-      <button
-        id="startStopRec"
-        type="button"
-        onClick={() => setisRecord(prevState => !prevState)}
-      >
-        {isRecord ? 'End Recording' : 'Start Recording'}
-      </button>
-      {isRecord === false ? (
-        <button id="finishVid" type="button" onClick={handleSubmitClick}>
-          Download and Submit
-        </button>
-      ) : (
-        ''
-      )}
-      <button
-        id="renderFace"
-        type="button"
-        onClick={() => setShowFace(prevState => !prevState)}
-      >
-        Render Face Points
-      </button>
-      <button
-        type="button"
-        onClick={() => setShowTranscript(prevState => !prevState)}
-      >
-        {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
-      </button>
+      <div className="buttonContainer">
+        <div>
+          <button
+            id="startStopRec"
+            type="button"
+            onClick={() => setisRecord(prevState => !prevState)}
+          >
+            {isRecord ? 'End Recording' : 'Start Recording'}
+          </button>
+        </div>
+        <div>
+          {isRecord === false ? (
+            <button id="finishVid" type="button" onClick={handleSubmitClick}>
+              Download and Submit
+            </button>
+          ) : (
+            ''
+          )}
+          <button
+            id="renderFace"
+            type="button"
+            onClick={() => setShowFace(prevState => !prevState)}
+          >
+            Render Face Points
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowTranscript(prevState => !prevState)}
+          >
+            {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
+          </button>{' '}
+        </div>
+      </div>
       {showTranscript ? (
         <SpeechToTextV2 words={words} isRecord={isRecord} />
       ) : (
-        <h1></h1>
+        <div />
       )}
+      <div>{docId}</div>
     </div>
   )
 }

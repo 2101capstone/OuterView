@@ -24,18 +24,6 @@ export const runFacialRec = async (reactions, setReactions) => {
   } else {
     console.log('No Face here!')
   }
-  // //show face net
-  // const displaySize = {
-  //   width: 640,
-  //   height: 480
-  // }
-  // const canvas = document.getElementById('myCanvas')
-  // faceapi.matchDimensions(canvas, displaySize)
-  // const resizedDetections = faceapi.resizeResults(detections, displaySize)
-  // //setCanvasRef(canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480))
-  // faceapi.draw.drawDetections(canvas, resizedDetections)
-  // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 }
 
 //start recording when button is clicked

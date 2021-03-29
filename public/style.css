@@ -29,7 +29,7 @@ form div {
   display: inline-block;
 }
 
-#cam {
+.camAndCanvas {
   margin: 0;
   padding: 0;
   display: flex;
@@ -37,8 +37,18 @@ form div {
   align-items: center;
 }
 
+.recordBorder {
+  border: 7px solid #ef476f;
+}
+
 canvas {
   position: absolute;
+}
+
+.buttonContainer {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 #textbox {
