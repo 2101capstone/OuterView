@@ -14,6 +14,8 @@ import {
 import {me} from './store'
 import Cloud from './components/Cloud'
 import LandingPage from './components/LandingPage'
+import SavedRecordings from './components/SavedRecordings'
+import SingleRecording from './components/SingleRecording'
 
 /**
  * COMPONENT
@@ -35,6 +37,8 @@ class Routes extends Component {
           <Route path="/signup" component={SignUp} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <PrivateRoute path="/dashboard" component={ProfilePage} />
+          <Route path="/recordings" component={SavedRecordings} />
+          <Route path="/singleRecording" component={SingleRecording} />
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />

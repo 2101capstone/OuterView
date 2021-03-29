@@ -11,7 +11,7 @@ a {
 label {
   display: block;
 }
-nav {
+/* nav {
   background-color: #0b3968;
   display: block;
   margin-left: auto;
@@ -22,7 +22,7 @@ nav {
 nav a {
   display: inline-block;
   margin: 1em;
-}
+} */
 
 form div {
   margin: 1em;
@@ -144,4 +144,34 @@ img {
   font-size: 400%;
   text-align: center;
   color: #c5fd91;
+}
+
+.recordings-title {
+  text-align: center;
+}
+.card-text {
+  text-align: center;
+  font-size: 27px;
+}
+.card {
+  margin: 0 auto;
+  max-width: 80%;
+  background-color: #64f58d;
+}
+.logo {
+  margin-right: 50px;
+  border-radius: 90%;
+}
+.navbar-brand {
+  font-weight: bold;
+}
+canvas {
+  margin: 0 auto;
+}
+.single-recoding-vid {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+nav {
+  background-color: #64f58d;
 }
