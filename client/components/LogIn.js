@@ -57,9 +57,9 @@ const LogIn = () => {
             <Button disabled={loading} className="w-100" type="submit">
               Log In
             </Button>
-            <button type="submit" onClick={signInWithGoogle}>
+            <Button disabled={loading} type="submit" onClick={signInWithGoogle}>
               Sign In With Google
-            </button>
+            </Button>
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>

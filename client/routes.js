@@ -33,18 +33,19 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route path="/camera" component={PoC} />
+        <Route path="/landingpage" component={LandingPage} />
+        <Route path="/cloud" component={Cloud} />
+        <Route path="/upload" component={FirebaseTest} />
+        <Route path="/newCamera" component={WebcamModule} />
+        <Route exact path="/speech" component={SpeechToText} />
         <AuthProvider>
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
-          <Route exact path="/speech" component={SpeechToText} />
-          <PrivateRoute path="/dashboard" component={ProfilePage} />
-          <Route path="/camera" component={PoC} />
           <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/landingpage" component={LandingPage} />
-          <Route path="/cloud" component={Cloud} />
-          <Route path="/upload" component={FirebaseTest} />
-          <Route path="/newCamera" component={WebcamModule} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
         </AuthProvider>
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
