@@ -3,6 +3,7 @@ import {Form, Button, Card, Alert} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
+import GoogleButton from 'react-google-button'
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -57,9 +58,18 @@ const LogIn = () => {
             <Button disabled={loading} className="w-100" type="submit">
               Log In
             </Button>
-            <Button disabled={loading} type="submit" onClick={signInWithGoogle}>
-              Sign In With Google
-            </Button>
+            <Form>
+              <div>
+                <GoogleButton
+                  disabled={loading}
+                  className="w-100"
+                  type="submit"
+                  onClick={signInWithGoogle}
+                >
+                  Sign In With Google
+                </GoogleButton>
+              </div>
+            </Form>
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
