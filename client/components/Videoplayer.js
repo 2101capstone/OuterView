@@ -41,7 +41,7 @@ const Videoplayer = () => {
   //if isFaceRec, then run facial recognition, start recording
   useEffect(() => {
     if (isFaceRec) {
-      setIntervalId(setInterval(runFacialRec, 2000, reactions, setReactions))
+      setIntervalId(setInterval(runFacialRec, 1000, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,

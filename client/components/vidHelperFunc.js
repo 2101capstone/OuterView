@@ -1,6 +1,7 @@
 import * as faceapi from 'face-api.js'
 import {storage} from './firebase'
 
+let facialData = {counter: 0}
 //Load all the facial models into memory
 export const loadModels = () => {
   Promise.all([
@@ -19,7 +20,13 @@ export const runFacialRec = async (reactions, setReactions) => {
     .withFaceExpressions()
   if (detections.length) {
     //console.log('Detected!')
-    //console.log(detections[0].expressions)
+    for (let key in detections[0].expressions) {
+      if (facialData[key]) facialData[key] += detections[0].expressions[key]
+      else facialData[key] = detections[0].expressions[key]
+    }
+    facialData.counter++
+    console.log('detections Array ---------->', facialData)
+
     setReactions([...reactions, detections[0].expressions])
     //reactions.push(detections[0].expressions)
   } else {
@@ -61,8 +68,8 @@ export const startRecording = (
 export const stopRecording = mediaRecorderRef => {
   console.log('Stop Recording')
   mediaRecorderRef.current.stop()
+  // console.log(reactions)
   return mediaRecorderRef
-  //console.log(reactions)
 }
 
 //download the video to local storage. also uplloads to fire storage
