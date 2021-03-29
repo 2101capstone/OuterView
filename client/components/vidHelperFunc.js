@@ -1,5 +1,4 @@
 import * as faceapi from 'face-api.js'
-import {storage} from './firebase'
 
 //Load all the facial models into memory
 export const loadModels = () => {
@@ -84,30 +83,3 @@ export const handleDownload = recordedChunks => {
     window.URL.revokeObjectURL(url)
   }
 }
-
-//upload any given file to fire storage. New feat: add a 2nd param for upload loc
-// export const handleUpload = file => {
-//   const today = new Date()
-//   const strDate = today.toISOString().substring(0, 10)
-//   const uploadTask = storage.ref(`recording/${strDate}.webm`).put(file)
-//   uploadTask.on(
-//     'state_changed',
-//     snapshop => {},
-//     error => {
-//       console.log(error)
-//     },
-//     () => {
-//       storage
-//         .ref()
-//         .child(`recording/${strDate}.webm`)
-//         .getDownloadURL()
-//         .then(url => {
-//           console.log('Url of uploaded video: ', url)
-//         })
-//     }
-//   )
-//   return storage
-//     .ref()
-//     .child(`recording/${strDate}.webm`)
-//     .getDownloadURL()
-// }

@@ -8,10 +8,6 @@ import {
   LogIn,
   SignUp,
   ProfilePage,
-  UserHome,
-  PoC,
-  FirebaseTest,
-  SpeechToText,
   ForgotPassword,
   WebcamModule
 } from './components'
@@ -28,29 +24,18 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/camera" component={PoC} />
         <Route path="/landingpage" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
-        <Route path="/upload" component={FirebaseTest} />
-        <Route path="/newCamera" component={WebcamModule} />
-        <Route exact path="/speech" component={SpeechToText} />
+        <Route path="/record" component={WebcamModule} />
         <AuthProvider>
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <PrivateRoute path="/dashboard" component={ProfilePage} />
         </AuthProvider>
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/userhome" component={UserHome} />
-          </Switch>
-        )}
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />
       </Switch>
