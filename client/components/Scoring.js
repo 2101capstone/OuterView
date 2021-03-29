@@ -1,7 +1,15 @@
 import React from 'react'
 
 const Scoring = props => {
-  let score
+  let {transcript, facialData, fillerWords} = props
+  transcript.join(' ')
+  let score = 0
+  let emotion1
+  let emotion2
+  let emotion3
+  let emotion4
+  let emotion5
+  let emotion6
   let emotions = {
     angry: 0,
     happy: 0,
@@ -9,24 +17,42 @@ const Scoring = props => {
     sad: 0,
     disgusted: 0,
     fearful: 0,
-    neutral: 0
+    neutral: 0,
+    total: 0
   }
-
-  let {transcript, facialData} = props
-
+  /// combine all facil data
   for (let i = 0; i < facialData.length; i++) {
     for (let key in emotions) {
-      if (facialData[i][key]) emotions[key] += facialData[i][key]
+      if (facialData[i][key]) {
+        emotions[key] += Math.round(facialData[i][key] * 100000) / 100000
+        emotions.total += facialData[i][key]
+      }
+    }
+  }
+
+  //sift thru facial data get score
+  const emotionalScore = emotionsobj => {
+    for (let key in emotionsobj) {
+      if (key !== 'total') {
+        emotionsobj[key] = emotionsobj[key] / emotionsobj.total
+        emotionsobj[key] = Math.round((emotionsobj[key] *= 100))
+      }
     }
 
-    console.log(`angry: ${angry * 100},
-    disgusted: ${disgusted * 100},
-    fearful: ${fearful * 100},
-    happy: ${happy * 100},
-    neutral: ${neutral * 100},
-    sad: ${sad * 100},
-    surprised: ${surprised * 100}`)
+    emotionsobj.total = emotionsobj.total * 100
+    const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
+    emotion1 = sorted[1]
+    emotion2 = sorted[2]
+    emotion3 = sorted[3]
+    emotion4 = sorted[4]
+    emotion5 = sorted[5]
+    emotion6 = sorted[6]
   }
+  emotionalScore(emotions)
+  //  const wordsScore = (transcriptStr, fillerWordObj) =>{
+  //  }
+
+  //   let score = emotionalScore(emotions) + wordsScore(transcript, fillerWords)
 
   const message = score => {
     if (score >= 93)
@@ -37,12 +63,23 @@ const Scoring = props => {
     if (score < 75 && score >= 50)
       return 'You did ok but you should definatly work on improving '
     else
-      return ' You didnt do so well check out or tips and tricks section to help improve your scores'
+      return ' You did not do so well check out or tips and tricks section to help improve your scores'
   }
 
   // test
 
-  return <div>{`You Scored ${score}%  ${message(score)}`}</div>
+  return (
+    <div>
+      <div> {`Emotions observed in order `}</div>
+      <div> {`${emotion1[0]} ----> ${emotion1[1]}%`}</div>
+      <div> {`${emotion2[0]} ----> ${emotion2[1]}%`}</div>
+      <div> {`${emotion3[0]} ----> ${emotion3[1]}%`}</div>
+      <div> {`${emotion4[0]} ----> ${emotion4[1]}%`}</div>
+      <div> {`${emotion5[0]} ----> ${emotion5[1]}%`}</div>
+      <div> {`${emotion6[0]} ----> ${emotion6[1]}%`}</div>
+      <h1>{`You Scored ${score}%  ${message(score)}`}</h1>
+    </div>
+  )
 }
 
 export default Scoring
@@ -77,33 +114,6 @@ export default Scoring
 //_____________________________________________
 //Message should correspond to score
 // Algo for capturing Emotions
-
-//  getFaceData() {
-//     const expressions = {}
-
-//     const angry = expressions.angry / expressions.called
-
-//     const happy = expressions.happy / expressions.called
-
-//     const surprised = expressions.surprised / expressions.called
-
-//     const sad = expressions.sad / expressions.called
-
-//     const disgusted = expressions.disgusted / expressions.called
-
-//     const fearful = expressions.fearful / expressions.called
-
-//     const neutral = expressions.neutral / expressions.called
-
-//     console.log(`angry: ${angry * 100},
-//     disgusted: ${disgusted * 100},
-//     fearful: ${fearful * 100},
-//     happy: ${happy * 100},
-//     neutral: ${neutral * 100},
-//     sad: ${sad * 100},
-//     surprised: ${surprised * 100}`)
-
-//   }
 
 //    const seriesConstruct = () => {
 //      const emotionavg = obj => {

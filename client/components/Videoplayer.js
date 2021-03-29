@@ -114,7 +114,11 @@ const Videoplayer = () => {
           <button id="finishVid" type="button" onClick={handleSubmitClick}>
             Download and Submit
           </button>
-          <Scoring transcript={words} facialData={reactions} />
+          <Scoring
+            transcript={words}
+            facialData={reactions}
+            fillerWords={fillerWords}
+          />
         </div>
       ) : (
         ' '
