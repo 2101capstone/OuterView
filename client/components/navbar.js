@@ -89,6 +89,15 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                       SingleRecording
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="/interviewSimulator"
+                    >
+                      Interview Simulator
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
