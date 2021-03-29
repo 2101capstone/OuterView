@@ -1,35 +1,33 @@
 import React from 'react'
 
 const Scoring = props => {
-  /// how will we recieve data?
-  // filler words count ?
-  // confidence avg ?
-  // eye detection focus?
+  let score
+  let emotions = {
+    angry: 0,
+    happy: 0,
+    surprised: 0,
+    sad: 0,
+    disgusted: 0,
+    fearful: 0,
+    neutral: 0
+  }
 
-  //_____________________________________________
-  // example of how data will be recieved
-  // from facial recognition
-  // recieve ------>
-  // angry: 0.001262365491129458
-  // disgusted: 0.00004214933869661763
-  // fearful: 0.000019101729776593857
-  // happy: 0.00018955656560137868
-  // neutral: 0.9887621998786926
-  // sad: 0.009328041225671768
-  // surprised: 0.00039660962647758424}
+  let {transcript, facialData} = props
 
-  //total words said % scale
-  //  emotions and voice
+  for (let i = 0; i < facialData.length; i++) {
+    for (let key in emotions) {
+      if (facialData[i][key]) emotions[key] += facialData[i][key]
+    }
 
-  // score will be frpm 0% to 100%
-  //_____________________________________________
-  // 0 shud be high amount of filler words > 25
+    console.log(`angry: ${angry * 100},
+    disgusted: ${disgusted * 100},
+    fearful: ${fearful * 100},
+    happy: ${happy * 100},
+    neutral: ${neutral * 100},
+    sad: ${sad * 100},
+    surprised: ${surprised * 100}`)
+  }
 
-  //_____________________________________________
-  // 100
-
-  //_____________________________________________
-  //Message should correspond to score
   const message = score => {
     if (score >= 93)
       return 'Congratulations you have proven your ready for that interview '
@@ -49,6 +47,35 @@ const Scoring = props => {
 
 export default Scoring
 
+/// how will we recieve data?
+// filler words count ?
+// confidence avg ?
+// eye detection focus?
+
+//_____________________________________________
+// example of how data will be recieved
+// from facial recognition
+// recieve ------>
+// angry: 0.001262365491129458
+// disgusted: 0.00004214933869661763
+// fearful: 0.000019101729776593857
+// happy: 0.00018955656560137868
+// neutral: 0.9887621998786926
+// sad: 0.009328041225671768
+// surprised: 0.00039660962647758424}
+
+//total words said % scale
+//  emotions and voice
+
+// score will be frpm 0% to 100%
+//_____________________________________________
+// 0 shud be high amount of filler words > 25
+
+//_____________________________________________
+// 100
+
+//_____________________________________________
+//Message should correspond to score
 // Algo for capturing Emotions
 
 //  getFaceData() {

@@ -18,16 +18,8 @@ export const runFacialRec = async (reactions, setReactions) => {
     .withFaceLandmarks()
     .withFaceExpressions()
   if (detections.length) {
-    //console.log('Detected!')
-    for (let key in detections[0].expressions) {
-      if (facialData[key]) facialData[key] += detections[0].expressions[key]
-      else facialData[key] = detections[0].expressions[key]
-    }
-    facialData.counter++
-    console.log('detections Array ---------->', facialData)
-
     setReactions([...reactions, detections[0].expressions])
-    //reactions.push(detections[0].expressions)
+    reactions.push(detections[0].expressions)
   } else {
     console.log('No Face here!')
   }
@@ -67,7 +59,6 @@ export const startRecording = (
 export const stopRecording = mediaRecorderRef => {
   console.log('Stop Recording')
   mediaRecorderRef.current.stop()
-  // console.log(reactions)
   return mediaRecorderRef
 }
 

@@ -10,6 +10,7 @@ import {
 } from './vidHelperFunc'
 import {addToFirestore, addToStorage} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
+import Scoring from './Scoring'
 
 const Videoplayer = () => {
   const [isRecord, setisRecord] = useState(null)
@@ -77,7 +78,7 @@ const Videoplayer = () => {
 
   //to download and submit video
   const handleSubmitClick = () => {
-    handleDownload(recordedChunks)
+    // handleDownload(recordedChunks)
     setRecordedChunks([])
     console.log('Downloaded to local')
   }
@@ -109,11 +110,14 @@ const Videoplayer = () => {
         {isRecord ? 'End Recording' : 'Start Recording'}
       </button>
       {isRecord === false ? (
-        <button id="finishVid" type="button" onClick={handleSubmitClick}>
-          Download and Submit
-        </button>
+        <div>
+          <button id="finishVid" type="button" onClick={handleSubmitClick}>
+            Download and Submit
+          </button>
+          <Scoring transcript={words} facialData={reactions} />
+        </div>
       ) : (
-        ''
+        ' '
       )}
       <button
         id="renderFace"
@@ -129,7 +133,9 @@ const Videoplayer = () => {
         {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
       </button>
       {showTranscript ? (
-        <SpeechToTextV2 words={words} isRecord={isRecord} />
+        <div>
+          <SpeechToTextV2 words={words} isRecord={isRecord} />
+        </div>
       ) : (
         <h1></h1>
       )}
