@@ -41,13 +41,14 @@ class Routes extends Component {
           >
             <div className="w-100" style={{maxWidth: '400px'}}>
               <Switch>
+                <PrivateRoute path="/dashboard" component={ProfilePage} />
                 <Route path="/login" component={LogIn} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/forgot-password" component={ForgotPassword} />
               </Switch>
             </div>
           </Container>
-          <PrivateRoute path="/dashboard" component={ProfilePage} />
+
           <Route path="/recordings" component={SavedRecordings} />
           <Route path="/singleRecording" component={SingleRecording} />
         </AuthProvider>
