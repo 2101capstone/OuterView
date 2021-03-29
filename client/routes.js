@@ -29,7 +29,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/landingpage" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
         <Route path="/record" component={WebcamModule} />
         <AuthProvider>

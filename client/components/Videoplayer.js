@@ -6,15 +6,17 @@ import {
   runFacialRec,
   startRecording,
   stopRecording,
-  handleDownload
+  handleDownload,
+  drawFacePoints
 } from './vidHelperFunc'
 import {addToFirestore, addToStorage} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
   const [isRecord, setisRecord] = useState(null)
-  const [showFace, setShowFace] = useState(false) //not connected
+  const [showFace, setShowFace] = useState(null) //not connected
   const [intervalId, setIntervalId] = useState('')
+  const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
@@ -72,7 +74,15 @@ const Videoplayer = () => {
 
   //something here to allow turn off and on of face net
   useEffect(() => {
-    //console.log('hello from show face')
+    if (showFace) {
+      console.log('showFaceActivated')
+      setFaceId(setInterval(drawFacePoints, 200))
+    } else if (showFace === false) {
+      console.log('showFace DEactivated')
+      clearInterval(faceId)
+      const canvas = document.getElementById('myCanvas')
+      canvas.getContext('2d').clearRect(0, 0, 640, 480)
+    }
   }, [showFace])
 
   //to download and submit video
