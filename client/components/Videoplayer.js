@@ -8,7 +8,7 @@ import {
   stopRecording,
   handleDownload
 } from './vidHelperFunc'
-import {handleUpload} from './firebaseHelperFunc'
+import {addToFirestore, addToStorage} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
@@ -18,15 +18,16 @@ const Videoplayer = () => {
   const [reactions, setReactions] = useState([])
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
+  const [docId, setDocId] = useState('')
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
-
   let mediaRecorderRef = useRef(null)
   recognition.continuous = true
   recognition.interimResults = true
   recognition.lang = 'en-US'
+
   //load models with first render
   useEffect(() => {
     console.log('Face Models Loaded')
@@ -43,7 +44,7 @@ const Videoplayer = () => {
   useEffect(() => {
     if (isRecord) {
       //Start Recording
-      setIntervalId(setInterval(runFacialRec, 1000, reactions, setReactions))
+      setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
@@ -52,17 +53,22 @@ const Videoplayer = () => {
       recognition.start() //start voice Recognition
     } else if (isRecord === false) {
       //END RECORDING
-      //console.log('saved reactions:', reactions)
+      clearInterval(intervalId)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
       countFiller(transcript)
-      console.log(fillerWords)
-      console.log('Final:', transcript)
-      const docId = handleUpload(transcript, fillerWords)
-      clearInterval(intervalId)
+      console.log('Filler Words:', fillerWords)
+      console.log('Transcript:', transcript)
+      addToFirestore(transcript, fillerWords).then(setDocId)
     }
   }, [isRecord])
+
+  useEffect(() => {
+    if (docId) {
+      addToStorage(recordedChunks, docId)
+    }
+  }, [docId])
 
   //something here to allow turn off and on of face net
   useEffect(() => {
@@ -73,7 +79,7 @@ const Videoplayer = () => {
   const handleSubmitClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
-    console.log('Downloaded to local and Uploaded to Firebase')
+    console.log('Downloaded to local')
   }
 
   // for
@@ -84,7 +90,6 @@ const Videoplayer = () => {
         .map(result => result[0])
         .map(result => result.transcript)
     )
-    //console.log('words', words)
   }
 
   return (
@@ -95,6 +100,7 @@ const Videoplayer = () => {
         <canvas ref={canvasRef} id="myCanvas" />
         <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
       </div>
+      <div>{docId}</div>
       <button
         id="startStopRec"
         type="button"
