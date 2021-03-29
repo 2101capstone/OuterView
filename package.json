@@ -46,11 +46,13 @@
     "bootstrap": "^4.6.0",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
+    "css-loader": "^5.2.0",
     "express": "^4.16.4",
     "express-session": "^1.15.1",
     "face-api.js": "^0.22.2",
     "firebase": "^8.3.1",
     "firestore": "^1.1.6",
+    "fs": "0.0.1-security",
     "history": "^4.9.0",
     "linear16": "^1.2.0",
     "morgan": "^1.9.1",
@@ -72,7 +74,8 @@
     "rumble-charts": "^3.1.2",
     "sequelize": "^5.3.1",
     "socket.io": "^2.2.0",
-    "ssri": "^8.0.1"
+    "ssri": "^8.0.1",
+    "style-loader": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

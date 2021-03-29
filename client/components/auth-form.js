@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {signInWithGoogle} from './firebase/'
 
 /**
  * COMPONENT
@@ -27,7 +26,6 @@ const AuthForm = props => {
         </div>
         <div>
           <button type="submit">{displayName}</button>
-          <button onClick={signInWithGoogle}>Sign Up With Google</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

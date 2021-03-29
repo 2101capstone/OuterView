@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
+import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
-import SignUp from './components/SignUp'
 import {
-  Login,
-  UserHome,
-  PoC,
-  FirebaseTest,
-  SpeechToText,
+  PrivateRoute,
+  LogIn,
+  SignUp,
+  ProfilePage,
+  ForgotPassword,
   WebcamModule
 } from './components'
 import {me} from './store'
@@ -24,26 +24,18 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        {/* <Route exact path="/speech" component={SpeechToText} /> */}
-        {/* <Route path="/camera" component={PoC} /> */}
         <Route path="/landingpage" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
-        <Route path="/upload" component={FirebaseTest} />
         <Route path="/record" component={WebcamModule} />
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/userhome" component={UserHome} />
-          </Switch>
-        )}
+        <AuthProvider>
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
+        </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />
       </Switch>

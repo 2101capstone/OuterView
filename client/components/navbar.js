@@ -24,9 +24,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
-          {/* <Link to="/speech">Speech To Text</Link> */}
-          {/* <Link to="/camera">Camera Test</Link> */}
-          <Link to="/upload">Firebase Test</Link>
+          <Link to="dashboard">Profile</Link>
           <Link to="/record">Record</Link>
           <Link to="/landingpage">Landing Page</Link>
           <Link to="/cloud">Graphs</Link>

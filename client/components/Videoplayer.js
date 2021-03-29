@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Webcam from 'react-webcam'
+import SpeechToTextV2 from './SpeechToTextV2'
 import {
   loadModels,
   runFacialRec,
@@ -7,25 +8,26 @@ import {
   stopRecording,
   handleDownload
 } from './vidHelperFunc'
-import SpeechToTextV2 from './SpeechToTextV2'
+import {addToFirestore, addToStorage} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
 
 const Videoplayer = () => {
-  const [isFaceRec, setIsFaceRec] = useState(null)
+  const [isRecord, setisRecord] = useState(null)
   const [showFace, setShowFace] = useState(false) //not connected
   const [intervalId, setIntervalId] = useState('')
   const [reactions, setReactions] = useState([])
   const [showTranscript, setShowTranscript] = useState(false)
-  const [words, setWords] = useState([])
+  const [words, setWords] = useState([]) // TRANSCRIPT!
+  const [docId, setDocId] = useState('')
   //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
-
   let mediaRecorderRef = useRef(null)
   recognition.continuous = true
   recognition.interimResults = true
   recognition.lang = 'en-US'
+
   //load models with first render
   useEffect(() => {
     console.log('Face Models Loaded')
@@ -38,27 +40,35 @@ const Videoplayer = () => {
     }
   }
 
-  //if isFaceRec, then run facial recognition, start recording
+  //if isRecord, then run facial recognition, start recording
   useEffect(() => {
-    if (isFaceRec) {
-      setIntervalId(setInterval(runFacialRec, 1000, reactions, setReactions))
+    if (isRecord) {
+      //Start Recording
+      setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
         handleDataAvailable
       ) //start video recording
       recognition.start() //start voice Recognition
-    } else if (isFaceRec === false) {
-      //console.log('saved reactions:', reactions)
+    } else if (isRecord === false) {
+      //END RECORDING
+      clearInterval(intervalId)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
       countFiller(transcript)
-      console.log(fillerWords)
-      console.log('Final:', transcript)
-      clearInterval(intervalId)
+      console.log('Filler Words:', fillerWords)
+      console.log('Transcript:', transcript)
+      addToFirestore(transcript, fillerWords).then(setDocId)
     }
-  }, [isFaceRec])
+  }, [isRecord])
+
+  useEffect(() => {
+    if (docId) {
+      addToStorage(recordedChunks, docId)
+    }
+  }, [docId])
 
   //something here to allow turn off and on of face net
   useEffect(() => {
@@ -69,7 +79,7 @@ const Videoplayer = () => {
   const handleSubmitClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
-    console.log('Downloaded to local and Uploaded to Firebase')
+    console.log('Downloaded to local')
   }
 
   // for
@@ -80,27 +90,25 @@ const Videoplayer = () => {
         .map(result => result[0])
         .map(result => result.transcript)
     )
-    //console.log('words', words)
   }
 
   return (
     <div>
-      <h3>
-        {isFaceRec ? 'Face Recognition and Recording!' : 'Not Recording!'}
-      </h3>
+      <h3>{isRecord ? 'Face Recognition and Recording!' : 'Not Recording!'}</h3>
       <h5>Timer: 0</h5>
       <div>
         <canvas ref={canvasRef} id="myCanvas" />
         <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
       </div>
+      <div>{docId}</div>
       <button
         id="startStopRec"
         type="button"
-        onClick={() => setIsFaceRec(prevState => !prevState)}
+        onClick={() => setisRecord(prevState => !prevState)}
       >
-        {isFaceRec ? 'End Recording' : 'Start Recording'}
+        {isRecord ? 'End Recording' : 'Start Recording'}
       </button>
-      {isFaceRec === false ? (
+      {isRecord === false ? (
         <button id="finishVid" type="button" onClick={handleSubmitClick}>
           Download and Submit
         </button>
@@ -121,7 +129,7 @@ const Videoplayer = () => {
         {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
       </button>
       {showTranscript ? (
-        <SpeechToTextV2 words={words} isFaceRec={isFaceRec} />
+        <SpeechToTextV2 words={words} isRecord={isRecord} />
       ) : (
         <h1></h1>
       )}
