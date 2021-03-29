@@ -45,7 +45,6 @@ class Routes extends Component {
           <Route path="/forgot-password" component={ForgotPassword} />
           <PrivateRoute path="/dashboard" component={ProfilePage} />
         </AuthProvider>
-
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

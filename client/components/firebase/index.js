@@ -21,6 +21,6 @@ export const auth = firebase.auth()
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({prompt: 'select_account'})
 
-db.settings({timeStampsInSnapshots: true})
+//db.settings({timeStampsInSnapshots: true})
 
 export {storage, provider, firebase as default}
