@@ -77,7 +77,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                       aria-current="page"
                       href="/recordings"
                     >
-                      Saved Recordings
+                      All Recordings
                     </a>
                   </li>
                   <li className="nav-item">
