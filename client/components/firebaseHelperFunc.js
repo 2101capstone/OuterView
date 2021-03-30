@@ -19,6 +19,16 @@ export const updateDocument = async (videoUrl, docId) => {
   return res
 }
 
+// creating user doc
+export const createUserDoc = async (uid, data) => {
+  const userRef = await firebase
+    .firestore()
+    .collection('Users')
+    .doc(uid)
+    .set(data)
+  return userRef
+}
+
 //upload any given file to fire storage. New feat: add a 2nd param for upload loc
 export const addToStorage = (recordedChunks, docId) => {
   if (recordedChunks.length) {
