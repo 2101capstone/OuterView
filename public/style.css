@@ -193,7 +193,7 @@ canvas {
   margin-bottom: 50px;
 }
 nav {
-  background-color: #64f58d;
+  background-color: #51c2d5;
 }
 
 .text-to-speech-div {
@@ -214,7 +214,7 @@ nav {
   background-image: 'https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all';
 }
 #landingPage {
-  background-image: url('https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all');
+  background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -249,13 +249,13 @@ nav {
 }
 
 #landingPage .button:hover {
-  background: #64f58d;
+  background: #51c2d5;
   color: #fff;
 }
 
 #section-a {
   padding: 20px;
-  background: #64f58d;
+  background: #51c2d5;
   color: #fff;
   text-align: center;
   font-size: 30px;
