@@ -1,11 +1,11 @@
 import firebase, {storage} from './firebase'
 
-export const addToFirestore = async (transcript, fillerWords) => {
+export const addToFirestore = async (transcript, fillerWords, reactions) => {
   //upload to Firestore
   const res = await firebase
     .firestore()
     .collection('Sessions')
-    .add({transcript, fillerWords})
+    .add({transcript, fillerWords, reactions})
   //console.log('Firestore ID:', res.id)
   return res.id
 }

@@ -61,7 +61,7 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
-      addToFirestore(transcript, fillerWords).then(setDocId)
+      addToFirestore(transcript, fillerWords, reactions).then(setDocId)
     }
   }, [isRecord])
 
@@ -78,7 +78,7 @@ const Videoplayer = () => {
 
   //to download and submit video
   const handleSubmitClick = () => {
-    // handleDownload(recordedChunks)
+    handleDownload(recordedChunks)
     setRecordedChunks([])
     console.log('Downloaded to local')
   }
@@ -110,16 +110,9 @@ const Videoplayer = () => {
         {isRecord ? 'End Recording' : 'Start Recording'}
       </button>
       {isRecord === false ? (
-        <div>
-          <button id="finishVid" type="button" onClick={handleSubmitClick}>
-            Download and Submit
-          </button>
-          <Scoring
-            transcript={words}
-            facialData={reactions}
-            fillerWords={fillerWords}
-          />
-        </div>
+        <button id="finishVid" type="button" onClick={handleSubmitClick}>
+          Download and Submit
+        </button>
       ) : (
         ' '
       )}
@@ -142,6 +135,17 @@ const Videoplayer = () => {
         </div>
       ) : (
         <h1></h1>
+      )}
+      {isRecord === false ? (
+        <div>
+          <Scoring
+            transcript={words}
+            facialData={reactions}
+            fillerWords={fillerWords}
+          />
+        </div>
+      ) : (
+        ' '
       )}
     </div>
   )

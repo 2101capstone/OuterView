@@ -77,7 +77,7 @@ const Scoring = props => {
       <div> {`${emotion4[0]} ----> ${emotion4[1]}%`}</div>
       <div> {`${emotion5[0]} ----> ${emotion5[1]}%`}</div>
       <div> {`${emotion6[0]} ----> ${emotion6[1]}%`}</div>
-      <h1>{`You Scored ${score}%  ${message(score)}`}</h1>
+      <h4>{`You Scored ${score}%  ${message(score)}`}</h4>
     </div>
   )
 }
