@@ -1,21 +1,21 @@
 import firebase, {storage} from './firebase'
 
-export const addToFirestore = async (transcript, fillerWords, reactions) => {
+export const addToFirestore = async data => {
   //upload to Firestore
   const res = await firebase
     .firestore()
     .collection('Sessions')
-    .add({transcript, fillerWords, reactions})
+    .add(data)
   //console.log('Firestore ID:', res.id)
   return res.id
 }
 
-export const updateDocument = async (videoUrl, docId) => {
+export const updateDocument = async (data, docId) => {
   const res = await firebase
     .firestore()
     .collection('Sessions')
     .doc(docId)
-    .update({videoUrl})
+    .update(data)
   return res
 }
 
@@ -39,7 +39,7 @@ export const addToStorage = (recordedChunks, docId) => {
           .getDownloadURL()
           .then(url => {
             console.log('Public Url: ', url)
-            updateDocument(url, docId)
+            updateDocument({url}, docId)
           })
       }
     )
