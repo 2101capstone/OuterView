@@ -1,5 +1,6 @@
 import * as faceapi from 'face-api.js'
 
+let facialData = {counter: 0}
 //Load all the facial models into memory
 export const loadModels = () => {
   Promise.all([
@@ -17,10 +18,8 @@ export const runFacialRec = async (reactions, setReactions) => {
     .withFaceLandmarks()
     .withFaceExpressions()
   if (detections.length) {
-    //console.log('Detected!')
-    //console.log(detections[0].expressions)
     setReactions([...reactions, detections[0].expressions])
-    //reactions.push(detections[0].expressions)
+    reactions.push(detections[0].expressions)
   } else {
     console.log('No Face here!')
   }
@@ -49,7 +48,6 @@ export const stopRecording = mediaRecorderRef => {
   console.log('Stop Recording')
   mediaRecorderRef.current.stop()
   return mediaRecorderRef
-  //console.log(reactions)
 }
 
 //download the video to local storage. also uplloads to fire storage

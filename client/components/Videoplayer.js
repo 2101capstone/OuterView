@@ -11,8 +11,10 @@ import {
 } from './vidHelperFunc'
 import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
+import Scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
+
 
 const Videoplayer = () => {
   const {currentUser} = useAuth() //current user signed in
@@ -66,7 +68,7 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
-      addToFirestore(transcript, fillerWords).then(setDocId)
+      addToFirestore(transcript, fillerWords, reactions).then(setDocId)
     }
   }, [isRecord])
 
@@ -160,9 +162,23 @@ const Videoplayer = () => {
         </div>
       </div>
       {showTranscript ? (
-        <SpeechToTextV2 words={words} isRecord={isRecord} />
+        <div>
+          <SpeechToTextV2 words={words} isRecord={isRecord} />
+        </div>
       ) : (
         <div />
+      )}
+
+      {isRecord === false ? (
+        <div>
+          <Scoring
+            transcript={words}
+            facialData={reactions}
+            fillerWords={fillerWords}
+          />
+        </div>
+      ) : (
+        ' '
       )}
       <div>{docId}</div>
     </div>
