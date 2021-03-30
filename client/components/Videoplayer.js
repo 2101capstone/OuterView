@@ -158,7 +158,11 @@ const Videoplayer = () => {
           >
             Render Face Points
           </Button>
-          <Button type="button" onClick={randomQuestionGenerator}>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={randomQuestionGenerator}
+          >
             Random Interview Question
           </Button>
           <Button
