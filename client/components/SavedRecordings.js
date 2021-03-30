@@ -5,27 +5,41 @@ import firebase, {storage} from './firebase'
 
 const SavedRecordings = () => {
   const {currentUser} = useAuth() //current user signed in
-  const [sessions, setSessions] = useState([])
+  const [sessionIds, setSessionIds] = useState([])
+  const [sesDetail, setSesDetail] = useState([])
 
   useEffect(() => {
-    console.log(currentUser.uid)
-    //get all sessions from user doc set to sessions state
-    //query for all the sessions from sessions state
-
+    console.log('uid:', currentUser.uid)
+    //Set sessionId from User Doc to state
     let docRef = firebase
       .firestore()
       .collection('Users')
       .doc(currentUser.uid)
     docRef.get().then(doc => {
-      console.log('doc data', doc.data())
+      setSessionIds(doc.data().sessionId)
     })
   }, [])
+
+  //Pull
+  useEffect(() => {
+    if (sessionIds) {
+      console.log('session Ids:', sessionIds)
+      let docRef = firebase
+        .firestore()
+        .collection('Sessions')
+        .doc(sessionIds[0])
+
+      docRef.get().then(doc => {
+        setSesDetail(doc.data())
+      })
+    }
+  }, [sessionIds])
 
   return (
     <div>
       <h1 className="recordings-title">Past Recordings</h1>
       <div className="card mb-3">
-        <SingleRecordingCard />
+        <SingleRecordingCard fw={sesDetail} />
       </div>
     </div>
   )
