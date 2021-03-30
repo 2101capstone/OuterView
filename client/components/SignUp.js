@@ -27,10 +27,9 @@ const SignUp = () => {
         passwordRef.current.value
       )
       console.log('user', user.uid)
+      // create a new user doc by getting the user
       createUserDoc(user.uid, {email: emailRef.current.value})
       history.push('/dashboard')
-      // createUserDoc(user.Im.uid, {hello: 'hello'})
-      //create User document in firestore
     } catch {
       setError('Failed to create an account')
     }
