@@ -22,10 +22,15 @@ const SignUp = () => {
     try {
       setError('')
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-      //create User document in firestore
+      const {user} = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+      console.log('user', user.uid)
+      createUserDoc(user.uid, {email: emailRef.current.value})
       history.push('/dashboard')
-      createUserDoc('11', {hello: 'hello'})
+      // createUserDoc(user.Im.uid, {hello: 'hello'})
+      //create User document in firestore
     } catch {
       setError('Failed to create an account')
     }
