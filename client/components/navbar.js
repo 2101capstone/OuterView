@@ -30,7 +30,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                 className="logo"
                 src="https://t3.ftcdn.net/jpg/03/77/39/40/360_F_377394025_IFRmPetem8QsKhOSmUYIlOUMnLYGyaX7.jpg"
               />
-              <a className="navbar-brand" href="/landingpage">
+              <a className="navbar-brand" href="/">
                 OuterView
               </a>
               <div className="collapse navbar-collapse" id="navbarText">
