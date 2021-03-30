@@ -15,7 +15,6 @@ import {
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import SpeechSynthesis from './SpeechSynthesis'
 
 const Videoplayer = () => {
   const [isRecord, setisRecord] = useState(null)

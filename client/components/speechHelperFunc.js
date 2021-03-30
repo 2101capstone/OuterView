@@ -50,6 +50,7 @@ export const randomQuestionGenerator = () => {
   let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
   var utterance = new SpeechSynthesisUtterance(randomQuesion)
   synthesis.speak(utterance)
+  console.log('Question Asked---->', utterance.text)
 }
 
 const SpeechRecognition =
