@@ -4,6 +4,7 @@ import {useAuth} from '../contexts/AuthContext'
 import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
+import {createUserDoc} from './firebaseHelperFunc'
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -19,7 +20,11 @@ const LogIn = () => {
     try {
       setError('')
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
+      const {user} = await login(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+      createUserDoc(user.uid, {email: emailRef.current.value})
       history.push('/dashboard')
     } catch {
       setError('Failed to sign in')
@@ -32,8 +37,10 @@ const LogIn = () => {
     try {
       setError('')
       setLoading(true)
-      await auth.signInWithPopup(provider)
-      //create user document
+      const {user} = await auth.signInWithPopup(provider)
+      // create user doc for google
+      createUserDoc(user.uid, {email: user.email})
+      console.log('user', user)
       history.push('/dashboard')
     } catch {
       setError('Failed To Sign in')

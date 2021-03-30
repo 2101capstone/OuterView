@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react'
 import {Form, Button, Card, Alert} from 'react-bootstrap'
 import {Link, useHistory} from 'react-router-dom'
 import {useAuth} from '../contexts/AuthContext'
+import {createUserDoc} from './firebaseHelperFunc'
 
 const SignUp = () => {
   const emailRef = useRef()
@@ -21,8 +22,13 @@ const SignUp = () => {
     try {
       setError('')
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-      //create User document in firestore
+      const {user} = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+      console.log('user', user.uid)
+      // create a new user doc by getting the user
+      createUserDoc(user.uid, {email: emailRef.current.value})
       history.push('/dashboard')
     } catch {
       setError('Failed to create an account')
