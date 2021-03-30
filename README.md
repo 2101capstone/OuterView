@@ -9,12 +9,13 @@
 ## Technologies
 
 - Front-End
-  - React.js, Redux.js, HTML5, CSS3, RumbleCharts, Google OAuth
+  - React.js, HTML5, CSS3, RumbleCharts, Google OAuth
 - Back-End
-  - Google Firebase (Storage and Firestore)
+  - Google Firestore: NoSQL Database for user and session records
+  - Google Firebase Cloud Storage: storage for video files(ClouStorage and Firestore)
 - External API/Libraries
-  - [Face-API.js](https://github.com/justadudewhohacks/face-api.js/):Tensorflow Wrapper for facial recognition and emotion detection
-  - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API): Enables speech recognition into web apps
+  - [Face-API.js](https://github.com/justadudewhohacks/face-api.js/): Tensorflow Wrapper for facial recognition and emotion detection
+  - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API): Browser based speech recognition into web apps
 - Deployment
   - Google Firebase: Live website
   - Mocha/Chai: Unit testing of modules for faster developement

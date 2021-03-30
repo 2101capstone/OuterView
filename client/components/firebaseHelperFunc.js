@@ -51,3 +51,13 @@ export const addToStorage = (recordedChunks, docId) => {
     return videoUrl
   }
 }
+
+//Need Chucks new User docuemtn code for this to workd
+export const pushToUserDoc = async (uid, docId) => {
+  console.log('Need a new docuemnt from signup')
+  // await firebase
+  //   .firestore()
+  //   .collection('Users')
+  //   .doc(uid)
+  //   .update({sessionId: firebase.firestore.FieldValue.arrayUnion(docId)})
+}
