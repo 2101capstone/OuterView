@@ -61,8 +61,10 @@ export const randomQuestionGenerator = () => {
   voices = synthesis.getVoices().filter(voice => langRegex.test(voice.lang))
   let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
   var utterance = new SpeechSynthesisUtterance(randomQuesion)
+  utterance.volume = 0.2
   synthesis.speak(utterance)
   console.log('Question Asked---->', utterance.text)
+  console.log('THESE ARE YOU VOICE --->', voices)
 }
 
 const SpeechRecognition =
