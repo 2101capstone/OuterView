@@ -35,26 +35,22 @@ class Routes extends Component {
         <Route path="/cloud" component={Cloud} />
 
         <AuthProvider>
+          <Switch>
+            <PrivateRoute path="/record" component={WebcamModule} />
+            <PrivateRoute path="/recordings" component={SavedRecordings} />
+            <PrivateRoute path="/singleRecording" component={SingleRecording} />
+          </Switch>
           <Container
             className="d-flex align-items-center justify-content-center"
             style={{minHeight: '100vh'}}
           >
             <div className="w-100" style={{maxWidth: '400px'}}>
-              <Switch>
-                <PrivateRoute path="/dashboard" component={ProfilePage} />
-                <Route path="/login" component={LogIn} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/forgot-password" component={ForgotPassword} />
-              </Switch>
+              <Route path="/forgot-password" component={ForgotPassword} />
+              <PrivateRoute path="/dashboard" component={ProfilePage} />
+              <Route path="/login" component={LogIn} />
+              <Route path="/signup" component={SignUp} />
             </div>
           </Container>
-          <Route path="/record" component={WebcamModule} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <PrivateRoute path="/dashboard" component={ProfilePage} />
-          <Route path="/recordings" component={SavedRecordings} />
-          <Route path="/singleRecording" component={SingleRecording} />
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />
