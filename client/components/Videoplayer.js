@@ -9,12 +9,17 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
+
 import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
-import {fillerWords, countFiller, recognition} from './speechHelperFunc'
+import {
+  fillerWords,
+  countFiller,
+  recognition,
+  randomQuestionGenerator
+} from './speechHelperFunc'
 import Scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
-
 
 const Videoplayer = () => {
   const {currentUser} = useAuth() //current user signed in
@@ -152,6 +157,13 @@ const Videoplayer = () => {
             onClick={() => setShowFace(prevState => !prevState)}
           >
             Render Face Points
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={randomQuestionGenerator}
+          >
+            Random Interview Question
           </Button>
           <Button
             variant="secondary"
