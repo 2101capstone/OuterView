@@ -6,25 +6,30 @@ import {
   runFacialRec,
   startRecording,
   stopRecording,
-  handleDownload
+  handleDownload,
+  drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage} from './firebaseHelperFunc'
+
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
+import Scoring from './Scoring'
+import {useAuth} from '../contexts/AuthContext'
+import {Button} from 'react-bootstrap'
 
 const Videoplayer = () => {
-  const [isRecord, setisRecord] = useState(null)
-  const [showFace, setShowFace] = useState(false) //not connected
-  const [intervalId, setIntervalId] = useState('')
+  const {currentUser} = useAuth() //current user signed in
+  const [isRecord, setisRecord] = useState(null) //isRecording
+  const [showFace, setShowFace] = useState(null) //not connected
+  const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
-  //const [timer, setTimer] = useState(0)
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
@@ -37,6 +42,7 @@ const Videoplayer = () => {
   useEffect(() => {
     console.log('Face Models Loaded')
     loadModels()
+    console.log(currentUser.uid)
   }, [])
 
   const handleDataAvailable = ({data}) => {
@@ -47,9 +53,10 @@ const Videoplayer = () => {
 
   //if isRecord, then run facial recognition, start recording
   useEffect(() => {
+    let id = null
     if (isRecord) {
       //Start Recording
-      setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
+      id = setInterval(runFacialRec, 200, reactions, setReactions)
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
@@ -58,26 +65,36 @@ const Videoplayer = () => {
       recognition.start() //start voice Recognition
     } else if (isRecord === false) {
       //END RECORDING
-      clearInterval(intervalId)
+
+      clearInterval(id)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
-      addToFirestore(transcript, fillerWords).then(setDocId)
+      addToFirestore(transcript, fillerWords, reactions).then(setDocId)
     }
   }, [isRecord])
 
+  //upload video to cloud storage
   useEffect(() => {
     if (docId) {
       addToStorage(recordedChunks, docId)
+      console.log('about to push to user doc')
+      pushToUserDoc(currentUser.uid, docId)
     }
   }, [docId])
 
-  //something here to allow turn off and on of face net
+  //On/Off face net
   useEffect(() => {
-    //console.log('hello from show face')
+    if (showFace) {
+      setFaceId(setInterval(drawFacePoints, 200))
+    } else if (showFace === false) {
+      clearInterval(faceId)
+      const canvas = document.getElementById('myCanvas')
+      canvas.getContext('2d').clearRect(0, 0, 640, 480)
+    }
   }, [showFace])
 
   //to download and submit video
@@ -87,7 +104,7 @@ const Videoplayer = () => {
     console.log('Downloaded to local')
   }
 
-  // for
+  // to join array of words from Transcription
   recognition.onresult = event => {
     //console.log(event.results)
     setWords(
@@ -99,48 +116,79 @@ const Videoplayer = () => {
 
   return (
     <div>
-      <h3>{isRecord ? 'Face Recognition and Recording!' : 'Not Recording!'}</h3>
-      <h5>Timer: 0</h5>
-      <div>
+      {/* <h3>{isRecord ? {seconds} : 'no rec'}</h3> */}
+      <div className="camAndCanvas">
+        <br></br>
         <canvas ref={canvasRef} id="myCanvas" />
-        <Webcam ref={videoRef} audio={true} width={640} height={480} id="cam" />
+        <Webcam
+          ref={videoRef}
+          audio={true}
+          width={640}
+          height={480}
+          id="cam"
+          className={isRecord ? 'recBorder' : 'noBorder'}
+        />
       </div>
-      <div>{docId}</div>
-      <button
-        id="startStopRec"
-        type="button"
-        onClick={() => setisRecord(prevState => !prevState)}
-      >
-        {isRecord ? 'End Recording' : 'Start Recording'}
-      </button>
-      {isRecord === false ? (
-        <button id="finishVid" type="button" onClick={handleSubmitClick}>
-          Download and Submit
-        </button>
-      ) : (
-        ''
-      )}
-      <button
-        id="renderFace"
-        type="button"
-        onClick={() => setShowFace(prevState => !prevState)}
-      >
-        Render Face Points
-      </button>
-      <button type="button" onClick={randomQuestionGenerator}>
-        Random Interview Question
-      </button>
-      <button
-        type="button"
-        onClick={() => setShowTranscript(prevState => !prevState)}
-      >
-        {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
-      </button>
+      <div className="buttonContainer">
+        <div className="recordButton">
+          <Button
+            id="startStopRec"
+            variant="danger"
+            onClick={() => setisRecord(prevState => !prevState)}
+          >
+            {isRecord ? 'End Recording' : 'Start Recording'}
+          </Button>
+        </div>
+        <div className="secondaryButton">
+          {isRecord === false ? (
+            <Button
+              id="finishVid"
+              variant="secondary"
+              onClick={handleSubmitClick}
+            >
+              Download
+            </Button>
+          ) : (
+            ''
+          )}
+          <Button
+            id="renderFace"
+            variant="secondary"
+            onClick={() => setShowFace(prevState => !prevState)}
+          >
+            Render Face Points
+          </Button>
+          <Button type="button" onClick={randomQuestionGenerator}>
+            Random Interview Question
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => setShowTranscript(prevState => !prevState)}
+          >
+            {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
+          </Button>{' '}
+        </div>
+      </div>
       {showTranscript ? (
-        <SpeechToTextV2 words={words} isRecord={isRecord} />
+        <div>
+          <SpeechToTextV2 words={words} isRecord={isRecord} />
+        </div>
       ) : (
-        <h1></h1>
+        <div />
       )}
+
+      {isRecord === false ? (
+        <div>
+          <Scoring
+            transcript={words}
+            facialData={reactions}
+            fillerWords={fillerWords}
+          />
+        </div>
+      ) : (
+        ' '
+      )}
+      <div>{docId}</div>
     </div>
   )
 }

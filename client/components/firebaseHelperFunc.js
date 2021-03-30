@@ -1,11 +1,11 @@
 import firebase, {storage} from './firebase'
 
-export const addToFirestore = async (transcript, fillerWords) => {
+export const addToFirestore = async (transcript, fillerWords, reactions) => {
   //upload to Firestore
   const res = await firebase
     .firestore()
     .collection('Sessions')
-    .add({transcript, fillerWords})
+    .add({transcript, fillerWords, reactions})
   //console.log('Firestore ID:', res.id)
   return res.id
 }
@@ -50,4 +50,14 @@ export const addToStorage = (recordedChunks, docId) => {
       .getDownloadURL()
     return videoUrl
   }
+}
+
+//Need Chucks new User docuemtn code for this to workd
+export const pushToUserDoc = async (uid, docId) => {
+  console.log('Need a new docuemnt from signup')
+  // await firebase
+  //   .firestore()
+  //   .collection('Users')
+  //   .doc(uid)
+  //   .update({sessionId: firebase.firestore.FieldValue.arrayUnion(docId)})
 }

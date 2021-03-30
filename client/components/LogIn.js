@@ -3,6 +3,7 @@ import {Form, Button, Card, Alert} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
+import GoogleButton from 'react-google-button'
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -32,6 +33,7 @@ const LogIn = () => {
       setError('')
       setLoading(true)
       await auth.signInWithPopup(provider)
+      //create user document
       history.push('/dashboard')
     } catch {
       setError('Failed To Sign in')
@@ -57,9 +59,17 @@ const LogIn = () => {
             <Button disabled={loading} className="w-100" type="submit">
               Log In
             </Button>
-            <Button disabled={loading} type="submit" onClick={signInWithGoogle}>
-              Sign In With Google
-            </Button>
+            <Form.Group>
+              <div>
+                <GoogleButton
+                  disabled={loading}
+                  className="w-100"
+                  onClick={signInWithGoogle}
+                >
+                  Sign In With Google
+                </GoogleButton>
+              </div>
+            </Form.Group>
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>

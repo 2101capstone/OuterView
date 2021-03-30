@@ -1,5 +1,6 @@
 import * as faceapi from 'face-api.js'
 
+let facialData = {counter: 0}
 //Load all the facial models into memory
 export const loadModels = () => {
   Promise.all([
@@ -17,25 +18,11 @@ export const runFacialRec = async (reactions, setReactions) => {
     .withFaceLandmarks()
     .withFaceExpressions()
   if (detections.length) {
-    //console.log('Detected!')
-    //console.log(detections[0].expressions)
     setReactions([...reactions, detections[0].expressions])
-    //reactions.push(detections[0].expressions)
+    reactions.push(detections[0].expressions)
   } else {
     console.log('No Face here!')
   }
-  //show face net
-  const displaySize = {
-    width: 640,
-    height: 480
-  }
-  const canvas = document.getElementById('myCanvas')
-  faceapi.matchDimensions(canvas, displaySize)
-  const resizedDetections = faceapi.resizeResults(detections, displaySize)
-  //setCanvasRef(canvasRef.current.getContext('2d').clearRect(0, 0, 640, 480))
-  faceapi.draw.drawDetections(canvas, resizedDetections)
-  faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 }
 
 //start recording when button is clicked
@@ -61,7 +48,6 @@ export const stopRecording = mediaRecorderRef => {
   console.log('Stop Recording')
   mediaRecorderRef.current.stop()
   return mediaRecorderRef
-  //console.log(reactions)
 }
 
 //download the video to local storage. also uplloads to fire storage
@@ -71,9 +57,6 @@ export const handleDownload = recordedChunks => {
       type: 'video/webm'
     })
     const url = URL.createObjectURL(blob)
-    // const publicUrl = handleUpload(blob)
-    // console.log('publicUrl from click', publicUrl)
-    //console.log('blob url', url)
     const a = document.createElement('a')
     document.body.appendChild(a)
     a.style = 'display: none'
@@ -82,4 +65,23 @@ export const handleDownload = recordedChunks => {
     a.click()
     window.URL.revokeObjectURL(url)
   }
+}
+
+export const drawFacePoints = async () => {
+  const detections = await faceapi
+    .detectAllFaces('cam', new faceapi.TinyFaceDetectorOptions())
+    .withFaceLandmarks()
+    .withFaceExpressions()
+  //show face net
+  const displaySize = {
+    width: 640,
+    height: 480
+  }
+  const canvas = document.getElementById('myCanvas')
+  faceapi.matchDimensions(canvas, displaySize)
+  const resizedDetections = faceapi.resizeResults(detections, displaySize)
+
+  faceapi.draw.drawDetections(canvas, resizedDetections)
+  faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+  faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 }

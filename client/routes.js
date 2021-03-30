@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+import {Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
+
 import {
   PrivateRoute,
   LogIn,
@@ -29,16 +31,26 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/landingpage" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
-        <Route path="/record" component={WebcamModule} />
+
         <AuthProvider>
-          <Route path="/login" component={LogIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <PrivateRoute path="/dashboard" component={ProfilePage} />
-          <Route path="/recordings" component={SavedRecordings} />
-          <Route path="/singleRecording" component={SingleRecording} />
+          <Switch>
+            <PrivateRoute path="/record" component={WebcamModule} />
+            <PrivateRoute path="/recordings" component={SavedRecordings} />
+            <PrivateRoute path="/singleRecording" component={SingleRecording} />
+          </Switch>
+          <Container
+            className="d-flex align-items-center justify-content-center"
+            style={{minHeight: '100vh'}}
+          >
+            <div className="w-100" style={{maxWidth: '400px'}}>
+              <Route path="/forgot-password" component={ForgotPassword} />
+              <PrivateRoute path="/dashboard" component={ProfilePage} />
+              <Route path="/login" component={LogIn} />
+              <Route path="/signup" component={SignUp} />
+            </div>
+          </Container>
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />

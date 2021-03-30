@@ -17,6 +17,7 @@ const ProfilePage = () => {
       setError('Failed to log out')
     }
   }
+
   return (
     <>
       <Card>
