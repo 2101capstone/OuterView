@@ -16,20 +16,20 @@ const SavedRecordings = () => {
     query.get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         console.log(doc.id, ' => ', doc.data())
-        setSesDetail(prev => [...prev, doc.data()])
+        setSesDetail(prev => [...prev, {...doc.data(), key: doc.id}])
       })
     })
   }, [])
-
-  useEffect(() => {
-    console.log(sesDetail)
-  })
 
   return (
     <div>
       <h1 className="recordings-title">Past Recordings</h1>
       <div className="card mb-3">
-        <SingleRecordingCard fw="hello" />
+        {sesDetail.map(detail => (
+          <div key={detail.key}>
+            <SingleRecordingCard session={detail} />
+          </div>
+        ))}
       </div>
     </div>
   )
