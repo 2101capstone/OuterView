@@ -33,6 +33,7 @@ const LogIn = () => {
       setError('')
       setLoading(true)
       await auth.signInWithPopup(provider)
+      //create user document
       history.push('/dashboard')
     } catch {
       setError('Failed To Sign in')

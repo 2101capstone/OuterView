@@ -31,9 +31,9 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/landingpage" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
-        <Route path="/record" component={WebcamModule} />
+
         <AuthProvider>
           <Container
             className="d-flex align-items-center justify-content-center"
@@ -48,7 +48,11 @@ class Routes extends Component {
               </Switch>
             </div>
           </Container>
-
+          <Route path="/record" component={WebcamModule} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
           <Route path="/recordings" component={SavedRecordings} />
           <Route path="/singleRecording" component={SingleRecording} />
         </AuthProvider>
