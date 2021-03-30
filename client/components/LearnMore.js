@@ -57,8 +57,8 @@ const LearnMore = () => {
           ></img>
           <div className="card-body">
             <h5 className="card-title">Benny Koker</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
+            <a className="card-text">github</a>
+            <a className="card-text">linkedin</a>
           </div>
         </div>
       </div>
@@ -110,6 +110,53 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
+      <div className="box-2">
+        <h1 className="recognition-h1">Tech Stack Used</h1>
+        <ul>
+          <li>React.js</li>
+
+          <li>React.js</li>
+
+          <li>React.js</li>
+        </ul>
+      </div>
+
+      <div className="container">
+        <h2>Carousel Example</h2>
+        <div
+          className="carousel slide"
+          id="carouselExample"
+          data-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <div>
+                <img src="icon-user.png" alt="First Slide"></img>
+              </div>
+            </div>
+            <div className="carousel-item ">
+              <img src="mike.jpeg" alt="Second Slide"></img>
+            </div>
+            <div className="carousel-item ">
+              <img src="icon-user.png" alt="Third Slide"></img>
+            </div>
+          </div>
+          <a
+            href="#carouselExample"
+            className="carousel-control-prev"
+            data-slide="prev"
+          >
+            <span className="carousel-control-prev-icon"></span>
+          </a>
+          <a
+            href="#carouselExample"
+            className="carousel-control-next"
+            data-slide="next"
+          >
+            <span className="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
     </div>
   )
 }

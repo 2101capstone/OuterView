@@ -317,3 +317,9 @@ ul {
 .card-text {
   text-align: center;
 }
+.carosel-img {
+  width: 100px;
+}
+.carousel-control-prev-icon {
+  color: black;
+}
