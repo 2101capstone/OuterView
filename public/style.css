@@ -210,3 +210,147 @@ nav {
   outline: none;
   border-radius: 3px;
 }
+.landing-page-div {
+  background-image: 'https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all';
+}
+#landingPage {
+  background-image: url('https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#landingPage h1 {
+  font-size: 70px;
+  line-height: 1.2;
+  color: whitesmoke;
+}
+
+#landingPage p {
+  font-size: 50px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#landingPage .button {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  border: white 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#landingPage .button:hover {
+  background: #64f58d;
+  color: #fff;
+}
+
+#section-a {
+  padding: 20px;
+  background: #64f58d;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+
+#section-b {
+  padding: 20px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+#section-c {
+  display: flex;
+}
+.recognition-h1 {
+  text-align: center;
+}
+.landing-page-h1 {
+  font-family: 'Merriweather', serif;
+}
+
+#section-c div {
+  padding: 20px;
+}
+
+#section-c .box-1,
+#section-c .box-3 {
+  background: #373a40;
+  color: #fff;
+}
+
+#section-c .box-2 {
+  background: #373a40;
+  color: white;
+}
+
+.div-box {
+  border-radius: 20px;
+  margin: 20px 0px;
+  background-color: #ffffff;
+  padding-top: 20px;
+  box-shadow: 8px 8px 0px 0px #adadad;
+}
+.User-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+.User-img img {
+  width: 100%;
+}
+.User-name {
+  text-align: center;
+  font-size: 22px;
+  margin: 15px 0px 10px;
+}
+.designation {
+  text-align: center;
+  font-size: 16px;
+}
+.contact-btn {
+  margin: 0 auto;
+  display: table;
+}
+.contact-btn .btn {
+  width: 95px;
+  margin: 15px 5px;
+}
+.profile-details ul {
+  padding-left: 10px;
+}
+.profile-details ul li {
+  list-style: none;
+}
+.profile-details ul li a {
+  color: #607d8b;
+  text-decoration: none;
+  padding: 12px 15px;
+  display: block;
+  border-bottom: 1px solid #f1f1f1;
+  border-left: 3px solid transparent;
+  transition: 0.4s;
+}
+.profile-details ul li:last-child a {
+  border-bottom: none;
+  border-bottom-right-radius: 20px;
+}
+.profile-details ul li a:hover {
+  color: #2196f3;
+  background-color: #e6f4ff;
+  border-left: 3px solid #2196f3;
+}
+.profile-details ul li a i {
+  margin-right: 8px;
+}
