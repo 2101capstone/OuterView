@@ -195,3 +195,18 @@ canvas {
 nav {
   background-color: #64f58d;
 }
+
+.text-to-speech-div {
+  margin: 50 auto;
+  width: 500px;
+}
+.group {
+  margin: 7px 0;
+}
+.text-to-speech {
+  width: 100%;
+  padding: 5 10;
+  border: 1px solid black;
+  outline: none;
+  border-radius: 3px;
+}
