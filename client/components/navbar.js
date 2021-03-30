@@ -66,6 +66,15 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                     <a
                       className="nav-link active"
                       aria-current="page"
+                      href="/dashboard"
+                    >
+                      Profile
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
                       href="/recordings"
                     >
                       Saved Recordings

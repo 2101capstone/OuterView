@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+import {Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
+
 import {
   PrivateRoute,
   LogIn,
@@ -33,6 +35,19 @@ class Routes extends Component {
         <Route path="/cloud" component={Cloud} />
 
         <AuthProvider>
+          <Container
+            className="d-flex align-items-center justify-content-center"
+            style={{minHeight: '100vh'}}
+          >
+            <div className="w-100" style={{maxWidth: '400px'}}>
+              <Switch>
+                <PrivateRoute path="/dashboard" component={ProfilePage} />
+                <Route path="/login" component={LogIn} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/forgot-password" component={ForgotPassword} />
+              </Switch>
+            </div>
+          </Container>
           <Route path="/record" component={WebcamModule} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
