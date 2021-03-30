@@ -37,7 +37,7 @@ form div {
   align-items: center;
 }
 
-.recordBorder {
+.recBorder {
   border: 7px solid #ef476f;
 }
 
@@ -49,6 +49,16 @@ canvas {
   padding: 30px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.recordButton {
+  padding: 15px;
+}
+
+.secondayButton {
+  padding: 15px;
 }
 
 #textbox {

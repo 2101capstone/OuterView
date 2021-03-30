@@ -31,8 +31,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={LandingPage} />
         <Route path="/cloud" component={Cloud} />
-        <Route path="/record" component={WebcamModule} />
+
         <AuthProvider>
+          <Route path="/record" component={WebcamModule} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/forgot-password" component={ForgotPassword} />

@@ -9,19 +9,20 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage} from './firebaseHelperFunc'
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {fillerWords, countFiller, recognition} from './speechHelperFunc'
+import {useAuth} from '../contexts/AuthContext'
+import {Button} from 'react-bootstrap'
 
 const Videoplayer = () => {
-  const [isRecord, setisRecord] = useState(null)
+  const {currentUser} = useAuth() //current user signed in
+  const [isRecord, setisRecord] = useState(null) //isRecording
   const [showFace, setShowFace] = useState(null) //not connected
-  const [intervalId, setIntervalId] = useState('')
   const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
-  const [border, setBorder] = useState('noBorder')
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
@@ -34,6 +35,7 @@ const Videoplayer = () => {
   useEffect(() => {
     console.log('Face Models Loaded')
     loadModels()
+    console.log(currentUser.uid)
   }, [])
 
   const handleDataAvailable = ({data}) => {
@@ -44,19 +46,20 @@ const Videoplayer = () => {
 
   //if isRecord, then run facial recognition, start recording
   useEffect(() => {
+    let id = null
     if (isRecord) {
       //Start Recording
-      setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
+      id = setInterval(runFacialRec, 200, reactions, setReactions)
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
         handleDataAvailable
       ) //start video recording
       recognition.start() //start voice Recognition
-      setBorder('recordBorder') //red banner around video canvas
     } else if (isRecord === false) {
       //END RECORDING
-      clearInterval(intervalId)
+
+      clearInterval(id)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
@@ -64,7 +67,6 @@ const Videoplayer = () => {
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
       addToFirestore(transcript, fillerWords).then(setDocId)
-      setBorder('noBorder')
     }
   }, [isRecord])
 
@@ -72,6 +74,8 @@ const Videoplayer = () => {
   useEffect(() => {
     if (docId) {
       addToStorage(recordedChunks, docId)
+      console.log('about to push to user doc')
+      pushToUserDoc(currentUser.uid, docId)
     }
   }, [docId])
 
@@ -105,9 +109,9 @@ const Videoplayer = () => {
 
   return (
     <div>
-      <h3>{isRecord ? 'Face Recognition and Recording!' : 'Not Recording!'}</h3>
-      <h5>Timer: 0</h5>
+      {/* <h3>{isRecord ? {seconds} : 'no rec'}</h3> */}
       <div className="camAndCanvas">
+        <br></br>
         <canvas ref={canvasRef} id="myCanvas" />
         <Webcam
           ref={videoRef}
@@ -115,40 +119,44 @@ const Videoplayer = () => {
           width={640}
           height={480}
           id="cam"
-          className={border}
+          className={isRecord ? 'recBorder' : 'noBorder'}
         />
       </div>
       <div className="buttonContainer">
-        <div>
-          <button
+        <div className="recordButton">
+          <Button
             id="startStopRec"
-            type="button"
+            variant="danger"
             onClick={() => setisRecord(prevState => !prevState)}
           >
             {isRecord ? 'End Recording' : 'Start Recording'}
-          </button>
+          </Button>
         </div>
-        <div>
+        <div className="secondaryButton">
           {isRecord === false ? (
-            <button id="finishVid" type="button" onClick={handleSubmitClick}>
-              Download and Submit
-            </button>
+            <Button
+              id="finishVid"
+              variant="secondary"
+              onClick={handleSubmitClick}
+            >
+              Download
+            </Button>
           ) : (
             ''
           )}
-          <button
+          <Button
             id="renderFace"
-            type="button"
+            variant="secondary"
             onClick={() => setShowFace(prevState => !prevState)}
           >
             Render Face Points
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            variant="secondary"
             onClick={() => setShowTranscript(prevState => !prevState)}
           >
-            {showTranscript ? 'Hide Transcription' : 'Show Transcription'}
-          </button>{' '}
+            {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
+          </Button>{' '}
         </div>
       </div>
       {showTranscript ? (

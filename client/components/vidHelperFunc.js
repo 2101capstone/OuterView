@@ -59,9 +59,6 @@ export const handleDownload = recordedChunks => {
       type: 'video/webm'
     })
     const url = URL.createObjectURL(blob)
-    // const publicUrl = handleUpload(blob)
-    // console.log('publicUrl from click', publicUrl)
-    //console.log('blob url', url)
     const a = document.createElement('a')
     document.body.appendChild(a)
     a.style = 'display: none'
