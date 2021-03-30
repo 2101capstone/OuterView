@@ -9,7 +9,12 @@ import {
   handleDownload
 } from './vidHelperFunc'
 import {addToFirestore, addToStorage} from './firebaseHelperFunc'
-import {fillerWords, countFiller, recognition} from './speechHelperFunc'
+import {
+  fillerWords,
+  countFiller,
+  recognition,
+  randomQuestionGenerator
+} from './speechHelperFunc'
 import SpeechSynthesis from './SpeechSynthesis'
 
 const Videoplayer = () => {
@@ -123,7 +128,9 @@ const Videoplayer = () => {
       >
         Render Face Points
       </button>
-      <SpeechSynthesis />
+      <button type="button" onClick={randomQuestionGenerator}>
+        Random Interview Question
+      </button>
       <button
         type="button"
         onClick={() => setShowTranscript(prevState => !prevState)}

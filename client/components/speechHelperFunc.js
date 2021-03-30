@@ -22,6 +22,16 @@ export const fillerWords = {
   absolutely: 0,
   wow: 0
 }
+var voices = []
+
+const questions = [
+  'Hello, Tell me about yourself',
+  'What Makes you a good addition to our company',
+  'What experiences and skills make you a great candidate for this position.',
+  'What has been your most meaningful work experience .',
+  'What qualities make you a team player.',
+  'What do you look for in an employer.'
+]
 
 export const countFiller = transcript => {
   transcript = transcript.toLowerCase().split(' ')
@@ -33,20 +43,15 @@ export const countFiller = transcript => {
   })
 }
 
+export const randomQuestionGenerator = () => {
+  var synthesis = window.speechSynthesis
+  var langRegex = /^en(-[a-z]{2})?$/i
+  voices = synthesis.getVoices().filter(voice => langRegex.test(voice.lang))
+  let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
+  var utterance = new SpeechSynthesisUtterance(randomQuesion)
+  synthesis.speak(utterance)
+}
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 export const recognition = new SpeechRecognition()
-
-// export const randomQuestionGenerator = question =>{
-//   var synthesis = window.speechSynthesis
-//   var voices = []
-//   var langRegex = /^en(-[a-z]{2})?$/i
-//   voices = synthesis.getVoices().filter(voice => langRegex.test(voice.lang))
-
-//   let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
-//   var utterance = new SpeechSynthesisUtterance(randomQuesion)
-//   synthesis.speak(utterance)
-//   var amISpeaking = synthesis.speaking
-//   console.log('Am i speaking?-->', amISpeaking)
-
-// }
