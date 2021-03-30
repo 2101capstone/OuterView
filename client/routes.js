@@ -16,7 +16,6 @@ import Cloud from './components/Cloud'
 import LandingPage from './components/LandingPage'
 import SavedRecordings from './components/SavedRecordings'
 import SingleRecording from './components/SingleRecording'
-import SpeechSynthesis from './components/SpeechSynthesis'
 
 /**
  * COMPONENT
@@ -40,7 +39,6 @@ class Routes extends Component {
           <PrivateRoute path="/dashboard" component={ProfilePage} />
           <Route path="/recordings" component={SavedRecordings} />
           <Route path="/singleRecording" component={SingleRecording} />
-          <Route path="/interviewSimulator" component={SpeechSynthesis} />
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />

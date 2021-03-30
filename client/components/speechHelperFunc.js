@@ -36,3 +36,17 @@ export const countFiller = transcript => {
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 export const recognition = new SpeechRecognition()
+
+// export const randomQuestionGenerator = question =>{
+//   var synthesis = window.speechSynthesis
+//   var voices = []
+//   var langRegex = /^en(-[a-z]{2})?$/i
+//   voices = synthesis.getVoices().filter(voice => langRegex.test(voice.lang))
+
+//   let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
+//   var utterance = new SpeechSynthesisUtterance(randomQuesion)
+//   synthesis.speak(utterance)
+//   var amISpeaking = synthesis.speaking
+//   console.log('Am i speaking?-->', amISpeaking)
+
+// }
