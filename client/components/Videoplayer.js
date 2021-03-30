@@ -17,7 +17,7 @@ import {
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import Scoring from './Scoring'
+import {scoring} from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
 
@@ -73,6 +73,9 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
+      ///////////////////////////////////////////////////////////
+      console.log(scoring(transcript, fillerWords, reactions))
+      ///////////////////////////////////////////////////////////
       addToFirestore({transcript, fillerWords}).then(setDocId)
     }
   }, [isRecord])
@@ -179,18 +182,6 @@ const Videoplayer = () => {
         </div>
       ) : (
         <div />
-      )}
-
-      {isRecord === false ? (
-        <div>
-          <Scoring
-            transcript={words}
-            facialData={reactions}
-            fillerWords={fillerWords}
-          />
-        </div>
-      ) : (
-        ' '
       )}
       <div>{docId}</div>
     </div>

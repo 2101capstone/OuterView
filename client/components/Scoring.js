@@ -1,15 +1,13 @@
 import React from 'react'
 
-const Scoring = props => {
-  let {transcript, facialData, fillerWords} = props
+export default function scoring(transcript, fillerWords, facialData) {
   transcript.join(' ')
-  let score = 0
-  let emotion1
-  let emotion2
-  let emotion3
-  let emotion4
-  let emotion5
-  let emotion6
+  let score = {
+    finalScore: 0,
+    transcriptScore: 0,
+    reactionsScore: 0,
+    dataPoints: []
+  }
   let emotions = {
     angry: 0,
     happy: 0,
@@ -20,7 +18,7 @@ const Scoring = props => {
     neutral: 0,
     total: 0
   }
-  /// combine all facil data
+  /// combine all facil data update emotions object add to dataPoints
   for (let i = 0; i < facialData.length; i++) {
     for (let key in emotions) {
       if (facialData[i][key]) {
@@ -28,6 +26,7 @@ const Scoring = props => {
         emotions.total += facialData[i][key]
       }
     }
+    score.dataPoints.push(emotions)
   }
 
   //sift thru facial data get score
@@ -68,21 +67,8 @@ const Scoring = props => {
 
   // test
 
-  return (
-    <div>
-      <div> {`Emotions observed in order `}</div>
-      <div> {`${emotion1[0]} ----> ${emotion1[1]}%`}</div>
-      <div> {`${emotion2[0]} ----> ${emotion2[1]}%`}</div>
-      <div> {`${emotion3[0]} ----> ${emotion3[1]}%`}</div>
-      <div> {`${emotion4[0]} ----> ${emotion4[1]}%`}</div>
-      <div> {`${emotion5[0]} ----> ${emotion5[1]}%`}</div>
-      <div> {`${emotion6[0]} ----> ${emotion6[1]}%`}</div>
-      <h4>{`You Scored ${score}%  ${message(score)}`}</h4>
-    </div>
-  )
+  return score
 }
-
-export default Scoring
 
 /// how will we recieve data?
 // filler words count ?
