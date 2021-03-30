@@ -15,7 +15,6 @@ import Scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
 
-
 const Videoplayer = () => {
   const {currentUser} = useAuth() //current user signed in
   const [isRecord, setisRecord] = useState(null) //isRecording
@@ -68,7 +67,7 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
-      addToFirestore(transcript, fillerWords, reactions).then(setDocId)
+      addToFirestore({transcript, fillerWords}).then(setDocId)
     }
   }, [isRecord])
 
