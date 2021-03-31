@@ -29,6 +29,7 @@ const Videoplayer = () => {
   const [showTranscript, setShowTranscript] = useState(false)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
+  let [intervalId, setIntervalId] = useState('')
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
@@ -52,10 +53,9 @@ const Videoplayer = () => {
 
   //if isRecord, then run facial recognition, start recording
   useEffect(() => {
-    let id = null
     if (isRecord) {
       //Start Recording
-      id = setInterval(runFacialRec, 200, reactions, setReactions)
+      setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
@@ -64,8 +64,7 @@ const Videoplayer = () => {
       recognition.start() //start voice Recognition
     } else if (isRecord === false) {
       //END RECORDING
-
-      clearInterval(id)
+      clearInterval(intervalId)
       mediaRecorderRef = stopRecording(mediaRecorderRef) //stop video recording
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
@@ -84,7 +83,6 @@ const Videoplayer = () => {
   useEffect(() => {
     if (docId) {
       addToStorage(recordedChunks, docId)
-      console.log('about to push to user doc')
       pushToUserDoc(currentUser.uid, docId)
     }
   }, [docId])
