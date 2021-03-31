@@ -1,4 +1,5 @@
 import React from 'react'
+import {Carousel, Card} from 'react-bootstrap'
 
 const LearnMore = () => {
   return (
@@ -110,53 +111,70 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
-      <div className="box-2">
-        <h1 className="recognition-h1">Tech Stack Used</h1>
-        <ul>
-          <li>React.js</li>
-
-          <li>React.js</li>
-
-          <li>React.js</li>
-        </ul>
-      </div>
-
-      <div className="container">
-        <h2>Carousel Example</h2>
-        <div
-          className="carousel slide"
-          id="carouselExample"
-          data-ride="carousel"
-        >
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div>
-                <img src="icon-user.png" alt="First Slide"></img>
-              </div>
-            </div>
-            <div className="carousel-item ">
-              <img src="mike.jpeg" alt="Second Slide"></img>
-            </div>
-            <div className="carousel-item ">
-              <img src="icon-user.png" alt="Third Slide"></img>
-            </div>
-          </div>
-          <a
-            href="#carouselExample"
-            className="carousel-control-prev"
-            data-slide="prev"
-          >
-            <span className="carousel-control-prev-icon"></span>
-          </a>
-          <a
-            href="#carouselExample"
-            className="carousel-control-next"
-            data-slide="next"
-          >
-            <span className="carousel-control-next-icon"></span>
-          </a>
-        </div>
-      </div>
+      <Carousel>
+        <Carousel.Item>
+          {/* <img
+            className="d-block w-100"
+            src="mike.jpeg"
+            alt="First slide"
+          /> */}
+          <Card style={{width: '40rem'}}>
+            <Card.Img variant="top" src="react-js-header.png" />
+            <Card.Body>
+              <Card.Title>React.js</Card.Title>
+              <Card.Text>
+                Is an open-source, front end, JavaScript library for building
+                user interfaces or UI components. React code is made of entities
+                called components. Components can be rendered to a particular
+                element in the DOM using the React DOM library
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Card style={{width: '40rem'}}>
+            <Card.Img variant="top" src="firebase.png" />
+            <Card.Body>
+              <Card.Title>Firebase</Card.Title>
+              <Card.Text>
+                <ul>
+                  <li> Real Time No SQL database</li>
+                  <li> File Storage</li>
+                  <li> Authentication</li>
+                  <li> Hosting</li>
+                </ul>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Card style={{width: '40rem'}}>
+            <Card.Img variant="top" src="face-api.png" />
+            <Card.Body>
+              <Card.Title>face-api.js</Card.Title>
+              <Card.Text>
+                JavaScript API for face detection and face recognition in the
+                browser implemented on top of the tensorflow.js core API
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Card style={{width: '40rem'}}>
+            <Card.Img variant="top" src="webspeech.png" />
+            <Card.Body>
+              <Card.Title>Web Speech API</Card.Title>
+              <Card.Text>
+                The Web Speech API enables you to incorporate voice data into
+                web apps. API is made up of two parts: SpeechSynthesis
+                (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
+                Recognition.), The Web Speech API makes web apps able to handle
+                voice data.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Carousel.Item>
+      </Carousel>
     </div>
   )
 }
