@@ -114,9 +114,4 @@ export default function scoring(transcript, fillerWords, facialData) {
 //        return words
 //      }
 
-//      const countedWords = wordCount(transcript)
-
-//      let wordsArr = []
-
-//      Object.keys(countedWords).forEach(word => {
-//        let obj = {}
+//
