@@ -45,6 +45,26 @@ export default function scoring(transcript, fillerWords, facialData) {
     // sort data in order of most to least
     emotionsobj.total = emotionsobj.total * 100
     const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
+    // add to scoring object in order
+    score.topThree.push(
+      sorted[1],
+      sorted[2],
+      sorted[3],
+      sorted[4],
+      sorted[5],
+      sorted[6],
+      sorted[7]
+    )
+
+    // calculate score based on percentage of total
+    for (let key in emotionsobj) {
+      if (key) {
+        let positive = ['neutral', 'happy', 'surprised']
+        let negative = ['angry', 'sad', 'disgusted', 'fearful']
+        if (positive.includes(key)) emotionalScore += emotionsobj[key]
+        if (negative.includes(key)) emotionalScore -= emotionsobj[key]
+      }
+    }
 
     // add emotionalscore to score object
     score.emotionalScore = emotionalScore
