@@ -42,17 +42,10 @@ class Routes extends Component {
             <PrivateRoute path="/singleRecording" component={SingleRecording} />
             <PrivateRoute path="/learnMore" component={LearnMore} />
           </Switch>
-          <Container
-            className="d-flex align-items-center justify-content-center"
-            style={{minHeight: '100vh'}}
-          >
-            <div className="w-100" style={{maxWidth: '400px'}}>
-              <Route path="/forgot-password" component={ForgotPassword} />
-              <PrivateRoute path="/dashboard" component={ProfilePage} />
-              <Route path="/login" component={LogIn} />
-              <Route path="/signup" component={SignUp} />
-            </div>
-          </Container>
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />
