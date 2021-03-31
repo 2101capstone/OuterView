@@ -13,11 +13,11 @@ import {
   ForgotPassword,
   WebcamModule,
   AllRecordings,
-  LandingPage,
-  LearnMore
+  LandingPage
 } from './components'
 import {me} from './store'
 import Cloud from './components/Cloud'
+import LearnMore from './components/LearnMore'
 
 /**
  * COMPONENT
