@@ -193,7 +193,7 @@ canvas {
   margin-bottom: 50px;
 }
 nav {
-  background-color: #64f58d;
+  background-color: #64dfdf;
 }
 
 .text-to-speech-div {
@@ -209,4 +209,120 @@ nav {
   border: 1px solid black;
   outline: none;
   border-radius: 3px;
+}
+.landing-page-div {
+  background-image: 'https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all';
+}
+#landingPage {
+  background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#landingPage h1 {
+  font-size: 70px;
+  line-height: 1.2;
+  color: whitesmoke;
+}
+
+#landingPage p {
+  font-size: 50px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#landingPage .button {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  border: white 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#landingPage .button:hover {
+  background: #64dfdf;
+  color: #fff;
+}
+
+#section-a {
+  padding: 20px;
+  background: #64dfdf;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+
+#section-b {
+  padding: 20px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+#section-c {
+  display: flex;
+}
+.recognition-h1 {
+  text-align: center;
+}
+.landing-page-h1 {
+  font-family: 'Merriweather', serif;
+}
+
+#section-c div {
+  padding: 20px;
+}
+
+#section-c .box-1,
+#section-c .box-3 {
+  background: #373a40;
+  color: #fff;
+}
+
+#section-c .box-2 {
+  background: #373a40;
+  color: white;
+}
+.display-4 {
+  text-align: center;
+}
+.lead {
+  text-align: center;
+}
+
+.developers-div {
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+}
+#h1-developers {
+  text-align: center;
+}
+.card-img-top {
+  height: 300px;
+  width: 200px;
+}
+.card-title {
+  text-align: center;
+}
+.card-text {
+  text-align: center;
+}
+.carosel-img {
+  width: 100px;
+}
+.carousel-control-prev-icon {
+  color: black;
+}
+.carousel-indicators li {
+  background-color: black;
 }

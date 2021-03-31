@@ -98,6 +98,15 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                       SingleRecording
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="/learnmore"
+                    >
+                      About Us
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -105,7 +114,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 

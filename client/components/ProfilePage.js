@@ -38,3 +38,19 @@ const ProfilePage = () => {
 }
 
 export default ProfilePage
+
+// < div className = 'container' >
+//   <div className='row d-flex justify-content-center'>
+//     <div className='col-md-10 mt-5 pt-5'>
+//       <div className='row z-depth-3'>
+//         <div className='col-sm-4 bg-info rounded-left'>
+//           <div className='card-block text-center text-white'>
+//             <i className='fas fa-user-tie fa-7x mt-5'></i>
+//             <h2 className='font-weigh-bold mt-4'>MichaelBusto</h2>
+//           </div>
+
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//     </div >
