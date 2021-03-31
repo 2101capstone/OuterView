@@ -5,8 +5,7 @@ export const addToFirestore = async data => {
   const res = await firebase
     .firestore()
     .collection('Sessions')
-    .add(data)
-  //console.log('Firestore ID:', res.id)
+    .add({...data, date: firebase.firestore.FieldValue.serverTimestamp()})
   return res.id
 }
 

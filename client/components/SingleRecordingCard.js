@@ -13,10 +13,13 @@ const SingleRecordingCard = props => {
       <div className="col-md-8">
         <div className="card-body">
           <p className="card-text">SRC Score Here</p>
-          <p className="card-text"></p>
+          <p className="card-text">{session.fillerWords.TOTAL} Filler Words</p>
+          <p className="card-text">Overall Happiness</p>
           <p className="card-text">Transcript: {session.transcript}</p>
           <p className="card-text">
-            <small className="text-muted">Date: Last posted 2 days ago</small>
+            <small className="text-muted">
+              {session.date.toDate().toDateString()}
+            </small>
           </p>
         </div>
       </div>
