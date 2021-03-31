@@ -126,7 +126,7 @@ a:hover {
 } */
 
 img.logo {
-  width: 10vw;
+  width: 6vw;
   height: 10vh;
 }
 
@@ -177,7 +177,8 @@ img {
 }
 .logo {
   margin-right: 50px;
-  border-radius: 90%;
+  border-radius: 40%;
+  size: fixed;
 }
 .navbar-brand {
   font-weight: bold;
@@ -354,10 +355,10 @@ ul {
 }
 #footer-div {
   text-align: center;
-  font-size: 20px;
+  font-size: 14px;
   background-color: #393e46;
   color: white;
-  padding: 10px;
+  padding: 8px;
 }
 
 hr {
@@ -386,4 +387,10 @@ hr {
 }
 .card {
   border: none;
+}
+.row {
+  border: none;
+}
+.word-cloud-div {
+  margin: 0 auto;
 }

@@ -26,10 +26,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/cloud">Graphs</Link> */}
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
-              <img
-                className="logo"
-                src="https://t3.ftcdn.net/jpg/03/77/39/40/360_F_377394025_IFRmPetem8QsKhOSmUYIlOUMnLYGyaX7.jpg"
-              />
+              <img className="logo" src="OVlogo.jpeg" />
               <a className="navbar-brand" href="/">
                 OuterView
               </a>

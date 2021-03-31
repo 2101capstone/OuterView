@@ -1,9 +1,11 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
+import WordCloud from './Cloud'
 
 const DetailRecording = props => {
   const {setSelected} = props
   const session = props.session[0]
+  console.log('transcrip--->', session.transcript)
 
   return (
     <div>
@@ -31,6 +33,9 @@ const DetailRecording = props => {
             Go Back
           </Button>
         </div>
+      </div>
+      <div className="word-cloud-div">
+        <WordCloud transcript={session.transcript} />
       </div>
     </div>
   )

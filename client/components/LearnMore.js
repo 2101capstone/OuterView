@@ -4,7 +4,7 @@ import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
   return (
-    <>
+    <div className="learnMore-border">
       <div className="jumbotron">
         <h1 className="display-4">About OuterView</h1>
         <p className="lead">
@@ -220,7 +220,7 @@ const LearnMore = () => {
       <div id="footer-div">
         <footer>@Copyright 2021 All Rights Reserved.</footer>
       </div>
-    </>
+    </div>
   )
 }
 

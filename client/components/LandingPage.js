@@ -85,6 +85,9 @@ const LandingPage = () => {
           to help improve your interviews.
         </p>
       </section>
+      <div id="footer-div">
+        <footer>@Copyright 2021 All Rights Reserved.</footer>
+      </div>
     </div>
   )
 }

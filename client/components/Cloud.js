@@ -8,7 +8,7 @@ const WordCloud = props => {
 
   // test
   let {transcript} = props
-  if (!props.transcript) transcript = dummydata
+  // if (!props.transcript) transcript = dummydata
   // need to pass in the transcript
 
   if (transcript) {
@@ -56,7 +56,7 @@ const WordCloud = props => {
           />
         </Transform>
       </Chart>
-      <h3> Bar Graph</h3>
+      {/* <h3> Bar Graph</h3>
       <Chart width={600} height={300} series={series} minY={0}>
         <Transform method="transpose">
           <Bars innerPadding={5} groupPadding={10} />
@@ -67,7 +67,7 @@ const WordCloud = props => {
         <Transform method="transpose">
           <Pies innerPadding={5} groupPadding={10} />
         </Transform>
-      </Chart>
+      </Chart> */}
     </div>
   )
 }
