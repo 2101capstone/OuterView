@@ -2,7 +2,7 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 
 const SingleRecordingCard = props => {
-  let {session, setSelected} = props
+  const {session, setSelected} = props
 
   return (
     <div className="row g-0">

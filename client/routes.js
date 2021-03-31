@@ -12,13 +12,12 @@ import {
   ProfilePage,
   ForgotPassword,
   WebcamModule,
-  AllRecordings
+  AllRecordings,
+  LandingPage,
+  LearnMore
 } from './components'
 import {me} from './store'
 import Cloud from './components/Cloud'
-import LandingPage from './components/LandingPage'
-import SingleRecording from './components/SingleRecording'
-import LearnMore from './components/LearnMore'
 
 /**
  * COMPONENT
@@ -39,7 +38,6 @@ class Routes extends Component {
           <Switch>
             <PrivateRoute path="/record" component={WebcamModule} />
             <PrivateRoute path="/recordings" component={AllRecordings} />
-            <PrivateRoute path="/singleRecording" component={SingleRecording} />
             <PrivateRoute path="/learnMore" component={LearnMore} />
           </Switch>
           <Container

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useAuth} from '../contexts/AuthContext'
-import SingleRecordingCard from './SingleRecordingCard'
-import SingleRecording from './SingleRecording'
+import {DetailRecording, SingleRecordingCard} from './index'
 import firebase from './firebase'
 
 const AllRecordings = () => {
@@ -29,7 +28,10 @@ const AllRecordings = () => {
       <div className="card mb-3">
         {selected ? (
           <div>
-            <SingleRecording setSelected={setSelected} session={session} />
+            <DetailRecording
+              setSelected={setSelected}
+              session={sesDetail.filter(session => session.key === selected)}
+            />
           </div>
         ) : (
           sesDetail.map(session => (
@@ -42,7 +44,6 @@ const AllRecordings = () => {
           ))
         )}
       </div>
-      {selected ? selected : 'not set'}
     </div>
   )
 }
