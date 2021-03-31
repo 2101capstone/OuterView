@@ -31,7 +31,6 @@ export const startRecording = (
   mediaRecorderRef,
   handleDataAvailable
 ) => {
-  console.log('started')
   mediaRecorderRef.current = new MediaRecorder(videoRef.current.stream, {
     mimeType: 'video/webm'
   })
@@ -45,7 +44,6 @@ export const startRecording = (
 
 //stop recording when button is clicked
 export const stopRecording = mediaRecorderRef => {
-  console.log('Stop Recording')
   mediaRecorderRef.current.stop()
   return mediaRecorderRef
 }
