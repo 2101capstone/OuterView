@@ -5,8 +5,7 @@ export const addToFirestore = async data => {
   const res = await firebase
     .firestore()
     .collection('Sessions')
-    .add(data)
-  //console.log('Firestore ID:', res.id)
+    .add({...data, date: firebase.firestore.FieldValue.serverTimestamp()})
   return res.id
 }
 
@@ -17,6 +16,16 @@ export const updateDocument = async (data, docId) => {
     .doc(docId)
     .update(data)
   return res
+}
+
+// creating user doc
+export const createUserDoc = async (uid, data) => {
+  const userRef = await firebase
+    .firestore()
+    .collection('Users')
+    .doc(uid)
+    .set(data)
+  return userRef
 }
 
 //upload any given file to fire storage. New feat: add a 2nd param for upload loc
@@ -55,9 +64,9 @@ export const addToStorage = (recordedChunks, docId) => {
 //Need Chucks new User docuemtn code for this to workd
 export const pushToUserDoc = async (uid, docId) => {
   console.log('Need a new docuemnt from signup')
-  // await firebase
-  //   .firestore()
-  //   .collection('Users')
-  //   .doc(uid)
-  //   .update({sessionId: firebase.firestore.FieldValue.arrayUnion(docId)})
+  await firebase
+    .firestore()
+    .collection('Users')
+    .doc(uid)
+    .update({sessionId: firebase.firestore.FieldValue.arrayUnion(docId)})
 }

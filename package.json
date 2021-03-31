@@ -66,6 +66,7 @@
     "react-dom": "^16.8.6",
     "react-google-button": "^0.7.2",
     "react-redux": "^7.0.1",
+    "react-responsive-carousel": "^3.2.16",
     "react-router-dom": "^5.0.0",
     "react-speech": "^1.0.2",
     "react-speech-kit": "^3.0.1",

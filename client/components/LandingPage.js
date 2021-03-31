@@ -6,8 +6,8 @@ const LandingPage = () => {
     'one two two three three three four four four four five five five five five six six six six six six seven seven seven seven seven seven seven eight eight eight eight eight eight eight eight nine nine nine nine nine nine nine nine nine ten ten ten ten ten ten ten ten ten ten'
 
   return (
-    <div>
-      <h2 className="slogan"> Get your Outerview before your next interview</h2>
+    <div className="landing-page-div">
+      {/* <h2 className="slogan"> Get your Outerview before your next interview</h2>
       <img
         className="landing"
         src="https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all"
@@ -66,7 +66,25 @@ const LandingPage = () => {
         <div className="analytics">
           <WordCloud transcript={dummy} />
         </div>
-      </div>
+      </div>  */}
+
+      <header id="landingPage">
+        <h1 className="landing-page-h1">Welcome To Outerview</h1>
+        <p>Get Your Outerview before your next Interview!!</p>
+        <a href="/learnmore" className="button">
+          Learn More
+        </a>
+        <a href="/record" className="button">
+          Start
+        </a>
+      </header>
+      <section id="section-a">
+        <p>
+          We Utilize Facial recognition and Voice recognition to track as you
+          are recording to identify commonly used Filler Words in your speaking
+          to help improve your interviews.
+        </p>
+      </section>
     </div>
   )
 }

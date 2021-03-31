@@ -18,6 +18,7 @@ import Cloud from './components/Cloud'
 import LandingPage from './components/LandingPage'
 import SavedRecordings from './components/SavedRecordings'
 import SingleRecording from './components/SingleRecording'
+import LearnMore from './components/LearnMore'
 
 /**
  * COMPONENT
@@ -39,6 +40,7 @@ class Routes extends Component {
             <PrivateRoute path="/record" component={WebcamModule} />
             <PrivateRoute path="/recordings" component={SavedRecordings} />
             <PrivateRoute path="/singleRecording" component={SingleRecording} />
+            <PrivateRoute path="/learnMore" component={LearnMore} />
           </Switch>
           <Container
             className="d-flex align-items-center justify-content-center"

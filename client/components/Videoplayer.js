@@ -73,10 +73,9 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
-      ///////////////////////////////////////////////////////////
-      console.log(scoring(transcript, fillerWords, reactions))
-      ///////////////////////////////////////////////////////////
-      addToFirestore({transcript, fillerWords}).then(setDocId)
+      addToFirestore({transcript, fillerWords, uid: currentUser.uid}).then(
+        setDocId
+      )
     }
   }, [isRecord])
 
