@@ -120,13 +120,3 @@ export default function scoring(transcript, fillerWords, facialData) {
 
 //      Object.keys(countedWords).forEach(word => {
 //        let obj = {}
-//        obj.label = word
-//        obj.y = countedWords[word]
-//        wordsArr.push(obj)
-//      })
-
-//      return wordsArr
-//    }
-
-//    var series = [{data: seriesConstruct()}]
-//  }
