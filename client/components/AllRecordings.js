@@ -3,7 +3,7 @@ import {useAuth} from '../contexts/AuthContext'
 import SingleRecordingCard from './SingleRecordingCard'
 import firebase from './firebase'
 
-const SavedRecordings = () => {
+const AllRecordings = () => {
   const {currentUser} = useAuth() //current user signed in
   const [sesDetail, setSesDetail] = useState([])
 
@@ -35,4 +35,4 @@ const SavedRecordings = () => {
   )
 }
 
-export default SavedRecordings
+export default AllRecordings
