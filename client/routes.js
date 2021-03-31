@@ -17,7 +17,6 @@ import {
   LearnMore
 } from './components'
 import {me} from './store'
-import Cloud from './components/Cloud'
 
 /**
  * COMPONENT
@@ -32,8 +31,6 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={LandingPage} />
-        <Route path="/cloud" component={Cloud} />
-
         <AuthProvider>
           <Switch>
             <PrivateRoute path="/record" component={WebcamModule} />
