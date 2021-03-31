@@ -38,7 +38,7 @@ export default function scoring(transcript, fillerWords, facialData) {
         emotionsobj[key] = Math.round((emotionsobj[key] *= 100))
       }
     }
-
+    // sort data in order of most to least
     emotionsobj.total = emotionsobj.total * 100
     const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
     score.topThree.push(sorted[1], sorted[2], sorted[3])
