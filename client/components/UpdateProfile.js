@@ -62,7 +62,6 @@ const UpdateProfile = () => {
                   type="password"
                   ref={passwordRef}
                   placeholder="Leave blank to keep the same"
-                  required
                 />
               </Form.Group>
               <Form.Group id="password-confirm">
@@ -71,7 +70,6 @@ const UpdateProfile = () => {
                   type="password"
                   ref={passwordConfirmRef}
                   placeholder="Leave blank to keep the same"
-                  required
                 />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
