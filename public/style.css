@@ -266,6 +266,7 @@ nav {
 
 #section-c {
   display: flex;
+  justify-content: space-between;
   width: 75%;
   margin: 0 auto;
   padding-top: 8rem;
@@ -282,15 +283,16 @@ nav {
   padding: 20px;
 }
 
-#section-c .box-1,
-#section-c .box-3 {
+#section-c .box-1 {
+  border-radius: 5%;
   background: #373a40;
-  color: #fff;
+  color: white;
 }
 
 #section-c .box-2 {
   background: #373a40;
   color: white;
+  border-radius: 5%;
 }
 .display-4 {
   text-align: center;
@@ -332,6 +334,7 @@ ul {
   text-align: center;
 }
 .jumbotron {
+  background-color: white !important;
 }
 .card-group {
   width: 80%;
