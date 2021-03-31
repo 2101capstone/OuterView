@@ -17,7 +17,7 @@ import {
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import {scoring} from './Scoring'
+import scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
 
@@ -183,6 +183,12 @@ const Videoplayer = () => {
         <div />
       )}
       <div>{docId}</div>
+      <button
+        type="button"
+        onClick={() => console.log(scoring(words, fillerWords, reactions))}
+      >
+        Scoring
+      </button>
     </div>
   )
 }
