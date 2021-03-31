@@ -1,7 +1,8 @@
 import React from 'react'
+import {Button} from 'react-bootstrap'
 
 const SingleRecordingCard = props => {
-  let {session} = props
+  const {session, setSelected} = props
 
   return (
     <div className="row g-0">
@@ -14,12 +15,19 @@ const SingleRecordingCard = props => {
         <div className="card-body">
           <p className="card-text">SRC Score Here</p>
           <p className="card-text">{session.fillerWords.TOTAL} Filler Words</p>
-          <p className="card-text">Overall Happiness</p>
-          <p className="card-text">Transcript: {session.transcript}</p>
+          <p className="card-text">Overall Happiness Score</p>
           <p className="card-text">
             <small className="text-muted">
               {session.date.toDate().toDateString()}
             </small>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setSelected(session.key)
+              }}
+            >
+              View More
+            </Button>
           </p>
         </div>
       </div>

@@ -11,14 +11,13 @@ import {
   SignUp,
   ProfilePage,
   ForgotPassword,
-  WebcamModule
+  WebcamModule,
+  AllRecordings,
+  LandingPage,
+  LearnMore
 } from './components'
 import {me} from './store'
 import Cloud from './components/Cloud'
-import LandingPage from './components/LandingPage'
-import SavedRecordings from './components/SavedRecordings'
-import SingleRecording from './components/SingleRecording'
-import LearnMore from './components/LearnMore'
 
 /**
  * COMPONENT
@@ -38,21 +37,13 @@ class Routes extends Component {
         <AuthProvider>
           <Switch>
             <PrivateRoute path="/record" component={WebcamModule} />
-            <PrivateRoute path="/recordings" component={SavedRecordings} />
-            <PrivateRoute path="/singleRecording" component={SingleRecording} />
+            <PrivateRoute path="/recordings" component={AllRecordings} />
             <PrivateRoute path="/learnMore" component={LearnMore} />
           </Switch>
-          <Container
-            className="d-flex align-items-center justify-content-center"
-            style={{minHeight: '100vh'}}
-          >
-            <div className="w-100" style={{maxWidth: '400px'}}>
-              <Route path="/forgot-password" component={ForgotPassword} />
-              <PrivateRoute path="/dashboard" component={ProfilePage} />
-              <Route path="/login" component={LogIn} />
-              <Route path="/signup" component={SignUp} />
-            </div>
-          </Container>
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <PrivateRoute path="/dashboard" component={ProfilePage} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
         </AuthProvider>
         {/* Displays our Login component as a fallback */}
         <Route component={LandingPage} />
