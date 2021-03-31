@@ -341,7 +341,10 @@ ul {
   width: 80%;
   margin: 0 auto;
 }
-
+/* .card-group-tech {
+  width: 100%;
+  margin: 0 auto;
+} */
 #tech-used-h1 {
   text-align: center;
 }
@@ -367,13 +370,20 @@ hr {
   color: black !important;
   margin-top: 5px;
 }
-.card-group {
+/* .card-group {
   display: flex;
   justify-content: space-evenly;
   font-size: 10px;
-}
+} */
 .carousel-logos {
   width: 750px;
   height: 750px;
   margin: 0 auto;
+}
+.carousel-img {
+  width: 700px;
+  height: 500px;
+}
+.card {
+  border: none;
 }

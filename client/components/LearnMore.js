@@ -72,88 +72,73 @@ const LearnMore = () => {
       >
         <Carousel.Item className="carousel-style">
           <img
-            className="d-block w-75 h-50"
+            className="carousel-img"
             src="react-js-header.png"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item className="carousel-style">
-          <img
-            className="d-block w-75 h-50"
-            src="firebase.png"
-            alt="First slide"
-          />
+          <img className="carousel-img" src="firebase.png" alt="First slide" />
         </Carousel.Item>
         <Carousel.Item className="carousel-style">
-          <img
-            className="d-block w-75 h-50"
-            src="face-api.png"
-            alt="First slide"
-          />
+          <img className="carousel-img" src="face-api.png" alt="First slide" />
         </Carousel.Item>
         <Carousel.Item className="carousel-style">
-          <img
-            className="d-block w-75 h-50"
-            src="webspeech.png"
-            alt="First slide"
-          />
+          <img className="carousel-img" src="webspeech.png" alt="First slide" />
         </Carousel.Item>
       </Carousel>
       <hr></hr>
-      <CardGroup height={{width: '100%'}} className="card-group">
-        <Card>
-          <Card.Body>
-            <Card.Title>React.js</Card.Title>
-            <Card.Text>
+      <div className="tech-div">
+        <h1 id="h1-developers">Tech Explained</h1>
+        <div className="card-group">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">React.js</h5>
+              <p className="card-text"></p>
               Is an open-source, front end, JavaScript library for building user
               interfaces or UI components. React code is made of entities called
               components. Components can be rendered to a particular element in
               the DOM using the React DOM library
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card>
-          <Card.Body>
-            <Card.Title>FireBase</Card.Title>
-            <Card.Text>Real-time NoSQL database</Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card>
-          <Card.Body>
-            <Card.Title>face-api.js</Card.Title>
-            <Card.Text>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">FireBase</h5>
+              <p className="card-text"></p>
+              Real-time NoSQL database
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">face-api.js</h5>
+              <p className="card-text"></p>
               JavaScript API for face detection and face recognition in the
               browser implemented on top of the tensorflow.js core API
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Body>
-            <Card.Title>Web Speech API</Card.Title>
-            <Card.Text>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Bootstrap</h5>
+              <p className="card-text"></p>
+              Bootstrap is a free and open-source CSS framework directed at
+              responsive, mobile-first front-end web development. It contains
+              CSS- and JavaScript-based design templates for typography, forms,
+              buttons, navigation, and other interface components.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Web Speech API</h5>
+              <p className="card-text"></p>
               The Web Speech API enables you to incorporate voice data into web
               apps. API is made up of two parts: SpeechSynthesis
               (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
               Recognition.), The Web Speech API makes web apps able to handle
               voice data.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Body>
-            <Card.Title>Bootstrap</Card.Title>
-            <Card.Text>
-              Bootstrap is a free and open-source CSS framework directed at
-              responsive, mobile-first front-end web development. It contains
-              CSS- and JavaScript-based design templates for typography, forms,
-              buttons, navigation, and other interface components.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </CardGroup>
-
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="about-me-div">
         <h1 id="h1-developers">Developers</h1>
         <div className="card-group">
