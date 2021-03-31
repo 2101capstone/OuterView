@@ -26,7 +26,7 @@ const SavedRecordings = () => {
       <h1 className="recordings-title">Past Recordings</h1>
       <div className="card mb-3">
         {sesDetail.map(detail => (
-          <div key={detail.key}>
+          <div key={detail.key} className="src">
             <SingleRecordingCard session={detail} />
           </div>
         ))}
