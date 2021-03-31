@@ -2,38 +2,47 @@ import React, {useRef, useState} from 'react'
 import {Form, Button, Card, Alert, Container} from 'react-bootstrap'
 import {Link, useHistory} from 'react-router-dom'
 import {useAuth} from '../contexts/AuthContext'
-import {createUserDoc} from './firebaseHelperFunc'
 
 const UpdateProfile = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
-  const {currentUser} = useAuth()
+  const {currentUser, updatePassword, updateEmail} = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError('Passwords do not match!')
     }
-    try {
-      setError('')
-      setLoading(true)
-      const {user} = await signup(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      console.log('user', user.uid)
-      // create a new user doc by getting the user
-      createUserDoc(user.uid, {email: emailRef.current.value})
-      history.push('/dashboard')
-    } catch {
-      setError('Failed to create an account')
+
+    const promises = []
+    setLoading(true)
+    setError('')
+    // check to see if the email is not equal to our current email
+    if (emailRef.current.value !== currentUser.email) {
+      // if we changed that email then add that to array of promises of updateEmail
+      promises.push(updateEmail(emailRef.current.value))
     }
-    setLoading(false)
+    // if we changed the password
+    if (passwordRef.current.value) {
+      // add the update version to the promises array
+      promises.push(updatePassword(passwordRef.current.value))
+    }
+    // If the promises are all successful it will then redirect to the dashboard
+    Promise.all(promises)
+      .then(() => {
+        history.push('/dashboard')
+      })
+      .catch(() => {
+        setError('Failed to update account')
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
