@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import {AuthProvider} from './contexts/AuthContext'
@@ -7,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import {
   PrivateRoute,
+  UpdateProfile,
   LogIn,
   SignUp,
   ProfilePage,
@@ -42,6 +42,7 @@ class Routes extends Component {
           </Switch>
           <Route path="/forgot-password" component={ForgotPassword} />
           <PrivateRoute path="/dashboard" component={ProfilePage} />
+          <PrivateRoute path="/update-profile" component={UpdateProfile} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
         </AuthProvider>
