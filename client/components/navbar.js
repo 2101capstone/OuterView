@@ -12,7 +12,7 @@ const Navbar = () => (
             <a className="navbar-brand" href="/">
               <img
                 className="logo"
-                src="https://t3.ftcdn.net/jpg/03/77/39/40/360_F_377394025_IFRmPetem8QsKhOSmUYIlOUMnLYGyaX7.jpg"
+                src="https://t4.ftcdn.net/jpg/03/61/79/47/360_F_361794738_9K55NRXWQwIpgCYuVU9rdzSqcdvgakoa.jpg"
               />
             </a>
             <div className="collapse navbar-collapse" id="navbarText">

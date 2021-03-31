@@ -1,15 +1,20 @@
 import {Chart, Cloud, Transform} from 'rumble-charts'
+import {fillerWords} from './speechHelperFunc'
 import React from 'react'
 
 const WordCloud = props => {
   let {transcript} = props
-  console.log(transcript)
+  //console.log('full transcript:', transcript)
+
   if (transcript) {
     const seriesConstruct = () => {
       const wordCount = str => {
         let words = {}
         str.split(' ').forEach(word => {
           if (words[word]) {
+            if (fillerWords[word] === 0) {
+              words[word] = words[word] * 2
+            } //if Filler word, put extra weight on it
             words[word]++
           } else {
             words[word] = 1
