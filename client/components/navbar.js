@@ -93,15 +93,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                     <a
                       className="nav-link active"
                       aria-current="page"
-                      href="/singleRecording"
-                    >
-                      SingleRecording
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
                       href="/learnmore"
                     >
                       About Us
