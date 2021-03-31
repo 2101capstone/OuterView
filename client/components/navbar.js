@@ -84,15 +84,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                     <a
                       className="nav-link active"
                       aria-current="page"
-                      href="/cloud"
-                    >
-                      Graphs
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
                       href="/learnmore"
                     >
                       About Us

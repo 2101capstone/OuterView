@@ -7,7 +7,7 @@ const SingleRecordingCard = props => {
   return (
     <div className="row g-0">
       <div className="col-md-4">
-        <video width="500" height="300" controls>
+        <video width="400" height="300" controls>
           <source src={session.url} type="video/webm"></source>
         </video>
       </div>
