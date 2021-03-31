@@ -20,6 +20,8 @@ export default function scoring(transcript, fillerWords, facialData) {
     total: 0
   }
 
+  let datapoints = {}
+
   /// combine all facial data update emotions object add to dataPoints
   for (let i = 0; i < facialData.length; i++) {
     for (let key in emotions) {
@@ -28,7 +30,7 @@ export default function scoring(transcript, fillerWords, facialData) {
         emotions.total += facialData[i][key]
       }
     }
-    score.dataPoints.push(emotions)
+    score.dataPoints.push(facialData[i])
   }
 
   //sift through facial data get score
@@ -74,7 +76,8 @@ export default function scoring(transcript, fillerWords, facialData) {
   // sift through transcript and fillerwords get a score
   const getTranscriptScore = (transcriptArr, fillersObj) => {
     let transcriptScore = 0
-    let wordCount = transcriptArr[0].length
+    transcriptArr = transcriptArr.join(' ').split(' ')
+    let wordCount = transcriptArr.length
     let fillerCount = fillersObj.TOTAL || 0
     let percentFiller = fillerCount / wordCount
     if (transcriptArr.length) {
@@ -89,10 +92,11 @@ export default function scoring(transcript, fillerWords, facialData) {
   }
 
   /// get final score add to score object
+  //refactor to have less weight on emotional score
   score.finalScore =
     (getEmotionalScore(emotions) +
-      getTranscriptScore(transcript, fillerWords)) /
-    2
+      getTranscriptScore(transcript, fillerWords) * 3) /
+    4
 
   /// get message add to score object
   let messageScore = score.finalScore
