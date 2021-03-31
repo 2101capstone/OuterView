@@ -20,8 +20,6 @@ export default function scoring(transcript, fillerWords, facialData) {
     total: 0
   }
 
-  let datapoints = {}
-
   /// combine all facial data update emotions object add to dataPoints
   for (let i = 0; i < facialData.length; i++) {
     for (let key in emotions) {
@@ -30,7 +28,7 @@ export default function scoring(transcript, fillerWords, facialData) {
         emotions.total += facialData[i][key]
       }
     }
-    score.dataPoints.push(facialData[i])
+    score.dataPoints.push(emotions)
   }
 
   //sift through facial data get score

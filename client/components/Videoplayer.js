@@ -72,6 +72,8 @@ const Videoplayer = () => {
       countFiller(transcript)
       console.log('Filler Words:', fillerWords)
       console.log('Transcript:', transcript)
+      let score = scoring(words, fillerWords, reactions)
+      console.log(score)
       addToFirestore({transcript, fillerWords, uid: currentUser.uid}).then(
         setDocId
       )
