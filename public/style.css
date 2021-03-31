@@ -266,6 +266,10 @@ nav {
 
 #section-c {
   display: flex;
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
 }
 .recognition-h1 {
   text-align: center;
@@ -306,7 +310,7 @@ ul {
 }
 .card-img-top {
   height: 400px;
-  width: 120px;
+  width: 200px;
 }
 .card-title {
   text-align: center;
@@ -324,18 +328,16 @@ ul {
   background-color: black;
 }
 
-.fa-linkedin {
-  padding: 10px 14px;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  background-color: #322f30;
-}
 .icons {
   text-align: center;
 }
 .jumbotron {
-  color: white;
+}
+.card-group {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#tech-used-h1 {
+  text-align: center;
 }

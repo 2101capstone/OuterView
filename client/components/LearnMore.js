@@ -4,7 +4,7 @@ import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
   return (
-    <div>
+    <div className="about-me-div">
       <div className="jumbotron">
         <h1 className="display-4">About OuterView</h1>
         <p className="lead">
@@ -25,10 +25,10 @@ const LearnMore = () => {
             <h5 className="card-title">Mike Busto</h5>
             <div className="icons">
               <a className="icon" href="https://github.com/MBusto4">
-                <FaGithub color="black" size={100} />
+                <FaGithub color="black" size={80} />
               </a>
               <a href="https://www.linkedin.com/in/michael-busto/">
-                <FaLinkedin color="blue" size={100} />
+                <FaLinkedin color="blue" size={80} />
               </a>
             </div>
           </div>
@@ -43,10 +43,10 @@ const LearnMore = () => {
             <h5 className="card-title">Kush Patel</h5>
             <div className="icons">
               <a href="https://github.com/pushkatel">
-                <FaGithub color="black" size={100} />
+                <FaGithub color="black" size={80} />
               </a>
               <a href="https://www.linkedin.com/in/kushpatel21/">
-                <FaLinkedin color="blue" size={100} />
+                <FaLinkedin color="blue" size={80} />
               </a>
             </div>
           </div>
@@ -61,10 +61,10 @@ const LearnMore = () => {
             <h5 className="card-title">Chuck Lucas</h5>
             <div className="icons">
               <a href="https://github.com/Clucas0311">
-                <FaGithub color="black" size={100} />
+                <FaGithub color="black" size={80} />
               </a>
               <a href="https://www.linkedin.com/in/charleslucas1/">
-                <FaLinkedin color="blue" size={100} />
+                <FaLinkedin color="blue" size={80} />
               </a>
             </div>
           </div>
@@ -79,10 +79,10 @@ const LearnMore = () => {
             <h5 className="card-title">Benny Koker</h5>
             <div className="icons">
               <a href="https://github.com/bkhoker88">
-                <FaGithub color="black" size={100} />
+                <FaGithub color="black" size={80} />
               </a>
               <a href="https://www.linkedin.com/in/benny-khoker/">
-                <FaLinkedin color="blue" size={100} />
+                <FaLinkedin color="blue" size={80} />
               </a>
             </div>
           </div>
@@ -136,7 +136,8 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
-      <Carousel>
+      <h1 id="tech-used-h1">Technologies Used</h1>
+      <Carousel fade={true} controls={true}>
         <Carousel.Item>
           {/* <img
             className="d-block w-100"
