@@ -1,5 +1,6 @@
 import React from 'react'
 import {Carousel, Card} from 'react-bootstrap'
+import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
   return (
@@ -17,13 +18,19 @@ const LearnMore = () => {
         <div className="card">
           <img
             className="card-img-top"
-            src="icon-user.png"
+            src="mike.jpeg"
             alt="Card image cap"
           ></img>
           <div className="card-body">
             <h5 className="card-title">Mike Busto</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
+            <div className="icons">
+              <a className="icon" href="https://github.com/MBusto4">
+                <FaGithub color="black" size={100} />
+              </a>
+              <a href="https://www.linkedin.com/in/michael-busto/">
+                <FaLinkedin color="blue" size={100} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="card">
@@ -34,8 +41,14 @@ const LearnMore = () => {
           ></img>
           <div className="card-body">
             <h5 className="card-title">Kush Patel</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
+            <div className="icons">
+              <a href="https://github.com/pushkatel">
+                <FaGithub color="black" size={100} />
+              </a>
+              <a href="https://www.linkedin.com/in/kushpatel21/">
+                <FaLinkedin color="blue" size={100} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="card">
@@ -46,8 +59,14 @@ const LearnMore = () => {
           ></img>
           <div className="card-body">
             <h5 className="card-title">Chuck Lucas</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
+            <div className="icons">
+              <a href="https://github.com/Clucas0311">
+                <FaGithub color="black" size={100} />
+              </a>
+              <a href="https://www.linkedin.com/in/charleslucas1/">
+                <FaLinkedin color="blue" size={100} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="card">
@@ -58,8 +77,14 @@ const LearnMore = () => {
           ></img>
           <div className="card-body">
             <h5 className="card-title">Benny Koker</h5>
-            <a className="card-text">github</a>
-            <a className="card-text">linkedin</a>
+            <div className="icons">
+              <a href="https://github.com/bkhoker88">
+                <FaGithub color="black" size={100} />
+              </a>
+              <a href="https://www.linkedin.com/in/benny-khoker/">
+                <FaLinkedin color="blue" size={100} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -118,7 +143,7 @@ const LearnMore = () => {
             src="mike.jpeg"
             alt="First slide"
           /> */}
-          <Card style={{width: '40rem'}}>
+          <Card style={{width: '70rem'}}>
             <Card.Img variant="top" src="react-js-header.png" />
             <Card.Body>
               <Card.Title>React.js</Card.Title>
@@ -132,7 +157,7 @@ const LearnMore = () => {
           </Card>
         </Carousel.Item>
         <Carousel.Item>
-          <Card style={{width: '40rem'}}>
+          <Card style={{width: '70rem'}}>
             <Card.Img variant="top" src="firebase.png" />
             <Card.Body>
               <Card.Title>Firebase</Card.Title>
@@ -148,7 +173,7 @@ const LearnMore = () => {
           </Card>
         </Carousel.Item>
         <Carousel.Item>
-          <Card style={{width: '40rem'}}>
+          <Card style={{width: '70rem'}}>
             <Card.Img variant="top" src="face-api.png" />
             <Card.Body>
               <Card.Title>face-api.js</Card.Title>
@@ -160,7 +185,7 @@ const LearnMore = () => {
           </Card>
         </Carousel.Item>
         <Carousel.Item>
-          <Card style={{width: '40rem'}}>
+          <Card style={{width: '70rem'}}>
             <Card.Img variant="top" src="webspeech.png" />
             <Card.Body>
               <Card.Title>Web Speech API</Card.Title>

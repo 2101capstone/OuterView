@@ -3,10 +3,10 @@ body {
   background-color: #74b2f8;
 }
 
-a {
+/* a {
   text-decoration: none;
   font-size: 20px;
-}
+} */
 
 label {
   display: block;
@@ -305,8 +305,8 @@ ul {
   text-align: center;
 }
 .card-img-top {
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 120px;
 }
 .card-title {
   text-align: center;
@@ -315,11 +315,27 @@ ul {
   text-align: center;
 }
 .carosel-img {
-  width: 100px;
+  width: 50px;
 }
 .carousel-control-prev-icon {
   color: black;
 }
 .carousel-indicators li {
   background-color: black;
+}
+
+.fa-linkedin {
+  padding: 10px 14px;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #322f30;
+}
+.icons {
+  text-align: center;
+}
+.jumbotron {
+  color: white;
 }
