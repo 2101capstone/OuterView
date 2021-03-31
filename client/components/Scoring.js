@@ -28,6 +28,7 @@ export default function scoring(transcript, fillerWords, facialData) {
         emotions.total += facialData[i][key]
       }
     }
+
     score.dataPoints.push(emotions)
   }
 
