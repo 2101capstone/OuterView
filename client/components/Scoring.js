@@ -50,13 +50,14 @@ export default function scoring(transcript, fillerWords, facialData) {
     let wordCount = transcriptArr.length
     let fillerCount = fillersObj.total
     let percentFiller = fillerCount / wordCount
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
-    if (percentFiller < 1) transcriptScore += 10
+    if (percentFiller < 0.2) transcriptScore += 10
+    if (percentFiller < 0.15) transcriptScore += 15
+    if (percentFiller < 0.1) transcriptScore += 20
+    if (percentFiller < 0.05) transcriptScore += 25
+    if (percentFiller < 0.03) transcriptScore += 15
+    if (percentFiller < 0.01) transcriptScore += 15
+
+    return transcriptScore
   }
 
   /// get final score add to score object
@@ -68,12 +69,12 @@ export default function scoring(transcript, fillerWords, facialData) {
   /// get message add to score object
   let messageScore = score.finalScore
   const message = fScore => {
-    if (fScore >= 93)
+    if (fScore >= 90)
       return 'Congratulations you have proven your ready for that interview '
-    if (fScore < 93 && fScore >= 85) return 'You did really well'
-    if (fScore < 85 && fScore >= 75)
+    if (fScore < 90 && fScore >= 80) return 'You did really well'
+    if (fScore < 80 && fScore >= 70)
       return 'You did good but consider brushing up on your habits'
-    if (fScore < 75 && fScore >= 50)
+    if (fScore < 70 && fScore >= 50)
       return 'You did ok but you should definatly work on improving '
     else
       return ' You did not do so well check out or tips and tricks section to help improve your scores'
