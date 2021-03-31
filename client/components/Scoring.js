@@ -19,6 +19,7 @@ export default function scoring(transcript, fillerWords, facialData) {
     neutral: 0,
     total: 0
   }
+
   /// combine all facial data update emotions object add to dataPoints
   for (let i = 0; i < facialData.length; i++) {
     for (let key in emotions) {
