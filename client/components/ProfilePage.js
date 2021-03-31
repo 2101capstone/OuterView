@@ -25,6 +25,7 @@ const ProfilePage = () => {
     >
       <div className="w-100" style={{maxWidth: '400px'}}>
         <Card>
+          <Card.Img variant="top" src={currentUser.photoURL} />
           <Card.Body>
             <h2 className="text-center mb-4">Profile</h2>
             {error && <Alert variant="danger">{error}</Alert>}
