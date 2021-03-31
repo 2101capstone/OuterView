@@ -33,6 +33,9 @@ export default function scoring(transcript, fillerWords, facialData) {
 
   //sift through facial data get score
   const getEmotionalScore = emotionsobj => {
+    let emotionalScore = 0
+
+    //add data together get percentage as whole number out of 100
     for (let key in emotionsobj) {
       if (key !== 'total') {
         emotionsobj[key] = emotionsobj[key] / emotionsobj.total
@@ -42,22 +45,26 @@ export default function scoring(transcript, fillerWords, facialData) {
     // sort data in order of most to least
     emotionsobj.total = emotionsobj.total * 100
     const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
-    score.topThree.push(sorted[1], sorted[2], sorted[3])
+
+    // add emotionalscore to score object
+    score.emotionalScore = emotionalScore
+    return emotionalScore
   }
 
   // sift through transcript and fillerwords get a score
   const getTranscriptScore = (transcriptArr, fillersObj) => {
     let transcriptScore = 0
-    let wordCount = transcriptArr.length
-    let fillerCount = fillersObj.total
+    let wordCount = transcriptArr[0].length
+    let fillerCount = fillersObj.TOTAL || 0
     let percentFiller = fillerCount / wordCount
-    if (percentFiller < 0.2) transcriptScore += 10
-    if (percentFiller < 0.15) transcriptScore += 15
-    if (percentFiller < 0.1) transcriptScore += 20
-    if (percentFiller < 0.05) transcriptScore += 25
-    if (percentFiller < 0.03) transcriptScore += 15
-    if (percentFiller < 0.01) transcriptScore += 15
-
+    if (transcriptArr.length) {
+      if (percentFiller <= 0.25) transcriptScore += 12
+      if (percentFiller <= 0.15) transcriptScore += 15
+      if (percentFiller <= 0.1) transcriptScore += 23
+      if (percentFiller <= 0.05) transcriptScore += 25
+      if (percentFiller <= 0.01) transcriptScore += 25
+    }
+    score.transcriptScore = transcriptScore
     return transcriptScore
   }
 

@@ -184,7 +184,12 @@ const Videoplayer = () => {
       <div>{docId}</div>
       <button
         type="button"
-        onClick={() => console.log(scoring(words, fillerWords, reactions))}
+        onClick={() =>
+          console.log(
+            scoring(words, fillerWords, reactions),
+            console.log('arguments ------->', words, fillerWords, reactions)
+          )
+        }
       >
         Scoring
       </button>
