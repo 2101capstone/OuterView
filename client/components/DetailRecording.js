@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 import WordCloud from './WordCloud'
+import PieChart from './PieChart'
 import {removeUserSession, deleteSession} from './firebaseHelperFunc'
 
 const DetailRecording = props => {
@@ -30,6 +31,7 @@ const DetailRecording = props => {
           <h5 className="card-title">Transcript: {session.transcript}</h5>
           <h5 className="card-title">{session.date.toDate().toDateString()}</h5>
           <WordCloud transcript={session.transcript} />
+          <PieChart emotions={session.score.emotions} />
           <Button
             variant="secondary"
             onClick={() => {
