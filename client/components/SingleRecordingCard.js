@@ -12,9 +12,14 @@ const SingleRecordingCard = props => {
       </div>
       <div className="col-md-8">
         <div className="card-body">
-          <p className="card-text">SRC Score Here</p>
-          <p className="card-text">{session.fillerWords.TOTAL} Filler Words</p>
-          <p className="card-text">Overall Happiness Score</p>
+          <p className="card-text">Score{` ${session.score.finalScore}%`}</p>
+          <p className="card-text">
+            Filler Words Used: {session.fillerWords.TOTAL}
+          </p>
+          <p className="card-text">
+            Emotions:{' '}
+            {`${session.score.emotions[0]}, ${session.score.emotions[1]}, ${session.score.emotions[2]}`}
+          </p>
           <p className="card-text">
             <small className="text-muted">
               {session.date.toDate().toDateString()}
