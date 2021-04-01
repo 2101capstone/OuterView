@@ -1,9 +1,10 @@
 import React from 'react'
-import {Carousel, Card} from 'react-bootstrap'
+import {Carousel, Card, CardGroup} from 'react-bootstrap'
+import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
   return (
-    <div>
+    <div className="learnMore-border">
       <div className="jumbotron">
         <h1 className="display-4">About OuterView</h1>
         <p className="lead">
@@ -11,57 +12,6 @@ const LearnMore = () => {
           are recording to identify commonly used Filler Words in your speaking
           to help improve your interviews.
         </p>
-      </div>
-      <h1 id="h1-developers">Developers</h1>
-      <div className="card-group">
-        <div className="card">
-          <img
-            className="card-img-top"
-            src="icon-user.png"
-            alt="Card image cap"
-          ></img>
-          <div className="card-body">
-            <h5 className="card-title">Mike Busto</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="card-img-top"
-            src="icon-user.png"
-            alt="Card image cap"
-          ></img>
-          <div className="card-body">
-            <h5 className="card-title">Kush Patel</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="card-img-top"
-            src="icon-user.png"
-            alt="Card image cap"
-          ></img>
-          <div className="card-body">
-            <h5 className="card-title">Chuck Lucas</h5>
-            <p className="card-text">github</p>
-            <p className="card-text">linkedin</p>
-          </div>
-        </div>
-        <div className="card">
-          <img
-            className="card-img-top"
-            src="icon-user.png"
-            alt="Card image cap"
-          ></img>
-          <div className="card-body">
-            <h5 className="card-title">Benny Koker</h5>
-            <a className="card-text">github</a>
-            <a className="card-text">linkedin</a>
-          </div>
-        </div>
       </div>
       <section id="section-c">
         <div className="box-1">
@@ -111,70 +61,173 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
-      <Carousel>
-        <Carousel.Item>
-          {/* <img
-            className="d-block w-100"
-            src="mike.jpeg"
+      <h1 id="tech-used-h1">Technologies Used</h1>
+      <hr />
+      <Carousel
+        width={500}
+        height={500}
+        fade={true}
+        controls={true}
+        className="carousel-logos"
+      >
+        <Carousel.Item className="carousel-style">
+          <img
+            className="carousel-img"
+            src="react-js-header.png"
             alt="First slide"
-          /> */}
-          <Card style={{width: '40rem'}}>
-            <Card.Img variant="top" src="react-js-header.png" />
-            <Card.Body>
-              <Card.Title>React.js</Card.Title>
-              <Card.Text>
-                Is an open-source, front end, JavaScript library for building
-                user interfaces or UI components. React code is made of entities
-                called components. Components can be rendered to a particular
-                element in the DOM using the React DOM library
-              </Card.Text>
-            </Card.Body>
-          </Card>
+          />
         </Carousel.Item>
-        <Carousel.Item>
-          <Card style={{width: '40rem'}}>
-            <Card.Img variant="top" src="firebase.png" />
-            <Card.Body>
-              <Card.Title>Firebase</Card.Title>
-              <Card.Text>
-                <ul>
-                  <li> Real Time No SQL database</li>
-                  <li> File Storage</li>
-                  <li> Authentication</li>
-                  <li> Hosting</li>
-                </ul>
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <Carousel.Item className="carousel-style">
+          <img className="carousel-img" src="firebase.png" alt="First slide" />
         </Carousel.Item>
-        <Carousel.Item>
-          <Card style={{width: '40rem'}}>
-            <Card.Img variant="top" src="face-api.png" />
-            <Card.Body>
-              <Card.Title>face-api.js</Card.Title>
-              <Card.Text>
-                JavaScript API for face detection and face recognition in the
-                browser implemented on top of the tensorflow.js core API
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <Carousel.Item className="carousel-style">
+          <img className="carousel-img" src="face-api.png" alt="First slide" />
         </Carousel.Item>
-        <Carousel.Item>
-          <Card style={{width: '40rem'}}>
-            <Card.Img variant="top" src="webspeech.png" />
-            <Card.Body>
-              <Card.Title>Web Speech API</Card.Title>
-              <Card.Text>
-                The Web Speech API enables you to incorporate voice data into
-                web apps. API is made up of two parts: SpeechSynthesis
-                (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
-                Recognition.), The Web Speech API makes web apps able to handle
-                voice data.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <Carousel.Item className="carousel-style">
+          <img className="carousel-img" src="webspeech.png" alt="First slide" />
         </Carousel.Item>
       </Carousel>
+      <hr></hr>
+      <div className="tech-div">
+        <h1 id="h1-developers">Tech Explained</h1>
+        <div className="card-group">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">React.js</h5>
+              <p className="card-text"></p>
+              Is an open-source, front end, JavaScript library for building user
+              interfaces or UI components. React code is made of entities called
+              components. Components can be rendered to a particular element in
+              the DOM using the React DOM library
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">FireBase</h5>
+              <p className="card-text"></p>
+              Real-time NoSQL database
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">face-api.js</h5>
+              <p className="card-text"></p>
+              JavaScript API for face detection and face recognition in the
+              browser implemented on top of the tensorflow.js core API
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Bootstrap</h5>
+              <p className="card-text"></p>
+              Bootstrap is a free and open-source CSS framework directed at
+              responsive, mobile-first front-end web development. It contains
+              CSS- and JavaScript-based design templates for typography, forms,
+              buttons, navigation, and other interface components.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Web Speech API</h5>
+              <p className="card-text"></p>
+              The Web Speech API enables you to incorporate voice data into web
+              apps. API is made up of two parts: SpeechSynthesis
+              (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
+              Recognition.), The Web Speech API makes web apps able to handle
+              voice data.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">React Hooks</h5>
+              <p className="card-text"></p>
+              React Hooks are functions that let us hook into the React state
+              and lifecycle features from function components.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="about-me-div">
+        <h1 id="h1-developers">Developers</h1>
+        <div className="card-group">
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="mike.jpeg"
+              alt="Card image cap"
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Mike Busto</h5>
+              <div className="icons">
+                <a className="icon" href="https://github.com/MBusto4">
+                  <FaGithub color="black" size={80} />
+                </a>
+                <a href="https://www.linkedin.com/in/michael-busto/">
+                  <FaLinkedin color="blue" size={80} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="kush.jpeg"
+              alt="Card image cap"
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Kush Patel</h5>
+              <div className="icons">
+                <a href="https://github.com/pushkatel">
+                  <FaGithub color="black" size={80} />
+                </a>
+                <a href="https://www.linkedin.com/in/kushpatel21/">
+                  <FaLinkedin color="blue" size={80} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="icon-user.png"
+              alt="Card image cap"
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Chuck Lucas</h5>
+              <div className="icons">
+                <a href="https://github.com/Clucas0311">
+                  <FaGithub color="black" size={80} />
+                </a>
+                <a href="https://www.linkedin.com/in/charleslucas1/">
+                  <FaLinkedin color="blue" size={80} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="icon-user.png"
+              alt="Card image cap"
+            ></img>
+            <div className="card-body">
+              <h5 className="card-title">Benny Koker</h5>
+              <div className="icons">
+                <a href="https://github.com/bkhoker88">
+                  <FaGithub color="black" size={80} />
+                </a>
+                <a href="https://www.linkedin.com/in/benny-khoker/">
+                  <FaLinkedin color="blue" size={80} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr></hr>
+      <div id="footer-div">
+        <footer>@Copyright 2021 All Rights Reserved.</footer>
+      </div>
     </div>
   )
 }

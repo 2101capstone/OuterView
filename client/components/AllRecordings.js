@@ -25,7 +25,7 @@ const AllRecordings = () => {
   return (
     <div>
       <h1 className="recordings-title">Past Recordings</h1>
-      <div className="card mb-3">
+      <div className="card">
         {selected ? (
           <div>
             <DetailRecording
@@ -43,6 +43,9 @@ const AllRecordings = () => {
             </div>
           ))
         )}
+      </div>
+      <div id="footer-div">
+        <footer>@Copyright 2021 All Rights Reserved.</footer>
       </div>
     </div>
   )

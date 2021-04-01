@@ -5,6 +5,7 @@ import WordCloud from './WordCloud'
 const DetailRecording = props => {
   const {setSelected} = props
   const session = props.session[0]
+  console.log('transcrip--->', session.transcript)
 
   return (
     <div>
@@ -31,6 +32,9 @@ const DetailRecording = props => {
           </Button>
         </div>
       </div>
+      {/* <div className="word-cloud-div">
+        <WordCloud transcript={session.transcript} />
+      </div> */}
     </div>
   )
 }

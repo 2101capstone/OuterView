@@ -3,10 +3,10 @@ body {
   background-color: #74b2f8;
 }
 
-a {
+/* a {
   text-decoration: none;
   font-size: 20px;
-}
+} */
 
 label {
   display: block;
@@ -83,10 +83,10 @@ canvas {
 
 .transcripts-div {
   border: solid black;
-  height: 20rem;
   margin: 30px;
   padding: 20px;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .h1-transcripts {
@@ -126,7 +126,7 @@ a:hover {
 } */
 
 img.logo {
-  width: 10vw;
+  width: 6vw;
   height: 10vh;
 }
 
@@ -177,7 +177,8 @@ img {
 }
 .logo {
   margin-right: 50px;
-  border-radius: 90%;
+  border-radius: 40%;
+  size: fixed;
 }
 .navbar-brand {
   font-weight: bold;
@@ -266,6 +267,11 @@ nav {
 
 #section-c {
   display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 .recognition-h1 {
   text-align: center;
@@ -275,18 +281,20 @@ nav {
 }
 
 #section-c div {
-  padding: 20px;
+  padding: 50px;
 }
 
-#section-c .box-1,
-#section-c .box-3 {
-  background: #373a40;
-  color: #fff;
+#section-c .box-1 {
+  border-radius: 5%;
 }
 
 #section-c .box-2 {
-  background: #373a40;
-  color: white;
+  border-radius: 5%;
+}
+
+#section-c .box-3 {
+  border-radius: 5%;
+  width: 100px;
 }
 .display-4 {
   text-align: center;
@@ -305,7 +313,7 @@ ul {
   text-align: center;
 }
 .card-img-top {
-  height: 300px;
+  height: 400px;
   width: 200px;
 }
 .card-title {
@@ -315,11 +323,74 @@ ul {
   text-align: center;
 }
 .carosel-img {
-  width: 100px;
+  width: 50px;
 }
 .carousel-control-prev-icon {
   color: black;
 }
 .carousel-indicators li {
   background-color: black;
+}
+
+.icons {
+  text-align: center;
+}
+.jumbotron {
+  background-color: white !important;
+}
+.card-group {
+  width: 80%;
+  margin: 0 auto;
+}
+/* .card-group-tech {
+  width: 100%;
+  margin: 0 auto;
+} */
+#tech-used-h1 {
+  text-align: center;
+}
+.about-me-div {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+#footer-div {
+  text-align: center;
+  font-size: 14px;
+  background-color: #393e46;
+  color: white;
+  padding: 8px;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+}
+.carousel-caption {
+  color: black !important;
+  margin-top: 5px;
+}
+/* .card-group {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 10px;
+} */
+.carousel-logos {
+  width: 750px;
+  height: 750px;
+  margin: 0 auto;
+}
+.carousel-img {
+  width: 700px;
+  height: 500px;
+}
+.card {
+  border: none;
+}
+.row {
+  border: none;
+}
+.word-cloud-div {
+  margin: 0 auto;
 }
