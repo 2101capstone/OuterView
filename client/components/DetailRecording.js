@@ -1,11 +1,19 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 import WordCloud from './WordCloud'
+import {removeUserSession, deleteSession} from './firebaseHelperFunc'
 
 const DetailRecording = props => {
   const {setSelected} = props
   const session = props.session[0]
   console.log('transcrip--->', session.transcript)
+
+  const deleteVideo = () => {
+    console.log(session.uid, session.sessionId)
+    removeUserSession(session.uid, session.sessionId)
+    deleteSession(session.sessionId)
+    setSelected(null)
+  }
 
   return (
     <div>
@@ -29,6 +37,14 @@ const DetailRecording = props => {
             }}
           >
             Go Back
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => {
+              deleteVideo()
+            }}
+          >
+            Delete
           </Button>
         </div>
       </div>

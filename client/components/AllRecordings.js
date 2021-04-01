@@ -17,7 +17,7 @@ const AllRecordings = () => {
     query.get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         //console.log(doc.id, ' => ', doc.data())
-        setSesDetail(prev => [...prev, {...doc.data(), key: doc.id}])
+        setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
       })
     })
   }, [])
@@ -30,12 +30,14 @@ const AllRecordings = () => {
           <div>
             <DetailRecording
               setSelected={setSelected}
-              session={sesDetail.filter(session => session.key === selected)}
+              session={sesDetail.filter(
+                session => session.sessionId === selected
+              )}
             />
           </div>
         ) : (
           sesDetail.map(session => (
-            <div key={session.key} className="src">
+            <div key={session.sessionId} className="src">
               <SingleRecordingCard
                 session={session}
                 setSelected={setSelected}

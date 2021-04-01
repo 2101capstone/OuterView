@@ -22,7 +22,7 @@ const SingleRecordingCard = props => {
             <Button
               variant="secondary"
               onClick={() => {
-                setSelected(session.key)
+                setSelected(session.sessionId)
               }}
             >
               View More

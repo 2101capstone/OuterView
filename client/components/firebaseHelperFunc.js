@@ -1,7 +1,7 @@
 import firebase, {storage} from './firebase'
 
+//Create new session document with data
 export const addToFirestore = async data => {
-  //upload to Firestore
   const res = await firebase
     .firestore()
     .collection('Sessions')
@@ -9,6 +9,7 @@ export const addToFirestore = async data => {
   return res.id
 }
 
+// add data to a particular session document
 export const updateDocument = async (data, docId) => {
   const res = await firebase
     .firestore()
@@ -18,7 +19,7 @@ export const updateDocument = async (data, docId) => {
   return res
 }
 
-// creating user doc
+// creating user doc from auth UID
 export const createUserDoc = async (uid, data) => {
   const userRef = await firebase
     .firestore()
@@ -61,11 +62,28 @@ export const addToStorage = (recordedChunks, docId) => {
   }
 }
 
-//Need Chucks new User docuemtn code for this to workd
+//Add session id to User Doc
 export const pushToUserDoc = async (uid, docId) => {
   await firebase
     .firestore()
     .collection('Users')
     .doc(uid)
     .update({sessionId: firebase.firestore.FieldValue.arrayUnion(docId)})
+}
+
+//Remove session id from user doc
+export const removeUserSession = async (uid, sessionId) => {
+  await firebase
+    .firestore()
+    .collection('Users')
+    .doc(uid)
+    .update({sessionId: firebase.firestore.FieldValue.arrayRemove(sessionId)})
+}
+
+export const deleteSession = async sessionId => {
+  await firebase
+    .firestore()
+    .collection('Sessions')
+    .doc(sessionId)
+    .delete()
 }
