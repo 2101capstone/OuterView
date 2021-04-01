@@ -121,6 +121,7 @@ const Videoplayer = () => {
       <div className="camAndCanvas">
         <br></br>
         <canvas ref={canvasRef} id="myCanvas" />
+
         <Webcam
           ref={videoRef}
           audio={true}

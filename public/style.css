@@ -360,6 +360,16 @@ ul {
   color: white;
   padding: 8px;
 }
+.footer-recordings {
+  text-align: center;
+  font-size: 14px;
+  background-color: #393e46;
+  color: white;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 hr {
   margin-top: 1rem;
@@ -394,3 +404,51 @@ hr {
 .word-cloud-div {
   margin: 0 auto;
 }
+.toast-noti {
+  margin: 0 auto;
+  width: 50% !important;
+  height: 25% !important;
+  font-size: 50px !important;
+}
+
+.notification-container {
+  font-size: 14px;
+  box-sizing: border-box;
+  position: fixed;
+}
+.top-right {
+  top: 12px;
+  right: 12px;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right 0.7s;
+}
+
+.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right 0.7s;
+}
+
+.top-left {
+  top: 12px;
+  left: 12px;
+  transition: transform 0.6s ease-in;
+  animation: toast-in-left 0.7s;
+}
+
+.bottom-left {
+  bottom: 12px;
+  left: 12px;
+  transition: transform 0.6s ease-in;
+  animation: toast-in-left 0.7s;
+}
+.highlight {
+  /* background-color: red; */
+  color: red;
+  font-size: 20px !important;
+  font-style: italic;
+}
+/* .trans-div{
+  font-size: 16px;
+} */

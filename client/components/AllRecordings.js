@@ -46,9 +46,7 @@ const AllRecordings = () => {
           ))
         )}
       </div>
-      <div id="footer-div">
-        <footer>@Copyright 2021 All Rights Reserved.</footer>
-      </div>
+      {/* <footer className='footer-recordings'>@Copyright 2021 All Rights Reserved.</footer> */}
     </div>
   )
 }
