@@ -31,6 +31,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={LandingPage} />
+        <Route path="/learnMore" component={LearnMore} />
         <AuthProvider>
           <Switch>
             <PrivateRoute path="/record" component={WebcamModule} />
