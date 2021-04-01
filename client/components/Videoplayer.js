@@ -73,9 +73,12 @@ const Videoplayer = () => {
       console.log('Transcript:', transcript)
       let score = scoring(words, fillerWords, reactions)
       console.log(score)
-      addToFirestore({transcript, fillerWords, uid: currentUser.uid}).then(
-        setDocId
-      )
+      addToFirestore({
+        transcript,
+        fillerWords,
+        uid: currentUser.uid,
+        score
+      }).then(setDocId)
     }
   }, [isRecord])
 

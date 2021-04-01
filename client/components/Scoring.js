@@ -48,13 +48,13 @@ export default function scoring(transcript, fillerWords, facialData) {
     const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
     // add to scoring object in order
     score.topThree.push(
-      sorted[1],
-      sorted[2],
-      sorted[3],
-      sorted[4],
-      sorted[5],
-      sorted[6],
-      sorted[7]
+      sorted[1][0],
+      sorted[2][0],
+      sorted[3][0],
+      sorted[4][0],
+      sorted[5][0],
+      sorted[6][0],
+      sorted[7][0]
     )
 
     // calculate score based on percentage of total
@@ -108,7 +108,7 @@ export default function scoring(transcript, fillerWords, facialData) {
     if (fScore < 70 && fScore >= 50)
       return 'You did ok but you should definatly work on improving '
     else
-      return ' You did not do so well check out or tips and tricks section to help improve your scores'
+      return 'You did not do so well practice doing more recordings to help improve your scores'
   }
   score.message = message(messageScore)
 
