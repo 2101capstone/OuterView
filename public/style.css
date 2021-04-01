@@ -360,6 +360,16 @@ ul {
   color: white;
   padding: 8px;
 }
+.footer-recordings {
+  text-align: center;
+  font-size: 14px;
+  background-color: #393e46;
+  color: white;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 hr {
   margin-top: 1rem;

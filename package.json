@@ -74,6 +74,7 @@
     "react-speech": "^1.0.2",
     "react-speech-kit": "^3.0.1",
     "react-speech-recognition": "^3.7.0",
+    "react-toastify": "^7.0.3",
     "react-webcam": "^5.2.3",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
