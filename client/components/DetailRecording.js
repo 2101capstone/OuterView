@@ -3,11 +3,15 @@ import {Button} from 'react-bootstrap'
 import WordCloud from './WordCloud'
 import PieChart from './PieChart'
 import {removeUserSession, deleteSession} from './firebaseHelperFunc'
+import {countFiller, fillerWords} from './speechHelperFunc'
 
 const DetailRecording = props => {
   const {setSelected} = props
   const session = props.session[0]
   console.log('transcrip--->', session.transcript)
+  const transcript = session.transcript
+  countFiller(session.transcript)
+  console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
     console.log(session.uid, session.sessionId)
@@ -28,7 +32,18 @@ const DetailRecording = props => {
           <source src={session.url} type="video/webm"></source>
         </video>
         <div className="card-body">
-          <h5 className="card-title">Transcript: {session.transcript}</h5>
+          <h5 className="card-title">Transcript</h5>
+          <div className="trans-div">
+            {transcript
+              .split(' ')
+              .map(word =>
+                fillerWords[word] ? (
+                  <span className="highlight">{`${word} `}</span>
+                ) : (
+                  <span>{`${word} `}</span>
+                )
+              )}
+          </div>
           <h5 className="card-title">{session.date.toDate().toDateString()}</h5>
           <WordCloud transcript={session.transcript} />
           <PieChart emotions={session.score.emotions} />

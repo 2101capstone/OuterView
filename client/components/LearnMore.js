@@ -189,7 +189,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="icon-user.png"
+              src="chuck.jpeg"
               alt="Card image cap"
             ></img>
             <div className="card-body">
@@ -207,7 +207,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="icon-user.png"
+              src="benny.jpeg"
               alt="Card image cap"
             ></img>
             <div className="card-body">
