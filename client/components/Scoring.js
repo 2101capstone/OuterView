@@ -29,7 +29,7 @@ export default function scoring(transcript, fillerWords, facialData) {
       }
     }
 
-    score.dataPoints.push(emotions)
+    // score.dataPoints.push(emotions)
   }
 
   //sift through facial data get score
