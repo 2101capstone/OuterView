@@ -73,11 +73,10 @@ canvas {
 
 .src {
   padding: 20px;
-  border: 1px solid blue;
+  border: 1px solid grey;
 }
 
 .textNButton {
-  border: 5px solid yellow;
   display: flex;
   flex-direction: column;
   align-items: center;

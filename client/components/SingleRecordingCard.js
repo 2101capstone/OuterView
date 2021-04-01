@@ -29,7 +29,7 @@ const SingleRecordingCard = props => {
           </div>
         </div>
         <Button
-          variant="secondary"
+          variant="btn btn-secondary btn-lg"
           onClick={() => {
             setSelected(session.sessionId)
           }}
