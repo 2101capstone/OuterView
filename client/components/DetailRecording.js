@@ -31,17 +31,18 @@ const DetailRecording = props => {
           <source src={session.url} type="video/webm"></source>
         </video>
         <div className="card-body">
-          <h5 className="card-title">Transcript: {session.transcript}</h5>
-
-          {transcript
-            .split(' ')
-            .map(word =>
-              fillerWords[word] ? (
-                <span className="highlight">{`${word} `}</span>
-              ) : (
-                <span>{`${word} `}</span>
-              )
-            )}
+          <h5 className="card-title">Transcript</h5>
+          <div className="trans-div">
+            {transcript
+              .split(' ')
+              .map(word =>
+                fillerWords[word] ? (
+                  <span className="highlight">{`${word} `}</span>
+                ) : (
+                  <span>{`${word} `}</span>
+                )
+              )}
+          </div>
           <h5 className="card-title">{session.date.toDate().toDateString()}</h5>
           <WordCloud transcript={session.transcript} />
           <Button

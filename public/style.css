@@ -436,4 +436,9 @@ hr {
 .highlight {
   /* background-color: red; */
   color: red;
+  font-size: 20px !important;
+  font-style: italic;
 }
+/* .trans-div{
+  font-size: 16px;
+} */
