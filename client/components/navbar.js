@@ -2,11 +2,7 @@ import React, {useEffect} from 'react'
 import {useAuth} from '../contexts/AuthContext'
 
 const Navbar = () => {
-  //const {currentUser} = useAuth()
-
-  // useEffect(() => {
-  //   console.log('CU', currentUser)
-  // }, [])
+  const {currentUser} = useAuth()
 
   return (
     <div>
@@ -19,15 +15,19 @@ const Navbar = () => {
               </a>
               <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav nav-fill w-100">
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
-                      href="/login"
-                    >
-                      Login
-                    </a>
-                  </li>
+                  {currentUser ? (
+                    ''
+                  ) : (
+                    <li className="nav-item">
+                      <a
+                        className="nav-link active"
+                        aria-current="page"
+                        href="/login"
+                      >
+                        Login
+                      </a>
+                    </li>
+                  )}
                   <li className="nav-item">
                     <a
                       className="nav-link active"

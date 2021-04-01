@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
-import {AuthProvider} from './contexts/AuthContext'
 import PropTypes from 'prop-types'
+import {AuthProvider} from './contexts/AuthContext'
 
 import {
   PrivateRoute,
