@@ -73,7 +73,13 @@ canvas {
 
 .src {
   padding: 20px;
-  border: 1px solid blue;
+  border: 1px solid grey;
+}
+
+.textNButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -278,6 +284,10 @@ nav {
 }
 .landing-page-h1 {
   font-family: 'Merriweather', serif;
+}
+
+.camAndCanvas {
+  padding-top: 100px;
 }
 
 #section-c div {
