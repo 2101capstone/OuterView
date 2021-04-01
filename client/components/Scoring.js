@@ -6,7 +6,7 @@ export default function scoring(transcript, fillerWords, facialData) {
     message: '',
     transcriptScore: 0,
     emotionalScore: 0,
-    topThree: [],
+    emotions: [],
     dataPoints: []
   }
   let emotions = {
@@ -47,14 +47,14 @@ export default function scoring(transcript, fillerWords, facialData) {
     emotionsobj.total = emotionsobj.total * 100
     const sorted = Object.entries(emotionsobj).sort((a, b) => b[1] - a[1])
     // add to scoring object in order
-    score.topThree.push(
-      sorted[1][0],
-      sorted[2][0],
-      sorted[3][0],
-      sorted[4][0],
-      sorted[5][0],
-      sorted[6][0],
-      sorted[7][0]
+    score.emotions.push(
+      `${sorted[1][0]} ${sorted[1][1]}%`,
+      `${sorted[2][0]} ${sorted[2][1]}%`,
+      `${sorted[3][0]} ${sorted[3][1]}%`,
+      `${sorted[4][0]} ${sorted[4][1]}%`,
+      `${sorted[5][0]} ${sorted[5][1]}%`,
+      `${sorted[6][0]} ${sorted[6][1]}%`,
+      `${sorted[7][0]} ${sorted[7][1]}%`
     )
 
     // calculate score based on percentage of total
