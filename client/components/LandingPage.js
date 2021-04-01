@@ -74,13 +74,13 @@ const LandingPage = () => {
           Start
         </a>
       </header>
-      <section id="section-a">
+      {/* <section id="section-a">
         <p>
           We Utilize Facial recognition and Voice recognition to track as you
           are recording to identify commonly used Filler Words in your speaking
           to help improve your interviews.
         </p>
-      </section>
+      </section> */}
       <div id="footer-div">
         <footer>@Copyright 2021 All Rights Reserved.</footer>
       </div>

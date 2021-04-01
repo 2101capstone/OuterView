@@ -137,6 +137,14 @@ const LearnMore = () => {
               voice data.
             </div>
           </div>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">React Hooks</h5>
+              <p className="card-text"></p>
+              React Hooks are functions that let us hook into the React state
+              and lifecycle features from function components.
+            </div>
+          </div>
         </div>
       </div>
       <div className="about-me-div">
