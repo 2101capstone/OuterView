@@ -32,9 +32,9 @@ const DetailRecording = props => {
           </Button>
         </div>
       </div>
-      <div className="word-cloud-div">
+      {/* <div className="word-cloud-div">
         <WordCloud transcript={session.transcript} />
-      </div>
+      </div> */}
     </div>
   )
 }
