@@ -87,3 +87,7 @@ export const deleteSession = async sessionId => {
     .doc(sessionId)
     .delete()
 }
+
+export const deleteCloudVideo = async sessionId => {
+  await storage.ref(`recording/${sessionId}.webm`).delete()
+}

@@ -2,7 +2,11 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 import WordCloud from './WordCloud'
 import PieChart from './PieChart'
-import {removeUserSession, deleteSession} from './firebaseHelperFunc'
+import {
+  removeUserSession,
+  deleteSession,
+  deleteCloudVideo
+} from './firebaseHelperFunc'
 import {countFiller, fillerWords} from './speechHelperFunc'
 
 const DetailRecording = props => {
@@ -15,8 +19,16 @@ const DetailRecording = props => {
 
   const deleteVideo = () => {
     console.log(session.uid, session.sessionId)
+    //remove from array in user doc
     removeUserSession(session.uid, session.sessionId)
+
+    //Delete session Document
     deleteSession(session.sessionId)
+
+    //remove from cloud storage
+    deleteCloudVideo(session.sessionId)
+
+    //redirect to all recordings
     setSelected(null)
   }
 
