@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
-import WordCloud from './Cloud'
+import WordCloud from './WordCloud'
 
 const DetailRecording = props => {
   const {setSelected} = props
@@ -12,18 +12,16 @@ const DetailRecording = props => {
       <div className="card mb-3 ">
         <video
           className="single-recoding-vid"
-          width="1000"
-          height="750"
+          width="640"
+          height="480"
           controls
         >
           <source src={session.url} type="video/webm"></source>
         </video>
         <div className="card-body">
-          <h5 className="card-title">Transcript {session.transcript}</h5>
-          <p className="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </p>
+          <h5 className="card-title">Transcript: {session.transcript}</h5>
+          <h5 className="card-title">{session.date.toDate().toDateString()}</h5>
+          <WordCloud transcript={session.transcript} />
           <Button
             variant="secondary"
             onClick={() => {
