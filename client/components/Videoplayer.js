@@ -69,10 +69,7 @@ const Videoplayer = () => {
       recognition.stop() //ending voice rec
       const transcript = words.join(' ')
       countFiller(transcript)
-      console.log('Filler Words:', fillerWords)
-      console.log('Transcript:', transcript)
       let score = scoring(words, fillerWords, reactions)
-      console.log(score)
       addToFirestore({
         transcript,
         fillerWords,
