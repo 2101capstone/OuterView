@@ -14,6 +14,10 @@ script:
   - npm run build-client # make the bundle
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
+# branches:
+#   only:
+#     - master
+#     - stable
 #  before_deploy:
 #    - rm -rf node_modules # omit from the tarball, since we skip cleanup
 #  deploy:

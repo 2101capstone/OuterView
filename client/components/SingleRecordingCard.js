@@ -1,6 +1,5 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
-
 const SingleRecordingCard = props => {
   const {session, setSelected} = props
 
@@ -23,7 +22,7 @@ const SingleRecordingCard = props => {
             <Button
               variant="secondary"
               onClick={() => {
-                setSelected(session.key)
+                setSelected(session.sessionId)
               }}
             >
               View More
