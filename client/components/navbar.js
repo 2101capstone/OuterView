@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useAuth} from '../contexts/AuthContext'
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
               <a className="navbar-brand" href="/">
-                <img alt="" src="logo.jpg" />
+                <img alt="" src="logo.png" />
               </a>
               <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav nav-fill w-100">
