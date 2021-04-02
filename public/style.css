@@ -118,13 +118,13 @@ p {
   padding-left: 10px;
   /* background-color: #c5fd91; */
 }
-
+/* 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-}
+} */
 
 .containerLP {
   display: flex;
