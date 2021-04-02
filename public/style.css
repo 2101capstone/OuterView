@@ -117,13 +117,6 @@ p {
   padding-left: 10px;
   /* background-color: #c5fd91; */
 }
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .containerLP {
   display: flex;
   flex-direction: row;
