@@ -451,17 +451,13 @@ hr {
   font-size: 20px !important;
   font-style: italic;
 }
-/* .trans-div{
-  font-size: 16px;
-} */
-
-/* SingleRecCardV2 Styling: */
-
-/* .cardSRC {
-  width: 50px;
-} */
 
 .SRCorDetail {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
+  justify-content: space-evenly !important;
+}
+
+.cardSRC {
+  padding-top: 50px;
 }

@@ -153,7 +153,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="mike.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fmike.jpeg?alt=media&token=fc400c08-e01c-45ce-a3cc-b36fe6837eed"
               alt="Card image cap"
             ></img>
             <div className="card-body">

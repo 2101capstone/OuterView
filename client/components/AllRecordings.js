@@ -36,9 +36,11 @@ const AllRecordings = () => {
           </div>
         ) : (
           sesDetail.map(session => (
-            <div key={session.sessionId}>
-              <SingleRecCardV2 session={session} setSelected={setSelected} />
-            </div>
+            <SingleRecCardV2
+              session={session}
+              setSelected={setSelected}
+              key={session.sessionId}
+            />
           ))
         )}
       </div>
