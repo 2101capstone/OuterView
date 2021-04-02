@@ -101,10 +101,10 @@ a:hover {
   font-size: 20px;
 }
 
-img.logo {
+/* img.logo {
   width: 6vw;
   height: 6vh;
-}
+} */
 
 div.analytics,
 p {
@@ -123,7 +123,6 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
 }
 
 .containerLP {

@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
-        <img alt="" src="logo.png" height="10" width="10" />
+        <img alt="" src="logo.png" height="50" width="50" />
       </a>
       <button
         className="navbar-toggler"
@@ -22,9 +22,13 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <a className="nav-item nav-link active" href="/record">
-            Record Now <span className="sr-only">(current)</span>
-          </a>
+          {currentUser ? (
+            ''
+          ) : (
+            <a className="nav-item nav-link active" href="/record">
+              Record Now <span className="sr-only">(current)</span>
+            </a>
+          )}
           <a className="nav-item nav-link" href="/login">
             Log in
           </a>
