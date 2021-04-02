@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import {useAuth} from '../contexts/AuthContext'
 import ToastNotification from './ToastNotification'
 
@@ -10,7 +10,6 @@ function PrivateRoute({component: Component, ...rest}) {
     <Route
       {...rest}
       render={props => {
-        // return currentUser ? <Component {...props} /> : <Redirect to="/login" />
         return currentUser ? <Component {...props} /> : <ToastNotification />
       }}
     ></Route>

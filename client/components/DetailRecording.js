@@ -14,10 +14,8 @@ const DetailRecording = props => {
   const history = useHistory()
   const {setSelected, setSesDetail} = props
   const session = props.session[0]
-  console.log('transcrip--->', session.transcript)
   const transcript = session.transcript
   countFiller(session.transcript)
-  console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
     removeUserSession(session.uid, session.sessionId)
@@ -32,14 +30,11 @@ const DetailRecording = props => {
     <div className="details-div">
       <div className="details-mike">
         <WordCloud transcript={session.transcript} />
-        {/* <div className='video-div'> */}
         <video className="vid-mike" width="640" height="480" controls>
           <source src={session.url} type="video/webm"></source>
         </video>
         <PieChart emotions={session.score.emotions} />
       </div>
-      {/* </div> */}
-      {/* <WordCloud transcript={session.transcript} /> */}
       <div className="score-words">
         <h1>Final Score: {session.score.finalScore}%</h1>
         <h1>
