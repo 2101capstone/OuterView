@@ -28,8 +28,6 @@ export default function scoring(transcript, fillerWords, facialData) {
         emotions.total += facialData[i][key]
       }
     }
-
-    // score.dataPoints.push(emotions)
   }
 
   //sift through facial data get score
@@ -106,9 +104,9 @@ export default function scoring(transcript, fillerWords, facialData) {
     if (fScore < 80 && fScore >= 70)
       return 'You did good but consider brushing up on your habits'
     if (fScore < 70 && fScore >= 50)
-      return 'You did ok but you should definitely work on improving'
+      return 'You did ok but you should definitely work on improving your score'
     else
-      return 'You did not do so well, practice doing more recordings to help you improve your scores'
+      return 'You did not do so well, practice doing more recordings to help you improve your score'
   }
   score.message = message(messageScore)
 

@@ -44,6 +44,7 @@ const LearnMore = () => {
         </div>
         <div className="box-2">
           <h1 className="recognition-h1">Facial Recognition</h1>
+          <br></br>
           <ul>
             <li>
               Step 1: Face detection - The camera detects and locates the image

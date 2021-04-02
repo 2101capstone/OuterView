@@ -4,8 +4,6 @@ import React from 'react'
 
 const WordCloud = props => {
   let {transcript} = props
-  //console.log('full transcript:', transcript)
-
   if (transcript) {
     const seriesConstruct = () => {
       const wordCount = str => {

@@ -14,10 +14,8 @@ const DetailRecording = props => {
   const history = useHistory()
   const {setSelected, setSesDetail} = props
   const session = props.session[0]
-  console.log('transcrip--->', session.transcript)
   const transcript = session.transcript
   countFiller(session.transcript)
-  console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
     removeUserSession(session.uid, session.sessionId)
@@ -73,9 +71,6 @@ const DetailRecording = props => {
           </Button>
         </div>
       </div>
-      {/* <div className="word-cloud-div">
-        <WordCloud transcript={session.transcript} />
-      </div> */}
     </div>
   )
 }
