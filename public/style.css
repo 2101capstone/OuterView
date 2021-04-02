@@ -79,7 +79,7 @@ canvas {
 
 button {
   /* float: right; */
-  margin: 10px;
+  margin: 0 auto;
   padding: 10px;
   border-radius: 5px;
   color: #64f58d;
@@ -470,8 +470,10 @@ hr {
 .fillerword-span {
   color: red !important;
 }
-.btns {
-  margin: 0 auto;
+.details-buttons {
+  margin: 0 auto !important;
+  align-items: center;
+  /* margin-left: 50%; */
 }
 .vid-mike {
   /* flex-grow: 2; */
@@ -481,9 +483,20 @@ hr {
 }
 .video-div {
   height: 100vh;
-  background-image: linear-gradient(135deg, #393e46, gray, #64dfdf);
+  background-image: linear-gradient(
+    10deg,
+    #64dfdf,
+    #393e46,
+    #393e46,
+    #393e46,
+    #393e46,
+    #393e46,
+    #64dfdf
+  );
 }
-
 .icons-vid {
   display: flex;
+}
+.card {
+  border: none !important;
 }
