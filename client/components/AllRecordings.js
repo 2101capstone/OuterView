@@ -22,7 +22,7 @@ const AllRecordings = () => {
 
   return (
     <div>
-      <h1 className="recordings-title">All Recordings</h1>
+      {selected ? '' : <h1 className="recordings-title">All Recordings</h1>}
       <div className="SRCorDetail">
         {selected ? (
           <div>
@@ -36,9 +36,11 @@ const AllRecordings = () => {
           </div>
         ) : (
           sesDetail.map(session => (
-            <div key={session.sessionId}>
-              <SingleRecCardV2 session={session} setSelected={setSelected} />
-            </div>
+            <SingleRecCardV2
+              session={session}
+              setSelected={setSelected}
+              key={session.sessionId}
+            />
           ))
         )}
       </div>

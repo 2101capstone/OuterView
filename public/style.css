@@ -21,7 +21,7 @@ form div {
 }
 
 .recBorder {
-  border: 7px solid #ef476f;
+  border: 10px solid #ef476f;
 }
 
 canvas {
@@ -82,7 +82,7 @@ button {
   margin: 0 auto;
   padding: 10px;
   border-radius: 5px;
-  color: #64f58d;
+
   background: #011936;
 }
 
@@ -90,7 +90,6 @@ a,
 a:link,
 a:visited {
   text-decoration: none;
-  color: #c5fd91;
   font-size: 20px;
 }
 
@@ -101,10 +100,10 @@ a:hover {
   font-size: 20px;
 }
 
-img.logo {
+/* img.logo {
   width: 6vw;
-  height: 10vh;
-}
+  height: 6vh;
+} */
 
 div.analytics,
 p {
@@ -118,14 +117,6 @@ p {
   padding-left: 10px;
   /* background-color: #c5fd91; */
 }
-/* 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-} */
-
 .containerLP {
   display: flex;
   flex-direction: row;
@@ -136,7 +127,6 @@ img {
   font-family: verdana;
   font-size: 400%;
   text-align: center;
-  color: #c5fd91;
 }
 
 .recordings-title {
@@ -149,7 +139,6 @@ img {
 .card {
   margin: 0 auto;
   max-width: 80%;
-  background-color: #64f58d;
 }
 .logo {
   margin-right: 50px;
@@ -165,9 +154,6 @@ canvas {
 .single-recoding-vid {
   margin: 0 auto;
   margin-bottom: 50px;
-}
-nav {
-  background-color: #64dfdf;
 }
 
 .text-to-speech-div {
@@ -425,15 +411,33 @@ hr {
   font-style: italic;
 }
 
-/* SingleRecCardV2 Styling: */
-
-/* .cardSRC {
-  width: 50px;
-} */
-
 .SRCorDetail {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
+  justify-content: space-evenly !important;
+}
+
+.cardSRC {
+  margin: 30px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+  border: 1px solid #5d707f;
+  border-radius: 15px;
+}
+
+.card-body1 {
+  width: 80%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-text1 {
+  margin: 0 auto;
 }
 .cloud-div {
   display: flex;
