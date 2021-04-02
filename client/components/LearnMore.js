@@ -219,7 +219,7 @@ const LearnMore = () => {
               alt="Card image cap"
             ></img>
             <div className="card-body">
-              <h5 className="card-title">Benny Koker</h5>
+              <h5 className="card-title">Benny Khoker</h5>
               <div className="icons">
                 <a href="https://github.com/bkhoker88">
                   <FaGithub color="black" size={80} />
