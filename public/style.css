@@ -78,7 +78,7 @@ canvas {
 }
 
 button {
-  float: right;
+  /* float: right; */
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -441,13 +441,16 @@ hr {
 .piechart-div {
   display: flex;
 }
-.details-top {
+.details-mike {
+  width: 100vw !important;
   align-items: center;
-  align-content: center;
+  align-content: center !important;
   display: flex;
+  flex-wrap: wrap;
+  /* flex-grow: 2; */
   /* flex-grow: 2; */
   margin: 0 auto;
-  justify-content: space-around;
+  justify-content: space-between !important;
   /* justify-content: space-between; */
 }
 
@@ -468,5 +471,11 @@ hr {
   color: red !important;
 }
 .btns {
-  position: relative;
+  margin: 0 auto;
+}
+.vid-mike {
+  /* flex-grow: 2; */
+}
+.details-div {
+  width: 100vw !important;
 }

@@ -37,16 +37,29 @@ const DetailRecording = props => {
           <span className="fillword-span">{session.fillerWords.TOTAL}</span>
         </h1>
       </div>
-      <div className="details-top">
+      <div className="details-mike">
         <WordCloud transcript={session.transcript} />
         {/* <div className='video-div'> */}
-        <video width="640" height="480" controls>
+        <video className="vid-mike" width="640" height="480" controls>
           <source src={session.url} type="video/webm"></source>
         </video>
         <PieChart emotions={session.score.emotions} />
       </div>
       {/* </div> */}
       {/* <WordCloud transcript={session.transcript} /> */}
+      <div className="trans-details-page">
+        <h5 className="">Transcript</h5>
+        <h5 className="">{session.date.toDate().toDateString()}</h5>
+        {transcript
+          .split(' ')
+          .map(word =>
+            fillerWords[word] ? (
+              <span className="highlight">{`${word} `}</span>
+            ) : (
+              <span>{`${word} `}</span>
+            )
+          )}
+      </div>
       <Button
         className="btns"
         variant="secondary"
@@ -65,19 +78,6 @@ const DetailRecording = props => {
       >
         Delete
       </Button>
-      <div className="trans-details-page">
-        <h5 className="">Transcript</h5>
-        <h5 className="">{session.date.toDate().toDateString()}</h5>
-        {transcript
-          .split(' ')
-          .map(word =>
-            fillerWords[word] ? (
-              <span className="highlight">{`${word} `}</span>
-            ) : (
-              <span>{`${word} `}</span>
-            )
-          )}
-      </div>
     </div>
   )
 }
