@@ -114,7 +114,7 @@ const Videoplayer = () => {
   }
 
   return (
-    <div>
+    <div className="video-div">
       <div className="camAndCanvas">
         <br></br>
         <canvas ref={canvasRef} id="myCanvas" />

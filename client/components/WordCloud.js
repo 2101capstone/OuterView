@@ -39,8 +39,8 @@ const WordCloud = props => {
   }
 
   return (
-    <div>
-      <Chart width={400} height={400} series={series} minY={0}>
+    <div className="cloud-div">
+      <Chart width={500} height={400} series={series} minY={0}>
         <Transform method="transpose">
           <Cloud
             font="Helvetica"
