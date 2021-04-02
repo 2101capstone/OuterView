@@ -101,14 +101,14 @@ export default function scoring(transcript, fillerWords, facialData) {
   let messageScore = score.finalScore
   const message = fScore => {
     if (fScore >= 90)
-      return 'Congratulations you have proven your ready for that interview '
+      return 'Congratulations you have proven you are ready for that interview '
     if (fScore < 90 && fScore >= 80) return 'You did really well'
     if (fScore < 80 && fScore >= 70)
       return 'You did good but consider brushing up on your habits'
     if (fScore < 70 && fScore >= 50)
-      return 'You did ok but you should definatly work on improving '
+      return 'You did ok but you should definitely work on improving'
     else
-      return 'You did not do so well practice doing more recordings to help improve your scores'
+      return 'You did not do so well, practice doing more recordings to help you improve your scores'
   }
   score.message = message(messageScore)
 
