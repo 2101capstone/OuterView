@@ -14,7 +14,6 @@ const DetailRecording = props => {
   console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
-    console.log(session.uid, session.sessionId)
     removeUserSession(session.uid, session.sessionId)
     deleteSession(session.sessionId)
     setSelected(null)
