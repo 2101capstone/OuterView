@@ -6,30 +6,35 @@ const LearnMore = () => {
   return (
     <div className="learnMore-border">
       <div className="jumbotron">
-        <h1 className="display-4">About OuterView</h1>
+        <h1 className="display-4">Outerview</h1>
         <p className="lead">
-          We Utilize Facial recognition and Voice recognition to track as you
-          are recording to identify commonly used Filler Words in your speaking
-          to help improve your interviews.
+          Outerview is a web application that utilizes facial and speech
+          recognition to quantify and visualize a user's observable mannerisms.
+          With the assistance of recording sessions, our application can help
+          identify commonly used filler words in a user's speech in conjunction
+          with detectable facial emotions to create a cohesive score. Our goal
+          is to help a user better interpret thier outerview before their next
+          interview.
         </p>
       </div>
       <section id="section-c">
         <div className="box-1">
           <h1 className="recognition-h1">Speech Recognition</h1>
+          <br></br>
           <ul>
             <li>
-              Step 1: Voice detection The microphone detects sound and audio
+              Step 1: Audio detection - The microphone detects sound and audio
               input as you begin speaking and ends on a break of audio input.
-            </li>
-
+            </li>{' '}
+            <br></br>
             <li>
-              Step 2: Voice analysis, our software breaks your speech down into
+              Step 2: Audio analysis - Our software breaks your speech down into
               bits it can interpret, converts it into a digital format, and
               analyzes the pieces of content.
-            </li>
-
+            </li>{' '}
+            <br></br>
             <li>
-              Step 3: Converting the sound to data, after speech ends our
+              Step 3: Converting the audio to data - After speech ends our
               application makes determinations based on programming and speech
               patterns, making hypotheses about what the user is actually
               saying. After determining what the users most likely said, the
@@ -39,24 +44,28 @@ const LearnMore = () => {
         </div>
         <div className="box-2">
           <h1 className="recognition-h1">Facial Recognition</h1>
+          <br></br>
           <ul>
             <li>
-              Step 1: Voice detection The microphone detects sound and audio
-              input as you begin speaking and ends on a break of audio input.
+              Step 1: Face detection - The camera detects and locates the image
+              of a face. The image may show the person looking straight ahead or
+              in profile.
             </li>
-
+            <br></br>
             <li>
-              Step 2: Voice analysis, our software breaks your speech down into
-              bits it can interpret, converts it into a digital format, and
-              analyzes the pieces of content.
+              Step 2: Face analysis - An image of the face is captured and
+              analyzed. The software reads the geometry of your face using a 68
+              point face landmark detector. These models have been trained on a
+              dataset of ~35k face images labeled with 68 face landmark points.
             </li>
-
+            <br></br>
             <li>
-              Step 3: Converting the sound to data, after speech ends our
-              application makes determinations based on programming and speech
-              patterns, making hypotheses about what the user is actually
-              saying. After determining what the users most likely said, the
-              software transcribes the conversation into text.
+              Step 3: Converting the image to data - The face capture process
+              transforms analog information (a face) into a set of digital
+              information based on the person's facial features. Your face's
+              analysis is essentially turned into a mathematical formula. We can
+              then use this data to determine facial expressions associated with
+              emotions.
             </li>
           </ul>
         </div>
@@ -211,7 +220,7 @@ const LearnMore = () => {
               alt="Card image cap"
             ></img>
             <div className="card-body">
-              <h5 className="card-title">Benny Koker</h5>
+              <h5 className="card-title">Benny Khoker</h5>
               <div className="icons">
                 <a href="https://github.com/bkhoker88">
                   <FaGithub color="black" size={80} />

@@ -42,9 +42,7 @@ const Videoplayer = () => {
 
   //load models with first render
   useEffect(() => {
-    console.log('Face Models Loaded')
     loadModels()
-    console.log(currentUser.uid)
   }, [])
 
   const handleDataAvailable = ({data}) => {
@@ -86,7 +84,6 @@ const Videoplayer = () => {
     if (docId) {
       addToStorage(recordedChunks, docId)
       pushToUserDoc(currentUser.uid, docId)
-      //history.push('/recordings', {sessionId: 'Qd3POzJhE94m4WxDTMOY'})
     }
   }, [docId])
 
@@ -105,12 +102,10 @@ const Videoplayer = () => {
   const handleSubmitClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
-    console.log('Downloaded to local')
   }
 
   // to join array of words from Transcription
   recognition.onresult = event => {
-    //console.log(event.results)
     setWords(
       Array.from(event.results)
         .map(result => result[0])
@@ -119,8 +114,7 @@ const Videoplayer = () => {
   }
 
   return (
-    <div>
-      {/* <h3>{isRecord ? {seconds} : 'no rec'}</h3> */}
+    <div className="video-div">
       <div className="camAndCanvas">
         <br></br>
         <canvas ref={canvasRef} id="myCanvas" />
@@ -184,7 +178,6 @@ const Videoplayer = () => {
       ) : (
         <div />
       )}
-      <div>{docId}</div>
     </div>
   )
 }

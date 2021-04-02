@@ -26,7 +26,6 @@ const SignUp = () => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      console.log('user', user.uid)
       // create a new user doc by getting the user
       createUserDoc(user.uid, {email: emailRef.current.value})
       history.push('/dashboard')

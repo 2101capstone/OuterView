@@ -29,8 +29,6 @@ const questions = [
 const SpeechSynthesis = () => {
   const populateVoices = () => {
     const defaultVoice = voices[11]
-    console.log('All Voices --->', voices)
-    console.log('Default Voice --->', defaultVoice)
   }
 
   const randomQuestionGenerator = () => {
@@ -38,7 +36,6 @@ const SpeechSynthesis = () => {
     var utterance = new SpeechSynthesisUtterance(randomQuesion)
     synthesis.speak(utterance)
     var amISpeaking = synthesis.speaking
-    console.log('Am i speaking?-->', amISpeaking)
   }
 
   return (

@@ -14,10 +14,8 @@ const DetailRecording = props => {
   const history = useHistory()
   const {setSelected, setSesDetail} = props
   const session = props.session[0]
-  console.log('transcrip--->', session.transcript)
   const transcript = session.transcript
   countFiller(session.transcript)
-  console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
     removeUserSession(session.uid, session.sessionId)
@@ -29,53 +27,52 @@ const DetailRecording = props => {
   }
 
   return (
-    <div>
-      <div className="card mb-3 ">
-        <video
-          className="single-recoding-vid"
-          width="640"
-          height="480"
-          controls
-        >
+    <div className="details-div">
+      <div className="details-mike">
+        <WordCloud transcript={session.transcript} />
+        <video className="vid-mike" width="640" height="480" controls>
           <source src={session.url} type="video/webm"></source>
         </video>
-        <div className="card-body">
-          <h5 className="card-title">Transcript</h5>
-          <div className="trans-div">
-            {transcript
-              .split(' ')
-              .map(word =>
-                fillerWords[word] ? (
-                  <span className="highlight">{`${word} `}</span>
-                ) : (
-                  <span>{`${word} `}</span>
-                )
-              )}
-          </div>
-          <h5 className="card-title">{session.date.toDate().toDateString()}</h5>
-          <WordCloud transcript={session.transcript} />
-          <PieChart emotions={session.score.emotions} />
-          <Button
-            variant="secondary"
-            onClick={() => {
-              setSelected(null)
-            }}
-          >
-            Go Back
-          </Button>
-          <Button
-            variant="danger"
-            onClick={() => {
-              deleteVideo()
-            }}
-          >
-            Delete
-          </Button>
-        </div>
+        <PieChart emotions={session.score.emotions} />
       </div>
-      {/* <div className="word-cloud-div">
-        <WordCloud transcript={session.transcript} />
-      </div> */}
+      <div className="score-words">
+        <h1>Final Score: {session.score.finalScore}%</h1>
+        <h1>
+          Filler Words Used:
+          <span className="fillword-span">{session.fillerWords.TOTAL}</span>
+        </h1>
+      </div>
+      <div className="trans-details-page">
+        <h5 className="">Transcript</h5>
+        <h5 className="">{session.date.toDate().toDateString()}</h5>
+        {transcript
+          .split(' ')
+          .map(word =>
+            fillerWords[word] ? (
+              <span className="highlight">{`${word} `}</span>
+            ) : (
+              <span>{`${word} `}</span>
+            )
+          )}
+      </div>
+      <Button
+        className="btns"
+        variant="secondary"
+        onClick={() => {
+          setSelected(null)
+        }}
+      >
+        Go Back
+      </Button>
+      <Button
+        className="btns"
+        variant="danger"
+        onClick={() => {
+          deleteVideo()
+        }}
+      >
+        Delete
+      </Button>
     </div>
   )
 }

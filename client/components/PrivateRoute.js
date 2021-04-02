@@ -10,7 +10,6 @@ function PrivateRoute({component: Component, ...rest}) {
     <Route
       {...rest}
       render={props => {
-        // return currentUser ? <Component {...props} /> : <Redirect to="/login" />
         return currentUser ? <Component {...props} /> : <ToastNotification />
       }}
     ></Route>
