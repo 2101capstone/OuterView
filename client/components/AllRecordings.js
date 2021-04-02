@@ -22,7 +22,7 @@ const AllRecordings = () => {
 
   return (
     <div>
-      <h1 className="recordings-title">All Recordings</h1>
+      {selected ? '' : <h1 className="recordings-title">All Recordings</h1>}
       <div className="SRCorDetail">
         {selected ? (
           <div>

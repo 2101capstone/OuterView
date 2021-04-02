@@ -13,7 +13,7 @@ const SingleRecCardV2 = props => {
 
   return (
     <div className="cardSRC">
-      <video controls>
+      <video controls width="75%">
         <source src={session.url} type="video/webm"></source>
       </video>
       <div className="card-body1">
