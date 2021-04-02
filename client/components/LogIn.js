@@ -25,7 +25,7 @@ const LogIn = () => {
         passwordRef.current.value
       )
       createUserDoc(user.uid, {email: emailRef.current.value})
-      history.push('/dashboard')
+      history.push('/record')
     } catch {
       setError('Failed to sign in')
     }
@@ -40,7 +40,8 @@ const LogIn = () => {
       const {user} = await auth.signInWithPopup(provider)
       // create user doc for google
       createUserDoc(user.uid, {email: user.email})
-      history.push('/dashboard')
+      console.log('user', user)
+      history.push('/record')
     } catch {
       setError('Failed To Sign in')
     }

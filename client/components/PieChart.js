@@ -1,4 +1,4 @@
-import {Chart, Pies, Ticks, Transform} from 'rumble-charts'
+import {Chart, Pies, Transform} from 'rumble-charts'
 import React from 'react'
 
 const PieChart = props => {
