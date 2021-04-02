@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useAuth} from '../contexts/AuthContext'
-import {DetailRecording, SingleRecordingCard} from './index'
+import {DetailRecording, SingleRecCardV2} from './index'
 import firebase from './firebase'
 
 const AllRecordings = () => {
@@ -24,7 +24,7 @@ const AllRecordings = () => {
 
   return (
     <div>
-      <h1 className="recordings-title">Past Recordings</h1>
+      <h1 className="recordings-title">All Recordings</h1>
       <div className="card">
         {selected ? (
           <div>
@@ -38,10 +38,7 @@ const AllRecordings = () => {
         ) : (
           sesDetail.map(session => (
             <div key={session.sessionId} className="src">
-              <SingleRecordingCard
-                session={session}
-                setSelected={setSelected}
-              />
+              <SingleRecCardV2 session={session} setSelected={setSelected} />
             </div>
           ))
         )}
