@@ -1,8 +1,16 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
+import {removeUserSession, deleteSession} from './firebaseHelperFunc'
 
 const SingleRecCardV2 = props => {
   const {session, setSelected} = props
+
+  const deleteVideo = () => {
+    removeUserSession(session.uid, session.sessionId)
+    deleteSession(session.sessionId)
+    setSelected(null)
+  }
+
   return (
     <div className="cardSRC">
       <video controls>
@@ -19,19 +27,33 @@ const SingleRecCardV2 = props => {
           Final Score: {session.score.finalScore}%
         </li>
         <li className="list-group-item">
-          Video Emotions: {session.score.emotionalScore}
+          Video Excitement: {session.score.emotionalScore}%
         </li>
         <li className="list-group-item">
           Filler Words: {session.fillerWords.TOTAL}
         </li>
       </ul>
       <div className="card-body">
-        <a href="#" className="card-link">
-          Card link
-        </a>
-        <a href="#" className="card-link">
-          Another link
-        </a>
+        <button
+          type="button"
+          className="btn btn-outline-info"
+          variant="btn btn-secondary"
+          onClick={() => {
+            setSelected(session.sessionId)
+          }}
+        >
+          View Details
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-danger"
+          variant="btn btn-secondary"
+          onClick={() => {
+            deleteVideo(session.sessionId)
+          }}
+        >
+          Delete Recording
+        </button>
       </div>
     </div>
   )
