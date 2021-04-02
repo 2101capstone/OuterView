@@ -30,13 +30,6 @@ const DetailRecording = props => {
 
   return (
     <div className="details-div">
-      <div className="score-words">
-        <h1>Final Score: {session.score.finalScore}%</h1>
-        <h1>
-          Filler Words Used:{' '}
-          <span className="fillword-span">{session.fillerWords.TOTAL}</span>
-        </h1>
-      </div>
       <div className="details-mike">
         <WordCloud transcript={session.transcript} />
         {/* <div className='video-div'> */}
@@ -47,6 +40,13 @@ const DetailRecording = props => {
       </div>
       {/* </div> */}
       {/* <WordCloud transcript={session.transcript} /> */}
+      <div className="score-words">
+        <h1>Final Score: {session.score.finalScore}%</h1>
+        <h1>
+          Filler Words Used:
+          <span className="fillword-span">{session.fillerWords.TOTAL}</span>
+        </h1>
+      </div>
       <div className="trans-details-page">
         <h5 className="">Transcript</h5>
         <h5 className="">{session.date.toDate().toDateString()}</h5>

@@ -119,7 +119,7 @@ const Videoplayer = () => {
   }
 
   return (
-    <div>
+    <div className="video-div">
       {/* <h3>{isRecord ? {seconds} : 'no rec'}</h3> */}
       <div className="camAndCanvas">
         <br></br>
