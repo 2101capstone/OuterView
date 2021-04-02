@@ -68,6 +68,7 @@
     "react-github-button": "^0.1.11",
     "react-google-button": "^0.7.2",
     "react-icons": "^4.2.0",
+    "react-loader-spinner": "^4.0.0",
     "react-redux": "^7.0.1",
     "react-responsive-carousel": "^3.2.16",
     "react-router-dom": "^5.0.0",

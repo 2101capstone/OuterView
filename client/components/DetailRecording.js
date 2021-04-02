@@ -8,9 +8,11 @@ import {
   deleteCloudVideo
 } from './firebaseHelperFunc'
 import {countFiller, fillerWords} from './speechHelperFunc'
+import {useHistory} from 'react-router-dom'
 
 const DetailRecording = props => {
-  const {setSelected} = props
+  const history = useHistory()
+  const {setSelected, setSesDetail} = props
   const session = props.session[0]
   console.log('transcrip--->', session.transcript)
   const transcript = session.transcript
@@ -21,15 +23,11 @@ const DetailRecording = props => {
     console.log(session.uid, session.sessionId)
     //remove from array in user doc
     removeUserSession(session.uid, session.sessionId)
-
-    //Delete session Document
-    deleteSession(session.sessionId)
-
-    //remove from cloud storage
-    deleteCloudVideo(session.sessionId)
-
-    //redirect to all recordings
+      .then(deleteSession(session.sessionId))
+      .then(deleteCloudVideo(session.sessionId))
+    setSesDetail([])
     setSelected(null)
+    history.push('/recordings')
   }
 
   return (

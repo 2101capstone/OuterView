@@ -19,8 +19,10 @@ import {
 import scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
 import {Button} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
 
 const Videoplayer = () => {
+  const history = useHistory()
   const {currentUser} = useAuth() //current user signed in
   const [isRecord, setisRecord] = useState(null) //isRecording
   const [showFace, setShowFace] = useState(null) //not connected
@@ -84,6 +86,7 @@ const Videoplayer = () => {
     if (docId) {
       addToStorage(recordedChunks, docId)
       pushToUserDoc(currentUser.uid, docId)
+      //history.push('/recordings', {sessionId: 'Qd3POzJhE94m4WxDTMOY'})
     }
   }, [docId])
 
@@ -121,7 +124,6 @@ const Videoplayer = () => {
       <div className="camAndCanvas">
         <br></br>
         <canvas ref={canvasRef} id="myCanvas" />
-
         <Webcam
           ref={videoRef}
           audio={true}
