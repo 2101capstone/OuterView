@@ -1,5 +1,5 @@
 import React from 'react'
-import {Carousel, Card, CardGroup} from 'react-bootstrap'
+import {Carousel} from 'react-bootstrap'
 import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {

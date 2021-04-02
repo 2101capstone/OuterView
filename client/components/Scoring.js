@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function scoring(transcript, fillerWords, facialData) {
   let score = {
     finalScore: 0,
