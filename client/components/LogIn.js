@@ -40,7 +40,6 @@ const LogIn = () => {
       const {user} = await auth.signInWithPopup(provider)
       // create user doc for google
       createUserDoc(user.uid, {email: user.email})
-      console.log('user', user)
       history.push('/dashboard')
     } catch {
       setError('Failed To Sign in')

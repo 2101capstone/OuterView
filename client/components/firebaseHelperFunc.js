@@ -48,7 +48,6 @@ export const addToStorage = (recordedChunks, docId) => {
           .child(`recording/${docId}.webm`)
           .getDownloadURL()
           .then(url => {
-            console.log('Public Url: ', url)
             updateDocument({url}, docId)
           })
       }
