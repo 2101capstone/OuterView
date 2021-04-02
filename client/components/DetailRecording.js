@@ -20,8 +20,6 @@ const DetailRecording = props => {
   console.log('filler words ---->', fillerWords)
 
   const deleteVideo = () => {
-    console.log(session.uid, session.sessionId)
-    //remove from array in user doc
     removeUserSession(session.uid, session.sessionId)
       .then(deleteSession(session.sessionId))
       .then(deleteCloudVideo(session.sessionId))
