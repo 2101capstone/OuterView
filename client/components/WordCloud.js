@@ -4,8 +4,6 @@ import React from 'react'
 
 const WordCloud = props => {
   let {transcript} = props
-  //console.log('full transcript:', transcript)
-
   if (transcript) {
     const seriesConstruct = () => {
       const wordCount = str => {
@@ -41,8 +39,8 @@ const WordCloud = props => {
   }
 
   return (
-    <div>
-      <Chart width={400} height={400} series={series} minY={0}>
+    <div className="cloud-div">
+      <Chart width={500} height={400} series={series} minY={0}>
         <Transform method="transpose">
           <Cloud
             font="Helvetica"

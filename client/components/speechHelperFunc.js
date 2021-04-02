@@ -26,23 +26,23 @@ var voices = []
 
 const questions = [
   'Hello, Tell me about yourself',
-  'What Makes you a good addition to our company',
-  'What experiences and skills make you a great candidate for this position.',
-  'What has been your most meaningful work experience .',
-  'What qualities make you a team player.',
-  'What do you look for in an employer.',
+  'What makes you a good addition to our company?',
+  'What experiences and skills make you a great candidate for this position?',
+  'What has been your most meaningful work experience?',
+  'What qualities make you a team player?',
+  'What do you look for in an employer?',
   'What are your greatest strengths?',
   'What are your weaknesses?',
   'Tell me about an achievement you’re really proud of.',
   'Where do you see yourself in five years?',
-  'Tell Me About a Challenge or Conflict You’ve Faced at Work, and How You Dealt With It.',
-  'Tell Me About a Time You Demonstrated Leadership Skills.',
-  'What Are You Looking for in a New Position?',
-  'What Type of Work Environment Do You Prefer?',
-  'How Would Your Boss and Coworkers Describe You?',
-  'What are 5 traits to Describe Yourself?',
-  'How Do You Deal With Pressure or Stressful Situations?',
-  'What Are Your Salary Expectations?'
+  'Tell me about a challenge or conflict you’ve faced at work, and how you handled it.',
+  'Tell me about a time you demonstrated leadership skills.',
+  'What are you looking for in a new position?',
+  'What type of work environment do you prefer?',
+  'How would your boss and coworkers describe you?',
+  'What are five traits that describe yourself?',
+  'How do you deal with pressure or stressful situations?',
+  'What are your salary expectations?'
 ]
 
 export const countFiller = transcript => {
@@ -64,8 +64,6 @@ export const randomQuestionGenerator = () => {
   utterance.voice = voices[11]
   utterance.volume = 0.2
   synthesis.speak(utterance)
-  console.log('Question Asked---->', utterance.text)
-  // console.log('THESE ARE YOU VOICE --->', voices)
 }
 
 const SpeechRecognition =

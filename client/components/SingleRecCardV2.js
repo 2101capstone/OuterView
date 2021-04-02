@@ -57,31 +57,6 @@ const SingleRecCardV2 = props => {
       </div>
     </div>
   )
-
-  // return (
-  //   <div className="SRC">
-  //     <div className="vidCont">
-  //       <video width="400" height="300" controls>
-  //         <source src={session.url} type="video/webm"></source>
-  //       </video>
-  //     </div>
-  //     <div className="srcTextCont">
-  //       <p className="card-text">Score: {session.score.finalScore}%</p>
-  //       <p className="card-text">Notes</p>
-  //       <p className="text-muted">
-  //         Recorded on: {session.date.toDate().toDateString()}
-  //       </p>
-  //       <Button
-  //         variant="btn btn-secondary btn-lg"
-  //         onClick={() => {
-  //           setSelected(session.sessionId)
-  //         }}
-  //       >
-  //         View Details
-  //       </Button>
-  //     </div>
-  //   </div>
-  // )
 }
 
 export default SingleRecCardV2
