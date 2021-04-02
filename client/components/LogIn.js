@@ -25,7 +25,7 @@ const LogIn = () => {
         passwordRef.current.value
       )
       createUserDoc(user.uid, {email: emailRef.current.value})
-      history.push('/dashboard')
+      history.push('/record')
     } catch {
       setError('Failed to sign in')
     }
@@ -41,7 +41,7 @@ const LogIn = () => {
       // create user doc for google
       createUserDoc(user.uid, {email: user.email})
       console.log('user', user)
-      history.push('/dashboard')
+      history.push('/record')
     } catch {
       setError('Failed To Sign in')
     }

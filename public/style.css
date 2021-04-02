@@ -90,7 +90,6 @@ a,
 a:link,
 a:visited {
   text-decoration: none;
-  color: #c5fd91;
   font-size: 20px;
 }
 
@@ -162,9 +161,6 @@ canvas {
 .single-recoding-vid {
   margin: 0 auto;
   margin-bottom: 50px;
-}
-nav {
-  background: #64dfdf !important;
 }
 
 .text-to-speech-div {
