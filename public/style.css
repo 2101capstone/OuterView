@@ -21,7 +21,7 @@ form div {
 }
 
 .recBorder {
-  border: 7px solid #ef476f;
+  border: 10px solid #ef476f;
 }
 
 canvas {
@@ -82,7 +82,7 @@ button {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  color: #64f58d;
+
   background: #011936;
 }
 
@@ -103,7 +103,7 @@ a:hover {
 
 img.logo {
   width: 6vw;
-  height: 10vh;
+  height: 6vh;
 }
 
 div.analytics,
@@ -136,7 +136,6 @@ img {
   font-family: verdana;
   font-size: 400%;
   text-align: center;
-  color: #c5fd91;
 }
 
 .recordings-title {
@@ -149,7 +148,6 @@ img {
 .card {
   margin: 0 auto;
   max-width: 80%;
-  background-color: #64f58d;
 }
 .logo {
   margin-right: 50px;
@@ -167,7 +165,7 @@ canvas {
   margin-bottom: 50px;
 }
 nav {
-  background-color: #64dfdf;
+  background: #64dfdf !important;
 }
 
 .text-to-speech-div {
