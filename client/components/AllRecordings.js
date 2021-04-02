@@ -9,17 +9,15 @@ const AllRecordings = () => {
   const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    let query = firebase
+    firebase
       .firestore()
       .collection('Sessions')
       .where('uid', '==', currentUser.uid)
-
-    query.get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        //console.log(doc.id, ' => ', doc.data())
-        setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
+      .onSnapshot(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
+        })
       })
-    })
   }, [])
 
   return (
@@ -29,6 +27,7 @@ const AllRecordings = () => {
         {selected ? (
           <div>
             <DetailRecording
+              setSesDetail={setSesDetail}
               setSelected={setSelected}
               session={sesDetail.filter(
                 session => session.sessionId === selected
