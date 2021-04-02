@@ -460,3 +460,8 @@ hr {
 /* .cardSRC {
   width: 50px;
 } */
+
+.SRCorDetail {
+  display: flex;
+  flex-wrap: wrap;
+}

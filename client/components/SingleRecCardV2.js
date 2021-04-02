@@ -42,7 +42,7 @@ const SingleRecCardV2 = props => {
             setSelected(session.sessionId)
           }}
         >
-          View Details
+          View More
         </button>
         <button
           type="button"
