@@ -70,9 +70,8 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
-      <h1 id="tech-used-h1">Technologies Used</h1>
       <hr />
-      <Carousel
+      {/* <Carousel
         width={500}
         height={500}
         fade={true}
@@ -95,12 +94,13 @@ const LearnMore = () => {
         <Carousel.Item className="carousel-style">
           <img className="carousel-img" src="webspeech.png" alt="First slide" />
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
       <hr></hr>
       <div className="tech-div">
         <h1 id="h1-developers">Tech Explained</h1>
         <div className="card-group">
           <div className="card">
+            <img src="react-js-header.png" />
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
               <p className="card-text"></p>
@@ -111,6 +111,16 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
+            <img src="reacthooks.png" />
+            <div className="card-body">
+              <h5 className="card-title">React Hooks</h5>
+              <p className="card-text"></p>
+              React Hooks are functions that let us hook into the React state
+              and lifecycle features from function components.
+            </div>
+          </div>
+          <div className="card">
+            <img src="firebase.png" />
             <div className="card-body">
               <h5 className="card-title">FireBase</h5>
               <p className="card-text"></p>
@@ -118,6 +128,7 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
+            <img src="face-api.png" />
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
               <p className="card-text"></p>
@@ -126,16 +137,7 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Bootstrap</h5>
-              <p className="card-text"></p>
-              Bootstrap is a free and open-source CSS framework directed at
-              responsive, mobile-first front-end web development. It contains
-              CSS- and JavaScript-based design templates for typography, forms,
-              buttons, navigation, and other interface components.
-            </div>
-          </div>
-          <div className="card">
+            <img src="webspeech.png" />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
               <p className="card-text"></p>
@@ -147,11 +149,14 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
+            <img src="bootstrap.gif" />
             <div className="card-body">
-              <h5 className="card-title">React Hooks</h5>
+              <h5 className="card-title">Bootstrap</h5>
               <p className="card-text"></p>
-              React Hooks are functions that let us hook into the React state
-              and lifecycle features from function components.
+              Bootstrap is a free and open-source CSS framework directed at
+              responsive, mobile-first front-end web development. It contains
+              CSS- and JavaScript-based design templates for typography, forms,
+              buttons, navigation, and other interface components.
             </div>
           </div>
         </div>
@@ -169,10 +174,10 @@ const LearnMore = () => {
               <h5 className="card-title">Mike Busto</h5>
               <div className="icons">
                 <a className="icon" href="https://github.com/MBusto4">
-                  <FaGithub color="black" size={80} />
+                  <FaGithub color="black" size={45} />
                 </a>
                 <a href="https://www.linkedin.com/in/michael-busto/">
-                  <FaLinkedin color="blue" size={80} />
+                  <FaLinkedin color="blue" size={45} />
                 </a>
               </div>
             </div>
@@ -187,10 +192,10 @@ const LearnMore = () => {
               <h5 className="card-title">Kush Patel</h5>
               <div className="icons">
                 <a href="https://github.com/pushkatel">
-                  <FaGithub color="black" size={80} />
+                  <FaGithub color="black" size={45} />
                 </a>
                 <a href="https://www.linkedin.com/in/kushpatel21/">
-                  <FaLinkedin color="blue" size={80} />
+                  <FaLinkedin color="blue" size={45} />
                 </a>
               </div>
             </div>
@@ -205,10 +210,10 @@ const LearnMore = () => {
               <h5 className="card-title">Chuck Lucas</h5>
               <div className="icons">
                 <a href="https://github.com/Clucas0311">
-                  <FaGithub color="black" size={80} />
+                  <FaGithub color="black" size={45} />
                 </a>
                 <a href="https://www.linkedin.com/in/charleslucas1/">
-                  <FaLinkedin color="blue" size={80} />
+                  <FaLinkedin color="blue" size={45} />
                 </a>
               </div>
             </div>
@@ -223,10 +228,10 @@ const LearnMore = () => {
               <h5 className="card-title">Benny Khoker</h5>
               <div className="icons">
                 <a href="https://github.com/bkhoker88">
-                  <FaGithub color="black" size={80} />
+                  <FaGithub color="black" size={45} />
                 </a>
                 <a href="https://www.linkedin.com/in/benny-khoker/">
-                  <FaLinkedin color="blue" size={80} />
+                  <FaLinkedin color="blue" size={45} />
                 </a>
               </div>
             </div>
