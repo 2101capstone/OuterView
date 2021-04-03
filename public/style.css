@@ -363,6 +363,7 @@ hr {
 }
 .card {
   border: none;
+  padding: 30px;
 }
 .row {
   border: none;
