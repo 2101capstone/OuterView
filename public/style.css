@@ -484,6 +484,7 @@ hr {
 }
 .details-div {
   width: 100vw !important;
+  padding-top: 50px;
 }
 .video-div {
   height: 100vh;
