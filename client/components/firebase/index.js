@@ -5,7 +5,8 @@ import 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD_rsUpEpEj_YxMmD5tEpB2oq30BPYNXYs',
-  authDomain: 'interviewprep-fsa.firebaseapp.com',
+  authDomain: 'auth.outerview.xyz',
+  //authDomain: 'interviewprep-fsa.firebaseapp.com',
   projectId: 'interviewprep-fsa',
   storageBucket: 'interviewprep-fsa.appspot.com',
   messagingSenderId: '435616300544',

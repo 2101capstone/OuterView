@@ -1,14 +1,32 @@
 import * as faceapi from 'face-api.js'
+import firebase, {storage} from './firebase'
 
 let facialData = {counter: 0}
 //Load all the facial models into memory
 export const loadModels = () => {
+  // try {
+  //   Promise.all([
+  //     faceapi.nets.tinyFaceDetector.loadFromUri(
+  //       'gs://interviewprep-fsa.appspot.com/static/models'
+  //     ),
+  //     faceapi.nets.faceLandmark68Net.loadFromUri(
+  //       'gs://interviewprep-fsa.appspot.com/static/models'
+  //     ),
+  //     faceapi.nets.faceRecognitionNet.loadFromUri(
+  //       'gs://interviewprep-fsa.appspot.com/static/models'
+  //     ),
+  //     faceapi.nets.faceExpressionNet.loadFromUri(
+  //       'gs://interviewprep-fsa.appspot.com/static/models'
+  //     )
+  //   ])
+  // } catch (error) {
   Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
     faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
     faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
     faceapi.nets.faceExpressionNet.loadFromUri('/models')
   ])
+  // }
 }
 
 //run the facial Recognition when called after button click
