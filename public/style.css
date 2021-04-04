@@ -299,7 +299,18 @@ canvas {
   text-align: center;
 }
 .jumbotron {
-  background-color: white !important;
+  background-image: linear-gradient(
+    10deg,
+    #393e46,
+    #64dfdf,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    #64dfdf,
+    #393e46
+  ) !important;
 }
 .card-group {
   width: 92%;
@@ -535,6 +546,20 @@ nav {
 }
 .icons-vid {
   display: flex;
+}
+.learnMore-border {
+  background-image: linear-gradient(
+    10deg,
+    #393e46,
+    #64dfdf,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    #64dfdf,
+    #393e46
+  );
 }
 .card {
   border: none !important;
