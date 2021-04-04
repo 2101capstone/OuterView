@@ -1,5 +1,4 @@
 import React from 'react'
-import {Button} from 'react-bootstrap'
 import {
   removeUserSession,
   deleteSession,
@@ -24,7 +23,7 @@ const SingleRecCardV2 = props => {
       </video>
       <div className="card-body1">
         <h5 className="card-title1">
-          {session.date.toDate().toDateString()} Recording
+          {session.date.toDate().toString()} Recording
         </h5>
         <p className="card-text1">{session.score.message}</p>
       </div>

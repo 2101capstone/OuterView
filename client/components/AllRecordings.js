@@ -19,15 +19,15 @@ const AllRecordings = () => {
     firebase
       .firestore()
       .collection('Sessions')
+      .orderBy('date', 'desc')
       .where('uid', '==', currentUser.uid)
       .onSnapshot(querySnapshot => {
         querySnapshot.forEach(doc => {
           setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
         })
       })
-    // .then(() => {
+
     console.log(location.state)
-    // })
   }, [])
 
   return (

@@ -9,12 +9,7 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {
-  addToFirestore,
-  addToStorage,
-  pushToUserDoc,
-  getVideoUrl
-} from './firebaseHelperFunc'
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
