@@ -33,7 +33,7 @@ const Videoplayer = () => {
   const [showFace, setShowFace] = useState(null) //not connected
   const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
-  const [showTranscript, setShowTranscript] = useState(false)
+  const [showTranscript, setShowTranscript] = useState(null)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
   let [intervalId, setIntervalId] = useState('')
@@ -135,13 +135,22 @@ const Videoplayer = () => {
       <div className="buttonContainer">
         <div className="recordButton">
           {isRecord === false ? (
-            <Button
-              id="startStopRec"
-              variant="danger"
-              onClick={() => setisRecord(null)}
-            >
-              Start Over
-            </Button>
+            <div>
+              <Button
+                id="startStopRec"
+                variant="danger"
+                onClick={() => setisRecord(null)}
+              >
+                Start Over
+              </Button>
+              <Button
+                id="viewAnalysis"
+                variant="info"
+                onClick={() => history.push('/recordings')}
+              >
+                View Analysis
+              </Button>
+            </div>
           ) : (
             <Button
               id="startStopRec"
@@ -171,19 +180,23 @@ const Videoplayer = () => {
           >
             Render Face Points
           </Button>
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={randomQuestionGenerator}
-          >
-            Random Interview Question
-          </Button>
+          {isRecord === false ? (
+            ''
+          ) : (
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={randomQuestionGenerator}
+            >
+              Random Interview Question
+            </Button>
+          )}
           <Button
             variant="secondary"
             onClick={() => setShowTranscript(prevState => !prevState)}
           >
             {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
-          </Button>{' '}
+          </Button>
         </div>
       </div>
       {showTranscript ? (
