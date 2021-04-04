@@ -42,26 +42,28 @@ const SingleRecCardV2 = props => {
         <li className="list-group-item">{session.sessionId}</li>
       </ul>
       <div className="card-body">
-        <button
-          type="button"
-          className="btn btn-outline-danger"
-          variant="btn btn-secondary"
-          onClick={() => {
-            deleteVideo(session.sessionId)
-          }}
-        >
-          Delete Recording
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-info"
-          variant="btn btn-secondary"
-          onClick={() => {
-            setSelected(session.sessionId)
-          }}
-        >
-          View More
-        </button>
+        <div className="details-buttons">
+          <button
+            type="button"
+            className="buttonTwo"
+            // variant="btn btn-secondary"
+            onClick={() => {
+              deleteVideo(session.sessionId)
+            }}
+          >
+            Delete Recording
+          </button>
+          <button
+            type="button"
+            className="button"
+            // variant="btn btn-secondary"
+            onClick={() => {
+              setSelected(session.sessionId)
+            }}
+          >
+            View More
+          </button>
+        </div>
       </div>
     </div>
   )

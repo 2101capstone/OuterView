@@ -82,8 +82,6 @@ button {
   margin: 0 auto;
   padding: 10px;
   border-radius: 5px;
-
-  background: #011936;
 }
 
 a,
@@ -471,8 +469,10 @@ hr {
   color: red !important;
 }
 .details-buttons {
-  margin: 0 auto !important;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 10px !important;
   /* margin-left: 50%; */
 }
 .vid-mike {
@@ -507,6 +507,36 @@ hr {
 .card-body {
   padding: 0 !important;
   padding-top: 15px !important;
+}
+.details-buttons .button {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #393e46;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .button:hover {
+  background: #64dfdf;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .buttonTwo {
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #393e46;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .buttonTwo:hover {
+  background: red;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
