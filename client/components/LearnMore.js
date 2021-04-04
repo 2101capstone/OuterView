@@ -8,13 +8,12 @@ const LearnMore = () => {
       <div className="jumbotron">
         <h1 className="display-4">Outerview</h1>
         <p className="lead">
-          Outerview is a web application that utilizes facial and speech
-          recognition to quantify and visualize a user's observable mannerisms.
-          With the assistance of recording sessions, our application can help
-          identify commonly used filler words in a user's speech in conjunction
-          with detectable facial emotions to create a cohesive score. Our goal
-          is to help a user better interpret thier outerview before their next
-          interview.
+          Outerview utilizes facial and speech recognition to quantify and
+          visualize a user's observable mannerisms. With the assistance of
+          recording sessions, our application can help identify commonly used
+          filler words in conjunction with detectable facial emotions to create
+          a cohesive score. Our goal is to help a user better interpret their
+          OuterView before their next interview.
         </p>
       </div>
       <section id="section-c">
