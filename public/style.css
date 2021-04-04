@@ -279,8 +279,8 @@ ul {
   text-align: center;
 }
 .card-img-top {
-  height: 400px;
-  width: 250px;
+  /* height: 400px;
+  width: 250px; */
 }
 .card-title {
   text-align: center;
