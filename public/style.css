@@ -12,6 +12,7 @@ form div {
   display: inline-block;
 }
 
+/* VideoRecording */
 .camAndCanvas {
   margin: 0;
   padding: 0;
@@ -21,7 +22,8 @@ form div {
 }
 
 .recBorder {
-  border: 10px solid #ef476f;
+  border: 10px solid #dc3545;
+  border-radius: 5px;
 }
 
 canvas {
@@ -43,6 +45,8 @@ canvas {
 .secondayButton {
   padding: 15px;
 }
+
+/*  */
 
 #textbox {
   height: 200px;
@@ -320,6 +324,8 @@ ul {
   padding-bottom: 5rem;
 }
 #footer-div {
+  position: absolute;
+  width: 100%;
   text-align: center;
   font-size: 14px;
   background-color: #393e46;
@@ -479,9 +485,7 @@ hr {
   align-items: center;
   /* margin-left: 50%; */
 }
-.vid-mike {
-  /* flex-grow: 2; */
-}
+
 .details-div {
   width: 100vw !important;
 }
@@ -503,4 +507,8 @@ hr {
 }
 .card {
   border: none !important;
+}
+
+.Toastify__toast--info {
+  background-color: #64dfdf !important;
 }

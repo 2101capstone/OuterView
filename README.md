@@ -4,7 +4,7 @@ _Get your OuterView before your next Interview_
 
 ## Visit
 
-[outerView.xyz](https://www.outerview.xyz/)
+[OuterView.xyz](https://www.outerview.xyz/)
 
 ## Features to Try!
 
@@ -47,4 +47,4 @@ _Get your OuterView before your next Interview_
 
 - To install all dependencies: `npm run install`
 - To Run App!: `npm run start-dev`
-- Or just visit [outerView.xyz](https://www.outerview.xyz/)
+- Or just visit [OuterView.xyz](https://www.outerview.xyz/)
