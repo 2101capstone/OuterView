@@ -2,13 +2,14 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 import WordCloud from './WordCloud'
 import PieChart from './PieChart'
+import {toast} from 'react-toastify'
+import {countFiller, fillerWords} from './speechHelperFunc'
+import {useHistory} from 'react-router-dom'
 import {
   removeUserSession,
   deleteSession,
   deleteCloudVideo
 } from './firebaseHelperFunc'
-import {countFiller, fillerWords} from './speechHelperFunc'
-import {useHistory} from 'react-router-dom'
 
 const DetailRecording = props => {
   const history = useHistory()
@@ -23,6 +24,7 @@ const DetailRecording = props => {
       .then(deleteCloudVideo(session.sessionId))
     setSesDetail([])
     setSelected(null)
+    toast.error('Your OuterView has been deleted')
     history.push('/recordings')
   }
 

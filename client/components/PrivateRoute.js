@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import {useAuth} from '../contexts/AuthContext'
-import ToastNotification from './ToastNotification'
+import {toast} from 'react-toastify'
 
 function PrivateRoute({component: Component, ...rest}) {
   const {currentUser} = useAuth()
@@ -10,7 +10,11 @@ function PrivateRoute({component: Component, ...rest}) {
     <Route
       {...rest}
       render={props => {
-        return currentUser ? <Component {...props} /> : <ToastNotification />
+        return currentUser ? (
+          <Component {...props} />
+        ) : (
+          toast.warning('Cannot view page unless logged in')
+        )
       }}
     ></Route>
   )

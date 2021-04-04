@@ -1,4 +1,5 @@
 import React from 'react'
+import {toast} from 'react-toastify'
 import {
   removeUserSession,
   deleteSession,
@@ -14,6 +15,7 @@ const SingleRecCardV2 = props => {
       .then(deleteCloudVideo(session.sessionId))
     setSesDetail([])
     setSelected(null)
+    toast.error('Your OuterView has been deleted')
   }
 
   return (
