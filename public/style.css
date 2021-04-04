@@ -507,3 +507,18 @@ hr {
   padding: 0 !important;
   padding-top: 15px !important;
 }
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
+  .details-mike {
+    width: 100vw !important;
+    align-items: center;
+    align-content: center !important;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-grow: 2; */
+    /* flex-grow: 2; */
+    margin: 0 auto;
+    justify-content: center !important;
+    /* justify-content: space-between; */
+  }
+}
