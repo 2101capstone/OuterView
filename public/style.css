@@ -70,11 +70,12 @@ canvas {
 }
 
 .transcripts-div {
-  border: solid black;
+  border: solid 2px white;
   margin: 30px;
   padding: 20px;
   border-radius: 5px;
   overflow: hidden;
+  color: white;
 }
 
 .h1-transcripts {
@@ -327,7 +328,7 @@ canvas {
 .footer-recordings {
   text-align: center;
   font-size: 14px;
-  background-color: #393e46;
+  background-color: #373a40;
   color: white;
   padding: 8px;
   position: absolute;
@@ -415,8 +416,32 @@ hr {
   flex-wrap: wrap !important;
   justify-content: space-evenly !important;
   height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: linear-gradient(
+    10deg,
+    #393e46,
+    #393e46,
+    #64dfdf,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
+    #64dfdf,
+    #393e46,
+    #393e46
+  );
+  /* background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg'); */
 }
 
+.nav-item {
+  color: #64dfdf !important;
+}
+nav {
+  background-color: #393e46 !important;
+  border: #64dfdf 1px;
+}
 .cardSRC {
   margin: 30px;
   padding-top: 30px;
@@ -466,10 +491,12 @@ hr {
 }
 .emotions-text {
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  color: whitesmoke;
 }
 .score-words {
   text-align: center;
+  font-size: 16px;
 }
 .fillerword-span {
   color: red !important;
@@ -492,17 +519,19 @@ hr {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /* background-image: linear-gradient(
+  background-image: linear-gradient(
     10deg,
+    #393e46,
+    #393e46,
+    #64dfdf,
+    whitesmoke,
+    whitesmoke,
+    whitesmoke,
     #64dfdf,
     #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #64dfdf
-  ); */
-  background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg');
+    #393e46
+  );
+  /* background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg'); */
 }
 .icons-vid {
   display: flex;

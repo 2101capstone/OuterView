@@ -52,12 +52,12 @@ const DetailRecording = props => {
         </button>
       </div>
       <div className="trans-details-page">
-        <h5 className="">{session.date.toDate().toDateString()}</h5>
+        <h5 className="date">{session.date.toDate().toDateString()}</h5>
         {transcript.split(' ').map(word =>
           fillerWords[word] ? (
             <span className="highlight">{`${word} `}</span> // add key
           ) : (
-            <span>{`${word} `}</span> //add key
+            <span className="non-highlight">{`${word} `}</span> //add key
           )
         )}
       </div>

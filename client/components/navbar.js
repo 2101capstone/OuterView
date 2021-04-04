@@ -5,7 +5,7 @@ const Navbar = () => {
   const {currentUser} = useAuth()
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg">
       <a className="navbar-brand" href="/">
         <img alt="" src="logo_white.png" height="45" width="45" />
       </a>
