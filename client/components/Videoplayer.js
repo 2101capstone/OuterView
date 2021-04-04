@@ -1,6 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Webcam from 'react-webcam'
 import SpeechToTextV2 from './SpeechToTextV2'
+import scoring from './Scoring'
+import {useAuth} from '../contexts/AuthContext'
+import {Button} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   loadModels,
   runFacialRec,
@@ -9,17 +16,12 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import scoring from './Scoring'
-import {useAuth} from '../contexts/AuthContext'
-import {Button} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
 
 const Videoplayer = () => {
   const history = useHistory()
@@ -28,7 +30,7 @@ const Videoplayer = () => {
   const [showFace, setShowFace] = useState(null) //not connected
   const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
-  const [showTranscript, setShowTranscript] = useState(false)
+  const [showTranscript, setShowTranscript] = useState(null)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
   let [intervalId, setIntervalId] = useState('')
@@ -84,6 +86,7 @@ const Videoplayer = () => {
     if (docId) {
       addToStorage(recordedChunks, docId)
       pushToUserDoc(currentUser.uid, docId)
+      toast.info('Your OuterView has been saved')
     }
   }, [docId])
 
@@ -99,7 +102,7 @@ const Videoplayer = () => {
   }, [showFace])
 
   //to download and submit video
-  const handleSubmitClick = () => {
+  const handleDownloadClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
   }
@@ -129,20 +132,44 @@ const Videoplayer = () => {
       </div>
       <div className="buttonContainer">
         <div className="recordButton">
-          <Button
-            id="startStopRec"
-            variant="danger"
-            onClick={() => setisRecord(prevState => !prevState)}
-          >
-            {isRecord ? 'End Recording' : 'Start Recording'}
-          </Button>
+          {isRecord === false ? (
+            <div>
+              <Button
+                id="startStopRec"
+                variant="danger"
+                onClick={() => setisRecord(null)}
+              >
+                Start Over
+              </Button>
+              <Button
+                id="viewAnalysis"
+                variant="info"
+                onClick={() =>
+                  history.push({
+                    pathname: '/recordings',
+                    state: {sessionId: docId}
+                  })
+                }
+              >
+                View Analysis
+              </Button>
+            </div>
+          ) : (
+            <Button
+              id="startStopRec"
+              variant="danger"
+              onClick={() => setisRecord(prevState => !prevState)}
+            >
+              {isRecord ? 'End Recording' : 'Start Recording'}
+            </Button>
+          )}
         </div>
         <div className="secondaryButton">
           {isRecord === false ? (
             <Button
               id="finishVid"
               variant="secondary"
-              onClick={handleSubmitClick}
+              onClick={handleDownloadClick}
             >
               Download
             </Button>
@@ -156,19 +183,23 @@ const Videoplayer = () => {
           >
             Render Face Points
           </Button>
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={randomQuestionGenerator}
-          >
-            Random Interview Question
-          </Button>
+          {isRecord === false ? (
+            ''
+          ) : (
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={randomQuestionGenerator}
+            >
+              Random Interview Question
+            </Button>
+          )}
           <Button
             variant="secondary"
             onClick={() => setShowTranscript(prevState => !prevState)}
           >
             {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
-          </Button>{' '}
+          </Button>
         </div>
       </div>
       {showTranscript ? (

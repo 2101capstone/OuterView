@@ -13,9 +13,6 @@ const LandingPage = () => {
           Start
         </a>
       </header>
-      <div id="footer-div">
-        <footer>@Copyright 2021 All Rights Reserved.</footer>
-      </div>
     </div>
   )
 }

@@ -1,6 +1,9 @@
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
+  node: {
+    fs: 'empty'
+  },
   mode: isDev ? 'development' : 'production',
   entry: [
     '@babel/polyfill', // enables async-await

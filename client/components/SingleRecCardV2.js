@@ -1,14 +1,21 @@
 import React from 'react'
-import {Button} from 'react-bootstrap'
-import {removeUserSession, deleteSession} from './firebaseHelperFunc'
+import {toast} from 'react-toastify'
+import {
+  removeUserSession,
+  deleteSession,
+  deleteCloudVideo
+} from './firebaseHelperFunc'
 
 const SingleRecCardV2 = props => {
-  const {session, setSelected} = props
+  const {session, setSelected, setSesDetail} = props
 
   const deleteVideo = () => {
     removeUserSession(session.uid, session.sessionId)
-    deleteSession(session.sessionId)
+      .then(deleteSession(session.sessionId))
+      .then(deleteCloudVideo(session.sessionId))
+    setSesDetail([])
     setSelected(null)
+    toast.error('Your OuterView has been deleted')
   }
 
   return (
@@ -18,7 +25,7 @@ const SingleRecCardV2 = props => {
       </video>
       <div className="card-body1">
         <h5 className="card-title1">
-          {session.date.toDate().toDateString()} Recording
+          {session.date.toDate().toString()} Recording
         </h5>
         <p className="card-text1">{session.score.message}</p>
       </div>
@@ -32,18 +39,9 @@ const SingleRecCardV2 = props => {
         <li className="list-group-item">
           Filler Words: {session.fillerWords.TOTAL}
         </li>
+        <li className="list-group-item">{session.sessionId}</li>
       </ul>
       <div className="card-body">
-        <button
-          type="button"
-          className="btn btn-outline-info"
-          variant="btn btn-secondary"
-          onClick={() => {
-            setSelected(session.sessionId)
-          }}
-        >
-          View More
-        </button>
         <button
           type="button"
           className="btn btn-outline-danger"
@@ -53,6 +51,16 @@ const SingleRecCardV2 = props => {
           }}
         >
           Delete Recording
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-info"
+          variant="btn btn-secondary"
+          onClick={() => {
+            setSelected(session.sessionId)
+          }}
+        >
+          View More
         </button>
       </div>
     </div>
