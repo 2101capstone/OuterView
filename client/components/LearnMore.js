@@ -83,7 +83,7 @@ const LearnMore = () => {
                 <li>Efficent rendering,</li>
                 <li>
                   Rich and dynamic single page and mobile applications, all
-                  written with both the user anddeveloper in mind
+                  written with both the user and developer in mind
                 </li>
               </ul>
             </div>
