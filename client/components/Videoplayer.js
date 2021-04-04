@@ -130,77 +130,74 @@ const Videoplayer = () => {
           className={isRecord ? 'recBorder' : 'noBorder'}
         />
       </div>
-      <div className="buttonContainer">
-        <div className="recordButton">
-          {isRecord === false ? (
-            <div>
-              <Button
-                id="startStopRec"
-                variant="danger"
-                onClick={() => setisRecord(null)}
-              >
-                Start Over
-              </Button>
-              <Button
-                id="viewAnalysis"
-                variant="info"
-                onClick={() =>
-                  history.push({
-                    pathname: '/recordings',
-                    state: {sessionId: docId}
-                  })
-                }
-              >
-                View Analysis
-              </Button>
-            </div>
-          ) : (
-            <Button
-              id="startStopRec"
-              variant="danger"
-              onClick={() => setisRecord(prevState => !prevState)}
-            >
-              {isRecord ? 'End Recording' : 'Start Recording'}
-            </Button>
-          )}
-        </div>
-        <div className="secondaryButton">
-          {isRecord === false ? (
-            <Button
-              id="finishVid"
-              variant="secondary"
-              onClick={handleDownloadClick}
-            >
-              Download
-            </Button>
-          ) : (
-            ''
-          )}
-          <Button
-            id="renderFace"
-            variant="secondary"
-            onClick={() => setShowFace(prevState => !prevState)}
-          >
-            Render Face Points
-          </Button>
-          {isRecord === false ? (
-            ''
-          ) : (
-            <Button
+      <div className="details-buttons">
+        {isRecord === false ? (
+          <div>
+            <button
               type="button"
-              variant="secondary"
-              onClick={randomQuestionGenerator}
+              onClick={() => setisRecord(null)}
+              className="buttonTwo"
             >
-              Random Interview Question
-            </Button>
-          )}
-          <Button
-            variant="secondary"
-            onClick={() => setShowTranscript(prevState => !prevState)}
+              Start Over
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                history.push({
+                  pathname: '/recordings',
+                  state: {sessionId: docId}
+                })
+              }
+              className="button"
+            >
+              View Analysis
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setisRecord(prevState => !prevState)}
+            className="buttonTwo"
           >
-            {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
-          </Button>
-        </div>
+            {isRecord ? 'End Recording' : 'Start Recording'}
+          </button>
+        )}
+        {isRecord === false ? (
+          <button
+            type="button"
+            onClick={handleDownloadClick}
+            className="button"
+          >
+            Download
+          </button>
+        ) : (
+          ''
+        )}
+        <button
+          type="button"
+          onClick={() => setShowFace(prevState => !prevState)}
+          className="button"
+        >
+          Render Face Points
+        </button>
+        {isRecord === false ? (
+          ''
+        ) : (
+          <button
+            type="button"
+            onClick={randomQuestionGenerator}
+            className="button"
+          >
+            Random Interview Question
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => setShowTranscript(prevState => !prevState)}
+          className="button"
+        >
+          {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
+        </button>
       </div>
       {showTranscript ? (
         <div>

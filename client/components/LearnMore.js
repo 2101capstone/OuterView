@@ -19,7 +19,7 @@ const LearnMore = () => {
         <div className="box-1">
           <h1 className="recognition-h1">Speech Recognition</h1>
           <br></br>
-          <ul>
+          <ul className="recognition-bullets">
             <li>
               Step 1: Audio detection - The microphone detects sound and audio
               input as you begin speaking and ends on a break of audio input.
@@ -43,7 +43,7 @@ const LearnMore = () => {
         <div className="box-2">
           <h1 className="recognition-h1">Facial Recognition</h1>
           <br></br>
-          <ul>
+          <ul className="recognition-bullets">
             <li>
               Step 1: Face detection - The camera detects and locates the image
               of a face. The image may show the person looking straight ahead or
@@ -76,61 +76,84 @@ const LearnMore = () => {
             <img src="react-js-header.png" />
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
-              <p className="card-text"></p>
-              Open-source, front end, JavaScript library for building user
-              interfaces and interactive UI components. Using efficent
-              rendering, React makes it possible to have rich and dynamic single
-              page and mobile applications, all written with both the user and
-              developer in mind.
+              <ul className="card-bullets">
+                <li>Open-source, front end, JavaScript library</li>
+                <li>Builds user interfaces and interactive UI components</li>
+                <li>Efficent rendering,</li>
+                <li>
+                  Rich and dynamic single page and mobile applications, all
+                  written with both the user and developer in mind
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
             <img src="reacthooks.png" />
             <div className="card-body">
               <h5 className="card-title">React Hooks</h5>
-              <p className="card-text"></p>
-              React Hooks are functions that can use React state and lifecycle
-              features from function components without writing a class
+              <ul className="card-bullets">
+                <li>
+                  React Hooks are functions that can use React state and
+                  lifecycle features from function components without writing a
+                  class
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
             <img src="firebase.png" />
             <div className="card-body">
               <h5 className="card-title">FireBase</h5>
-              <p className="card-text"></p>
-              Flexible, scalable NoSQL cloud database to store and sync data for
-              client and server-side development
+              <ul className="card-bullets">
+                <li> Flexible, scalable NoSQL cloud database</li>
+                <li>
+                  Stores and syncs data for client and server-side development
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
             <img src="face-api.png" />
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
-              <p className="card-text"></p>
-              JavaScript API for face detection and recognition in the browser.
-              Implemented on top of the TensorFlow.js Machine Learning library
+              <ul className="card-bullets">
+                <li>
+                  JavaScript API for face detection and recognition in the
+                  browser
+                </li>
+                <li>
+                  Implemented on top of the TensorFlow.js Machine Learning
+                  library
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
             <img src="webspeech.png" />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
-              <p className="card-text"></p>
-              Enables voice data to be incorporated into web apps. The API is
-              made up of two parts: SpeechSynthesis (Text-to-Speech), and
-              SpeechRecognition (Asynchronous Speech Recognition) and makes web
-              apps able to handle voice data.
+              <ul className="card-bullets">
+                <li>Enables voice data to be incorporated into web apps</li>
+                <li> Utilizes SpeechSynthesis (Text-to-Speech)</li>
+                <li>
+                  Utilizes SpeechRecognition (Asynchronous Speech Recognition)
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
             <img src="bootstrap.gif" />
             <div className="card-body">
               <h5 className="card-title">Bootstrap</h5>
-              <p className="card-text"></p>
-              Open-source CSS framework directed at responsive, mobile-first
-              front-end web development. It contains CSS and JavaScript-based
-              design templates for typography, forms, buttons, navigation, and
-              other interface components.
+              <ul className="card-bullets">
+                <li>Open-source CSS framework</li>
+                <li>Responsive, mobile-first front-end web development.</li>
+                <li>CSS and JavaScript-based design templates</li>
+                <li>
+                  Templates include typography, forms, buttons, navigation, and
+                  other interface components.
+                </li>
+              </ul>
             </div>
           </div>
         </div>

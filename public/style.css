@@ -86,8 +86,6 @@ button {
   margin: 0 auto;
   padding: 10px;
   border-radius: 5px;
-
-  background: #011936;
 }
 
 a,
@@ -276,15 +274,9 @@ canvas {
 .developers-div {
   text-align: center;
 }
-ul {
-  list-style-type: none;
-}
+
 #h1-developers {
   text-align: center;
-}
-.card-img-top {
-  height: 400px;
-  width: 200px;
 }
 .card-title {
   text-align: center;
@@ -309,7 +301,7 @@ ul {
   background-color: white !important;
 }
 .card-group {
-  width: 80%;
+  width: 92%;
   margin: 0 auto;
 }
 /* .card-group-tech {
@@ -369,6 +361,7 @@ hr {
 }
 .card {
   border: none;
+  padding: 30px;
 }
 .row {
   border: none;
@@ -421,6 +414,7 @@ hr {
   display: flex;
   flex-wrap: wrap !important;
   justify-content: space-evenly !important;
+  height: 100vh;
 }
 
 .cardSRC {
@@ -481,13 +475,16 @@ hr {
   color: red !important;
 }
 .details-buttons {
-  margin: 0 auto !important;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 10px !important;
   /* margin-left: 50%; */
 }
 
 .details-div {
   width: 100vw !important;
+  padding-top: 50px;
 }
 .video-div {
   height: 100vh;
@@ -511,4 +508,61 @@ hr {
 
 .Toastify__toast--info {
   background-color: #64dfdf !important;
+
+.recognition-bullets {
+  list-style: none;
+}
+.card-body {
+  padding: 0 !important;
+  padding-top: 15px !important;
+}
+.details-buttons .button {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #393e46;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .button:hover {
+  background: #64dfdf;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .buttonTwo {
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #393e46;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
+.details-buttons .buttonTwo:hover {
+  background: red;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
+}
+.list-group {
+  text-align: center;
+  font-size: 18px;
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
+  .details-mike {
+    width: 100vw !important;
+    align-items: center;
+    align-content: center !important;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-grow: 2; */
+    /* flex-grow: 2; */
+    margin: 0 auto;
+    justify-content: center !important;
+    /* justify-content: space-between; */
+  }
+
 }
