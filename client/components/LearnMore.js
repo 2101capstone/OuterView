@@ -5,14 +5,14 @@ const LearnMore = () => {
   return (
     <div className="learnMore-border">
       <div className="jumbotron">
-        <h1 className="display-4">Outerview</h1>
+        <h1 className="display-4">OuterView</h1>
         <p className="lead">
-          Outerview utilizes facial and speech recognition to quantify and
-          visualize a user's observable mannerisms. With the assistance of
-          recording sessions, our application can help identify commonly used
-          filler words in conjunction with detectable facial emotions to create
-          a cohesive score. Our goal is to help a user better interpret their
-          OuterView before their next interview.
+          OuterView utilizes facial and speech recognition to quantify and
+          visualize your observable mannerisms. With just your webcam, our
+          application can help identify commonly used filler words in
+          conjunction with detectable facial emotions to create a cohesive
+          score. Our goal is to help a user better interpret their OuterView
+          before your next interview.
         </p>
       </div>
       <section id="section-c">
@@ -69,7 +69,6 @@ const LearnMore = () => {
         </div>
       </section>
       <hr />
-      <hr></hr>
       <div className="tech-div">
         <h1 id="h1-developers">Tech Explained</h1>
         <div className="card-group">

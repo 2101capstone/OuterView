@@ -2,7 +2,7 @@ import React from 'react'
 import {Navbar, Footbar} from './components'
 import Routes from './routes'
 import {ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+//import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
