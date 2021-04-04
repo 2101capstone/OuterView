@@ -488,7 +488,11 @@ hr {
 }
 .video-div {
   height: 100vh;
-  background-image: linear-gradient(
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background-image: linear-gradient(
     10deg,
     #64dfdf,
     #393e46,
@@ -497,7 +501,8 @@ hr {
     #393e46,
     #393e46,
     #64dfdf
-  );
+  ); */
+  background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg');
 }
 .icons-vid {
   display: flex;
@@ -565,5 +570,4 @@ hr {
     justify-content: center !important;
     /* justify-content: space-between; */
   }
-
 }
