@@ -538,6 +538,10 @@ hr {
   color: #fff;
   margin: 15px 5px 5px 5px;
 }
+.list-group {
+  text-align: center;
+  font-size: 18px;
+}
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
   .details-mike {
