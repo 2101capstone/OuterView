@@ -503,3 +503,7 @@ hr {
 .recognition-bullets {
   list-style: none;
 }
+.card-body {
+  padding: 0 !important;
+  padding-top: 15px !important;
+}
