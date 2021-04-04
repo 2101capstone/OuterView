@@ -20,31 +20,6 @@ const ProfilePage = () => {
   }
 
   return (
-    // <Container
-    //   className="d-flex align-items-center justify-content-center"
-    //   style={{minHeight: '100vh'}}
-    // >
-    //   <div className="w-100" style={{maxWidth: '400px'}}>
-    //     <Card>
-    //       <Card.Img variant="top" src={currentUser.photoURL} />
-    //       <Card.Body>
-    //         <h2 className="text-center mb-4">
-    //           Welcome, {currentUser.displayName}
-    //         </h2>
-    //         {error && <Alert variant="danger">{error}</Alert>}
-    //         <div>
-    //           <strong>Email:</strong> {currentUser.email}
-    //         </div>
-    //         <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
-    //           Update Profile
-    //         </Link>
-    //         <Button variant="primary" onClick={handleLogout}>
-    //           Log Out
-    //         </Button>
-    //       </Card.Body>
-    //     </Card>
-    //   </div>
-    // </Container>
     <div className="container mt-5 d-flex justify-content-center">
       <div className="card p-3">
         <div className="d-flex align-items-center">
@@ -81,6 +56,7 @@ const ProfilePage = () => {
             </div>
             <div className="button mt-2 d-flex flex-row align-items-center">
               <button
+                type="button"
                 className="btn btn-sm btn-primary w-100 ml-2"
                 onClick={handleLogout}
               >
