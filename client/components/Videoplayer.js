@@ -1,6 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Webcam from 'react-webcam'
 import SpeechToTextV2 from './SpeechToTextV2'
+import scoring from './Scoring'
+import {useAuth} from '../contexts/AuthContext'
+import {Button} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   loadModels,
   runFacialRec,
@@ -9,17 +16,12 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import scoring from './Scoring'
-import {useAuth} from '../contexts/AuthContext'
-import {Button} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
 
 const Videoplayer = () => {
   const history = useHistory()
@@ -84,6 +86,7 @@ const Videoplayer = () => {
     if (docId) {
       addToStorage(recordedChunks, docId)
       pushToUserDoc(currentUser.uid, docId)
+      toast.info('Your OuterView has been saved')
     }
   }, [docId])
 
