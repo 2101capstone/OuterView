@@ -61,6 +61,14 @@ export const addToStorage = (recordedChunks, docId) => {
   }
 }
 
+export const getVideoUrl = async docId => {
+  const videoUrl = await storage
+    .ref()
+    .child(`recording/${docId}.webm`)
+    .getDownloadURL()
+  return videoUrl
+}
+
 //Add session id to User Doc
 export const pushToUserDoc = async (uid, docId) => {
   await firebase

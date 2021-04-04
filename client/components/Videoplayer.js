@@ -9,7 +9,12 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
+import {
+  addToFirestore,
+  addToStorage,
+  pushToUserDoc,
+  getVideoUrl
+} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
@@ -99,7 +104,7 @@ const Videoplayer = () => {
   }, [showFace])
 
   //to download and submit video
-  const handleSubmitClick = () => {
+  const handleDownloadClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
   }
@@ -129,20 +134,30 @@ const Videoplayer = () => {
       </div>
       <div className="buttonContainer">
         <div className="recordButton">
-          <Button
-            id="startStopRec"
-            variant="danger"
-            onClick={() => setisRecord(prevState => !prevState)}
-          >
-            {isRecord ? 'End Recording' : 'Start Recording'}
-          </Button>
+          {isRecord === false ? (
+            <Button
+              id="startStopRec"
+              variant="danger"
+              onClick={() => setisRecord(null)}
+            >
+              Start Over
+            </Button>
+          ) : (
+            <Button
+              id="startStopRec"
+              variant="danger"
+              onClick={() => setisRecord(prevState => !prevState)}
+            >
+              {isRecord ? 'End Recording' : 'Start Recording'}
+            </Button>
+          )}
         </div>
         <div className="secondaryButton">
           {isRecord === false ? (
             <Button
               id="finishVid"
               variant="secondary"
-              onClick={handleSubmitClick}
+              onClick={handleDownloadClick}
             >
               Download
             </Button>
