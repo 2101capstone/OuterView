@@ -272,15 +272,9 @@ canvas {
 .developers-div {
   text-align: center;
 }
-ul {
-  list-style-type: none;
-}
+
 #h1-developers {
   text-align: center;
-}
-.card-img-top {
-  /* height: 400px;
-  width: 250px; */
 }
 .card-title {
   text-align: center;
@@ -305,7 +299,7 @@ ul {
   background-color: white !important;
 }
 .card-group {
-  width: 80%;
+  width: 92%;
   margin: 0 auto;
 }
 /* .card-group-tech {
@@ -505,4 +499,7 @@ hr {
 }
 .card {
   border: none !important;
+}
+.recognition-bullets {
+  list-style: none;
 }
