@@ -146,7 +146,12 @@ const Videoplayer = () => {
               <Button
                 id="viewAnalysis"
                 variant="info"
-                onClick={() => history.push('/recordings')}
+                onClick={() =>
+                  history.push({
+                    pathname: '/recordings',
+                    state: {sessionId: docId}
+                  })
+                }
               >
                 View Analysis
               </Button>
