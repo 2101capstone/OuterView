@@ -1,5 +1,4 @@
 import React from 'react'
-import {Carousel} from 'react-bootstrap'
 import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
@@ -103,10 +102,11 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
               <p className="card-text"></p>
-              Is an open-source, front end, JavaScript library for building user
-              interfaces or UI components. React code is made of entities called
-              components. Components can be rendered to a particular element in
-              the DOM using the React DOM library
+              Open-source, front end, JavaScript library for building user
+              interfaces and interactive UI components. Using efficent
+              rendering, React makes it possible to have rich and dynamic single
+              page and mobile applications, all written with both the user and
+              developer in mind.
             </div>
           </div>
           <div className="card">
@@ -114,8 +114,8 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">React Hooks</h5>
               <p className="card-text"></p>
-              React Hooks are functions that let us hook into the React state
-              and lifecycle features from function components.
+              React Hooks are functions that can use React state and lifecycle
+              features from function components without writing a class
             </div>
           </div>
           <div className="card">
@@ -123,7 +123,8 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">FireBase</h5>
               <p className="card-text"></p>
-              Real-time NoSQL database
+              Flexible, scalable NoSQL cloud database to store and sync data for
+              client and server-side development
             </div>
           </div>
           <div className="card">
@@ -131,8 +132,8 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
               <p className="card-text"></p>
-              JavaScript API for face detection and face recognition in the
-              browser implemented on top of the tensorflow.js core API
+              JavaScript API for face detection and recognition in the browser.
+              Implemented on top of the TensorFlow.js Machine Learning library
             </div>
           </div>
           <div className="card">
@@ -140,11 +141,10 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
               <p className="card-text"></p>
-              The Web Speech API enables you to incorporate voice data into web
-              apps. API is made up of two parts: SpeechSynthesis
-              (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
-              Recognition.), The Web Speech API makes web apps able to handle
-              voice data.
+              Enables voice data to be incorporated into web apps. The API is
+              made up of two parts: SpeechSynthesis (Text-to-Speech), and
+              SpeechRecognition (Asynchronous Speech Recognition) and makes web
+              apps able to handle voice data.
             </div>
           </div>
           <div className="card">
@@ -152,10 +152,10 @@ const LearnMore = () => {
             <div className="card-body">
               <h5 className="card-title">Bootstrap</h5>
               <p className="card-text"></p>
-              Bootstrap is a free and open-source CSS framework directed at
-              responsive, mobile-first front-end web development. It contains
-              CSS- and JavaScript-based design templates for typography, forms,
-              buttons, navigation, and other interface components.
+              Open-source CSS framework directed at responsive, mobile-first
+              front-end web development. It contains CSS and JavaScript-based
+              design templates for typography, forms, buttons, navigation, and
+              other interface components.
             </div>
           </div>
         </div>
@@ -173,10 +173,10 @@ const LearnMore = () => {
               <h5 className="card-title">Mike Busto</h5>
               <div className="icons">
                 <a className="icon" href="https://github.com/MBusto4">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/michael-busto/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -191,10 +191,10 @@ const LearnMore = () => {
               <h5 className="card-title">Kush Patel</h5>
               <div className="icons">
                 <a href="https://github.com/pushkatel">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/kushpatel21/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -209,10 +209,10 @@ const LearnMore = () => {
               <h5 className="card-title">Chuck Lucas</h5>
               <div className="icons">
                 <a href="https://github.com/Clucas0311">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/charleslucas1/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -227,19 +227,15 @@ const LearnMore = () => {
               <h5 className="card-title">Benny Khoker</h5>
               <div className="icons">
                 <a href="https://github.com/bkhoker88">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/benny-khoker/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <hr></hr>
-      <div id="footer-div">
-        <footer>@Copyright 2021 All Rights Reserved.</footer>
       </div>
     </div>
   )
