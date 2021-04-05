@@ -49,7 +49,7 @@ const ProfilePage = () => {
                 <span className="number3">0</span>
               </div>
             </div>
-            <div className="button mt-2 d-flex flex-row align-items-center">
+            <div className="button mt-2 d-flex flex-column align-items-center">
               <Link to="/update-profile">
                 <button
                   type="button"
