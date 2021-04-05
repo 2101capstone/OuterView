@@ -172,11 +172,9 @@ canvas {
   outline: none;
   border-radius: 3px;
 }
-.landing-page-div {
-  background-image: 'https://venturebeat.com/wp-content/uploads/2018/03/shutterstock_731158624-e1576819636533.jpg?w=1200&strip=all';
-}
+
 #landingPage {
-  background-image: url('https://www.webivm.com/wp-content/uploads/Cool-Background-Pictures.jpg');
+  background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -186,6 +184,23 @@ canvas {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+}
+
+.BGpage {
+  background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  /* filter: blur(3px);
+  transform: scale(1); */
+}
+
+.allText {
+  position: absolute;
+  top: 0%;
+  left: 40%;
+  justify-content: center;
+  align-items: center;
 }
 
 #landingPage h1 {
@@ -240,9 +255,9 @@ canvas {
 .recognition-h1 {
   text-align: center;
 }
-.landing-page-h1 {
-  font-family: 'Merriweather', serif;
-}
+/* .landing-page-h1 {
+  font-family: 'verdana', serif;
+} */
 
 .camAndCanvas {
   padding-top: 100px;
@@ -565,5 +580,4 @@ hr {
     justify-content: center !important;
     /* justify-content: space-between; */
   }
-
 }

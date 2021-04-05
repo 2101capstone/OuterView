@@ -54,7 +54,7 @@ const SingleRecCardV2 = props => {
                     deleteVideo(session.sessionId)
                   }}
                 >
-                  Delete Recording
+                  Delete
                 </button>
                 <button
                   type="button"

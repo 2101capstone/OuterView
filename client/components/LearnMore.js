@@ -11,8 +11,8 @@ const LearnMore = () => {
           visualize your observable mannerisms. With just your webcam, our
           application can help identify commonly used filler words in
           conjunction with detectable facial emotions to create a cohesive
-          score. Our goal is to help a user better interpret their OuterView
-          before your next interview.
+          score. Our goal is to help you better interpret their OuterView before
+          your next interview.
         </p>
       </div>
       <section id="section-c">
@@ -70,25 +70,24 @@ const LearnMore = () => {
       </section>
       <hr />
       <div className="tech-div">
-        <h1 id="h1-developers">Tech Explained</h1>
+        <h1 id="h1-developers">Technologies</h1>
         <div className="card-group">
           <div className="card">
-            <img src="react-js-header.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freact-js-header.png?alt=media&token=7888bc7d-6475-4cd9-bbd4-9e250cc33ddd" />
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
               <ul className="card-bullets">
-                <li>Open-source, front end, JavaScript library</li>
                 <li>Builds user interfaces and interactive UI components</li>
-                <li>Efficent rendering,</li>
+                <li>Rich and dynamic single page and mobile applications</li>
                 <li>
-                  Rich and dynamic single page and mobile applications, all
-                  written with both the user and developer in mind
+                  React Hooks allowed state and lifecycle functions without
+                  writing entire classes
                 </li>
               </ul>
             </div>
           </div>
-          <div className="card">
-            <img src="reacthooks.png" />
+          {/* <div className="card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freacthooks.png?alt=media&token=e8ffdb13-40d2-4086-a6f3-60eb01c555de" />
             <div className="card-body">
               <h5 className="card-title">React Hooks</h5>
               <ul className="card-bullets">
@@ -99,11 +98,11 @@ const LearnMore = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
           <div className="card">
-            <img src="firebase.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2" />
             <div className="card-body">
-              <h5 className="card-title">FireBase</h5>
+              <h5 className="card-title">Google Firebase</h5>
               <ul className="card-bullets">
                 <li> Flexible, scalable NoSQL cloud database</li>
                 <li>
@@ -113,7 +112,7 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="face-api.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404" />
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
               <ul className="card-bullets">
@@ -129,29 +128,27 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="webspeech.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6" />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
               <ul className="card-bullets">
                 <li>Enables voice data to be incorporated into web apps</li>
-                <li> Utilizes SpeechSynthesis (Text-to-Speech)</li>
                 <li>
-                  Utilizes SpeechRecognition (Asynchronous Speech Recognition)
+                  Both SpeechSynthesis (Text-to-Speech) & Speech Recognition
                 </li>
               </ul>
             </div>
           </div>
           <div className="card">
-            <img src="bootstrap.gif" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d" />
             <div className="card-body">
               <h5 className="card-title">Bootstrap</h5>
               <ul className="card-bullets">
-                <li>Open-source CSS framework</li>
-                <li>Responsive, mobile-first front-end web development.</li>
-                <li>CSS and JavaScript-based design templates</li>
+                <li>Responsive, mobile-first front-end CSS framework</li>
+                <li>Design library from Twitter</li>
                 <li>
                   Templates include typography, forms, buttons, navigation, and
-                  other interface components.
+                  other interface components
                 </li>
               </ul>
             </div>
@@ -182,11 +179,12 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="kush.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fkush.jpeg?alt=media&token=8a886687-3eea-45f3-b1fe-f8f019ed7176"
               alt="Card image cap"
             ></img>
             <div className="card-body">
               <h5 className="card-title">Kush Patel</h5>
+              <ul className="card-bullets"> </ul>
               <div className="icons">
                 <a href="https://github.com/pushkatel">
                   <FaGithub color="black" size={25} />
@@ -200,7 +198,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="chuck.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fchuck.jpeg?alt=media&token=f534701d-4307-46d9-ac8e-d770e5224776"
               alt="Card image cap"
             ></img>
             <div className="card-body">
@@ -218,7 +216,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="benny.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbenny.jpeg?alt=media&token=13d9753b-480b-4ba5-8f15-da0d46aedaf8"
               alt="Card image cap"
             ></img>
             <div className="card-body">
