@@ -136,7 +136,7 @@ p {
   text-align: center;
 }
 .card-text {
-  text-align: center;
+  /* text-align: center; */
   font-size: 20px;
   margin: 0 auto;
 }
@@ -379,8 +379,9 @@ hr {
   border: none;
   padding: 30px;
 }
-.row {
+.row.g-0 {
   border: none;
+  width: 1500px !important;
 }
 .word-cloud-div {
   margin: 0 auto;
@@ -456,7 +457,7 @@ hr {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   font-family: 'Roboto', sans-serif !important;
   border-radius: 5% !important;
 }
