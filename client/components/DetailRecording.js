@@ -31,11 +31,19 @@ const DetailRecording = props => {
   return (
     <div className="details-div">
       <div className="details-mike">
-        <WordCloud transcript={session.transcript} />
+        {isNaN(session.score.finalScore) ? (
+          <div></div>
+        ) : (
+          <WordCloud transcript={session.transcript} />
+        )}
         <video className="vid-mike" width="640" height="480" controls>
           <source src={session.url} type="video/webm"></source>
         </video>
-        <PieChart emotions={session.score.emotions} />
+        {isNaN(session.score.finalScore) ? (
+          <div></div>
+        ) : (
+          <PieChart emotions={session.score.emotions} />
+        )}
       </div>
       <div className="details-buttons">
         <button type="button" className="buttonTwo" onClick={deleteVideo}>

@@ -19,7 +19,6 @@ const PieChart = props => {
 
   return (
     <div>
-      <h3 className="emotions-text">Emotions</h3>
       <div className="piechart-div">
         <ol>
           <li className="Pie0">{emotions[0]}</li>
