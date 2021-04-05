@@ -1,10 +1,11 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import {Form, Button, Card, Alert, Container} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import {createUserDoc} from './firebaseHelperFunc'
+import {toast} from 'react-toastify'
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -13,6 +14,10 @@ const LogIn = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+
+  useEffect(() => {
+    toast.error('Cannot view page unless logged in')
+  }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -73,14 +78,11 @@ const LogIn = () => {
                   <Button disabled={loading} className="w-100" type="submit">
                     Log In
                   </Button>
-                  <Form.Group>
-                    <div>
-                      <GoogleButton
-                        disabled={loading}
-                        onClick={signInWithGoogle}
-                      ></GoogleButton>
-                    </div>
-                  </Form.Group>
+
+                  <GoogleButton
+                    disabled={loading}
+                    onClick={signInWithGoogle}
+                  ></GoogleButton>
                 </Form>
                 <div className="w-100 text-center mt-3">
                   <Link to="/forgot-password">Forgot Password?</Link>
