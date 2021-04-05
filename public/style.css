@@ -381,7 +381,8 @@ hr {
 }
 .row.g-0 {
   border: none;
-  width: 1500px !important;
+  margin: 0 auto;
+  /* width: 1500px !important; */
 }
 .word-cloud-div {
   margin: 0 auto;
@@ -594,14 +595,14 @@ hr {
   height: 200px;
   object-fit: cover;
 }
-@media screen and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (max-width: 1700px) {
   .details-mike {
     width: 100vw !important;
     align-items: center !important;
     align-content: center !important;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column !important;
     /* flex-grow: 2; */
     /* flex-grow: 2; */
     margin: 0 auto;
