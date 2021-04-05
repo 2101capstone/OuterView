@@ -35,7 +35,7 @@ const UpdateProfile = () => {
     // If the promises are all successful it will then redirect to the dashboard
     Promise.all(promises)
       .then(() => {
-        history.push('/dashboard')
+        history.push('/profile')
       })
       .catch(() => {
         setError('Failed to update account')
@@ -88,7 +88,7 @@ const UpdateProfile = () => {
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/dashboard">Cancel</Link>
+          <Link to="/profile">Cancel</Link>
         </div>
       </div>
     </Container>
