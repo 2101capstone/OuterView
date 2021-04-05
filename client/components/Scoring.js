@@ -88,10 +88,11 @@ export default function scoring(transcript, fillerWords, facialData) {
 
   /// get final score add to score object
   //refactor to have less weight on emotional score
-  score.finalScore =
+  score.finalScore = Math.round(
     (getEmotionalScore(emotions) +
       getTranscriptScore(transcript, fillerWords) * 3) /
-    4
+      4
+  )
 
   /// get message add to score object
   let messageScore = score.finalScore
@@ -106,8 +107,13 @@ export default function scoring(transcript, fillerWords, facialData) {
     else
       return 'You did not do so well, practice doing more recordings to help you improve your score'
   }
+
   score.message = message(messageScore)
 
+  //Bug fix: check for null facial data and change message
+  if (isNaN(score.finalScore))
+    score.message = 'Please make a longer recording to gather more data'
   // return final score object
+
   return score
 }
