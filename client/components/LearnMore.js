@@ -15,6 +15,7 @@ const LearnMore = () => {
           your next interview.
         </p>
       </div>
+      <div className="recognitions-div">
       <section id="section-c">
         <div className="box-1">
           <h1 className="recognition-h1">Speech Recognition</h1>
@@ -65,6 +66,7 @@ const LearnMore = () => {
           </ul>
         </div>
       </section>
+  </div>
       <hr />
       <div className="tech-div">
         <h1 id="h1-developers">Technologies</h1>
@@ -89,7 +91,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="techIMG"
-              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
+             src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
             />
             <div className="card-body">
               <h5 className="card-title">Google Firebase</h5>

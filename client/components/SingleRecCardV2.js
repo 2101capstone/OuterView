@@ -29,9 +29,9 @@ const SingleRecCardV2 = props => {
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">
+              <h4 className="card-title">
                 {session.date.toDate().toString()} Recording
-              </h5>
+              </h4>
               <p className="card-text">{session.score.message}</p>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
