@@ -62,10 +62,10 @@ const DetailRecording = props => {
         )}
       </div>
       <div className="score-words">
-        <h1>Final Score: {session.score.finalScore}%</h1>
-        <h1>
+        <h1 className="score-h1">Final Score: {session.score.finalScore}%</h1>
+        <h1 className="score-h1">
           Filler Words Used:
-          <span className="fillword-span">{session.fillerWords.TOTAL}</span>
+          <span className="fillword-span"> {session.fillerWords.TOTAL}</span>
         </h1>
       </div>
     </div>
