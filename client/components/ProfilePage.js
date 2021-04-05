@@ -34,10 +34,29 @@ const ProfilePage = () => {
           <div className="ml-3 w-100">
             <h4 className="mb-0 mt-0">{currentUser.displayName}</h4>
             {error && <Alert variant="danger">{error}</Alert>}
-            <div>Email: {currentUser.email}</div>
+            <div className="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+              <div className="d-flex flex-column">
+                {' '}
+                <span className="articles">Videos</span>
+                <span className="number1">0</span>
+              </div>
+              <div className="d-flex flex-column">
+                <span className="followers">Speech</span>
+                <span className="number2">0</span>
+              </div>
+              <div className="d-flex flex-column">
+                <span className="rating">Rating</span>
+                <span className="number3">0</span>
+              </div>
+            </div>
             <div className="button mt-2 d-flex flex-row align-items-center">
-              <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
-                Update Profile
+              <Link to="/update-profile">
+                <button
+                  type="button"
+                  className="btn btn-sm btn-primary w-100 ml-2"
+                >
+                  Update Profile
+                </button>
               </Link>
             </div>
             <div className="button mt-2 d-flex flex-row align-items-center">

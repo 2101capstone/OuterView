@@ -5,7 +5,6 @@ import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import {createUserDoc} from './firebaseHelperFunc'
-// import '../../public/auth.css'
 const LogIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
