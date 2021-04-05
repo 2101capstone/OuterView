@@ -3,7 +3,6 @@ import Webcam from 'react-webcam'
 import SpeechToTextV2 from './SpeechToTextV2'
 import scoring from './Scoring'
 import {useAuth} from '../contexts/AuthContext'
-import {Button} from 'react-bootstrap'
 import {useHistory} from 'react-router-dom'
 import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {toast} from 'react-toastify'
@@ -127,7 +126,7 @@ const Videoplayer = () => {
           width={640}
           height={480}
           id="cam"
-          className={isRecord ? 'recBorder' : 'noBorder'}
+          className={isRecord ? 'recBorder' : 'BlueBorder'}
         />
       </div>
       <div className="details-buttons">

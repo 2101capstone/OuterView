@@ -15,59 +15,62 @@ const LearnMore = () => {
           your next interview.
         </p>
       </div>
-      <section id="section-c">
-        <div className="box-1">
-          <h1 className="recognition-h1">Speech Recognition</h1>
-          <br></br>
-          <ul className="recognition-bullets">
-            <li>
-              Step 1: Audio detection - The microphone detects sound and audio
-              input as you begin speaking and ends on a break of audio input.
-            </li>{' '}
+      <div className="recognitions-div">
+        <section id="section-c">
+          <div className="box-1">
+            <h1 className="recognition-h1">Speech Recognition</h1>
             <br></br>
-            <li>
-              Step 2: Audio analysis - Our software breaks your speech down into
-              bits it can interpret, converts it into a digital format, and
-              analyzes the pieces of content.
-            </li>{' '}
+            <ul className="recognition-bullets">
+              <li>
+                Step 1: Audio detection - The microphone detects sound and audio
+                input as you begin speaking and ends on a break of audio input.
+              </li>{' '}
+              <br></br>
+              <li>
+                Step 2: Audio analysis - Our software breaks your speech down
+                into bits it can interpret, converts it into a digital format,
+                and analyzes the pieces of content.
+              </li>{' '}
+              <br></br>
+              <li>
+                Step 3: Converting the audio to data - After speech ends our
+                application makes determinations based on programming and speech
+                patterns, making hypotheses about what the user is actually
+                saying. After determining what the users most likely said, the
+                software transcribes the conversation into text.
+              </li>
+            </ul>
+          </div>
+          <div className="box-2">
+            <h1 className="recognition-h1">Facial Recognition</h1>
             <br></br>
-            <li>
-              Step 3: Converting the audio to data - After speech ends our
-              application makes determinations based on programming and speech
-              patterns, making hypotheses about what the user is actually
-              saying. After determining what the users most likely said, the
-              software transcribes the conversation into text.
-            </li>
-          </ul>
-        </div>
-        <div className="box-2">
-          <h1 className="recognition-h1">Facial Recognition</h1>
-          <br></br>
-          <ul className="recognition-bullets">
-            <li>
-              Step 1: Face detection - The camera detects and locates the image
-              of a face. The image may show the person looking straight ahead or
-              in profile.
-            </li>
-            <br></br>
-            <li>
-              Step 2: Face analysis - An image of the face is captured and
-              analyzed. The software reads the geometry of your face using a 68
-              point face landmark detector. These models have been trained on a
-              dataset of ~35k face images labeled with 68 face landmark points.
-            </li>
-            <br></br>
-            <li>
-              Step 3: Converting the image to data - The face capture process
-              transforms analog information (a face) into a set of digital
-              information based on the person's facial features. Your face's
-              analysis is essentially turned into a mathematical formula. We can
-              then use this data to determine facial expressions associated with
-              emotions.
-            </li>
-          </ul>
-        </div>
-      </section>
+            <ul className="recognition-bullets">
+              <li>
+                Step 1: Face detection - The camera detects and locates the
+                image of a face. The image may show the person looking straight
+                ahead or in profile.
+              </li>
+              <br></br>
+              <li>
+                Step 2: Face analysis - An image of the face is captured and
+                analyzed. The software reads the geometry of your face using a
+                68 point face landmark detector. These models have been trained
+                on a dataset of ~35k face images labeled with 68 face landmark
+                points.
+              </li>
+              <br></br>
+              <li>
+                Step 3: Converting the image to data - The face capture process
+                transforms analog information (a face) into a set of digital
+                information based on the person's facial features. Your face's
+                analysis is essentially turned into a mathematical formula. We
+                can then use this data to determine facial expressions
+                associated with emotions.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
       <hr />
       <div className="tech-div">
         <h1 id="h1-developers">Technologies</h1>
