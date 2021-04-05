@@ -21,22 +21,22 @@ const LearnMore = () => {
           <br></br>
           <ul className="recognition-bullets">
             <li>
-              Step 1: Audio detection - The microphone detects sound and audio
-              input as you begin speaking and ends on a break of audio input.
+              Step 1: Audio detection - Web Speech API listens and transcribes
+              your interview or practice speech into text
             </li>{' '}
             <br></br>
             <li>
               Step 2: Audio analysis - Our software breaks your speech down into
               bits it can interpret, converts it into a digital format, and
-              analyzes the pieces of content.
+              analyzes each piece of content
             </li>{' '}
             <br></br>
             <li>
-              Step 3: Converting the audio to data - After speech ends our
-              application makes determinations based on programming and speech
-              patterns, making hypotheses about what the user is actually
-              saying. After determining what the users most likely said, the
-              software transcribes the conversation into text.
+              Step 3: Converting the audio to data - Based on the words spoken,
+              our unique algorithm counts and tracks filelr words used during
+              speech. Future functionality is planned to use Google Cloud AI for
+              a through sentiment analysis. Results are displayed with a word
+              cloud and text highlighting
             </li>
           </ul>
         </div>
@@ -45,25 +45,22 @@ const LearnMore = () => {
           <br></br>
           <ul className="recognition-bullets">
             <li>
-              Step 1: Face detection - The camera detects and locates the image
-              of a face. The image may show the person looking straight ahead or
-              in profile.
+              Step 1: Face detection - Powerful facial recongition algorithms
+              find and mark the face when you start recording
             </li>
             <br></br>
             <li>
               Step 2: Face analysis - An image of the face is captured and
-              analyzed. The software reads the geometry of your face using a 68
-              point face landmark detector. These models have been trained on a
-              dataset of ~35k face images labeled with 68 face landmark points.
+              analyzed. Face-API.js uses a 68 point face landmark map to
+              determine facial emotions using models have been trained on a
+              dataset of ~35k face images
             </li>
             <br></br>
             <li>
-              Step 3: Converting the image to data - The face capture process
-              transforms analog information (a face) into a set of digital
-              information based on the person's facial features. Your face's
-              analysis is essentially turned into a mathematical formula. We can
-              then use this data to determine facial expressions associated with
-              emotions.
+              Step 3: Emotion Analysis - Analog facial impormation is converted
+              to digital emotion and rankings. Your face's analysis is
+              essentially turned into a mathematical formula. We can then use
+              this data to determine facial expressions associated with emotions
             </li>
           </ul>
         </div>
@@ -73,7 +70,10 @@ const LearnMore = () => {
         <h1 id="h1-developers">Technologies</h1>
         <div className="card-group">
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freact-js-header.png?alt=media&token=7888bc7d-6475-4cd9-bbd4-9e250cc33ddd" />
+            <img
+              className="techIMG"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freact-js-header.png?alt=media&token=7888bc7d-6475-4cd9-bbd4-9e250cc33ddd"
+            />
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
               <ul className="card-bullets">
@@ -86,21 +86,11 @@ const LearnMore = () => {
               </ul>
             </div>
           </div>
-          {/* <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freacthooks.png?alt=media&token=e8ffdb13-40d2-4086-a6f3-60eb01c555de" />
-            <div className="card-body">
-              <h5 className="card-title">React Hooks</h5>
-              <ul className="card-bullets">
-                <li>
-                  React Hooks are functions that can use React state and
-                  lifecycle features from function components without writing a
-                  class
-                </li>
-              </ul>
-            </div>
-          </div> */}
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2" />
+            <img
+              className="techIMG"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
+            />
             <div className="card-body">
               <h5 className="card-title">Google Firebase</h5>
               <ul className="card-bullets">
@@ -112,9 +102,12 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404" />
+            <img
+              className="techIMG"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404"
+            />
             <div className="card-body">
-              <h5 className="card-title">face-api.js</h5>
+              <h5 className="card-title">Face-API.js</h5>
               <ul className="card-bullets">
                 <li>
                   JavaScript API for face detection and recognition in the
@@ -128,7 +121,10 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6" />
+            <img
+              className="techIMG"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6"
+            />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
               <ul className="card-bullets">
@@ -140,9 +136,12 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d" />
+            <img
+              className="techIMG"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d"
+            />
             <div className="card-body">
-              <h5 className="card-title">Bootstrap</h5>
+              <h5 className="card-title">Bootstrap UI</h5>
               <ul className="card-bullets">
                 <li>Responsive, mobile-first front-end CSS framework</li>
                 <li>Design library from Twitter</li>
