@@ -461,7 +461,7 @@ body {
 
 .card-body1 {
   width: 80%;
-  text-align: center;
+  /* text-align: center; */
   align-items: center;
   justify-content: center;
   /* margin: 0 auto; */
@@ -555,7 +555,7 @@ body {
   padding: 0 !important;
   padding-top: 15px !important;
   margin: 0 auto !important;
-  text-align: center;
+  /* text-align: center; */
   align-items: center;
   justify-content: center;
 }
