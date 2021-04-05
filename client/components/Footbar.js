@@ -5,7 +5,7 @@ const Footbar = () => {
   return (
     <div id="footer-div">
       <footer>
-        <a href="https://github.com/2101capstone/interviewPrep">
+        <a href="https://github.com/2101capstone/interviewPrep#readme">
           <FaGithub color="white" size={20} />
         </a>
       </footer>
