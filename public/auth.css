@@ -3,12 +3,12 @@ body {
   border-radius: 10px;
 }
 
-.card {
+/* .card {
   width: 400px;
   border: none;
   border-radius: 10px;
   background-color: #fff;
-}
+} */
 
 .stats {
   background: #f2f5f8 !important;
