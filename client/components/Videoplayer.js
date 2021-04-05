@@ -127,7 +127,7 @@ const Videoplayer = () => {
           width={640}
           height={480}
           id="cam"
-          className={isRecord ? 'recBorder' : 'noBorder'}
+          className={isRecord ? 'recBorder' : 'BlueBorder'}
         />
       </div>
       <div className="details-buttons">
