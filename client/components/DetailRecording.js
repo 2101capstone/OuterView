@@ -38,6 +38,9 @@ const DetailRecording = props => {
         <PieChart emotions={session.score.emotions} />
       </div>
       <div className="details-buttons">
+        <button type="button" className="buttonTwo" onClick={deleteVideo}>
+          Delete
+        </button>
         <button
           type="button"
           className="button"
@@ -46,9 +49,6 @@ const DetailRecording = props => {
           }}
         >
           Go Back
-        </button>
-        <button type="button" className="buttonTwo" onClick={deleteVideo}>
-          Delete
         </button>
       </div>
       <div className="trans-details-page">
