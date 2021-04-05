@@ -511,19 +511,6 @@ hr {
   width: 100vw !important;
   padding-top: 50px;
 }
-/* .video-div {
-  height: 100vh;
-  background-image: linear-gradient(
-    10deg,
-    #64dfdf,
-    #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #64dfdf
-  );
-} */
 
 .video-div {
   background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBGX2.jpg?alt=media&token=fe332bee-775e-4f12-b4cc-82faa880755e');
