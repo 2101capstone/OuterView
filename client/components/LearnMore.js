@@ -11,62 +11,63 @@ const LearnMore = () => {
           visualize your observable mannerisms. With just your webcam, our
           application can help identify commonly used filler words in
           conjunction with detectable facial emotions to create a cohesive
-          score. Our goal is to help you better interpret their OuterView before
-          your next interview.
+          score. Our goal is to help you get an OuterView before your next
+          interview.
         </p>
       </div>
       <div className="recognitions-div">
-      <section id="section-c">
-        <div className="box-1">
-          <h1 className="recognition-h1">Speech Recognition</h1>
-          <br></br>
-          <ul className="recognition-bullets">
-            <li>
-              Step 1: Audio detection - Web Speech API listens and transcribes
-              your interview or practice speech into text
-            </li>{' '}
+        <section id="section-c">
+          <div className="box-1">
+            <h1 className="recognition-h1">Speech Recognition</h1>
             <br></br>
-            <li>
-              Step 2: Audio analysis - Our software breaks your speech down into
-              bits it can interpret, converts it into a digital format, and
-              analyzes each piece of content
-            </li>{' '}
+            <ul className="recognition-bullets">
+              <li>
+                Step 1: Audio detection - Web Speech API listens and transcribes
+                your interview or practice speech into text
+              </li>{' '}
+              <br></br>
+              <li>
+                Step 2: Audio analysis - Our software breaks your speech down
+                into bits it can interpret, converts it into a digital format,
+                and analyzes each piece of content
+              </li>{' '}
+              <br></br>
+              <li>
+                Step 3: Converting the audio to data - Based on the words
+                spoken, our unique algorithm counts and tracks filelr words used
+                during speech. Future functionality is planned to use Google
+                Cloud AI for a through sentiment analysis. Results are displayed
+                with a word cloud and text highlighting
+              </li>
+            </ul>
+          </div>
+          <div className="box-2">
+            <h1 className="recognition-h1">Facial Recognition</h1>
             <br></br>
-            <li>
-              Step 3: Converting the audio to data - Based on the words spoken,
-              our unique algorithm counts and tracks filelr words used during
-              speech. Future functionality is planned to use Google Cloud AI for
-              a through sentiment analysis. Results are displayed with a word
-              cloud and text highlighting
-            </li>
-          </ul>
-        </div>
-        <div className="box-2">
-          <h1 className="recognition-h1">Facial Recognition</h1>
-          <br></br>
-          <ul className="recognition-bullets">
-            <li>
-              Step 1: Face detection - Powerful facial recongition algorithms
-              find and mark the face when you start recording
-            </li>
-            <br></br>
-            <li>
-              Step 2: Face analysis - An image of the face is captured and
-              analyzed. Face-API.js uses a 68 point face landmark map to
-              determine facial emotions using models have been trained on a
-              dataset of ~35k face images
-            </li>
-            <br></br>
-            <li>
-              Step 3: Emotion Analysis - Analog facial impormation is converted
-              to digital emotion and rankings. Your face's analysis is
-              essentially turned into a mathematical formula. We can then use
-              this data to determine facial expressions associated with emotions
-            </li>
-          </ul>
-        </div>
-      </section>
-  </div>
+            <ul className="recognition-bullets">
+              <li>
+                Step 1: Face detection - Powerful facial recongition algorithms
+                find and mark the face when you start recording
+              </li>
+              <br></br>
+              <li>
+                Step 2: Face analysis - An image of the face is captured and
+                analyzed. Face-API.js uses a 68 point face landmark map to
+                determine facial emotions using models have been trained on a
+                dataset of ~35k face images
+              </li>
+              <br></br>
+              <li>
+                Step 3: Emotion Analysis - Analog facial impormation is
+                converted to digital emotion and rankings. Your face's analysis
+                is essentially turned into a mathematical formula. We can then
+                use this data to determine facial expressions associated with
+                emotions
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
       <hr />
       <div className="tech-div">
         <h1 id="h1-developers">Technologies</h1>
@@ -91,7 +92,7 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="techIMG"
-             src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
             />
             <div className="card-body">
               <h5 className="card-title">Google Firebase</h5>
