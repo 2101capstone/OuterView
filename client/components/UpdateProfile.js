@@ -35,7 +35,7 @@ const UpdateProfile = () => {
     // If the promises are all successful it will then redirect to the dashboard
     Promise.all(promises)
       .then(() => {
-        history.push('/dashboard')
+        history.push('/profile')
       })
       .catch(() => {
         setError('Failed to update account')
