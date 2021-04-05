@@ -1,27 +1,25 @@
 import React from 'react'
-import {Carousel} from 'react-bootstrap'
 import {FaGithub, FaLinkedin} from 'react-icons/fa'
 
 const LearnMore = () => {
   return (
     <div className="learnMore-border">
       <div className="jumbotron">
-        <h1 className="display-4">Outerview</h1>
+        <h1 className="display-4">OuterView</h1>
         <p className="lead">
-          Outerview is a web application that utilizes facial and speech
-          recognition to quantify and visualize a user's observable mannerisms.
-          With the assistance of recording sessions, our application can help
-          identify commonly used filler words in a user's speech in conjunction
-          with detectable facial emotions to create a cohesive score. Our goal
-          is to help a user better interpret thier outerview before their next
-          interview.
+          OuterView utilizes facial and speech recognition to quantify and
+          visualize your observable mannerisms. With just your webcam, our
+          application can help identify commonly used filler words in
+          conjunction with detectable facial emotions to create a cohesive
+          score. Our goal is to help you better interpret their OuterView before
+          your next interview.
         </p>
       </div>
       <section id="section-c">
         <div className="box-1">
           <h1 className="recognition-h1">Speech Recognition</h1>
           <br></br>
-          <ul>
+          <ul className="recognition-bullets">
             <li>
               Step 1: Audio detection - The microphone detects sound and audio
               input as you begin speaking and ends on a break of audio input.
@@ -45,7 +43,7 @@ const LearnMore = () => {
         <div className="box-2">
           <h1 className="recognition-h1">Facial Recognition</h1>
           <br></br>
-          <ul>
+          <ul className="recognition-bullets">
             <li>
               Step 1: Face detection - The camera detects and locates the image
               of a face. The image may show the person looking straight ahead or
@@ -71,92 +69,88 @@ const LearnMore = () => {
         </div>
       </section>
       <hr />
-      {/* <Carousel
-        width={500}
-        height={500}
-        fade={true}
-        controls={true}
-        className="carousel-logos"
-      >
-        <Carousel.Item className="carousel-style">
-          <img
-            className="carousel-img"
-            src="react-js-header.png"
-            alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item className="carousel-style">
-          <img className="carousel-img" src="firebase.png" alt="First slide" />
-        </Carousel.Item>
-        <Carousel.Item className="carousel-style">
-          <img className="carousel-img" src="face-api.png" alt="First slide" />
-        </Carousel.Item>
-        <Carousel.Item className="carousel-style">
-          <img className="carousel-img" src="webspeech.png" alt="First slide" />
-        </Carousel.Item>
-      </Carousel> */}
-      <hr></hr>
       <div className="tech-div">
-        <h1 id="h1-developers">Tech Explained</h1>
+        <h1 id="h1-developers">Technologies</h1>
         <div className="card-group">
           <div className="card">
-            <img src="react-js-header.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freact-js-header.png?alt=media&token=7888bc7d-6475-4cd9-bbd4-9e250cc33ddd" />
             <div className="card-body">
               <h5 className="card-title">React.js</h5>
-              <p className="card-text"></p>
-              Is an open-source, front end, JavaScript library for building user
-              interfaces or UI components. React code is made of entities called
-              components. Components can be rendered to a particular element in
-              the DOM using the React DOM library
+              <ul className="card-bullets">
+                <li>Builds user interfaces and interactive UI components</li>
+                <li>Rich and dynamic single page and mobile applications</li>
+                <li>
+                  React Hooks allowed state and lifecycle functions without
+                  writing entire classes
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="card">
-            <img src="reacthooks.png" />
+          {/* <div className="card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Freacthooks.png?alt=media&token=e8ffdb13-40d2-4086-a6f3-60eb01c555de" />
             <div className="card-body">
               <h5 className="card-title">React Hooks</h5>
-              <p className="card-text"></p>
-              React Hooks are functions that let us hook into the React state
-              and lifecycle features from function components.
+              <ul className="card-bullets">
+                <li>
+                  React Hooks are functions that can use React state and
+                  lifecycle features from function components without writing a
+                  class
+                </li>
+              </ul>
             </div>
-          </div>
+          </div> */}
           <div className="card">
-            <img src="firebase.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2" />
             <div className="card-body">
-              <h5 className="card-title">FireBase</h5>
-              <p className="card-text"></p>
-              Real-time NoSQL database
+              <h5 className="card-title">Google Firebase</h5>
+              <ul className="card-bullets">
+                <li> Flexible, scalable NoSQL cloud database</li>
+                <li>
+                  Stores and syncs data for client and server-side development
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
-            <img src="face-api.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404" />
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
-              <p className="card-text"></p>
-              JavaScript API for face detection and face recognition in the
-              browser implemented on top of the tensorflow.js core API
+              <ul className="card-bullets">
+                <li>
+                  JavaScript API for face detection and recognition in the
+                  browser
+                </li>
+                <li>
+                  Implemented on top of the TensorFlow.js Machine Learning
+                  library
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
-            <img src="webspeech.png" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6" />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
-              <p className="card-text"></p>
-              The Web Speech API enables you to incorporate voice data into web
-              apps. API is made up of two parts: SpeechSynthesis
-              (Text-to-Speech), and SpeechRecognition (Asynchronous Speech
-              Recognition.), The Web Speech API makes web apps able to handle
-              voice data.
+              <ul className="card-bullets">
+                <li>Enables voice data to be incorporated into web apps</li>
+                <li>
+                  Both SpeechSynthesis (Text-to-Speech) & Speech Recognition
+                </li>
+              </ul>
             </div>
           </div>
           <div className="card">
-            <img src="bootstrap.gif" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d" />
             <div className="card-body">
               <h5 className="card-title">Bootstrap</h5>
-              <p className="card-text"></p>
-              Bootstrap is a free and open-source CSS framework directed at
-              responsive, mobile-first front-end web development. It contains
-              CSS- and JavaScript-based design templates for typography, forms,
-              buttons, navigation, and other interface components.
+              <ul className="card-bullets">
+                <li>Responsive, mobile-first front-end CSS framework</li>
+                <li>Design library from Twitter</li>
+                <li>
+                  Templates include typography, forms, buttons, navigation, and
+                  other interface components
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -174,10 +168,10 @@ const LearnMore = () => {
               <h5 className="card-title">Mike Busto</h5>
               <div className="icons">
                 <a className="icon" href="https://github.com/MBusto4">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/michael-busto/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -185,17 +179,18 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="kush.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fkush.jpeg?alt=media&token=8a886687-3eea-45f3-b1fe-f8f019ed7176"
               alt="Card image cap"
             ></img>
             <div className="card-body">
               <h5 className="card-title">Kush Patel</h5>
+              <ul className="card-bullets"> </ul>
               <div className="icons">
                 <a href="https://github.com/pushkatel">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/kushpatel21/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -203,17 +198,17 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="chuck.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fchuck.jpeg?alt=media&token=f534701d-4307-46d9-ac8e-d770e5224776"
               alt="Card image cap"
             ></img>
             <div className="card-body">
               <h5 className="card-title">Chuck Lucas</h5>
               <div className="icons">
                 <a href="https://github.com/Clucas0311">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/charleslucas1/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
@@ -221,26 +216,22 @@ const LearnMore = () => {
           <div className="card">
             <img
               className="card-img-top"
-              src="benny.jpeg"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbenny.jpeg?alt=media&token=13d9753b-480b-4ba5-8f15-da0d46aedaf8"
               alt="Card image cap"
             ></img>
             <div className="card-body">
               <h5 className="card-title">Benny Khoker</h5>
               <div className="icons">
                 <a href="https://github.com/bkhoker88">
-                  <FaGithub color="black" size={45} />
+                  <FaGithub color="black" size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/benny-khoker/">
-                  <FaLinkedin color="blue" size={45} />
+                  <FaLinkedin color="blue" size={25} />
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <hr></hr>
-      <div id="footer-div">
-        <footer>@Copyright 2021 All Rights Reserved.</footer>
       </div>
     </div>
   )

@@ -1,6 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Webcam from 'react-webcam'
 import SpeechToTextV2 from './SpeechToTextV2'
+import scoring from './Scoring'
+import {useAuth} from '../contexts/AuthContext'
+import {useHistory} from 'react-router-dom'
+import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   loadModels,
   runFacialRec,
@@ -9,17 +15,12 @@ import {
   handleDownload,
   drawFacePoints
 } from './vidHelperFunc'
-import {addToFirestore, addToStorage, pushToUserDoc} from './firebaseHelperFunc'
 import {
   fillerWords,
   countFiller,
   recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
-import scoring from './Scoring'
-import {useAuth} from '../contexts/AuthContext'
-import {Button} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
 
 const Videoplayer = () => {
   const history = useHistory()
@@ -28,7 +29,7 @@ const Videoplayer = () => {
   const [showFace, setShowFace] = useState(null) //not connected
   const [faceId, setFaceId] = useState('')
   const [reactions, setReactions] = useState([])
-  const [showTranscript, setShowTranscript] = useState(false)
+  const [showTranscript, setShowTranscript] = useState(null)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
   let [intervalId, setIntervalId] = useState('')
@@ -84,6 +85,7 @@ const Videoplayer = () => {
     if (docId) {
       addToStorage(recordedChunks, docId)
       pushToUserDoc(currentUser.uid, docId)
+      toast.info('Your OuterView has been saved')
     }
   }, [docId])
 
@@ -99,7 +101,7 @@ const Videoplayer = () => {
   }, [showFace])
 
   //to download and submit video
-  const handleSubmitClick = () => {
+  const handleDownloadClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
   }
@@ -124,52 +126,77 @@ const Videoplayer = () => {
           width={640}
           height={480}
           id="cam"
-          className={isRecord ? 'recBorder' : 'noBorder'}
+          className={isRecord ? 'recBorder' : 'BlueBorder'}
         />
       </div>
-      <div className="buttonContainer">
-        <div className="recordButton">
-          <Button
-            id="startStopRec"
-            variant="danger"
+      <div className="details-buttons">
+        {isRecord === false ? (
+          <div>
+            <button
+              type="button"
+              onClick={() => setisRecord(null)}
+              className="buttonTwo"
+            >
+              Start Over
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                history.push({
+                  pathname: '/recordings',
+                  state: {sessionId: docId}
+                })
+              }
+              className="button"
+            >
+              View Analysis
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
             onClick={() => setisRecord(prevState => !prevState)}
+            className="buttonTwo"
           >
             {isRecord ? 'End Recording' : 'Start Recording'}
-          </Button>
-        </div>
-        <div className="secondaryButton">
-          {isRecord === false ? (
-            <Button
-              id="finishVid"
-              variant="secondary"
-              onClick={handleSubmitClick}
-            >
-              Download
-            </Button>
-          ) : (
-            ''
-          )}
-          <Button
-            id="renderFace"
-            variant="secondary"
-            onClick={() => setShowFace(prevState => !prevState)}
-          >
-            Render Face Points
-          </Button>
-          <Button
+          </button>
+        )}
+        {isRecord === false ? (
+          <button
             type="button"
-            variant="secondary"
+            onClick={handleDownloadClick}
+            className="button"
+          >
+            Download
+          </button>
+        ) : (
+          ''
+        )}
+        <button
+          type="button"
+          onClick={() => setShowFace(prevState => !prevState)}
+          className="button"
+        >
+          Render Face Points
+        </button>
+        {isRecord === false ? (
+          ''
+        ) : (
+          <button
+            type="button"
             onClick={randomQuestionGenerator}
+            className="button"
           >
             Random Interview Question
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={() => setShowTranscript(prevState => !prevState)}
-          >
-            {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
-          </Button>{' '}
-        </div>
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => setShowTranscript(prevState => !prevState)}
+          className="button"
+        >
+          {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
+        </button>
       </div>
       {showTranscript ? (
         <div>

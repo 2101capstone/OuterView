@@ -4,7 +4,7 @@ _Get your OuterView before your next Interview_
 
 ## Visit
 
-[outerView.xyz](https://www.outerview.xyz/)
+[OuterView.xyz](https://www.outerview.xyz/)
 
 ## Features to Try!
 
@@ -28,7 +28,7 @@ _Get your OuterView before your next Interview_
   - [Face-API.js](https://github.com/justadudewhohacks/face-api.js/): Tensorflow wrapper for facial recognition and emotion detection
   - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API): Browser based speech recognition and analysis
 - Deployment
-  - Google Hosting: Public URL pointing and hosting on outerview.xyz
+  - Google Firebase Hosting: Public URL pointing and hosting on outerview.xyz
   - Mocha/Chai: Unit testing of modules for faster developement
   - Travis: Continuous Integration and Deployment
 
@@ -47,4 +47,4 @@ _Get your OuterView before your next Interview_
 
 - To install all dependencies: `npm run install`
 - To Run App!: `npm run start-dev`
-- Or just visit [outerView.xyz](https://www.outerview.xyz/)
+- Or just visit [OuterView.xyz](https://www.outerview.xyz/)

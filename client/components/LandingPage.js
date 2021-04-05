@@ -4,8 +4,8 @@ const LandingPage = () => {
   return (
     <div className="landing-page-div">
       <header id="landingPage">
-        <h1 className="landing-page-h1">Welcome To Outerview</h1>
-        <p>Get Your Outerview before your next Interview</p>
+        <h1 className="landing-page-h1">Welcome to OuterView</h1>
+        <p>Get your OuterView before your next Interview</p>
         <a href="/about" className="button">
           Learn More
         </a>
@@ -13,9 +13,6 @@ const LandingPage = () => {
           Start
         </a>
       </header>
-      <div id="footer-div">
-        <footer>@Copyright 2021 All Rights Reserved.</footer>
-      </div>
     </div>
   )
 }
