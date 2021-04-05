@@ -5,7 +5,9 @@ import {auth, provider} from '../components/firebase'
 import {Link, useHistory} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import {createUserDoc} from './firebaseHelperFunc'
+
 import {toast} from 'react-toastify'
+
 
 const LogIn = () => {
   const emailRef = useRef()
@@ -54,6 +56,7 @@ const LogIn = () => {
   }
 
   return (
+
     <div>
       <div className="BGpage"></div>
       <div className="allText">
@@ -79,6 +82,7 @@ const LogIn = () => {
                     Log In
                   </Button>
 
+
                   <GoogleButton
                     disabled={loading}
                     onClick={signInWithGoogle}
@@ -90,6 +94,7 @@ const LogIn = () => {
                 <div className="w-100 text-center mt-2">
                   Need an account? <Link to="/signup">Sign Up</Link>
                 </div>
+
               </Card.Body>
             </Card>
           </div>

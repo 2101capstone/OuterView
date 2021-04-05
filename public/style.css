@@ -107,11 +107,6 @@ a:hover {
   font-size: 20px;
 }
 
-/* img.logo {
-  width: 6vw;
-  height: 6vh;
-} */
-
 div.analytics,
 p {
   margin-right: 6vw;
@@ -318,9 +313,7 @@ canvas {
 .card-text {
   text-align: center;
 }
-.carosel-img {
-  width: 50px;
-}
+
 .carousel-control-prev-icon {
   color: black;
 }
@@ -380,24 +373,7 @@ hr {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 1);
 }
-.carousel-caption {
-  color: black !important;
-  margin-top: 5px;
-}
-/* .card-group {
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 10px;
-} */
-.carousel-logos {
-  width: 750px;
-  height: 750px;
-  margin: 0 auto;
-}
-.carousel-img {
-  width: 700px;
-  height: 500px;
-}
+
 .card {
   border: none;
   padding: 30px;
@@ -544,6 +520,7 @@ hr {
   border: none !important;
 }
 
+
 .Toastify__toast--info {
   background-color: #64dfdf !important;
 }
@@ -608,4 +585,12 @@ hr {
     justify-content: center !important;
     /* justify-content: space-between; */
   }
+}
+
+.techIMG {
+  margin: 0 auto;
+  float: center;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
