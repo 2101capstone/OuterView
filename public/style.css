@@ -255,9 +255,9 @@ canvas {
 .recognition-h1 {
   text-align: center;
 }
-.landing-page-h1 {
-  font-family: 'Merriweather', serif;
-}
+/* .landing-page-h1 {
+  font-family: 'verdana', serif;
+} */
 
 .camAndCanvas {
   padding-top: 100px;
