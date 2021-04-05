@@ -50,8 +50,8 @@ const LogIn = () => {
 
   return (
     <div>
-      <div id="loginPage"></div>
-      <div id="LItext">
+      <div className="BGpage"></div>
+      <div className="allText">
         <Container
           className="d-flex align-items-center justify-content-center"
           style={{minHeight: '100vh'}}
@@ -77,22 +77,19 @@ const LogIn = () => {
                     <div>
                       <GoogleButton
                         disabled={loading}
-                        className="w-100"
                         onClick={signInWithGoogle}
-                      >
-                        Google
-                      </GoogleButton>
+                      ></GoogleButton>
                     </div>
                   </Form.Group>
                 </Form>
                 <div className="w-100 text-center mt-3">
                   <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
+                <div className="w-100 text-center mt-2">
+                  Need an account? <Link to="/signup">Sign Up</Link>
+                </div>
               </Card.Body>
             </Card>
-            <div className="w-100 text-center mt-2">
-              Need an account? <Link to="/signup">Sign Up</Link>
-            </div>
           </div>
         </Container>
       </div>

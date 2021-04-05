@@ -186,16 +186,16 @@ canvas {
   padding: 0 20px;
 }
 
-#loginPage {
+.BGpage {
   background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
-  /* filter: blur(3px); */
-  transform: scale(1);
+  /* filter: blur(3px);
+  transform: scale(1); */
 }
 
-#LItext {
+.allText {
   position: absolute;
   top: 0%;
   left: 40%;
