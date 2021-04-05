@@ -432,7 +432,7 @@ hr {
   display: flex;
   flex-wrap: wrap !important;
   justify-content: space-evenly !important;
-  height: 100vh;
+  height: 100%;
   background-color: whitesmoke;
 
   /* background-image: linear-gradient(10deg,#393e46, whitesmoke,whitesmoke,whitesmoke, whitesmoke); */
@@ -440,7 +440,9 @@ hr {
 .profile-div {
   height: 100vh !important;
 }
-
+body {
+  background-color: whitesmoke !important;
+}
 .cardSRC {
   margin: 30px;
   padding-top: 30px;
