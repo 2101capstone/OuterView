@@ -429,7 +429,10 @@ hr {
   display: flex;
   flex-wrap: wrap !important;
   justify-content: space-evenly !important;
-  height: 100vh;
+  height: 100%;
+}
+.profile-div {
+  height: 100vh !important;
 }
 
 .cardSRC {
@@ -519,7 +522,6 @@ hr {
 .card {
   border: none !important;
 }
-
 
 .Toastify__toast--info {
   background-color: #64dfdf !important;

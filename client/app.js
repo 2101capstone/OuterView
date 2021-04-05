@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Footbar} from './components'
+import {Navbar} from './components'
 import Routes from './routes'
 import {ToastContainer} from 'react-toastify'
 //import 'react-toastify/dist/ReactToastify.css'
@@ -20,7 +20,7 @@ const App = () => {
         pauseOnHover={false}
       />
       <Routes />
-      <Footbar />
+      {/* <Footbar /> */}
     </div>
   )
 }
