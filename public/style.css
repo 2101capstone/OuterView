@@ -382,7 +382,7 @@ hr {
 .row.g-0 {
   border: none;
   margin: 0 auto;
-  /* width: 1500px !important; */
+  width: 1500px !important;
 }
 .word-cloud-div {
   margin: 0 auto;
@@ -434,8 +434,12 @@ hr {
   justify-content: space-evenly !important;
   height: 100%;
   background-color: whitesmoke;
+  padding-top: 35px;
 
   /* background-image: linear-gradient(10deg,#393e46, whitesmoke,whitesmoke,whitesmoke, whitesmoke); */
+}
+.nav-link:hover {
+  color: #64dfdf !important;
 }
 .profile-div {
   height: 100vh !important;
@@ -551,6 +555,9 @@ body {
   padding: 0 !important;
   padding-top: 15px !important;
   margin: 0 auto !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .details-buttons .button {
   font-size: 15px;
@@ -596,6 +603,10 @@ body {
   width: 200px;
   height: 200px;
   object-fit: cover;
+}
+.moto {
+  margin: 0 auto;
+  text-align: center;
 }
 @media screen and (max-width: 1700px) {
   .details-mike {

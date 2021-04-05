@@ -5,7 +5,7 @@ const LandingPage = () => {
     <div className="landing-page-div">
       <header id="landingPage">
         <h1 className="landing-page-h1">Welcome to OuterView</h1>
-        <p>Get your OuterView before your next Interview</p>
+        <p className="moto">Get your OuterView before your next Interview</p>
         <a href="/about" className="button">
           Learn More
         </a>

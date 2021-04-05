@@ -75,7 +75,7 @@ export const handleDownload = recordedChunks => {
     document.body.appendChild(a)
     a.style = 'display: none'
     a.href = url
-    a.download = 'react-webcam-stream-capture.webm'
+    a.download = 'OuterView.webm'
     a.click()
     window.URL.revokeObjectURL(url)
   }
