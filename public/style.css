@@ -136,7 +136,7 @@ p {
   text-align: center;
 }
 .card-text {
-  text-align: center;
+  /* text-align: center; */
   font-size: 20px;
   margin: 0 auto;
 }
@@ -379,8 +379,10 @@ hr {
   border: none;
   padding: 30px;
 }
-.row {
+.row.g-0 {
   border: none;
+  margin: 0 auto;
+  /* width: 1500px !important; */
 }
 .word-cloud-div {
   margin: 0 auto;
@@ -456,7 +458,7 @@ hr {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   font-family: 'Roboto', sans-serif !important;
   border-radius: 5% !important;
 }
@@ -593,14 +595,14 @@ hr {
   height: 200px;
   object-fit: cover;
 }
-@media screen and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (max-width: 1700px) {
   .details-mike {
     width: 100vw !important;
     align-items: center !important;
     align-content: center !important;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column !important;
     /* flex-grow: 2; */
     /* flex-grow: 2; */
     margin: 0 auto;
