@@ -100,7 +100,10 @@ const LearnMore = () => {
             </div>
           </div> */}
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2" />
+            <img
+              className="tech-img"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Ffirebase.png?alt=media&token=2530a86b-85de-48aa-809f-29b7954d85c2"
+            />
             <div className="card-body">
               <h5 className="card-title">Google Firebase</h5>
               <ul className="card-bullets">
@@ -112,7 +115,10 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404" />
+            <img
+              className="tech-img"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fface-api.png?alt=media&token=f6921285-b6b1-4e82-a20b-681ebacba404"
+            />
             <div className="card-body">
               <h5 className="card-title">face-api.js</h5>
               <ul className="card-bullets">
@@ -128,7 +134,10 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6" />
+            <img
+              className="tech-img"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fwebspeech.png?alt=media&token=a62db28c-a4ea-4756-b8c5-77815fcfdcf6"
+            />
             <div className="card-body">
               <h5 className="card-title">Web Speech API</h5>
               <ul className="card-bullets">
@@ -140,7 +149,10 @@ const LearnMore = () => {
             </div>
           </div>
           <div className="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d" />
+            <img
+              className="tech-img"
+              src="https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fbootstrap.gif?alt=media&token=3d117af5-4497-4604-9b4f-3d4ec43ae14d"
+            />
             <div className="card-body">
               <h5 className="card-title">Bootstrap</h5>
               <ul className="card-bullets">

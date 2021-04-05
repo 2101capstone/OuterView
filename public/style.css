@@ -318,6 +318,7 @@ canvas {
 .card-group {
   width: 92%;
   margin: 0 auto;
+  background-color: white !important;
 }
 /* .card-group-tech {
   width: 100%;
@@ -496,6 +497,9 @@ hr {
   padding-top: 10px !important;
   /* margin-left: 50%; */
 }
+.learnMore-border {
+  background-color: whitesmoke !important;
+}
 
 .details-div {
   width: 100vw !important;
@@ -505,13 +509,15 @@ hr {
   height: 100vh;
   background-image: linear-gradient(
     10deg,
+    #393e46,
     #64dfdf,
-    #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #393e46,
-    #64dfdf
+    white,
+    white,
+    white,
+    white,
+    white,
+    #64dfdf,
+    #393e46
   );
 }
 .icons-vid {
@@ -565,6 +571,9 @@ hr {
 .list-group {
   text-align: center;
   font-size: 18px;
+}
+.tech-img {
+  /* max-width: 100%; */
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1700px) and (-webkit-min-device-pixel-ratio: 1) {
