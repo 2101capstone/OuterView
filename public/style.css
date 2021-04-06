@@ -441,9 +441,7 @@ hr {
 .nav-link:hover {
   color: #64dfdf !important;
 }
-.profile-div {
-  height: 100vh !important;
-}
+
 body {
   background-color: whitesmoke !important;
 }
@@ -593,6 +591,7 @@ body {
   text-align: center;
   font-size: 18px;
 }
+
 .recognitions-div {
   width: 100vw;
   background-color: whitesmoke;

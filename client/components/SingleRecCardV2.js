@@ -17,7 +17,6 @@ const SingleRecCardV2 = props => {
     setSelected(null)
     toast.error('Your OuterView has been deleted')
   }
-  console.log(session.score.finalScore)
   return (
     <>
       <div className="card mb-3">
@@ -47,7 +46,6 @@ const SingleRecCardV2 = props => {
                 <li className="list-group-item">
                   Filler Words: {session.fillerWords.TOTAL}
                 </li>
-                {/* <li className="list-group-item">{session.sessionId}</li> */}
               </ul>
               <div className="details-buttons">
                 <button

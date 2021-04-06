@@ -10,11 +10,6 @@ const AllRecordings = () => {
   const [sesDetail, setSesDetail] = useState([])
   const [selected, setSelected] = useState(null)
 
-  // useEffect(() => {
-  //   console.log(('sessionId: ', location.state.sessionId))
-  //   //setSelected(location.state.sessionId)
-  // }, [])
-
   useEffect(() => {
     firebase
       .firestore()
@@ -26,8 +21,6 @@ const AllRecordings = () => {
           setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
         })
       })
-
-    console.log(location.state)
   }, [])
 
   return (
