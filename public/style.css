@@ -108,6 +108,12 @@ a:hover {
   font-size: 20px;
 }
 
+.SRCcardText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 div.analytics,
 p {
   margin-right: 6vw;
