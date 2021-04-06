@@ -135,7 +135,7 @@ const Videoplayer = () => {
             <button
               type="button"
               onClick={() => setisRecord(null)}
-              className="buttonTwo"
+              className="buttonTwoRec"
             >
               Start Over
             </button>
@@ -147,7 +147,7 @@ const Videoplayer = () => {
                   state: {sessionId: docId}
                 })
               }
-              className="button"
+              className="buttonRec"
             >
               View Analysis
             </button>
@@ -156,7 +156,7 @@ const Videoplayer = () => {
           <button
             type="button"
             onClick={() => setisRecord(prevState => !prevState)}
-            className="buttonTwo"
+            className="buttonTwoRec"
           >
             {isRecord ? 'End Recording' : 'Start Recording'}
           </button>
@@ -165,7 +165,7 @@ const Videoplayer = () => {
           <button
             type="button"
             onClick={handleDownloadClick}
-            className="button"
+            className="buttonRec"
           >
             Download
           </button>
@@ -175,7 +175,7 @@ const Videoplayer = () => {
         <button
           type="button"
           onClick={() => setShowFace(prevState => !prevState)}
-          className="button"
+          className="buttonRec"
         >
           Render Face Points
         </button>
@@ -185,15 +185,15 @@ const Videoplayer = () => {
           <button
             type="button"
             onClick={randomQuestionGenerator}
-            className="button"
+            className="buttonRec"
           >
-            Random Interview Question
+            Interview Question
           </button>
         )}
         <button
           type="button"
           onClick={() => setShowTranscript(prevState => !prevState)}
-          className="button"
+          className="buttonRec"
         >
           {showTranscript ? 'Hide Transcription' : 'Live Transcription'}
         </button>

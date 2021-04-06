@@ -181,8 +181,17 @@ canvas {
   border-radius: 3px;
 }
 
+.bg-black {
+  /* background-color: black !important; */
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fstars.jpg?alt=media&token=5f33b4c1-5f48-40f4-9858-d3d2875a3596');
+  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fstar-Border.jpg?alt=media&token=5280e76a-4cb2-40cf-b727-5b4bd0818ac1') !important; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-repeat: repeat;
+}
+
 #landingPage {
-  background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fstars.jpg?alt=media&token=5f33b4c1-5f48-40f4-9858-d3d2875a3596');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -198,7 +207,7 @@ canvas {
 
 .testBGpage {
   /* background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg'); */
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBG.jpeg?alt=media&token=4ae778bc-298b-46f7-b585-c2d2b58216d0');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fstars.jpg?alt=media&token=5f33b4c1-5f48-40f4-9858-d3d2875a3596');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -210,7 +219,7 @@ canvas {
 }
 
 .video-div {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBG.jpeg?alt=media&token=4ae778bc-298b-46f7-b585-c2d2b58216d0');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fstars.jpg?alt=media&token=5f33b4c1-5f48-40f4-9858-d3d2875a3596');
   /* background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg'); */
   /* background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBGX2.jpg?alt=media&token=fe332bee-775e-4f12-b4cc-82faa880755e'); */
   background-size: cover;
@@ -577,11 +586,39 @@ body {
   border-radius: 8px;
   margin: 15px 5px 5px 5px;
 }
+
+.details-buttons .buttonRec {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: Transparent;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
 .details-buttons .button:hover {
   background: #64dfdf;
   color: #fff;
   margin: 15px 5px 5px 5px;
 }
+.details-buttons .buttonRec:hover {
+  background: #64dfdf;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
+}
+
+.details-buttons .buttonTwoRec {
+  font-size: 16px;
+  text-decoration: none;
+  background-color: Transparent;
+  color: whitesmoke;
+  border: white 1px solid;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin: 15px 5px 5px 5px;
+}
+
 .details-buttons .buttonTwo {
   font-size: 16px;
   text-decoration: none;
@@ -592,11 +629,19 @@ body {
   border-radius: 8px;
   margin: 15px 5px 5px 5px;
 }
+
 .details-buttons .buttonTwo:hover {
   background: red;
   color: #fff;
   margin: 15px 5px 5px 5px;
 }
+
+.details-buttons .buttonTwoRec:hover {
+  background: red;
+  color: #fff;
+  margin: 15px 5px 5px 5px;
+}
+
 .list-group {
   text-align: center;
   font-size: 18px;
