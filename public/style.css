@@ -186,7 +186,9 @@ canvas {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100vw;
   display: flex;
+  position: fixed;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -194,13 +196,28 @@ canvas {
   padding: 0 20px;
 }
 
-.BGpage {
+.testBGpage {
+  /* background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg'); */
   background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBG.jpeg?alt=media&token=4ae778bc-298b-46f7-b585-c2d2b58216d0');
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100vw;
+  position: fixed;
+
   /* filter: blur(3px);
   transform: scale(1); */
+}
+
+.video-div {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBG.jpeg?alt=media&token=4ae778bc-298b-46f7-b585-c2d2b58216d0');
+  /* background-image: url('https://1920x1080hdwallpapers.com/image/201602/3d/4554/sphere-mechanism-cabel-neon-cube.jpg'); */
+  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBGX2.jpg?alt=media&token=fe332bee-775e-4f12-b4cc-82faa880755e'); */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
 }
 
 .allText {
@@ -441,9 +458,7 @@ hr {
 .nav-link:hover {
   color: #64dfdf !important;
 }
-.profile-div {
-  height: 100vh !important;
-}
+
 body {
   background-color: whitesmoke !important;
 }
@@ -530,13 +545,6 @@ body {
   padding-top: 50px;
 }
 
-.video-div {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2FblurBGX2.jpg?alt=media&token=fe332bee-775e-4f12-b4cc-82faa880755e');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
 .icons-vid {
   display: flex;
 }
@@ -593,6 +601,7 @@ body {
   text-align: center;
   font-size: 18px;
 }
+
 .recognitions-div {
   width: 100vw;
   background-color: whitesmoke;

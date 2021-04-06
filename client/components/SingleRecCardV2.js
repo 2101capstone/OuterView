@@ -17,7 +17,6 @@ const SingleRecCardV2 = props => {
     setSelected(null)
     toast.error('Your OuterView has been deleted')
   }
-  console.log(session.score.finalScore)
   return (
     <>
       <div className="card mb-3">
@@ -33,22 +32,20 @@ const SingleRecCardV2 = props => {
                 {session.date.toDate().toLocaleString()}
               </h4>
               <p className="card-text">{session.score.message}</p>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">
-                  {isNaN(session.score.finalScore)
-                    ? 'No score available'
-                    : `Final Score: ${session.score.finalScore}%`}
-                </li>
-                <li className="list-group-item">
-                  {isNaN(session.score.finalScore)
-                    ? 'No score available'
-                    : `Video Sentiment: ${session.score.emotionalScore}%`}
-                </li>
-                <li className="list-group-item">
-                  Filler Words: {session.fillerWords.TOTAL}
-                </li>
-                {/* <li className="list-group-item">{session.sessionId}</li> */}
-              </ul>
+              <br></br>
+              {isNaN(session.score.finalScore)
+                ? 'No score available'
+                : `Final Score: ${session.score.finalScore}%`}
+              <br></br>
+              <br></br>
+              {isNaN(session.score.finalScore)
+                ? 'No score available'
+                : `Video Sentiment: ${session.score.emotionalScore}%`}
+              <br></br>
+              <br></br>
+              Filler Words: {session.fillerWords.TOTAL}
+              <br></br>
+              <br></br>
               <div className="details-buttons">
                 <button
                   type="button"

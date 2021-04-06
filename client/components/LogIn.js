@@ -8,7 +8,6 @@ import {createUserDoc} from './firebaseHelperFunc'
 
 import {toast} from 'react-toastify'
 
-
 const LogIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -56,8 +55,7 @@ const LogIn = () => {
   }
 
   return (
-
-    <div>
+    <div className="testBGpage">
       <div className="BGpage"></div>
       <div className="allText">
         <Container
@@ -82,7 +80,6 @@ const LogIn = () => {
                     Log In
                   </Button>
 
-
                   <GoogleButton
                     disabled={loading}
                     onClick={signInWithGoogle}
@@ -94,7 +91,6 @@ const LogIn = () => {
                 <div className="w-100 text-center mt-2">
                   Need an account? <Link to="/signup">Sign Up</Link>
                 </div>
-
               </Card.Body>
             </Card>
           </div>

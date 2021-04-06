@@ -12,7 +12,8 @@ import {
   WebcamModule,
   AllRecordings,
   LandingPage,
-  LearnMore
+  LearnMore,
+  ProfilePlus
 } from './components'
 
 class Routes extends Component {
@@ -27,7 +28,7 @@ class Routes extends Component {
             <PrivateRoute path="/recordings" component={AllRecordings} />
           </Switch>
           <Route path="/forgot-password" component={ForgotPassword} />
-          <PrivateRoute path="/profile" component={ProfilePage} />
+          <PrivateRoute path="/profile" component={ProfilePlus} />
           <PrivateRoute path="/update-profile" component={UpdateProfile} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
