@@ -5,7 +5,7 @@ const ProfilePlus = () => {
   return (
     <div>
       <ProfilePage />
-      <AllRecordings />
+      {/* <AllRecordings /> */}
     </div>
   )
 }

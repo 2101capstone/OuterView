@@ -2,10 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {useAuth} from '../contexts/AuthContext'
 import {DetailRecording, SingleRecCardV2} from './index'
 import firebase from './firebase'
-import {useLocation} from 'react-router-dom'
 
 const AllRecordings = () => {
-  const location = useLocation()
   const {currentUser} = useAuth() //current user signed in
   const [sesDetail, setSesDetail] = useState([])
   const [selected, setSelected] = useState(null)

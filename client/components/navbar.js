@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="/">
-        <img alt="" src="Blue.png" height="35" width="35" />
+        <img alt="" src="White.png" height="35" width="35" />
       </a>
       <button
         className="navbar-toggler"

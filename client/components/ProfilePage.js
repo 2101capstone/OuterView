@@ -46,52 +46,54 @@ const ProfilePage = () => {
   }, [])
 
   return (
-    <div className="profile-div">
-      <div className="container mt-5 d-flex justify-content-center">
-        <div className="card p-3">
-          <div className="d-flex align-items-center">
-            <div className="image">
-              {' '}
-              <img
-                src={currentUser.photoURL}
-                className="rounded"
-                width="155"
-              />{' '}
-            </div>
-            <div className="ml-3 w-100">
-              <h4 className="mb-0 mt-0">{currentUser.displayName}</h4>
-              {error && <Alert variant="danger">{error}</Alert>}
-              <div className="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                <div className="d-flex flex-column">
-                  {' '}
-                  <span className="articles">Videos</span>
-                  <span className="number1">{sessions.length}</span>
-                </div>
-                <div className="d-flex flex-column">
-                  <span className="rating"> Avg Score</span>
-                  <span className="number3">
-                    {isNaN(avgScore) ? 0 : avgScore}%
-                  </span>
-                </div>
+    <div className="testBGpage">
+      <div className="profile-div">
+        <div className="container mt-5 d-flex justify-content-center">
+          <div className="card p-3">
+            <div className="d-flex align-items-center">
+              <div className="image">
+                {' '}
+                <img
+                  src={currentUser.photoURL}
+                  className="rounded"
+                  width="155"
+                />{' '}
               </div>
-              <div className="button mt-2 d-flex flex-column align-items-center">
-                <Link to="/update-profile">
+              <div className="ml-3 w-100">
+                <h4 className="mb-0 mt-0">{currentUser.displayName}</h4>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <div className="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                  <div className="d-flex flex-column">
+                    {' '}
+                    <span className="articles">Videos</span>
+                    <span className="number1">{sessions.length}</span>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <span className="rating"> Avg Score</span>
+                    <span className="number3">
+                      {isNaN(avgScore) ? 0 : avgScore}%
+                    </span>
+                  </div>
+                </div>
+                <div className="button mt-2 d-flex flex-column align-items-center">
+                  <Link to="/update-profile">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-primary w-100 ml-2"
+                    >
+                      Update Profile
+                    </button>
+                  </Link>
+                </div>
+                <div className="button mt-2 d-flex flex-row align-items-center">
                   <button
                     type="button"
                     className="btn btn-sm btn-primary w-100 ml-2"
+                    onClick={handleLogout}
                   >
-                    Update Profile
+                    Log Out
                   </button>
-                </Link>
-              </div>
-              <div className="button mt-2 d-flex flex-row align-items-center">
-                <button
-                  type="button"
-                  className="btn btn-sm btn-primary w-100 ml-2"
-                  onClick={handleLogout}
-                >
-                  Log Out
-                </button>
+                </div>
               </div>
             </div>
           </div>

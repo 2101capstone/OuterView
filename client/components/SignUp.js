@@ -36,7 +36,7 @@ const SignUp = () => {
   }
 
   return (
-    <div>
+    <div className="testBGpage">
       <div className="BGpage"></div>
       <div className="allText">
         <Container
