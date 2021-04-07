@@ -6,18 +6,18 @@ _Get your OuterView before your next Interview_
 
 [OuterView.xyz](https://www.outerview.xyz/)
 
-Video Preview:
+[![](https://firebasestorage.googleapis.com/v0/b/interviewprep-fsa.appspot.com/o/static%2Fembed.png?alt=media&token=ef6f5d54-f646-4e2a-8d62-d3854fdc2bb4)](https://www.youtube.com/watch?v=4bs31n8uNF0 'OuterView')
 
 ## Features to Try!
 
-- Use Google to sign into our app using you existing google account
+- Sign into OuterView with your Google account
 - Record yourself talking and see a live transcription
 - Render Face Points and make some funny faces
 - Emotions trained into machine learning model
   - _Happy, Sad, Surprised, Anger, Fearful, Disgusted, Neutral_
 - Say lots of filler words such as 'like', 'totally' and 'basically'
 - Try different emotions with varying amounts of filler words to see the scoring algorithm work
-- See all your recordings in the All Recordings page
+- See your previous recordings in the All Recordings page
 
 ## Technologies
 
@@ -32,14 +32,14 @@ Video Preview:
   - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API): Browser based speech recognition and analysis
 - Deployment
   - Google Firebase Hosting: Public URL pointing and hosting on OuterView.xyz
-  - Mocha/Chai: Unit testing of modules for faster developement
   - Travis: Continuous Integration and Deployment
 
 ## Future Roadmap
 
-- Utilize WebRTC to practice interviewing skills live with anotehr OuterVIew user
-- Combine facial emotions with Google AI sentiment of speech for an even more robust analysis
-- Phrase filler word detection ('sort of', 'you know', etc)
+- Utilize WebRTC to practice interviewing skills live with another OuterView user
+- Google Cloud AI sentiment analysis for a deeper and richer look
+- Phrase fillerword detection ('sort of', 'you know', etc)
+- Eye Contact and Posture tracking and scoring
 
 ## Authors
 

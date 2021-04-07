@@ -41,7 +41,6 @@
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "compression": "^1.7.3",
     "css-loader": "^5.2.0",
