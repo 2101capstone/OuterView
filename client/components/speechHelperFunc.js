@@ -69,4 +69,4 @@ export const randomQuestionGenerator = () => {
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 export const recognition = new SpeechRecognition()
-//FIX LATER
+//FIX LATER PLease work
