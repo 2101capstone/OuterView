@@ -6,6 +6,8 @@ _Get your OuterView before your next Interview_
 
 [OuterView.xyz](https://www.outerview.xyz/)
 
+Video Preview:
+
 ## Features to Try!
 
 - Use Google to sign into our app using you existing google account

@@ -5,7 +5,6 @@ const compression = require('compression')
 const session = require('express-session')
 const PORT = process.env.PORT || 4040
 const app = express()
-const socketio = require('socket.io')
 module.exports = app
 
 const createApp = () => {
@@ -56,13 +55,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () =>
-    console.log(`Mixing it up on port ${PORT}`)
-  )
-
-  // set up our socket control center
-  const io = socketio(server)
-  require('./socket')(io)
+  app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`))
 }
 
 async function bootApp() {

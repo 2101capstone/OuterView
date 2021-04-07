@@ -1,7 +1,7 @@
 {
   "name": "OuterView",
   "version": "1.0.0",
-  "description": "Get your outerView before your Interview",
+  "description": "Get your OuterView before your Interview",
   "engines": {
     "node": "~12.11.1"
   },
@@ -10,7 +10,6 @@
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "deploy": "script/deploy",
-    "heroku-token": "script/encrypt-heroku-auth-token.js",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint-fix": "npm run lint -- --fix",
     "prepare": "if [ -d .git ]; then npm-merge-driver install; fi",
@@ -38,7 +37,7 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Kush Patel, Michael Busto, Benny Khoker, Chuck Lucas",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
@@ -73,7 +72,6 @@
     "react-toastify": "^7.0.3",
     "react-webcam": "^5.2.3",
     "rumble-charts": "^3.1.2",
-    "socket.io": "^2.2.0",
     "ssri": "^8.0.1",
     "style-loader": "^2.0.0"
   },
