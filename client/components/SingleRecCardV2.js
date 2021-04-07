@@ -31,21 +31,27 @@ const SingleRecCardV2 = props => {
               <h4 className="card-title">
                 {session.date.toDate().toLocaleString()}
               </h4>
+
+              <br></br>
+              <br></br>
               <p className="card-text">{session.score.message}</p>
-              <br></br>
-              {isNaN(session.score.finalScore)
-                ? 'No score available'
-                : `Final Score: ${session.score.finalScore}%`}
-              <br></br>
-              <br></br>
-              {isNaN(session.score.finalScore)
-                ? 'No score available'
-                : `Video Sentiment: ${session.score.emotionalScore}%`}
-              <br></br>
-              <br></br>
-              Filler Words: {session.fillerWords.TOTAL}
-              <br></br>
-              <br></br>
+              <div className="SRCcardText">
+                <br></br>
+                <br></br>
+                {isNaN(session.score.finalScore)
+                  ? 'No score available'
+                  : `Final Score: ${session.score.finalScore}%`}
+                <br></br>
+                <br></br>
+                {isNaN(session.score.finalScore)
+                  ? 'No score available'
+                  : `Video Sentiment: ${session.score.emotionalScore}%`}
+                <br></br>
+                <br></br>
+                Filler Words: {session.fillerWords.TOTAL}
+                <br></br>
+                <br></br>
+              </div>
               <div className="details-buttons">
                 <button
                   type="button"
