@@ -29,7 +29,7 @@ const SingleRecCardV2 = props => {
           <div className="col-md-8">
             <div className="card-body">
               <h4 className="card-title">
-                {session.date.toDate().toLocaleDateString()}
+                {session.date.toDate().toLocaleString()}
               </h4>
 
               <br></br>
