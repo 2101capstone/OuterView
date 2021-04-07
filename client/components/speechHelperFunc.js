@@ -59,7 +59,7 @@ export const randomQuestionGenerator = () => {
   var synthesis = window.speechSynthesis
   var langRegex = /^en(-[a-z]{2})?$/i
   voices = synthesis.getVoices().filter(voice => langRegex.test(voice.lang))
-  let randomQuesion = questions[Math.floor(Math.random() * questions.length)]
+  let randomQuesion = questions[Math.round(Math.random() * questions.length)]
   var utterance = new SpeechSynthesisUtterance(randomQuesion)
   utterance.voice = voices[11]
   utterance.volume = 0.2
