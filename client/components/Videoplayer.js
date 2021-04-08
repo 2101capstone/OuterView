@@ -18,7 +18,7 @@ import {
 import {
   fillerWords,
   countFiller,
-  recognition,
+  //recognition,
   randomQuestionGenerator
 } from './speechHelperFunc'
 
@@ -32,14 +32,26 @@ const Videoplayer = () => {
   const [showTranscript, setShowTranscript] = useState(null)
   const [words, setWords] = useState([]) // TRANSCRIPT!
   const [docId, setDocId] = useState('')
+  //const [recognition, setRecognition] = useState(null)
   let [intervalId, setIntervalId] = useState('')
   const [recordedChunks, setRecordedChunks] = useState([])
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
   let mediaRecorderRef = useRef(null)
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition
+  const recognition = new SpeechRecognition()
   recognition.continuous = true
   recognition.interimResults = true
   recognition.lang = 'en-US'
+  recognition.onresult = event => {
+    setWords(
+      Array.from(event.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+    )
+  }
 
   //load models with first render
   useEffect(() => {
@@ -57,11 +69,13 @@ const Videoplayer = () => {
     if (isRecord) {
       //Start Recording
       setIntervalId(setInterval(runFacialRec, 200, reactions, setReactions))
+      //start video recording
       mediaRecorderRef = startRecording(
         videoRef,
         mediaRecorderRef,
         handleDataAvailable
-      ) //start video recording
+      )
+
       recognition.start() //start voice Recognition
     } else if (isRecord === false) {
       //END RECORDING
@@ -104,15 +118,6 @@ const Videoplayer = () => {
   const handleDownloadClick = () => {
     handleDownload(recordedChunks)
     setRecordedChunks([])
-  }
-
-  // to join array of words from Transcription
-  recognition.onresult = event => {
-    setWords(
-      Array.from(event.results)
-        .map(result => result[0])
-        .map(result => result.transcript)
-    )
   }
 
   return (

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {useAuth} from '../contexts/AuthContext'
 import {DetailRecording, SingleRecCardV2} from './index'
 import firebase from './firebase'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AllRecordings = () => {
   const {currentUser} = useAuth() //current user signed in
@@ -19,6 +21,25 @@ const AllRecordings = () => {
           setSesDetail(prev => [...prev, {...doc.data(), sessionId: doc.id}])
         })
       })
+  }, [])
+
+  useEffect(() => {
+    if (navigator.userAgent.indexOf('Chrome') !== -1) {
+      console.log('Chrome Detected')
+    } else {
+      toast.error(
+        'Your browser is not fully compatible. Please try visiting on a desktop verison of Google Chrome for the best experience',
+        {
+          position: 'bottom-right',
+          hideProgressBar: false,
+          autoClose: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        }
+      )
+    }
   }, [])
 
   return (
