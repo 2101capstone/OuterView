@@ -10,7 +10,6 @@ const WebcamModule = () => {
 
   useEffect(() => {
     if (navigator.userAgent.indexOf('Chrome') !== -1) {
-      console.log('Chrome Detected')
       setIsChrome(true)
     } else {
       toast.error(
