@@ -1,6 +1,27 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const LandingPage = () => {
+  useEffect(() => {
+    if (navigator.userAgent.indexOf('Chrome') !== -1) {
+      console.log('Chrome Detected')
+    } else {
+      toast.error(
+        'Your browser is not fully compatible. Please try visiting on a desktop verison of Google Chrome for the best experience',
+        {
+          position: 'bottom-right',
+          hideProgressBar: false,
+          autoClose: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        }
+      )
+    }
+  }, [])
+
   return (
     <div className="landing-page-div">
       <header id="landingPage">

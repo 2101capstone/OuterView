@@ -65,8 +65,3 @@ export const randomQuestionGenerator = () => {
   utterance.volume = 0.2
   synthesis.speak(utterance)
 }
-
-const SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition
-export const recognition = new SpeechRecognition()
-//FIX LATER PLease work
