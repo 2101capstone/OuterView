@@ -235,6 +235,9 @@ const LearnMore = () => {
           </div>
         </div>
       </div>
+        <a href="https://github.com/2101capstone/OuterView#readme">
+        <h4 id="h1-developers">OuterView Github</h4>
+      </a>
     </div>
   )
 }
